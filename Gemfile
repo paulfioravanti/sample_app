@@ -12,7 +12,7 @@ gem 'faker', '1.0.1'
 # For pagination
 gem 'will_paginate', '3.0.3'
 # Simplify UI code
-gem 'haml-rails', '0.3.4'
+gem 'haml'
 
 group :development do
   gem 'sqlite3', '1.3.5'
