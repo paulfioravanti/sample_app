@@ -19,6 +19,9 @@ group :development do
   # for annotating model files with their properties
   gem 'annotate', '~> 2.4.1.beta'
   gem 'rspec-rails', '2.9.0'
+  # For html/erb to haml parsing
+  gem 'hpricot', '0.8.6'
+  gem 'ruby_parser', '2.3.1'
 end
 
 # Gems used only for assets and not required
