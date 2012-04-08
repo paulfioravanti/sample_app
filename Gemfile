@@ -51,10 +51,10 @@ group :test do
   # Use factories instead of ActiveRecord objects
   gem 'factory_girl_rails', '1.4.0'
   # Cucumber for user stories and db cleaner utility below
-  gem 'cucumber-rails', '1.2.1'
+  gem 'cucumber-rails', '1.2.1', require: false
   gem 'database_cleaner', '0.7.0'
   # Mac-dependent gems
-  gem 'rb-fsevent', '0.4.3.1', :require => false
+  gem 'rb-fsevent', '0.4.3.1', require: false
   # Growl notifications
   gem 'growl', '1.0.3'
 end
