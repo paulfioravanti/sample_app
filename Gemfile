@@ -13,6 +13,8 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 # Simplify UI code
 gem 'haml-rails', '0.3.4'
+# To enable the use of Markdown
+gem 'rdiscount', '1.6.8'
 
 group :development do
   gem 'sqlite3', '1.3.5'

@@ -1,6 +1,3 @@
 - provide(:title, 'Home')
-%h1 Sample App
-%p 
-  This is the home page for the
-  = link_to "Ruby on Rails Tutorial", "http://railstutorial.org"
-  sample application.
+:markdown
+  #{render file: 'static_pages/home.md'}
