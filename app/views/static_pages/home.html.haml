@@ -1,3 +1,9 @@
-- provide(:title, 'Home')
-:markdown
-  #{render file: 'static_pages/home.md'}
+-# CSS classes here have special meanings in Bootstrap
+.center.hero-unit
+  :markdown
+    #{render file: 'static_pages/home.md'}
+  = link_to "Sign up now!", signup_path, 
+            class: "btn btn-large btn-primary"
+
+= link_to image_tag("rails.png", alt: "Rails"), 
+                    'http://rubyonrails.org/'

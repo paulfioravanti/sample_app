@@ -1,5 +1,5 @@
-Sample App
-==========
+Welcome to the Sample App
+=========================
  
-This is the home page for the
-[Ruby on Rails Tutorial](http://railstutorial.org) sample application.
+This is the home page for the [Ruby on Rails Tutorial](http://railstutorial.org) sample application.
+----------------------------------------------------------------------------

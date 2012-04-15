@@ -1,0 +1,10 @@
+-# navbar and container classes have special meaning in Bootstrap
+%header.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      = link_to "sample app", root_path, id: "logo"
+      %nav
+        %ul.nav.pull-right
+          %li= link_to "Home",    root_path
+          %li= link_to "Help",    help_path
+          %li= link_to "Sign In", '#'
