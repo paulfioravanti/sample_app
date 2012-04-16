@@ -1,13 +1,17 @@
 SampleApp::Application.routes.draw do
-  get "users/new"
+  scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+    get "users/new"
 
-  root to: "static_pages#home"
+    root to: "static_pages#home"
 
-  match '/signup', to: 'users#new'
+    match '/signup', to: 'users#new'
 
-  match '/help', to: 'static_pages#help'
-  match '/about', to: 'static_pages#about'
-  match '/contact', to: 'static_pages#contact'
+    match '/help', to: 'static_pages#help'
+    match '/about', to: 'static_pages#about'
+    match '/contact', to: 'static_pages#contact'
+  end
+  match '*path', to: redirect("/#{I18n.default_locale}/%{path}")
+  match '', to: redirect("/#{I18n.default_locale}")
 
   #get "static_pages/help"
   #get "static_pages/about"

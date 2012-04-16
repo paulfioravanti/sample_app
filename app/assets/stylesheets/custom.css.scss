@@ -77,6 +77,15 @@ p {
   }
 }
 
+.locale { 
+  float: right;
+  padding-top: 9px;
+  margin: -0.25em 0.1em;
+  #set_locale {
+    width: 80px;  
+  }
+}
+
 /* Footer */
 
 footer {

@@ -1,3 +1,3 @@
-- provide(:title, "About Us")
+- provide(:title, t('.about_us'))
 :markdown
-  #{render file: 'static_pages/about.md'}
+  #{render file: "static_pages/about.#{params[:locale]}.md"}

@@ -1,9 +1,9 @@
 %footer.footer
   %small
-    = link_to "Rails Tutorial", "http://railstutorial.org" 
-    by Michael Hartl
+    = link_to t('.rails_tutorial'), "http://railstutorial.org" 
+    = t('.author')
   %nav
     %ul
-      %li= link_to "About",   about_path
-      %li= link_to "Contact", contact_path
-      %li= link_to "News",    "http://news.railstutorial.org/"
+      %li= link_to t('.about'),   about_path
+      %li= link_to t('.contact'), contact_path
+      %li= link_to t('.news'),    "http://news.railstutorial.org/"

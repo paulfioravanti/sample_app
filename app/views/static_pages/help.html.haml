@@ -1,4 +1,4 @@
-- provide(:title, "Help")
+- provide(:title, t('.help'))
 :markdown
-  #{render file: 'static_pages/help.md'}
+  #{render file: "static_pages/help.#{params[:locale]}.md"}
   

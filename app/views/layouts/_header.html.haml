@@ -2,9 +2,10 @@
 %header.navbar.navbar-fixed-top
   .navbar-inner
     .container
-      = link_to "sample app", root_path, id: "logo"
+      = link_to t('.sample_app'), root_path, id: "logo"
       %nav
         %ul.nav.pull-right
-          %li= link_to "Home",    root_path
-          %li= link_to "Help",    help_path
-          %li= link_to "Sign In", '#'
+          = render 'layouts/locale_selector'
+          %li= link_to t('.home'),    root_path
+          %li= link_to t('.help'),    help_path
+          %li= link_to t('.sign_in'), '#'

@@ -1,0 +1,27 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ja:
+
+  layouts:
+    header:
+      home: "ホーム"
+      help: "ヘルプ"
+      sign_in: "ログイン"
+      sample_app: "サンプルアップ"
+    footer:
+      about: "サイトについて"
+      contact: "お問い合わせ"
+      news: "ニュース"
+      rails_tutorial: "Rails チュートリアル"
+      author: "by マイケル・ハートル"
+
+  static_pages:
+    about: 
+      about_us: "サイトについて"
+    contact:
+      contact: "お問い合わせ"
+    help:
+      help: "ヘルプ"
+    home:
+      sign_up: "今すぐ登録！"

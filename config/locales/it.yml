@@ -1,27 +1,27 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
+it:
 
   layouts:
     header:
       home: "Home"
-      help: "Help"
-      sign_in: "Sign In"
-      sample_app: "Sample App"
+      help: "Aiuto"
+      sign_in: "Accedi"
+      sample_app: "Esempio App"
     footer:
-      about: "About"
-      contact: "Contact"
-      news: "News"
+      about: "Che cosa"
+      contact: "Contatti"
+      news: "Notizie"
       rails_tutorial: "Rails Tutorial"
-      author: "by Michael Hartl"
+      author: "di Michael Hartl"
 
   static_pages:
     about: 
-      about_us: "About Us"
+      about_us: "Chi siamo"
     contact:
-      contact: "Contact"
+      contact: "Contatti"
     help:
-      help: "Help"
+      help: "Aiuto"
     home:
-      sign_up: "Sign up now!"
+      sign_up: "Registrati ora!"
