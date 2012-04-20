@@ -19,10 +19,10 @@ class ApplicationController < ActionController::Base
         end
       end
       
-      # locale_action variable exists in case a locale change is made upon
+      # redirect_action variable exists in case a locale change is made upon
       # an error screen on create or update.  Rather than redirect back to
       # index, it will now redirect to new or edit respectively.
-      @locale_action = case
+      @redirect_action = case
         when action_name == "create" then "new"
         when action_name == "update" then "edit"
         else action_name
