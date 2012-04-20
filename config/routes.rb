@@ -10,8 +10,10 @@ SampleApp::Application.routes.draw do
     match '/about', to: 'static_pages#about'
     match '/contact', to: 'static_pages#contact'
   end
-  match '*path', to: redirect("/#{I18n.default_locale}/%{path}")
+  
   match '', to: redirect("/#{I18n.default_locale}")
+  #match '*path', to: redirect("/#{I18n.default_locale}/%{path}")
+  match '*path', to: redirect("/#{I18n.default_locale}/")
 
   #get "static_pages/help"
   #get "static_pages/about"
