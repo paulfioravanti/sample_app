@@ -81,11 +81,13 @@ p {
   float: right;
   padding-top: 10px;
   margin: -0.25em 0.1em;
+  text-align: center;
+
   #set_locale {
     width: 80px;
     color: $grayLight;
-    background-color: transparent;
     border: none;
+    background: none;
     &:hover {
       color: $white;
       text-decoration: none;
