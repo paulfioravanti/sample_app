@@ -4,7 +4,8 @@ describe "UserPages" do
   
   subject { page }
   
-  LANGUAGES.each do |lang, locale|
+  LANGUAGES.transpose.last.each do |locale|
+    
     describe "sign up page" do
       before { visit signup_path(I18n.locale) }
 

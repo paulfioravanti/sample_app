@@ -14,7 +14,8 @@ describe "Static Pages" do
     it { should have_selector('title', text: full_title(page_title)) }
   end
   
-  LANGUAGES.each do |lang, locale|
+  LANGUAGES.transpose.last.each do |locale|
+    
     describe "Layout" do
       before { visit root_path(locale) }
       
