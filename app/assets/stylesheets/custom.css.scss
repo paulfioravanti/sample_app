@@ -79,10 +79,17 @@ p {
 
 .locale { 
   float: right;
-  padding-top: 9px;
+  padding-top: 10px;
   margin: -0.25em 0.1em;
   #set_locale {
-    width: 80px;  
+    width: 80px;
+    color: $grayLight;
+    background-color: transparent;
+    border: none;
+    &:hover {
+      color: $white;
+      text-decoration: none;
+    }
   }
 }
 

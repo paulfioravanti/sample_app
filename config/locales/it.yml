@@ -12,7 +12,7 @@ it:
       sign_in: "Accedi"
       sample_app: "Esempio App"
     footer:
-      about: "Che cosa"
+      about: "Che Cosa"
       contact: "Contatti"
       news: "Notizie"
       rails_tutorial: "Rails Tutorial"
@@ -20,7 +20,7 @@ it:
 
   static_pages:
     about: 
-      about_us: "Chi Siamo"
+      about_us: "Che Cosa"
     contact:
       contact: "Contatti"
     help:
