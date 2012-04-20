@@ -6,84 +6,85 @@ describe "Static Pages" do
   subject { page }
 
   shared_examples_for "all static pages" do
-    it { should have_selector('h1', text: heading) }
+    it { should have_selector('h1',    text: heading) }
     it { should have_selector('title', text: full_title(page_title)) }
   end
 
   shared_examples_for "all layout link verifications" do
     it { should have_selector('title', text: full_title(page_title)) }
   end
-
-  describe "layout" do
-    before { visit root_path }
-    
-    context "About link" do
-      before { click_link "About" }
-      let(:page_title) { 'About Us' }
+  
+  LANGUAGES.each do |lang, locale|
+    describe "Layout" do
+      before { visit root_path(locale) }
       
-      it_should_behave_like "all layout link verifications"
+      context "About link" do
+        before { click_link I18n.t('layouts.footer.about') }
+        let(:page_title) { I18n.t('static_pages.about.about_us') }
+        
+        it_should_behave_like "all layout link verifications"
+      end
+
+      context "Help link" do
+        before { click_link I18n.t('layouts.header.help') }
+        let(:page_title) { I18n.t('static_pages.help.help') }
+
+        it_should_behave_like "all layout link verifications"
+      end
+
+      context "Contact link" do
+        before { click_link I18n.t('layouts.footer.contact') }
+        let(:page_title) { I18n.t('static_pages.contact.contact') }
+
+        it_should_behave_like "all layout link verifications"
+      end
+
+      context "Home link" do
+        before { click_link I18n.t('layouts.header.home') }
+        let(:page_title) { '' }
+
+        it_should_behave_like "all layout link verifications"
+      end
+
+      context "Sign up link" do
+        before { click_link I18n.t('static_pages.home.sign_up') }
+        let(:page_title) { I18n.t('users.new.sign_up') }
+
+        it_should_behave_like "all layout link verifications"
+      end
     end
-
-    context "Help link" do
-      before { click_link "Help" }
-      let(:page_title) { 'Help' }
-
-      it_should_behave_like "all layout link verifications"
-    end
-
-    context "Contact link" do
-      before { click_link "Contact" }
-      let(:page_title) { 'Contact' }
-
-      it_should_behave_like "all layout link verifications"
-    end
-
-    context "Home link" do
-      before { click_link "Home" }
+    
+    describe "Home page" do
+      before { visit root_path(locale) }
+      let(:heading) { I18n.t('layouts.header.sample_app') }
       let(:page_title) { '' }
 
-      it_should_behave_like "all layout link verifications"
+      it_should_behave_like "all static pages"
+      it { should_not have_selector('title', text: '| Home') }
     end
 
-    context "Sign up link" do
-      before { click_link "Sign up now!" }
-      let(:page_title) { 'Sign Up' }
+    describe "Help Page" do
+      before { visit help_path(locale) }
+      let(:heading) { I18n.t('static_pages.help.help') }
+      let(:page_title) { I18n.t('static_pages.help.help') }
 
-      it_should_behave_like "all layout link verifications"
+      it_should_behave_like "all static pages"
+    end
+
+    describe "About Page" do
+      before { visit about_path(locale) }
+      let(:heading) { I18n.t('static_pages.about.about_us') }
+      let(:page_title) { I18n.t('static_pages.about.about_us') }
+
+      it_should_behave_like "all static pages"
+    end
+
+    describe "Contact Page" do
+      before { visit contact_path(locale) }
+      let(:heading) { I18n.t('static_pages.contact.contact') }
+      let(:page_title) { I18n.t('static_pages.contact.contact') }
+
+      it_should_behave_like "all static pages"
     end
   end
-  
-  describe "Home page" do
-    before { visit root_path }
-    let(:heading) { 'Sample App' }
-    let(:page_title) { '' }
-
-    it_should_behave_like "all static pages"
-    it { should_not have_selector('title', text: '| Home') }
-  end
-
-  describe "Help Page" do
-    before { visit help_path }
-    let(:heading) { 'Help' }
-    let(:page_title) { 'Help' }
-
-    it_should_behave_like "all static pages"
-  end
-
-  describe "About Page" do
-    before { visit about_path }
-    let(:heading) { 'About Us' }
-    let(:page_title) { 'About Us' }
-
-    it_should_behave_like "all static pages"
-  end
-
-  describe "Contact Page" do
-    before { visit contact_path }
-    let(:heading) { 'Contact' }
-    let(:page_title) { 'Contact' }
-
-    it_should_behave_like "all static pages"
-  end
-
 end

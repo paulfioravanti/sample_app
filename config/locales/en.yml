@@ -4,6 +4,8 @@
 en:
 
   layouts:
+    application:
+      base_title: "Ruby on Rails Tutorial Sample App"
     header:
       home: "Home"
       help: "Help"
@@ -25,3 +27,7 @@ en:
       help: "Help"
     home:
       sign_up: "Sign up now!"
+
+  users:
+    new:
+      sign_up: "Sign Up"

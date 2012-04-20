@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :set_locale
+  before_filter :set_locale, :locale_redirect
   
   private
 
@@ -35,5 +35,11 @@ class ApplicationController < ActionController::Base
     # the query string,
     def default_url_options(options = {})
       { locale: I18n.locale }
+    end
+
+    def locale_redirect
+      if params[:set_locale].present?
+        redirect_to action: action_name, locale: params[:set_locale]
+      end
     end
 end

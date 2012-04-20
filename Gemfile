@@ -15,7 +15,7 @@ gem 'will_paginate', '3.0.3'
 gem 'haml-rails', '0.3.4'
 # To enable the use of Markdown
 gem 'rdiscount', '1.6.8'
-# i18n strings for Rails
+# i18n strings for default Rails
 gem 'rails-i18n', '0.6.3'
 
 group :development do

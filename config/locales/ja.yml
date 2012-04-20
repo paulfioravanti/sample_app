@@ -4,6 +4,8 @@
 ja:
 
   layouts:
+    application:
+      base_title: "Ruby on Railsチュートリアル サンプルアップ"
     header:
       home: "ホーム"
       help: "ヘルプ"
@@ -13,7 +15,7 @@ ja:
       about: "サイトについて"
       contact: "お問い合わせ"
       news: "ニュース"
-      rails_tutorial: "Rails チュートリアル"
+      rails_tutorial: "Railsチュートリアル"
       author: "by マイケル・ハートル"
 
   static_pages:
@@ -25,3 +27,7 @@ ja:
       help: "ヘルプ"
     home:
       sign_up: "今すぐ登録！"
+
+  users:
+    new:
+      sign_up: "登録"

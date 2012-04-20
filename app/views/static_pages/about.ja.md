@@ -1,4 +1,4 @@
-私達について
+サイトについて
 ==========
 
 [Ruby on Rails チュートリアル](http://railstutorial.org/)

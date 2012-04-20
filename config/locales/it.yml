@@ -4,6 +4,8 @@
 it:
 
   layouts:
+    application:
+      base_title: "Ruby on Rails Tutorial Esempio App"
     header:
       home: "Home"
       help: "Aiuto"
@@ -18,10 +20,14 @@ it:
 
   static_pages:
     about: 
-      about_us: "Chi siamo"
+      about_us: "Chi Siamo"
     contact:
       contact: "Contatti"
     help:
       help: "Aiuto"
     home:
       sign_up: "Registrati ora!"
+
+  users:
+    new:
+      sign_up: "Registrati"
