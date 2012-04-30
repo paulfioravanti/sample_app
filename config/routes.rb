@@ -11,9 +11,15 @@ SampleApp::Application.routes.draw do
     match '/contact', to: 'static_pages#contact'
   end
   
-  match '', to: redirect("/#{I18n.default_locale}")
+
   #match '*path', to: redirect("/#{I18n.default_locale}/%{path}")
   match '*path', to: redirect("/#{I18n.default_locale}/")
+  # match '*path', to: redirect("/#{I18n.locale}/%{path}"), 
+  #   constraints: lambda { |req| !req.path.starts_with? 
+  #     "/#{I18n.default_locale}/" }
+  match '', to: redirect("/#{I18n.default_locale}")
+
+
 
   #get "static_pages/help"
   #get "static_pages/about"

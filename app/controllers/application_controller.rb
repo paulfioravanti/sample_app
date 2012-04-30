@@ -18,15 +18,6 @@ class ApplicationController < ActionController::Base
           logger.error flash.now[:notice]
         end
       end
-      
-      # redirect_action variable exists in case a locale change is made upon
-      # an error screen on create or update.  Rather than redirect back to
-      # index, it will now redirect to new or edit respectively.
-      @redirect_action = case
-        when action_name == "create" then "new"
-        when action_name == "update" then "edit"
-        else action_name
-      end
     end
     
     # Every helper method dependent on url_for (e.g. helpers for named 
@@ -38,8 +29,17 @@ class ApplicationController < ActionController::Base
     end
 
     def locale_redirect
+      # redirect_action variable exists in case a locale change is made upon
+      # an error screen on create or update.  Rather than redirect back to
+      # index, it will now redirect to new or edit respectively.
+      @redirect_action = case
+        when action_name == "create" then "new"
+        when action_name == "update" then "edit"
+        else action_name
+      end
+      
       if params[:set_locale].present?
-        redirect_to action: action_name, locale: params[:set_locale]
+        redirect_to action: @redirect_action, locale: params[:set_locale]
       end
     end
 end
