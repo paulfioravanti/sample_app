@@ -22,7 +22,6 @@ group :development do
   gem 'sqlite3', '1.3.5'
   # for annotating model files with their properties
   gem 'annotate', '~> 2.4.1.beta'
-  gem 'rspec-rails', '2.9.0'
   # For html/erb to haml parsing
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '2.3.1'
@@ -41,12 +40,13 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '2.9.0'
-  # for autotesting
+  # for autotesting with rspec
   gem 'guard-rspec', '0.5.5'
-  # guard/spork integration
-  gem 'guard-spork', '0.3.2'
   # speed up test server
   gem 'spork', '0.9.0'
+  # guard/spork integration
+  gem 'guard-spork', '0.3.2'
+  
 end
 
 group :test do
