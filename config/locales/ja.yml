@@ -18,6 +18,26 @@ ja:
       rails_tutorial: "Railsチュートリアル"
       author: "by マイケル・ハートル"
 
+  shared:
+    error_messages:
+      form_errors:
+        one: "フォームに1つのエラーがある"
+        other: "フォームに%{count}つのエラーがある"
+
+  activerecord:
+    models:
+      user: "ユーザー"
+    attributes:
+      user:
+        name: "名前"
+        email: "メール"
+        password: "パスワード"
+        password_confirmation: "確認"
+        password_digest: "パスワード"
+
+  flash:
+    welcome: "サンプルアップへようこそ!" 
+
   static_pages:
     about: 
       about_us: "サイトについて"
@@ -30,4 +50,9 @@ ja:
 
   users:
     new:
-      sign_up: "登録"
+      sign_up: "ユーザ登録"
+      name: "名前"
+      email: "メール"
+      password: "パスワード"
+      confirmation: "確認"
+      create_account: "アカウントを作成"

@@ -5,7 +5,8 @@
       = link_to t('.sample_app'), root_path, id: "logo"
       %nav
         %ul.nav.pull-right
-          = render 'layouts/locale_selector'
           %li= link_to t('.home'),    root_path
           %li= link_to t('.help'),    help_path
           %li= link_to t('.sign_in'), '#'
+          %li= render 'layouts/locale_selector'
+

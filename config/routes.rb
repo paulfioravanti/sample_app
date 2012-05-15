@@ -1,6 +1,6 @@
 SampleApp::Application.routes.draw do
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
-    #get "users/new"
+    resources :users
 
     root to: "static_pages#home"
 

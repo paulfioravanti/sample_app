@@ -18,6 +18,26 @@ en:
       rails_tutorial: "Rails Tutorial"
       author: "by Michael Hartl"
 
+  shared:
+    error_messages:
+      form_errors:
+        one: "The form contains 1 error"
+        other: "The form contains %{count} errors"
+
+  activerecord:
+    models:
+      user: "User"
+    attributes:
+      user:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Confirmation"
+        password_digest: "Password"
+
+  flash:
+    welcome: "Welcome to the Sample App!" 
+
   static_pages:
     about: 
       about_us: "About Us"
@@ -31,3 +51,8 @@ en:
   users:
     new:
       sign_up: "Sign Up"
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      confirmation: "Confirmation"
+      create_account: "Create my account"
