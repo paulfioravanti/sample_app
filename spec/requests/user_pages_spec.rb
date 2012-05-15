@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 require 'spec_helper'
 
 describe "User pages" do
@@ -59,10 +57,6 @@ describe "User pages" do
           it { should have_selector('title', text: user.name) }
           it { should have_selector('div.alert.alert-success', text: I18n.t('flash.welcome'))}
         end
-        
-        # after do
-        #   User.find_by_email('user@example.com').destroy
-        # end
       end
     end
   end
