@@ -11,6 +11,10 @@ it:
       help: "Aiuto"
       sign_in: "Accedi"
       sample_app: "Esempio App"
+      users: "Utenti"
+      account: "Account"
+      profile: "Profilo"
+      sign_out: "Esci"
     footer:
       about: "Che Cosa"
       contact: "Contatti"
@@ -36,7 +40,8 @@ it:
         password_digest: "Password"
 
   flash:
-    welcome: "Benvenuti al Esempio App!" 
+    welcome: "Benvenuti al Esempio App!"
+    invalid_credentials: "Invalido email/password combinazione"
 
   static_pages:
     about: 
@@ -56,3 +61,11 @@ it:
       password: "Password"
       confirmation: "Confirma"
       create_account: "Creare il mio account"
+
+  sessions:
+    new:
+      sign_in: "Accedi"
+      email: "Email"
+      password: "Password"
+      new_user: "Nuovo Utente?"
+      sign_up: "Registrati ora!"

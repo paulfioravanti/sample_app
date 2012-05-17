@@ -8,6 +8,7 @@
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
 #  password_digest :string(255)
+#  remember_token  :string(255)
 #
 
 require 'spec_helper'
@@ -24,6 +25,7 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
 
   it { should be_valid }
@@ -45,9 +47,7 @@ describe User do
 
   context "when email format is invalid" do
     it "should be invalid" do
-      addresses = %w[user@foo,com user_at_foo.org example.user@foo.
-                     foo@bar_baz.com foo@bar+baz.com]
-      addresses.each do |invalid_address|
+      invalid_email_addresses.each do |invalid_address|
         subject.email = invalid_address
         subject.should_not be_valid
       end
@@ -56,8 +56,7 @@ describe User do
 
   context "when email format is valid" do
     it "should be valid" do
-      addresses = %w[user@foo.com A_USER@f.b.org frst.lst@foo.jp a+b@baz.cn]
-      addresses.each do |valid_address|
+      valid_email_addresses.each do |valid_address|
         subject.email = valid_address
         subject.should be_valid
       end
@@ -65,11 +64,7 @@ describe User do
   end
 
   context "when email address is already taken" do
-    before do
-      user_with_same_email = subject.dup
-      user_with_same_email.email.upcase!
-      user_with_same_email.save
-    end
+    before { save_user(subject) }
     it { should_not be_valid }
   end
 
@@ -106,6 +101,11 @@ describe User do
       it { should_not == user_with_invalid_password }
       specify { user_with_invalid_password.should be_false }
     end
+  end
+
+  describe "remember token" do
+    before { subject.save }
+    its(:remember_token) { should_not be_blank }
   end
 
 end

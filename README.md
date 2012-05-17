@@ -12,7 +12,7 @@ by [Michael Hartl](http://michaelhartl.com) (plus some modifications).
 - Slight [SCSS](http://sass-lang.com/) refactoring to use mix-ins, and additions to add styling to the language selector
 
 ### **TODO**s:
-- Implement Chapters 8-11 of the Rails Tutorial
+- Implement Chapters 9-11 of the Rails Tutorial
 - Implement i18n strategy for dynamic data (probably with Globalize3)
 - Try and figure out an answer to the i18n Markup question posted [here](http://stackoverflow.com/questions/10233686/i18n-markdown-files-in-rails-3-views)
 - Keep searching for a solution to the routes i18n redirect loop problem referred to [here](http://railscasts.com/episodes/138-i18n-revised?view=comments)

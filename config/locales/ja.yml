@@ -11,6 +11,10 @@ ja:
       help: "ヘルプ"
       sign_in: "ログイン"
       sample_app: "サンプルアップ"
+      users: "ユーザ"
+      account: "アカウント"
+      profile: "プロフィール"
+      sign_out: "ログアウト"
     footer:
       about: "サイトについて"
       contact: "お問い合わせ"
@@ -36,7 +40,8 @@ ja:
         password_digest: "パスワード"
 
   flash:
-    welcome: "サンプルアップへようこそ!" 
+    welcome: "サンプルアップへようこそ!"
+    invalid_credentials: "不正なメール／パス"
 
   static_pages:
     about: 
@@ -56,3 +61,11 @@ ja:
       password: "パスワード"
       confirmation: "確認"
       create_account: "アカウントを作成"
+
+  sessions:
+    new:
+      sign_in: "サインイン"
+      email: "メール"
+      password: "パスワード"
+      new_user: "新しいユーザ?"
+      sign_up: "今すぐ登録！"

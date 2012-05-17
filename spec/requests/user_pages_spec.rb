@@ -9,8 +9,9 @@ describe "User pages" do
     describe "sign up page" do
       before { visit signup_path(locale) }
 
-      it { should have_selector('h1',    text: I18n.t('users.new.sign_up')) }
-      it { should have_selector('title', text: full_title(I18n.t('users.new.sign_up'))) }
+      it { should have_selector('h1', text: I18n.t('users.new.sign_up')) }
+      it { should have_selector('title', 
+        text: full_title(I18n.t('users.new.sign_up'))) }
     end
 
     describe "profile page" do
@@ -32,18 +33,15 @@ describe "User pages" do
 
         describe "error messages" do
           before { click_button submit }
-          it { should have_selector('title', text: full_title(I18n.t('users.new.sign_up'))) }
+
+          it { should have_selector('title', 
+            text: full_title(I18n.t('users.new.sign_up'))) }
           it { should have_selector('div.alert.alert-error') }
         end
       end
 
       context "with valid information" do
-        before do
-          fill_in I18n.t('users.new.name'), with: "Example User"
-          fill_in I18n.t('users.new.email'), with: "user@example.com"
-          fill_in I18n.t('users.new.password'), with: "foobar"
-          fill_in I18n.t('users.new.confirmation'), with: "foobar"
-        end
+        before { valid_sign_up }
 
         it "should create a user" do
           expect { click_button submit }.to change(User, :count).by(1)
@@ -55,7 +53,8 @@ describe "User pages" do
 
           # Should have been redirected from signup page to profile page
           it { should have_selector('title', text: user.name) }
-          it { should have_selector('div.alert.alert-success', text: I18n.t('flash.welcome'))}
+          it { should have_selector('div.alert.alert-success', 
+            text: I18n.t('flash.welcome'))}
         end
       end
     end
