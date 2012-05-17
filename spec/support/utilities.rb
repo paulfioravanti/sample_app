@@ -29,8 +29,12 @@ def valid_email_addresses
   %w[user@foo.com A_USER@f.b.org frst.lst@foo.jp a+b@baz.cn]
 end
 
-RSpec::Matchers::define :have_error_message do |message|
+def t(string)
+  I18n.t(string)
+end
+
+RSpec::Matchers::define :have_message do |type, message|
   match do |page|
-    page.should have_selector('div.alert.alert-error', text: message)
+    page.should have_selector("div.alert.alert-#{type}", text: message)
   end
 end

@@ -8,7 +8,6 @@
     = render 'layouts/shim'
   %body
     = render 'layouts/header'
-    -# container classes has a special meaning in Bootstrap
     .container
       - flash.each do |key, value|
         = content_tag(:div, value, class: "alert alert-#{key}")

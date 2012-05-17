@@ -9,25 +9,23 @@ describe "Authentication" do
     describe "signin page" do
       before { visit signin_path(locale) }
 
-      it { should have_selector('h1', text: I18n.t('sessions.new.sign_in')) }
-      it { should have_selector('title', 
-        text: I18n.t('sessions.new.sign_in')) }
+      it { should have_selector('h1', text: t('sessions.new.sign_in')) }
+      it { should have_selector('title', text: t('sessions.new.sign_in')) }
     end
 
     describe "signin" do
       before { visit signin_path(locale) }
 
       context "with invalid information" do
-        before { click_button I18n.t('sessions.new.sign_in') }
+        before { click_button t('sessions.new.sign_in') }
 
-        it { should have_selector('title', 
-          text: I18n.t('sessions.new.sign_in')) }
-        it { should have_error_message(I18n.t('flash.invalid_credentials')) }
+        it { should have_selector('title', text: t('sessions.new.sign_in')) }
+        it { should have_message('error', t('flash.invalid_credentials')) }
 
         context "after visiting another page" do
-          before { click_link I18n.t('layouts.header.home') }
+          before { click_link t('layouts.header.home') }
 
-          it { should_not have_error_message }
+          it { should_not have_message('error') }
         end
       end
 
@@ -36,16 +34,16 @@ describe "Authentication" do
         before { valid_sign_in(user) }
 
         it { should have_selector('title', text: user.name) }
-        it { should have_link(I18n.t('layouts.header.profile'), 
+        it { should have_link(t('layouts.header.profile'), 
           href: user_path(locale, user)) }
-        it { should have_link(I18n.t('layouts.header.sign_out'), 
+        it { should have_link(t('layouts.header.sign_out'), 
           href: signout_path(locale)) }
-        it { should_not have_link(I18n.t('layouts.header.sign_in'), 
+        it { should_not have_link(t('layouts.header.sign_in'), 
           href: signin_path(locale)) }
 
         context "followed by sign out" do
-          before { click_link I18n.t('layouts.header.sign_out') }
-          it { should have_link(I18n.t('layouts.header.sign_in')) }
+          before { click_link t('layouts.header.sign_out') }
+          it { should have_link(t('layouts.header.sign_in')) }
         end
 
       end

@@ -20,36 +20,36 @@ describe "Static Pages" do
       before { visit root_path(locale) }
       
       describe "About link" do
-        before { click_link I18n.t('layouts.footer.about') }
-        let(:page_title) { I18n.t('static_pages.about.about_us') }
+        before { click_link t('layouts.footer.about') }
+        let(:page_title) { t('static_pages.about.about_us') }
         
         it_should_behave_like "all layout links"
       end
 
       describe "Help link" do
-        before { click_link I18n.t('layouts.header.help') }
-        let(:page_title) { I18n.t('static_pages.help.help') }
+        before { click_link t('layouts.header.help') }
+        let(:page_title) { t('static_pages.help.help') }
 
         it_should_behave_like "all layout links"
       end
 
       describe "Contact link" do
-        before { click_link I18n.t('layouts.footer.contact') }
-        let(:page_title) { I18n.t('static_pages.contact.contact') }
+        before { click_link t('layouts.footer.contact') }
+        let(:page_title) { t('static_pages.contact.contact') }
 
         it_should_behave_like "all layout links"
       end
 
       describe "Home link" do
-        before { click_link I18n.t('layouts.header.home') }
+        before { click_link t('layouts.header.home') }
         let(:page_title) { '' }
 
         it_should_behave_like "all layout links"
       end
 
       describe "Sign up link" do
-        before { click_link I18n.t('static_pages.home.sign_up') }
-        let(:page_title) { I18n.t('users.new.sign_up') }
+        before { click_link t('static_pages.home.sign_up') }
+        let(:page_title) { t('users.new.sign_up') }
 
         it_should_behave_like "all layout links"
       end
@@ -57,7 +57,7 @@ describe "Static Pages" do
     
     describe "Home page" do
       before { visit root_path(locale) }
-      let(:heading) { I18n.t('layouts.header.sample_app') }
+      let(:heading) { t('layouts.header.sample_app') }
       let(:page_title) { '' }
 
       it_should_behave_like "all static pages"
@@ -66,24 +66,24 @@ describe "Static Pages" do
 
     describe "Help Page" do
       before { visit help_path(locale) }
-      let(:heading) { I18n.t('static_pages.help.help') }
-      let(:page_title) { I18n.t('static_pages.help.help') }
+      let(:heading) { t('static_pages.help.help') }
+      let(:page_title) { t('static_pages.help.help') }
 
       it_should_behave_like "all static pages"
     end
 
     describe "About Page" do
       before { visit about_path(locale) }
-      let(:heading) { I18n.t('static_pages.about.about_us') }
-      let(:page_title) { I18n.t('static_pages.about.about_us') }
+      let(:heading) { t('static_pages.about.about_us') }
+      let(:page_title) { t('static_pages.about.about_us') }
 
       it_should_behave_like "all static pages"
     end
 
     describe "Contact Page" do
       before { visit contact_path(locale) }
-      let(:heading) { I18n.t('static_pages.contact.contact') }
-      let(:page_title) { I18n.t('static_pages.contact.contact') }
+      let(:heading) { t('static_pages.contact.contact') }
+      let(:page_title) { t('static_pages.contact.contact') }
 
       it_should_behave_like "all static pages"
     end
