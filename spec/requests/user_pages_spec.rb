@@ -36,7 +36,7 @@ describe "User pages" do
 
           it { should have_selector('title', 
             text: full_title(t('users.new.sign_up'))) }
-          it { should have_message('error') }
+          it { should have_alert_message('error') }
         end
       end
 
@@ -53,7 +53,7 @@ describe "User pages" do
 
           # Should have been redirected from signup page to profile page
           it { should have_selector('title', text: user.name) }
-          it { should have_message('success', t('flash.welcome')) }
+          it { should have_alert_message('success', t('flash.welcome')) }
         end
       end
     end

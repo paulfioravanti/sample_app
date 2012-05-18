@@ -20,12 +20,12 @@ describe "Authentication" do
         before { click_button t('sessions.new.sign_in') }
 
         it { should have_selector('title', text: t('sessions.new.sign_in')) }
-        it { should have_message('error', t('flash.invalid_credentials')) }
+        it { should have_alert_message('error', t('flash.invalid_credentials')) }
 
         context "after visiting another page" do
           before { click_link t('layouts.header.home') }
 
-          it { should_not have_message('error') }
+          it { should_not have_alert_message('error') }
         end
       end
 

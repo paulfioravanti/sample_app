@@ -2,16 +2,16 @@
 include ApplicationHelper
 
 def valid_sign_in(user)
-  fill_in I18n.t('sessions.new.email'),    with: user.email
-  fill_in I18n.t('sessions.new.password'), with: user.password
-  click_button I18n.t('sessions.new.sign_in')
+  fill_in t('sessions.new.email'),    with: user.email
+  fill_in t('sessions.new.password'), with: user.password
+  click_button t('sessions.new.sign_in')
 end
 
 def valid_sign_up
-  fill_in I18n.t('users.new.name'), with: "Example User"
-  fill_in I18n.t('users.new.email'), with: "user@example.com"
-  fill_in I18n.t('users.new.password'), with: "foobar"
-  fill_in I18n.t('users.new.confirmation'), with: "foobar"
+  fill_in t('users.new.name'), with: "Example User"
+  fill_in t('users.new.email'), with: "user@example.com"
+  fill_in t('users.new.password'), with: "foobar"
+  fill_in t('users.new.confirmation'), with: "foobar"
 end
 
 def save_user(user)
@@ -33,7 +33,7 @@ def t(string)
   I18n.t(string)
 end
 
-RSpec::Matchers::define :have_message do |type, message|
+RSpec::Matchers::define :have_alert_message do |type, message|
   match do |page|
     page.should have_selector("div.alert.alert-#{type}", text: message)
   end
