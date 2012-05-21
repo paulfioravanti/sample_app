@@ -19,12 +19,18 @@ gem 'rdiscount', '1.6.8'
 gem 'rails-i18n', '0.6.3'
 
 group :development do
-  gem 'sqlite3', '1.3.5'
   # for annotating model files with their properties
   gem 'annotate', '~> 2.4.1.beta'
   # For html/erb to haml parsing
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '2.3.1'
+end
+
+group :development, :test do
+  gem 'sqlite3', '1.3.5'
+  gem 'rspec-rails', '2.9.0'
+  # for autotesting with rspec
+  gem 'guard-rspec', '0.5.5'
 end
 
 # Gems used only for assets and not required
@@ -38,17 +44,6 @@ group :assets do
   gem 'uglifier', '1.2.3'
 end
 
-group :development, :test do
-  gem 'rspec-rails', '2.9.0'
-  # for autotesting with rspec
-  gem 'guard-rspec', '0.5.5'
-  # speed up test server
-  gem 'spork', '0.9.0'
-  # guard/spork integration
-  gem 'guard-spork', '0.3.2'
-  
-end
-
 group :test do
   # Helps in testing by simulating how a real user would use app
   gem 'capybara', '1.1.2'
@@ -57,6 +52,12 @@ group :test do
   # Cucumber for user stories and db cleaner utility below
   gem 'cucumber-rails', '1.2.1', require: false
   gem 'database_cleaner', '0.7.0'
+  # speed up test server
+  gem 'spork', '0.9.0'
+  # guard/spork integration
+  gem 'guard-spork', '0.3.2'
+  # Helps in debugging tests by being able to launch browser
+  gem 'launchy', '2.1.0'
   # Mac-dependent gems
   gem 'rb-fsevent', '0.4.3.1', require: false
   # Growl notifications

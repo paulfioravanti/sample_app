@@ -5,7 +5,6 @@ I18n.default_locale = :en
 #I18n.fallbacks.map(:ja => :en)
 #I18n.fallbacks.map(:it => :en)
 
-
 # Application languages
 LANGUAGES = [
   ['English', 'en'],

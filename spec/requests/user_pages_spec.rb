@@ -7,15 +7,18 @@ describe "User pages" do
   LANGUAGES.transpose.last.each do |locale|
     
     describe "sign up page" do
+      let(:heading)    { t('users.new.sign_up') }
+      let(:page_title) { t('users.new.sign_up') }
+
       before { visit signup_path(locale) }
 
-      it { should have_selector('h1', text: t('users.new.sign_up')) }
-      it { should have_selector('title', 
-        text: full_title(t('users.new.sign_up'))) }
+      it { should have_selector('h1',    text: heading) }
+      it { should have_selector('title', text: full_title(page_title)) }
     end
 
     describe "profile page" do
       let(:user) { FactoryGirl.create(:user) }
+      
       before { visit user_path(locale, user) }
 
       it { should have_selector('h1', text: user.name) }
@@ -23,8 +26,9 @@ describe "User pages" do
     end
 
     describe "signup page" do
-      before { visit signup_path(locale) }
       let(:submit) { t('users.new.create_account') }
+      
+      before { visit signup_path(locale) }
 
       context "with invalid information" do
         it "should not create a user" do
@@ -32,10 +36,11 @@ describe "User pages" do
         end
 
         context "after submission" do
+          let(:page_title) { t('users.new.sign_up') }
+
           before { click_button submit }
 
-          it { should have_selector('title', 
-            text: full_title(t('users.new.sign_up'))) }
+          it { should have_selector('title', text: full_title(page_title)) }
           it { should have_alert_message('error') }
         end
       end
@@ -48,12 +53,14 @@ describe "User pages" do
         end
 
         context "after saving the user" do
-          before { click_button submit }
           let(:user) { User.find_by_email('user@example.com') }
+          let(:welcome) { t('flash.welcome') }
+
+          before { click_button submit }
 
           # Should have been redirected from signup page to profile page
           it { should have_selector('title', text: user.name) }
-          it { should have_alert_message('success', t('flash.welcome')) }
+          it { should have_alert_message('success', welcome) }
         end
       end
     end

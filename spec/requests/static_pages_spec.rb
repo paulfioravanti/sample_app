@@ -20,70 +20,85 @@ describe "Static Pages" do
       before { visit root_path(locale) }
       
       describe "About link" do
-        before { click_link t('layouts.footer.about') }
         let(:page_title) { t('static_pages.about.about_us') }
+        let(:about)      { t('layouts.footer.about') }
+        
+        before { click_link about }      
         
         it_should_behave_like "all layout links"
       end
 
       describe "Help link" do
-        before { click_link t('layouts.header.help') }
         let(:page_title) { t('static_pages.help.help') }
+        let(:help)       { t('layouts.header.help') }
+        
+        before { click_link help }
 
         it_should_behave_like "all layout links"
       end
 
       describe "Contact link" do
-        before { click_link t('layouts.footer.contact') }
         let(:page_title) { t('static_pages.contact.contact') }
+        let(:contact)    { t('layouts.footer.contact') }
+        
+        before { click_link contact }
 
         it_should_behave_like "all layout links"
       end
 
       describe "Home link" do
-        before { click_link t('layouts.header.home') }
         let(:page_title) { '' }
+        let(:home)       { t('layouts.header.home') }
+        
+        before { click_link home }
 
         it_should_behave_like "all layout links"
       end
 
       describe "Sign up link" do
-        before { click_link t('static_pages.home.sign_up') }
         let(:page_title) { t('users.new.sign_up') }
+        let(:sign_up)    { t('static_pages.home.sign_up') }
+        
+        before { click_link sign_up }
 
         it_should_behave_like "all layout links"
       end
     end
     
     describe "Home page" do
-      before { visit root_path(locale) }
-      let(:heading) { t('layouts.header.sample_app') }
+      let(:heading)    { t('layouts.header.sample_app') }
       let(:page_title) { '' }
+      let(:home)       { t('layouts.header.home') }
+
+      before { visit root_path(locale) }
 
       it_should_behave_like "all static pages"
-      it { should_not have_selector('title', text: '| Home') }
+      it { should_not have_selector('title', text: "| #{home}") }
     end
 
     describe "Help Page" do
-      before { visit help_path(locale) }
-      let(:heading) { t('static_pages.help.help') }
+      let(:heading)    { t('static_pages.help.help') }
       let(:page_title) { t('static_pages.help.help') }
+      
+      before { visit help_path(locale) }
 
       it_should_behave_like "all static pages"
     end
 
     describe "About Page" do
-      before { visit about_path(locale) }
-      let(:heading) { t('static_pages.about.about_us') }
+      let(:heading)    { t('static_pages.about.about_us') }
       let(:page_title) { t('static_pages.about.about_us') }
+
+      before { visit about_path(locale) }
 
       it_should_behave_like "all static pages"
     end
 
     describe "Contact Page" do
-      before { visit contact_path(locale) }
-      let(:heading) { t('static_pages.contact.contact') }
+      let(:heading)    { t('static_pages.contact.contact') }
       let(:page_title) { t('static_pages.contact.contact') }
+
+      before { visit contact_path(locale) }
 
       it_should_behave_like "all static pages"
     end

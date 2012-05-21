@@ -1,6 +1,13 @@
 # Allow for methods in ApplicationHelper to be tested
 include ApplicationHelper
 
+def valid_user
+  User.new(name:     "Example User", 
+           email:    "user@example.com",
+           password: "foobar", 
+           password_confirmation: "foobar")
+end
+
 def valid_sign_in(user)
   fill_in t('sessions.new.email'),    with: user.email
   fill_in t('sessions.new.password'), with: user.password
@@ -8,9 +15,9 @@ def valid_sign_in(user)
 end
 
 def valid_sign_up
-  fill_in t('users.new.name'), with: "Example User"
-  fill_in t('users.new.email'), with: "user@example.com"
-  fill_in t('users.new.password'), with: "foobar"
+  fill_in t('users.new.name'),         with: "Example User"
+  fill_in t('users.new.email'),        with: "user@example.com"
+  fill_in t('users.new.password'),     with: "foobar"
   fill_in t('users.new.confirmation'), with: "foobar"
 end
 
