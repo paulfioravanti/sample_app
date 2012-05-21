@@ -53,14 +53,16 @@ describe "User pages" do
         end
 
         context "after saving the user" do
-          let(:user) { User.find_by_email('user@example.com') }
-          let(:welcome) { t('flash.welcome') }
+          let(:user)     { User.find_by_email('user@example.com') }
+          let(:welcome)  { t('flash.welcome') }
+          let(:sign_out) { t('layouts.header.sign_out') }
 
           before { click_button submit }
 
-          # Should have been redirected from signup page to profile page
+          # Redirect from signup page to signed in user profile page
           it { should have_selector('title', text: user.name) }
           it { should have_alert_message('success', welcome) }
+          it { should have_link sign_out }
         end
       end
     end
