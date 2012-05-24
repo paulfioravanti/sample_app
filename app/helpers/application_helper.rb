@@ -8,4 +8,8 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+
+  def gravatar_link
+    'http://gravatar.com/emails'
+  end
 end

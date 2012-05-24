@@ -15,12 +15,17 @@ it:
       account: "Account"
       profile: "Profilo"
       sign_out: "Esci"
+      settings: "Impostazioni"
     footer:
       about: "Che Cosa"
       contact: "Contatti"
       news: "Notizie"
       rails_tutorial: "Rails Tutorial"
       author: "di Michael Hartl"
+
+  will_paginate:
+    previous_label: "Precedente"
+    next_label: "Seguente"
 
   shared:
     error_messages:
@@ -42,6 +47,10 @@ it:
   flash:
     welcome: "Benvenuti al Esempio App!"
     invalid_credentials: "Invalido email/password combinazione"
+    profile_updated: "Profilo Aggiornato"
+    sign_in: "Accedi per favore."
+    user_destroyed: "Utente annulato."
+    no_admin_suicide: "Mi dispiace %{name}. Purtroppo non posso farlo."
 
   static_pages:
     about: 
@@ -54,12 +63,23 @@ it:
       sign_up: "Registrati ora!"
 
   users:
+    index:
+      all_users: "Tutti utenti"
+    user:
+      delete: "Anulla"
+      you_sure: "Sei sicuro?"
     new:
       sign_up: "Registrati"
+    edit:
+      change: "cambia"
+      update_profile: "Aggiorni il tuo profilo"
+      edit_user: "Modifica Utente"
+    fields:
       name: "Nome"
       email: "Email"
       password: "Password"
       confirmation: "Confirma"
+      save_changes: "Salva le modifiche"
       create_account: "Creare il mio account"
 
   sessions:

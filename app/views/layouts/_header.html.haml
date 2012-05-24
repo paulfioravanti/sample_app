@@ -4,17 +4,17 @@
       = link_to t('.sample_app'), root_path, id: "logo"
       %nav
         %ul.nav.pull-right
-          %li= link_to t('.home'),    root_path
-          %li= link_to t('.help'),    help_path
+          %li= link_to t('.home'), root_path
+          %li= link_to t('.help'), help_path
           - if signed_in?
-            %li= link_to t('.users'), '#'
+            %li= link_to t('.users'), users_path
             %li#fat-menu.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
                 = t('.account')
                 %b.caret
               %ul.dropdown-menu
-                %li= link_to t('.profile'), current_user
-                %li= link_to t('.settings'), '#'
+                %li= link_to t('.profile'),  current_user
+                %li= link_to t('.settings'), edit_user_path(current_user)
                 %li.divider
                 %li= link_to t('.sign_out'), signout_path, method: :delete
           - else

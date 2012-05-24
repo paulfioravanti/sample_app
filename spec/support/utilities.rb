@@ -8,17 +8,26 @@ def valid_user
            password_confirmation: "foobar")
 end
 
+def valid_sign_up
+  fill_in t('users.fields.name'),         with: "Example User"
+  fill_in t('users.fields.email'),        with: "user@example.com"
+  fill_in t('users.fields.password'),     with: "foobar"
+  fill_in t('users.fields.confirmation'), with: "foobar"
+end
+
 def valid_sign_in(user)
   fill_in t('sessions.new.email'),    with: user.email
   fill_in t('sessions.new.password'), with: user.password
   click_button t('sessions.new.sign_in')
+  # Sign in when not using Capybara as well.
+  cookies[:remember_token] = user.remember_token
 end
 
-def valid_sign_up
-  fill_in t('users.new.name'),         with: "Example User"
-  fill_in t('users.new.email'),        with: "user@example.com"
-  fill_in t('users.new.password'),     with: "foobar"
-  fill_in t('users.new.confirmation'), with: "foobar"
+def valid_update(user, new_name, new_email)
+  fill_in t('users.fields.name'),         with: new_name
+  fill_in t('users.fields.email'),        with: new_email
+  fill_in t('users.fields.password'),     with: user.password
+  fill_in t('users.fields.confirmation'), with: user.password
 end
 
 def save_user(user)
@@ -36,8 +45,8 @@ def valid_email_addresses
   %w[user@foo.com A_USER@f.b.org frst.lst@foo.jp a+b@baz.cn]
 end
 
-def t(string)
-  I18n.t(string)
+def t(string, options={})
+  I18n.t(string, options)
 end
 
 RSpec::Matchers::define :have_alert_message do |type, message|

@@ -1,0 +1,9 @@
+= provide(:title, t('.all_users'))
+%h1= t('.all_users')
+
+= will_paginate
+
+%ul.users
+  = render @users 
+
+= will_paginate
