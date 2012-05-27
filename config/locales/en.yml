@@ -70,17 +70,17 @@ en:
       you_sure: "You sure?"
     new:
       sign_up: "Sign Up"
+      create_account: "Create my account"
     edit:
       change: "change"
       update_profile: "Update your profile"
       edit_user: "Edit user"
+      save_changes: "Save changes"
     fields:
       name: "Name"
       email: "Email"
       password: "Password"
       confirmation: "Confirmation"
-      save_changes: "Save changes"
-      create_account: "Create my account"
 
   sessions:
     new:

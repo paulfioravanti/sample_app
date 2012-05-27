@@ -70,17 +70,17 @@ ja:
       you_sure: "本当に削除しますか？"
     new:
       sign_up: "ユーザ登録"
+      create_account: "アカウントを作成"
     edit:
       change: "変更"
       update_profile: "プロフールを更新"
       edit_user: "ユーザ編集"
+      save_changes: "変更を保存"
     fields:
       name: "名前"
       email: "メール"
       password: "パスワード"
       confirmation: "確認"
-      save_changes: "変更を保存"
-      create_account: "アカウントを作成"
 
   sessions:
     new:

@@ -7,7 +7,7 @@ describe "Authentication" do
   LANGUAGES.transpose.last.each do |locale|
 
     describe "signin page" do
-      let(:heading) { t('sessions.new.sign_in') }
+      let(:heading)    { t('sessions.new.sign_in') }
       let(:page_title) { t('sessions.new.sign_in') }
 
       before { visit signin_path(locale) }
@@ -81,7 +81,7 @@ describe "Authentication" do
 
           context "visting the edit page" do
             let(:page_title) { t('sessions.new.sign_in') }
-            let(:sign_in) { t('flash.sign_in') }
+            let(:sign_in)    { t('flash.sign_in') }
 
             before { visit edit_user_path(locale, user) }
 
@@ -115,7 +115,6 @@ describe "Authentication" do
                 before do
                   click_link sign_out
                   click_link sign_in
-                  # visit signin_path(locale)
                   valid_sign_in user                 
                 end
 
@@ -160,7 +159,7 @@ describe "Authentication" do
       end
 
       context "as a wrong user" do
-        let(:user) { FactoryGirl.create(:user) }
+        let(:user)       { FactoryGirl.create(:user) }
         let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
 
         before do
@@ -184,7 +183,7 @@ describe "Authentication" do
       end
 
       context "as a non-admin user" do
-        let(:user) { FactoryGirl.create(:user) }
+        let(:user)      { FactoryGirl.create(:user) }
         let(:non_admin) { FactoryGirl.create(:user) }
 
         before do
@@ -212,13 +211,11 @@ describe "Authentication" do
           end
 
           context "after failing to delete" do
-            # let(:no_suicide) { t('flash.no_admin_suicide', name: admin.name) } 
-            # it { should have_alert_message('error', no_suicide) }
+            let(:no_suicide) { t('flash.no_admin_suicide', name: admin.name) }
 
-            it "should redirect to the users path" do
-              expect { response.should redirect_to(users_path(locale)) }
-            end
-
+            before { delete user_path(locale, admin) }    
+            specify { response.should redirect_to(users_path(locale)),
+                                      flash[:error].should == no_suicide }
           end
         end     
       end

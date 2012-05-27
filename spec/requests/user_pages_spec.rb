@@ -10,10 +10,9 @@ describe "User pages" do
   end
   
   LANGUAGES.transpose.last.each do |locale|
-  # locale = 'en'
 
     describe "index" do
-      let(:user) { FactoryGirl.create(:user) }
+      let(:user)       { FactoryGirl.create(:user) }
       let(:page_title) { t('users.index.all_users') }
 
       before(:all) { 30.times { FactoryGirl.create(:user) } }
@@ -35,6 +34,7 @@ describe "User pages" do
 
         it "should list each user" do
           User.all[0..2].each do |user|
+            # Each name should be a link (li>a)
             page.should have_selector('li>a', text: user.name)
           end
         end
@@ -73,8 +73,8 @@ describe "User pages" do
     end
 
     describe "profile page" do
-      let(:user) { FactoryGirl.create(:user) }
-      let(:heading) { user.name }
+      let(:user)       { FactoryGirl.create(:user) }
+      let(:heading)    { user.name }
       let(:page_title) { user.name }
       
       before { visit user_path(locale, user) }
@@ -137,9 +137,9 @@ describe "User pages" do
       end
 
       describe "page" do
-        let(:heading) { t('users.edit.update_profile') }
+        let(:heading)    { t('users.edit.update_profile') }
         let(:page_title) { t('users.edit.edit_user') }
-        let(:change) { t('users.edit.change') }
+        let(:change)     { t('users.edit.change') }
 
         it_should_behave_like "all user pages"
         it { should have_link(change, href: gravatar_link) }
@@ -152,9 +152,9 @@ describe "User pages" do
       end
 
       context "with valid information" do
-        let(:new_name) { "New Name" }
+        let(:new_name)  { "New Name" }
         let(:new_email) { "new@example.com" }
-        let(:sign_out) { t('layouts.header.sign_out') }
+        let(:sign_out)  { t('layouts.header.sign_out') }
         
         before do
           valid_update(user, new_name, new_email)

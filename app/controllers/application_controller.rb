@@ -1,27 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include SessionsHelper
-  
+
   before_filter :set_locale, :locale_redirect
   
   private
 
-    def set_locale
-      # I18n.locale = params[:locale] if params[:locale].present?
-      # current_user.locale
-      # request.subdomain
-      # request.env["HTTP_ACCEPT_LANGUAGE"]
-      # request.remote_ip
-      if params[:locale].present?
-        if I18n.available_locales.include?(params[:locale].to_sym) 
-          I18n.locale = params[:locale]
-        else
-          flash.now[:notice] = "#{params[:locale]} translation not available"
-          logger.error flash.now[:notice]
-        end
-      end
-    end
-    
     # Every helper method dependent on url_for (e.g. helpers for named 
     # routes like root_path or root_url, resource routes like books_path 
     # or books_url, etc.) will now automatically include the locale in 
@@ -30,6 +14,10 @@ class ApplicationController < ActionController::Base
       { locale: I18n.locale }
     end
 
+    def set_locale
+      I18n.locale = params[:locale]
+    end
+    
     def locale_redirect
       # redirect_action variable exists in case a locale change is made upon
       # an error screen on create or update.  Rather than redirect back to
@@ -39,9 +27,11 @@ class ApplicationController < ActionController::Base
         when action_name == "update" then "edit"
         else action_name
       end
-      
-      if params[:set_locale].present?
-        redirect_to action: @redirect_action, locale: params[:set_locale]
+
+      if params[:set_locale].present? 
+        redirect_to action: @redirect_action, 
+                    locale: params[:set_locale],
+                    page: params[:page]
       end
     end
 end
