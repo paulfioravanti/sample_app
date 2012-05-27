@@ -32,6 +32,25 @@ describe User do
   it { should be_valid }
   it { should_not be_admin }
 
+  describe "accessible attributes" do
+    it "should not allow access to admin" do
+      expect do
+        User.new(admin: true)
+      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end
+  end
+
+  context "when admin attribute set to 'true'" do
+    before { subject.toggle!(:admin) }
+
+    it { should be_admin }
+  end
+
+  describe "remember token" do
+    before { subject.save }
+    its(:remember_token) { should_not be_blank }
+  end
+
   context "when name is not present" do
     before { subject.name = " " }
     it { should_not be_valid }
@@ -105,23 +124,6 @@ describe User do
     end
   end
 
-  describe "remember token" do
-    before { subject.save }
-    its(:remember_token) { should_not be_blank }
-  end
 
-  context "when admin attribute set to 'true'" do
-    before { subject.toggle!(:admin) }
-
-    it { should be_admin }
-  end
-
-  describe "accessible attributes" do
-    it "should not allow access to admin" do
-      expect do
-        User.new(admin: true)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
-    end
-  end
 
 end

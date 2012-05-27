@@ -81,10 +81,12 @@ describe "Authentication" do
 
           context "visting the edit page" do
             let(:page_title) { t('sessions.new.sign_in') }
+            let(:sign_in) { t('flash.sign_in') }
 
             before { visit edit_user_path(locale, user) }
 
             it { should have_selector('title', text: page_title) }
+            it { should have_alert_message('notice', sign_in) }
           end
 
           context "submitting to the update action" do
@@ -103,17 +105,22 @@ describe "Authentication" do
               let(:page_title) { t('users.edit.edit_user') }
 
               it "should render to desired protected page" do
-                page.should have_selector('title', text: page_title)
+                subject.should have_selector('title', text: page_title)
               end
 
               context "when signing in again" do
+                let(:sign_out)  { t('layouts.header.sign_out') }
+                let(:sign_in)   { t('layouts.header.sign_in') }
+
                 before do
-                  visit signin_path(locale)
-                  valid_sign_in(user)                 
+                  click_link sign_out
+                  click_link sign_in
+                  # visit signin_path(locale)
+                  valid_sign_in user                 
                 end
 
                 it "should render the default (profile) page" do
-                  page.should have_selector('title', text: user.name)
+                  subject.should have_selector('title', text: user.name)
                 end
               end
             end
