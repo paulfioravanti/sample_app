@@ -19,8 +19,8 @@ describe "Locale switching" do
           visit root_path(locale)
           select target_language, from: locale_selector
           click_button locale_submit
-          page.should have_selector('select', text: target_language)
-          page.should have_selector('title', text: page_title)
+          subject.should have_selector('select', text: target_language)
+          subject.should have_selector('title', text: page_title)
         end
 
         specify { I18n.locale.should == target_locale.to_sym }
@@ -43,14 +43,15 @@ describe "Locale switching" do
           click_link next_page
           select target_language, from: locale_selector
           click_button locale_submit
-          page.current_url.should =~ /\?page/
-          page.should have_link('2', class: 'active')
+          subject.current_url.should =~ /\?page/
+          subject.should have_link('2', class: 'active')
         end
 
       end
 
       context "after a validation error" do
         context "when failing to create a user" do
+          let(:page_title) { t('users.new.sign_up') }
           let(:submit) { t('users.new.create_account') }
 
           it "should render the new user page in the target language" do
@@ -59,11 +60,13 @@ describe "Locale switching" do
             select target_language, from: locale_selector
             click_button locale_submit
             expect { response.should redirect_to(signup_path(target_locale)) }
+            subject.should have_selector('title', text: page_title)
           end
         end
 
         context "when failing to update a user" do
           let(:user)   { FactoryGirl.create(:user) }
+          let(:page_title) { t('users.edit.edit_user') }
           let(:submit) { t('users.edit.save_changes') }
 
           before do
@@ -77,6 +80,7 @@ describe "Locale switching" do
             select target_language, from: locale_selector
             click_button locale_submit
             expect { response.should redirect_to(edit_user_path(target_locale, user)) }
+            subject.should have_selector('title', text: page_title)
           end
         end
       end
