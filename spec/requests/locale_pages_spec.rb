@@ -9,11 +9,11 @@ describe "Locale switching" do
 
   LANGUAGES.transpose.last.each do |locale|
 
-    context "to another language" do
-      let(:page_title) { t('layouts.application.base_title') }
+    LANGUAGES.each do |target_language, target_locale|
+      next if locale == target_locale
 
-      LANGUAGES.each do |target_language, target_locale|
-        next if locale == target_locale
+      context "to another language" do
+        let(:page_title) { t('layouts.application.base_title') }
 
         it "should go to the same page in the target language" do
           visit root_path(locale)
@@ -25,40 +25,33 @@ describe "Locale switching" do
 
         specify { I18n.locale.should == target_locale.to_sym }
       end
-    end
 
-    context "during pagination" do
-      let(:user)      { FactoryGirl.create(:user) }
-      let(:next_page) { t('will_paginate.next_label') }
+      context "during pagination" do
+        let(:user)      { FactoryGirl.create(:user) }
+        let(:next_page) { t('will_paginate.next_label') }
 
-      before(:all) { 30.times { FactoryGirl.create(:user) } }
-      after(:all)  { User.delete_all } 
+        before(:all) { 30.times { FactoryGirl.create(:user) } }
+        after(:all)  { User.delete_all } 
 
-      before do
-        visit signin_path(locale)
-        valid_sign_in(user)
-      end
-
-      LANGUAGES.each do |target_language, target_locale|
-        next if locale == target_locale
+        before do
+          visit signin_path(locale)
+          valid_sign_in(user)
+        end
 
         it "should go to the same paginated page" do
           visit users_path(locale)
           click_link next_page
           select target_language, from: locale_selector
           click_button locale_submit
+          page.current_url.should =~ /\?page/
           page.should have_link('2', class: 'active')
         end
 
       end
-    end
 
-    context "after a validation error" do
-      context "when failing to create a user" do
-        let(:submit) { t('users.new.create_account') }
-
-        LANGUAGES.each do |target_language, target_locale|
-          next if locale == target_locale
+      context "after a validation error" do
+        context "when failing to create a user" do
+          let(:submit) { t('users.new.create_account') }
 
           it "should render the new user page in the target language" do
             visit signup_path(locale)
@@ -67,16 +60,11 @@ describe "Locale switching" do
             click_button locale_submit
             expect { response.should redirect_to(signup_path(target_locale)) }
           end
-
         end
-      end
 
-      context "when failing to update a user" do
-        let(:user)   { FactoryGirl.create(:user) }
-        let(:submit) { t('users.edit.save_changes') }
-
-        LANGUAGES.each do |target_language, target_locale|
-          next if locale == target_locale
+        context "when failing to update a user" do
+          let(:user)   { FactoryGirl.create(:user) }
+          let(:submit) { t('users.edit.save_changes') }
 
           before do
             visit signin_path(locale)
