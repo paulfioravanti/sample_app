@@ -25,8 +25,8 @@ namespace :db do
         LANGUAGES.transpose.last.each do |locale|
           next if locale == "en"
           I18n.locale = locale.to_sym
-          content = Faker::Lorem.sentence(5)
-          micropost.translations.create!(locale: locale, content: content)
+          translation = Faker::Lorem.sentence(5)
+          micropost.translations.create!(locale: locale, content: translation)
         end
       end
     end

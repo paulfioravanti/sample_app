@@ -32,10 +32,23 @@ ja:
       form_errors:
         one: "フォームに1つのエラーがある"
         other: "フォームに%{count}つのエラーがある"
+    user_info:
+      view_my_profile: "プロフィルを参照"
+      microposts: 
+        one: "1つのマイクロポスト"
+        other: "%{count}つのマイクロポスト"
+    micropost_form:
+      compose_micropost: "マイクロポストを新規作成・・・"
+      post: "投稿"
+    feed_item:
+      time_posted_ago: "%{time}前に投稿された。"
+      delete: "削除"
+      you_sure: "本当に削除しますか？"
 
   activerecord:
     models:
       user: "ユーザー"
+      micropost: "マイクロポスト"
     attributes:
       user:
         name: "名前"
@@ -43,6 +56,8 @@ ja:
         password: "パスワード"
         password_confirmation: "確認"
         password_digest: "パスワード"
+      micropost:
+        content: "内容"
 
   flash:
     welcome: "サンプルアップへようこそ!"
@@ -51,6 +66,7 @@ ja:
     sign_in: "サインインしてください。"
     user_destroyed: "ユーザを削除しました。"
     no_admin_suicide: "%{name}様、恐れ入りますが、それをやらせることができません"
+    micropost_created: "マイクロポストが正常に作成された！"
 
   static_pages:
     about: 
@@ -61,6 +77,8 @@ ja:
       help: "ヘルプ"
     home:
       sign_up: "今すぐ登録！"
+      post: "投稿"
+      micropost_feed: "マイクロポスト・フィード"
 
   users:
     show:
@@ -87,6 +105,8 @@ ja:
   microposts:
     micropost:
       time_posted_ago: "%{time}前に投稿された。"
+      you_sure: "本当に削除しますか？"
+      delete: "削除"
 
   sessions:
     new:

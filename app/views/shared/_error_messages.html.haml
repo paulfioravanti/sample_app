@@ -1,7 +1,7 @@
-- if @user.errors.any?
+- if object.errors.any?
   #error_explanation
     .alert.alert-error
-      = t('.form_errors', count: @user.errors.count)
+      = t('.form_errors', count: object.errors.count)
     %ul
-      - @user.errors.full_messages.each do |msg|
+      - object.errors.full_messages.each do |msg|
         %li= msg 

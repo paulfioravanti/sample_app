@@ -48,6 +48,26 @@ describe "Locale switching" do
       end
 
       context "after a validation error" do
+        context "when failing to create a micropost" do
+          let(:user)   { FactoryGirl.create(:user) }
+          let(:page_title) { t('layouts.application.base_title') }
+          let(:post) { t('shared.micropost_form.post') }
+
+          before do
+            visit signin_path(locale)
+            valid_sign_in(user)
+            visit root_path(locale)
+            click_button post
+            select target_language, from: locale_selector
+            click_button locale_submit
+          end
+
+          it "should render the home page in the target language" do
+            expect { response.should redirect_to(root_path(target_locale)) }
+          end
+          it { should have_selector('title', text: page_title)}
+        end
+
         context "when failing to create a user" do
           let(:page_title) { t('users.new.sign_up') }
           let(:submit) { t('users.new.create_account') }

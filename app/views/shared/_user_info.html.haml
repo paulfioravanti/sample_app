@@ -1,0 +1,4 @@
+= link_to gravatar_for(current_user, size: 52), user_path(current_user)
+%h1= current_user.name
+%span= link_to t('.view_my_profile'), current_user
+%span= t('.microposts', count: current_user.microposts.count)

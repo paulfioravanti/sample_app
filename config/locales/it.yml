@@ -32,10 +32,23 @@ it:
       form_errors:
         one: "Il form contiene 1 errore"
         other: "Il form contiene %{count} errori"
+    user_info:
+      view_my_profile: "Visualizza il mio profilo"
+      microposts: 
+        one: "1 micropost"
+        other: "%{count} microposti"
+    micropost_form:
+      compose_micropost: "Comporre un nuovo micropost..."
+      post: "Post"
+    feed_item:
+      time_posted_ago: "Pubblicato %{time} fa."
+      delete: "Anulla"
+      you_sure: "Sei sicuro?"
 
   activerecord:
     models:
       user: "Utente"
+      micropost: "Micropost"
     attributes:
       user:
         name: "Nome"
@@ -43,6 +56,8 @@ it:
         password: "Password"
         password_confirmation: "Confirma"
         password_digest: "Password"
+      micropost:
+        content: "Contenuento"
 
   flash:
     welcome: "Benvenuti al Esempio App!"
@@ -51,6 +66,7 @@ it:
     sign_in: "Accedi per favore."
     user_destroyed: "Utente annulato."
     no_admin_suicide: "Mi dispiace %{name}. Purtroppo non posso farlo."
+    micropost_created: "Micropost creato!"
 
   static_pages:
     about: 
@@ -61,6 +77,8 @@ it:
       help: "Aiuto"
     home:
       sign_up: "Registrati ora!"
+      post: "Post"
+      micropost_feed: "Feed di micropost"
 
   users:
     show:
@@ -87,6 +105,8 @@ it:
   microposts:
     micropost:
       time_posted_ago: "Pubblicato %{time} fa."
+      you_sure: "Sei sicuro?"
+      delete: "Anulla"
 
   sessions:
     new:

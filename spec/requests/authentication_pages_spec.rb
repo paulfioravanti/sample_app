@@ -91,7 +91,6 @@ describe "Authentication" do
 
           context "submitting to the update action" do
             before { put user_path(locale, user) }
-
             specify { response.should redirect_to(signin_path(locale)) }
           end
 
@@ -132,6 +131,21 @@ describe "Authentication" do
             before { visit users_path(locale) }
 
             it { should have_selector('title', text: page_title) }
+          end
+        end
+
+        context "in the Microposts controller" do
+          
+          context "submitting to the create action" do
+            before { post microposts_path(locale) }
+            specify { response.should redirect_to(signin_path(locale)) }
+          end
+
+          context "submitting to the destroy action" do
+            before do
+              delete micropost_path(locale, FactoryGirl.create(:micropost))
+            end
+            specify { response.should redirect_to(signin_path(locale)) }
           end
         end
       end

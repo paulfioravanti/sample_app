@@ -3,3 +3,7 @@
   %span.timestamp
     = t('.time_posted_ago', 
         time: time_ago_in_words(micropost.created_at))
+  - if current_user?(micropost.user)
+    = link_to t('.delete'), micropost, method: :delete, 
+                                       confirm: t('.you_sure'), 
+                                       title: micropost.content

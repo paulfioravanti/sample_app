@@ -32,10 +32,23 @@ en:
       form_errors:
         one: "The form contains 1 error"
         other: "The form contains %{count} errors"
+    user_info:
+      view_my_profile: "View my profile"
+      microposts: 
+        one: "1 micropost"
+        other: "%{count} microposts"
+    micropost_form:
+      compose_micropost: "Compose new micropost..."
+      post: "Post"
+    feed_item:
+      time_posted_ago: "Posted %{time} ago."
+      delete: "Delete"
+      you_sure: "You sure?"
 
   activerecord:
     models:
       user: "User"
+      micropost: "Micropost"
     attributes:
       user:
         name: "Name"
@@ -43,6 +56,8 @@ en:
         password: "Password"
         password_confirmation: "Confirmation"
         password_digest: "Password"
+      micropost:
+        content: "Content"
 
   flash:
     welcome: "Welcome to the Sample App!"
@@ -51,6 +66,7 @@ en:
     sign_in: "Please sign in."
     user_destroyed: "User destroyed."
     no_admin_suicide: "I'm sorry %{name}. I'm afraid I can't do that."
+    micropost_created: "Micropost created!"
 
   static_pages:
     about: 
@@ -61,6 +77,8 @@ en:
       help: "Help"
     home:
       sign_up: "Sign up now!"
+      post: "Post"
+      micropost_feed: "Micropost Feed"
 
   users:
     show:
@@ -87,6 +105,8 @@ en:
   microposts:
     micropost:
       time_posted_ago: "Posted %{time} ago."
+      you_sure: "You sure?"
+      delete: "Delete"
 
   sessions:
     new:
