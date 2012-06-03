@@ -58,7 +58,7 @@ describe "Locale switching" do
             select target_language, from: locale_selector
             click_button locale_submit
           end
-
+          
           it "should render the new user page in the target language" do
             expect { response.should redirect_to(signup_path(target_locale)) }
           end

@@ -17,6 +17,8 @@ gem 'haml-rails', '0.3.4'
 gem 'rdiscount', '1.6.8'
 # i18n strings for default Rails
 gem 'rails-i18n', '0.6.3'
+# i18n for database content
+gem 'globalize3', '0.2.0'
 
 group :development do
   # for annotating model files with their properties

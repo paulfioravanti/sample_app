@@ -5,3 +5,9 @@
       %h1
         = gravatar_for @user
         = @user.name
+  .span8
+    - if @user.microposts.any?
+      %h3= t('.microposts', count: @user.microposts.count) 
+      %ol.microposts
+        = render @microposts
+      = will_paginate @microposts

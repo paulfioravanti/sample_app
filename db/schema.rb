@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120524061240) do
+ActiveRecord::Schema.define(:version => 20120529112322) do
+
+  create_table "micropost_translations", :force => true do |t|
+    t.integer  "micropost_id"
+    t.string   "locale"
+    t.string   "content"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "micropost_translations", ["locale"], :name => "index_micropost_translations_on_locale"
+  add_index "micropost_translations", ["micropost_id"], :name => "index_micropost_translations_on_micropost_id"
+
+  create_table "microposts", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "name"

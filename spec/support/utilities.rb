@@ -8,6 +8,10 @@ def valid_user
            password_confirmation: "foobar")
 end
 
+def valid_micropost(user)
+  user.microposts.build(content: "Lorem Ipsum")
+end
+
 def valid_sign_up
   fill_in t('users.fields.name'),         with: "Example User"
   fill_in t('users.fields.email'),        with: "user@example.com"
