@@ -76,9 +76,10 @@ ja:
     help:
       help: "ヘルプ"
     home:
-      sign_up: "今すぐ登録！"
       post: "投稿"
       micropost_feed: "マイクロポスト・フィード"
+    home_not_signed_in:
+      sign_up: "今すぐ登録！"
 
   users:
     show:

@@ -1,0 +1,9 @@
+.row
+  %aside.span4
+    %section
+      = render 'shared/user_info'
+    %section
+      = render 'shared/micropost_form'
+  .span8
+    %h3= t('.micropost_feed')
+    = render 'shared/feed'

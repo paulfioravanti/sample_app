@@ -76,9 +76,10 @@ it:
     help:
       help: "Aiuto"
     home:
-      sign_up: "Registrati ora!"
       post: "Post"
       micropost_feed: "Feed di micropost"
+    home_not_signed_in:
+      sign_up: "Registrati ora!"
 
   users:
     show:

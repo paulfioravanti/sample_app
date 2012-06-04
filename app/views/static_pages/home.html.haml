@@ -1,19 +1,4 @@
 - if signed_in?
-  .row
-    %aside.span4
-      %section
-        = render 'shared/user_info'
-      %section
-        = render 'shared/micropost_form'
-    .span8
-      %h3= t('.micropost_feed')
-      = render 'shared/feed'
+  = render 'static_pages/home_signed_in'
 - else
-  .center.hero-unit
-    :markdown
-      #{render file: "static_pages/home.#{params[:locale]}.md"}
-    = link_to t('.sign_up'), signup_path, 
-              class: "btn btn-large btn-primary"
-
-  = link_to image_tag("rails.png", alt: "Rails"), 
-                      'http://rubyonrails.org/'
+  = render 'static_pages/home_not_signed_in'

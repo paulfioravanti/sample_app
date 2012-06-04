@@ -57,7 +57,8 @@ describe "Static Pages" do
 
       describe "Sign up link" do
         let(:page_title) { t('users.new.sign_up') }
-        let(:sign_up)    { t('static_pages.home.sign_up') }
+        let(:sign_up)    { t('static_pages.home_not_signed_in.sign_up') }
+        let(:sign_out)   { t('layouts.header.sign_out') }
         
         before { click_link sign_up }
 
