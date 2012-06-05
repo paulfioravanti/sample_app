@@ -1,5 +1,5 @@
 %li
-  %span.content= micropost.content
+  %span.content= wrap(micropost.content)
   %span.timestamp
     = t('.time_posted_ago', 
         time: time_ago_in_words(micropost.created_at))
