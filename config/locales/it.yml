@@ -42,6 +42,7 @@ it:
       post: "Post"
     feed_item:
       time_posted_ago: "Pubblicato %{time} fa."
+    delete_micropost:
       delete: "Anulla"
       you_sure: "Sei sicuro?"
 
@@ -106,8 +107,6 @@ it:
   microposts:
     micropost:
       time_posted_ago: "Pubblicato %{time} fa."
-      you_sure: "Sei sicuro?"
-      delete: "Anulla"
 
   sessions:
     new:

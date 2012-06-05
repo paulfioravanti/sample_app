@@ -42,6 +42,7 @@ ja:
       post: "投稿"
     feed_item:
       time_posted_ago: "%{time}前に投稿された。"
+    delete_micropost:
       delete: "削除"
       you_sure: "本当に削除しますか？"
 
@@ -106,8 +107,6 @@ ja:
   microposts:
     micropost:
       time_posted_ago: "%{time}前に投稿された。"
-      you_sure: "本当に削除しますか？"
-      delete: "削除"
 
   sessions:
     new:

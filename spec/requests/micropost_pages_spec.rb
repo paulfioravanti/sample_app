@@ -45,7 +45,7 @@ describe "Micropost pages" do
       before { FactoryGirl.create(:micropost, user: user) }
 
       context "as correct user" do
-        let(:delete) { t('microposts.micropost.delete') }
+        let(:delete) { t('shared.delete_micropost.delete') }
 
         before { visit root_path(locale) }
 
@@ -105,9 +105,29 @@ describe "Micropost pages" do
           it { should have_selector('span', text: other) }
           it { should_not have_selector('span', text: one) }
         end
-
       end
+    end
 
+    describe "feed" do
+      let!(:current_user_micropost) { FactoryGirl.create(:micropost, user: user) }
+
+      before { visit root_path(locale) }
+
+      describe "delete links" do
+        let(:delete) { t('shared.delete_micropost.delete') }
+
+        context "for user's microposts" do
+          it { should have_link(delete, href: micropost_path(locale, current_user_micropost)) }
+        end
+
+        context "for other user's microposts" do
+          let(:other_micropost) { FactoryGirl.create(:micropost, user: FactoryGirl.create(:user)) }
+          
+          before { visit root_path(locale) }
+
+          it { should_not have_link(delete, href: micropost_path(locale, other_micropost)) }
+        end
+      end
     end
   end
 end

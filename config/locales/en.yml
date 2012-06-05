@@ -42,6 +42,7 @@ en:
       post: "Post"
     feed_item:
       time_posted_ago: "Posted %{time} ago."
+    delete_micropost:
       delete: "Delete"
       you_sure: "You sure?"
 
@@ -106,8 +107,6 @@ en:
   microposts:
     micropost:
       time_posted_ago: "Posted %{time} ago."
-      you_sure: "You sure?"
-      delete: "Delete"
 
   sessions:
     new:

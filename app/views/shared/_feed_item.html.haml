@@ -5,5 +5,4 @@
   %span.timestamp
     = t('.time_posted_ago', time: time_ago_in_words(feed_item.created_at) )
   - if current_user?(feed_item.user)
-    = link_to t('.delete'), feed_item, method: :delete, 
-      confirm: t('.you_sure'), title: feed_item.content
+    = render 'shared/delete_micropost', micropost: feed_item
