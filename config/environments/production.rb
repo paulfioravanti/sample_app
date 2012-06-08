@@ -65,6 +65,4 @@ SampleApp::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  # For Heroku asset precompilation issues
-  ENV["DATABASE_URL"] = "young-dawn-3063"
 end
