@@ -40,7 +40,7 @@ end
 group :assets do
   # To access Ruby objects in Javascript
   gem 'therubyracer'
-  gem 'sass-rails',   '3.2.4'
+  gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
   gem 'uglifier', '1.2.3'
