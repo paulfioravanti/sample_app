@@ -40,6 +40,7 @@ en:
     micropost_form:
       compose_micropost: "Compose new micropost..."
       post: "Post"
+      characters_remaining: "&nbsp;characters remaining."
     feed_item:
       time_posted_ago: "Posted %{time} ago."
     delete_micropost:
@@ -78,6 +79,7 @@ en:
       help: "Help"
     home:
       post: "Post"
+    home_signed_in:
       micropost_feed: "Micropost Feed"
     home_not_signed_in:
       sign_up: "Sign up now!"

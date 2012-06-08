@@ -210,6 +210,18 @@ aside {
   }
 }
 
+/* Micropost character countdown */
+
+.remaining, .countdown {
+  display: inline;
+  color: $grayLight;
+  float: right;
+}
+
+.overlimit {
+  color: $red;
+}
+
 /* Footer */
 
 footer {

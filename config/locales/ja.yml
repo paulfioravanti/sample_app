@@ -40,6 +40,7 @@ ja:
     micropost_form:
       compose_micropost: "マイクロポストを新規作成・・・"
       post: "投稿"
+      characters_remaining: "の入力可能な文字が残ります。"
     feed_item:
       time_posted_ago: "%{time}前に投稿された。"
     delete_micropost:
@@ -78,6 +79,7 @@ ja:
       help: "ヘルプ"
     home:
       post: "投稿"
+    home_signed_in:
       micropost_feed: "マイクロポスト・フィード"
     home_not_signed_in:
       sign_up: "今すぐ登録！"

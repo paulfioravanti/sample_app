@@ -1,4 +1,7 @@
 = form_for @micropost do |f|
   = render 'shared/error_messages', object: f.object
   .field= f.text_area :content, placeholder: t('.compose_micropost')
+  %span
+    .remaining= t('.characters_remaining').html_safe
+    .countdown
   = f.submit t('.post'), class: "btn btn-large btn-primary"
