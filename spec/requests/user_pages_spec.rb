@@ -9,7 +9,7 @@ describe "User pages" do
     it { should have_selector('title', text: full_title(page_title)) }
   end
   
-  LANGUAGES.transpose.last.each do |locale|
+  I18n.available_locales.each do |locale|
 
     describe "index" do
       let(:user)       { FactoryGirl.create(:user) }
@@ -91,6 +91,62 @@ describe "User pages" do
         it { should have_content(m1.content) }
         it { should have_content(m2.content) }
         it { should have_content(user.microposts.count) }
+      end
+
+      describe "follow/unfollow buttons" do
+        let(:other_user) { FactoryGirl.create(:user) }
+        let(:follow) { t('users.follow.follow') }
+        let(:unfollow) { t('users.unfollow.unfollow') }
+        
+        before do
+          visit signin_path(locale)
+          valid_sign_in(user)
+        end
+
+        describe "following a user" do
+          before { visit user_path(locale, other_user) }
+
+          it "should increment the followed user count" do
+            expect do
+              click_button follow
+            end.to change(user.followed_users, :count).by(1)
+          end
+
+          it "should increment the other user's followers count" do
+            expect do
+              click_button follow
+            end.to change(other_user.followers, :count).by(1)
+          end
+
+          describe "toggling the button" do
+            before { click_button follow }
+            it { should have_selector('input', value: unfollow) }
+          end
+        end
+
+        describe "unfollowing a user" do
+          before do
+            user.follow!(other_user)
+            visit user_path(locale, other_user)
+          end
+
+          it "should decrement the followed user count" do
+            expect do
+              click_button unfollow
+            end.to change(user.followed_users, :count).by(-1)
+          end
+
+          it "should decrement the other user's followers count" do
+            expect do
+              click_button unfollow
+            end.to change(other_user.followers, :count).by(-1)
+          end
+
+          describe "toggling the button" do
+            before { click_button unfollow }
+            it { should have_selector('input', value: follow) }
+          end
+        end
       end
     end
 
@@ -178,9 +234,42 @@ describe "User pages" do
         it { should have_link(sign_out, href: signout_path(locale)) }
         specify { user.reload.name.should == new_name }
         specify { user.reload.email.should == new_email }
-
       end
+    end
+
+    describe "following/followers" do
+      let(:user)       { FactoryGirl.create(:user) }
+      let(:other_user) { FactoryGirl.create(:user) }
       
+      before { user.follow!(other_user) }
+
+      describe "followed users" do
+        let(:following) { t('users.show_follow.following') }
+
+        before do
+          visit signin_path(locale)
+          valid_sign_in(user)
+          visit following_user_path(locale, user)
+        end
+
+        it { should have_selector('title', text: full_title(following)) }
+        it { should have_selector('h3', text: following) }
+        it { should have_link(other_user.name, href: user_path(locale, other_user)) }
+      end
+
+      describe "followers" do
+        let(:followers) { t('users.show_follow.followers') }
+
+        before do
+          visit signin_path(locale)
+          valid_sign_in(other_user)
+          visit followers_user_path(locale, other_user)
+        end
+
+        it { should have_selector('title', text: full_title(followers)) }
+        it { should have_selector('h3', text: followers) }
+        it { should have_link(user.name, href: user_path(locale, user)) }
+      end
     end
   end
 end

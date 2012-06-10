@@ -46,6 +46,9 @@ ja:
     delete_micropost:
       delete: "削除"
       you_sure: "本当に削除しますか？"
+    stats:
+      following: "フォロー"
+      followers: "フォロワー"
 
   activerecord:
     models:
@@ -105,6 +108,15 @@ ja:
       email: "メール"
       password: "パスワード"
       confirmation: "確認"
+    follow:
+      follow: "フォロー"
+    unfollow:
+      unfollow: "アンフォロー"
+    show_follow:
+      following: "フォロイング"
+      followers: "フォロワー"
+      view_my_profile: "プロフィルを参照"
+      microposts: "マイクロポスト："
 
   microposts:
     micropost:

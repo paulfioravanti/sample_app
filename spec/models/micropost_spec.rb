@@ -7,7 +7,6 @@
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #
-#  content    :string          in translations table
 
 require 'spec_helper'
 
@@ -33,17 +32,17 @@ describe Micropost do
   end
 
   context "when user id is not present" do
-    before { subject.user_id = nil }
+    before { micropost.user_id = nil }
     it { should_not be_valid }
   end
 
   context "with blank content" do
-    before { subject.content = " " }
+    before { micropost.content = " " }
     it { should_not be_valid }
   end
 
   context "with content that is too long" do
-    before { subject.content = "a" * 141 }
+    before { micropost.content = "a" * 141 }
     it { should_not be_valid }
   end
 

@@ -31,6 +31,13 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:microposts) }
   it { should respond_to(:feed) }
+  it { should respond_to(:relationships) }
+  it { should respond_to(:followed_users) }
+  it { should respond_to(:reverse_relationships) }
+  it { should respond_to(:followers) }
+  it { should respond_to(:following?) }
+  it { should respond_to(:follow!) }
+  it { should respond_to(:unfollow!) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -44,35 +51,35 @@ describe User do
   end
 
   context "when admin attribute set to 'true'" do
-    before { subject.toggle!(:admin) }
+    before { user.toggle!(:admin) }
     it { should be_admin }
   end
 
   describe "remember token" do
-    before { subject.save }
+    before { user.save }
     its(:remember_token) { should_not be_blank }
   end
 
   context "when name is not present" do
-    before { subject.name = " " }
+    before { user.name = " " }
     it { should_not be_valid }
   end
 
   context "when name is too long" do
-    before { subject.name = "a" * 51 }
+    before { user.name = "a" * 51 }
     it { should_not be_valid }
   end
 
   context "when email is not present" do
-    before { subject.email = " "}
+    before { user.email = " "}
     it { should_not be_valid }
   end
 
   context "when email format is invalid" do
     it "should be invalid" do
       invalid_email_addresses.each do |invalid_address|
-        subject.email = invalid_address
-        subject.should_not be_valid
+        user.email = invalid_address
+        user.should_not be_valid
       end
     end
   end
@@ -80,43 +87,43 @@ describe User do
   context "when email format is valid" do
     it "should be valid" do
       valid_email_addresses.each do |valid_address|
-        subject.email = valid_address
-        subject.should be_valid
+        user.email = valid_address
+        user.should be_valid
       end
     end
   end
 
   context "when email address is already taken" do
-    before { save_user(subject) }
+    before { save_user(user) }
     it { should_not be_valid }
   end
 
   context "when password is not present" do
-    before { subject.password = subject.password_confirmation = " " }
+    before { user.password = user.password_confirmation = " " }
     it { should_not be_valid }
   end
 
   context "when password doesn't match confirmation" do
-    before { subject.password = "mismatch" }
+    before { user.password = "mismatch" }
     it { should_not be_valid }
   end
 
   context "when password is too short" do
-    before { subject.password = "a" * 5 }
+    before { user.password = "a" * 5 }
     it { should be_invalid }
   end
 
   context "when password confirmation is nil" do
-    before { subject.password_confirmation = nil }
+    before { user.password_confirmation = nil }
     it { should_not be_valid }
   end
 
   describe "return value of authenticate method" do
-    before { subject.save }
-    let(:found_user) { User.find_by_email(subject.email) }
+    before { user.save }
+    let(:found_user) { User.find_by_email(user.email) }
 
     context "with valid password" do
-      it { should == found_user.authenticate(subject.password) }
+      it { should == found_user.authenticate(user.password) }
     end
 
     context "with invalid password" do
@@ -127,12 +134,12 @@ describe User do
   end
 
   describe "micropost associations" do
-    before { subject.save }
+    before { user.save }
     let!(:older_micropost) do
-      FactoryGirl.create(:micropost, user: subject, created_at: 1.day.ago)
+      FactoryGirl.create(:micropost, user: user, created_at: 1.day.ago)
     end
     let!(:newer_micropost) do
-      FactoryGirl.create(:micropost, user: subject, created_at: 1.hour.ago)
+      FactoryGirl.create(:micropost, user: user, created_at: 1.hour.ago)
     end
 
     it "should have the right microposts in the right order" do
@@ -140,8 +147,8 @@ describe User do
     end
 
     it "should destroy associated microposts" do
-      microposts = subject.microposts
-      subject.destroy
+      microposts = user.microposts
+      user.destroy
       microposts.each do |micropost|
         Micropost.find_by_id(micropost.id).should be_nil
       end
@@ -151,11 +158,47 @@ describe User do
       let(:unfollowed_post) do
         FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
       end
+      let(:followed_user) { FactoryGirl.create(:user) }
+
+      before do
+        user.follow!(followed_user)
+        3.times { followed_user.microposts.create!(content: "Lorem Ipsum") }
+      end
 
       its(:feed) { should include(newer_micropost) }
       its(:feed) { should include(older_micropost) }
       its(:feed) { should_not include(unfollowed_post) }
+      its(:feed) do
+        followed_user.microposts.each do |micropost|
+          should include(micropost)
+        end
+      end
     end
+  end
+
+  describe "following" do
+    let(:other_user) { FactoryGirl.create(:user) }
+
+    before do
+      user.save
+      user.follow!(other_user)
+    end
+
+    it { should be_following(other_user) }
+    its(:followed_users) { should include(other_user) }
+
+    describe "and unfollowing" do
+      before { user.unfollow!(other_user) }
+
+      it { should_not be_following(other_user) }
+      its(:followed_users) { should_not include(other_user) }
+    end
+
+    describe "followed user" do
+      subject { other_user }
+      its(:followers) { should include(user) }
+    end
+
   end
 
 end

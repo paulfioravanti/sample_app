@@ -14,7 +14,6 @@ by [Michael Hartl](http://michaelhartl.com) (plus some modifications).
 - Slight [SCSS](http://sass-lang.com/) refactoring to use mix-ins, and additions to add styling to the language selector
 
 ### **TODO**s:
-- Implement Chapter 11 of the Rails Tutorial
 - Try to improve the Micropost character countdown.  I'd love to be able to do proper pluralization of the text using the character count as well as change the text and count from, for example, "-2 characters remaining" to "2 characters over".  Question posted to StackOverflow [here](http://stackoverflow.com/questions/10955850/micropost-character-countdown-rails-tutorial-2nd-ed-chapter-10-exercise-7)
 - Try and figure out an answer to the i18n Markup question posted [here](http://stackoverflow.com/questions/10233686/i18n-markdown-files-in-rails-3-views)
 - Keep searching for a solution to the routes i18n redirect loop problem referred to [here](http://railscasts.com/episodes/138-i18n-revised?view=comments)

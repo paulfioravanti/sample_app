@@ -7,7 +7,7 @@ describe "Locale switching" do
   let(:locale_selector) { 'set_locale' }
   let(:locale_submit)   { 'submit' }
 
-  LANGUAGES.transpose.last.each do |locale|
+  I18n.available_locales.each do |locale|
 
     LANGUAGES.each do |target_language, target_locale|
       next if locale == target_locale

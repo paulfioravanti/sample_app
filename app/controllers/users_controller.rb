@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 
-  before_filter :signed_in_user, only: [:index, :edit, :update]
-  before_filter :correct_user,   only: [:edit, :update]
-  before_filter :admin_user,     only: :destroy
+  before_filter :signed_in_user, 
+                only: [:index, :edit, :update, :destroy, :following, :followers]
   before_filter :signed_in_users, only: [:new, :create]
+  before_filter :correct_user,    only: [:edit, :update]
+  before_filter :admin_user,      only: :destroy
+
 
   def index
     @users = User.paginate(page: params[:page])
@@ -52,6 +54,20 @@ class UsersController < ApplicationController
       flash[:error] = t('flash.no_admin_suicide', name: user.name)
     end
     redirect_to users_path
+  end
+
+  def following
+    @title = t('users.show_follow.following')
+    @user = User.find(params[:id])
+    @users = @user.followed_users.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = t('users.show_follow.followers')
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
   end
 
   private

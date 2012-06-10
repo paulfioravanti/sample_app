@@ -14,7 +14,8 @@ describe "Static Pages" do
     it { should have_selector('title', text: full_title(page_title)) }
   end
   
-  LANGUAGES.transpose.last.each do |locale|
+  I18n.available_locales.each do |locale|
+    I18n.locale = locale
     
     describe "Layout" do
       before { visit root_path(locale) }
@@ -89,8 +90,22 @@ describe "Static Pages" do
 
         it "should render the user's feed" do
           user.feed.each do |item|
-            subject.should have_selector("li##{item.id}", text: item.content)
+            page.should have_selector("li##{item.id}", text: item.content)
           end
+        end
+
+        describe "follower/following counts" do
+          let(:other_user) { FactoryGirl.create(:user) }
+          let(:zero_following) { t('shared.stats.following', count: '0') }
+          let(:one_follower) { t('shared.stats.followers', count: '1') }
+
+          before do
+            other_user.follow!(user)
+            visit root_path(locale)
+          end
+
+          it { should have_link(zero_following, href: following_user_path(locale, user)) }
+          it { should have_link(one_follower, href: followers_user_path(locale, user)) }
         end
       end
     end

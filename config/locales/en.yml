@@ -46,6 +46,9 @@ en:
     delete_micropost:
       delete: "Delete"
       you_sure: "You sure?"
+    stats:
+      following: "following"
+      followers: "followers"
 
   activerecord:
     models:
@@ -105,6 +108,15 @@ en:
       email: "Email"
       password: "Password"
       confirmation: "Confirmation"
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"
+    show_follow:
+      following: "Following"
+      followers: "Followers"
+      view_my_profile: "View my profile"
+      microposts: "Microposts:"
 
   microposts:
     micropost:

@@ -1,0 +1,22 @@
+= provide(:title, @title)
+.row
+  %aside.span4
+    %section
+      = gravatar_for @user
+      %h1= @user.name
+      %span= link_to t('.view_my_profile'), @user
+      %span
+        %strong= t('.microposts')
+        = @user.microposts.count
+    %section
+      = render 'shared/stats'
+      - if @users.any?
+        .user_avatars
+          - @users.each do |user|
+            = link_to gravatar_for(user, size: 30), user
+  .span8
+    %h3= @title
+    - if @users.any?
+      %ul.users
+        = render @users
+      = will_paginate
