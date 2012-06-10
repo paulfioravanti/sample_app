@@ -198,7 +198,37 @@ describe User do
       subject { other_user }
       its(:followers) { should include(user) }
     end
+  end
 
+  describe "relationship associations" do
+    let(:other_user) { FactoryGirl.create(:user) }
+
+    before do
+      user.save
+      user.follow!(other_user)
+      other_user.follow!(user)
+    end
+
+    it "should destroy associated relationships" do
+      relationships = user.relationships
+      user.destroy
+      relationships.should be_empty
+    end
+
+    it "should destroy associated reverse relationships" do
+      reverse_relationships = user.reverse_relationships
+      user.destroy
+      reverse_relationships.should be_empty
+    end
+
+    context "when a follower/followed user is destroyed" do
+      subject { other_user }
+      
+      before { user.destroy }
+      
+      its(:relationships) { should_not include(user) }
+      its(:reverse_relationships) { should_not include(user) }
+    end
   end
 
 end

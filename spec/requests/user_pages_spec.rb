@@ -148,6 +148,38 @@ describe "User pages" do
           end
         end
       end
+
+      describe "user stats" do
+        let(:other_user) { FactoryGirl.create(:user) }
+        
+        before do
+          user.follow!(other_user)
+          other_user.follow!(user)
+          visit user_path(locale, user)
+        end
+
+        it { should have_selector('#following.stat', text: '1') }
+        it { should have_selector('#followers.stat', text: '1') }
+
+        context "after unfollowing other user" do
+          before do
+            user.unfollow!(other_user)
+            visit user_path(locale, user)
+          end
+          
+          it { should have_selector('#following.stat', text: '0') }
+        end
+
+        describe "after being unfollowed by other user" do
+          before do
+            other_user.unfollow!(user)
+            visit user_path(locale, user)
+          end
+
+          it { should have_selector('#followers.stat', text: '0') }
+        end
+
+      end
     end
 
     describe "sign up" do
