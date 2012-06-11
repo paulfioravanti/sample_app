@@ -286,7 +286,8 @@ describe "User pages" do
 
         it { should have_selector('title', text: full_title(following)) }
         it { should have_selector('h3', text: following) }
-        it { should have_link(other_user.name, href: user_path(locale, other_user)) }
+        it { should have_link(other_user.name, 
+                              href: user_path(locale, other_user)) }
       end
 
       describe "followers" do
