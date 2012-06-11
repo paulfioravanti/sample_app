@@ -1,12 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.5'
 # Twitter frameworks to make nice UI design elements
 gem 'bootstrap-sass', '2.0.0'
 gem 'bootstrap-will_paginate', '0.0.5'
 # For creating bcrypt encrypted hashes for user passwords
 gem 'bcrypt-ruby', '3.0.1'
-gem 'jquery-rails', '2.0.0'
+gem 'jquery-rails', '2.0.2'
 # For fake example users with “realistic” names/emails
 gem 'faker', '1.0.1' 
 # For pagination
