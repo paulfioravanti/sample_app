@@ -39,7 +39,7 @@ end
 # in production environments by default.
 group :assets do
   # To access Ruby objects in Javascript
-  gem 'therubyracer'
+  gem 'therubyracer', '0,10,1'
   gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
