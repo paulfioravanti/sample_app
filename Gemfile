@@ -19,6 +19,8 @@ gem 'rdiscount', '1.6.8'
 gem 'rails-i18n', '0.6.4'
 # i18n for database content
 gem 'globalize3', '0.2.0'
+# i18n for localeapp
+gem 'localeapp', '0.4.3'
 
 group :development do
   # for annotating model files with their properties
