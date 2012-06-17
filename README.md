@@ -4,6 +4,8 @@ This is the sample application for
 [*Ruby on Rails Tutorial: Learn Rails by Example*](http://railstutorial.org/)
 by [Michael Hartl](http://michaelhartl.com) (plus some modifications).
 
+[![Build Status](https://secure.travis-ci.org/paulfioravanti/sample_app.png)](http://travis-ci.org/paulfioravanti/sample_app)
+
 ### Changes from the original tutorial content:
 - All views changed from HTML/ERb to [Haml](http://haml-lang.com/)
 - Added locale switcher
