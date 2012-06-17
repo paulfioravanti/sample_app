@@ -3,7 +3,7 @@ en:
     application:
       base_title: Ruby on Rails Tutorial Sample App
     header:
-      home: Schmee Hee
+      home: Home
       help: Help
       sign_in: Sign In
       sample_app: Sample App

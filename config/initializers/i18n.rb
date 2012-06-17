@@ -1,4 +1,8 @@
 # encoding: utf-8
+require "i18n/backend/pluralization"
+
+I18n::Backend::Simple.send(:include, I18n::Backend::Pluralization)
+
 I18n.available_locales = [:en, :it, :ja]
 I18n.default_locale = :en
 #I18n.backend.class.send(:include, I18n::Backend::Fallbacks)
