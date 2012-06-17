@@ -16,7 +16,7 @@
 
 .bundle
 .idea/*
-config/database.yml
+# config/database.yml
 db/*.sqlite3*
 log/*.log
 *.log
