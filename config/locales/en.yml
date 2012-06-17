@@ -1,374 +1,19 @@
 en:
-  layouts:
-    application:
-      base_title: Ruby on Rails Tutorial Sample App
-    header:
-      home: Home
-      help: Help
-      sign_in: Sign In
-      sample_app: Sample App
-      users: Users
-      account: Account
-      profile: Profile
-      sign_out: Sign Out
-      settings: Settings
-    footer:
-      about: About
-      contact: Contact
-      news: News
-      rails_tutorial: Rails Tutorial
-      author: by Michael Hartl
-  will_paginate:
-    previous_label: Previous
-    next_label: Next
-  shared:
-    error_messages:
-      form_errors:
-        one: The form contains 1 error
-        other: The form contains %{count} errors
-    user_info:
-      view_my_profile: View my profile
-      microposts:
-        one: 1 micropost
-        other: ! '%{count} microposts'
-    micropost_form:
-      compose_micropost: Compose new micropost...
-      post: Post
-      characters_remaining: ! '&nbsp;characters remaining.'
-    feed_item:
-      time_posted_ago: Posted %{time} ago.
-    delete_micropost:
-      delete: Delete
-      you_sure: You sure?
-    stats:
-      following: following
-      followers: followers
   activerecord:
-    models:
-      user: User
-      micropost: Micropost
     attributes:
+      micropost:
+        content: Content
       user:
-        name: Name
         email: Email
+        name: Name
         password: Password
         password_confirmation: Confirmation
         password_digest: Password
-      micropost:
-        content: Content
-  flash:
-    welcome: Welcome to the Sample App!
-    invalid_credentials: Invalid email/password combination
-    profile_updated: Profile Updated
-    sign_in: Please sign in.
-    user_destroyed: User destroyed.
-    no_admin_suicide: I'm sorry %{name}. I'm afraid I can't do that.
-    micropost_created: Micropost created!
-  static_pages:
-    about:
-      about_us: About Us
-    contact:
-      contact: Contact
-    help:
-      help: Help
-    home:
-      post: Post
-    home_signed_in:
-      micropost_feed: Micropost Feed
-    home_not_signed_in:
-      sign_up: Sign up now!
-  users:
-    show:
-      microposts: Microposts (%{count})
-    index:
-      all_users: All users
-    user:
-      delete: Delete
-      you_sure: You sure?
-    new:
-      sign_up: Sign Up
-      create_account: Create my account
-    edit:
-      change: change
-      update_profile: Update your profile
-      edit_user: Edit user
-      save_changes: Save changes
-    fields:
-      name: Name
-      email: Email
-      password: Password
-      confirmation: Confirmation
-    follow:
-      follow: Follow
-    unfollow:
-      unfollow: Unfollow
-    show_follow:
-      following: Following
-      followers: Followers
-      view_my_profile: View my profile
-      microposts: ! 'Microposts:'
-  microposts:
-    micropost:
-      time_posted_ago: Posted %{time} ago.
-  sessions:
-    new:
-      sign_in: Sign In
-      email: Email
-      password: Password
-      new_user: New User?
-      sign_up: Sign up now!
+    models:
+      micropost: Micropost
+      user: User
   faker:
     lorem:
-      words:
-      - alias
-      - consequatur
-      - aut
-      - perferendis
-      - sit
-      - voluptatem
-      - accusantium
-      - doloremque
-      - aperiam
-      - eaque
-      - ipsa
-      - quae
-      - ab
-      - illo
-      - inventore
-      - veritatis
-      - et
-      - quasi
-      - architecto
-      - beatae
-      - vitae
-      - dicta
-      - sunt
-      - explicabo
-      - aspernatur
-      - aut
-      - odit
-      - aut
-      - fugit
-      - sed
-      - quia
-      - consequuntur
-      - magni
-      - dolores
-      - eos
-      - qui
-      - ratione
-      - voluptatem
-      - sequi
-      - nesciunt
-      - neque
-      - dolorem
-      - ipsum
-      - quia
-      - dolor
-      - sit
-      - amet
-      - consectetur
-      - adipisci
-      - velit
-      - sed
-      - quia
-      - non
-      - numquam
-      - eius
-      - modi
-      - tempora
-      - incidunt
-      - ut
-      - labore
-      - et
-      - dolore
-      - magnam
-      - aliquam
-      - quaerat
-      - voluptatem
-      - ut
-      - enim
-      - ad
-      - minima
-      - veniam
-      - quis
-      - nostrum
-      - exercitationem
-      - ullam
-      - corporis
-      - nemo
-      - enim
-      - ipsam
-      - voluptatem
-      - quia
-      - voluptas
-      - sit
-      - suscipit
-      - laboriosam
-      - nisi
-      - ut
-      - aliquid
-      - ex
-      - ea
-      - commodi
-      - consequatur
-      - quis
-      - autem
-      - vel
-      - eum
-      - iure
-      - reprehenderit
-      - qui
-      - in
-      - ea
-      - voluptate
-      - velit
-      - esse
-      - quam
-      - nihil
-      - molestiae
-      - et
-      - iusto
-      - odio
-      - dignissimos
-      - ducimus
-      - qui
-      - blanditiis
-      - praesentium
-      - laudantium
-      - totam
-      - rem
-      - voluptatum
-      - deleniti
-      - atque
-      - corrupti
-      - quos
-      - dolores
-      - et
-      - quas
-      - molestias
-      - excepturi
-      - sint
-      - occaecati
-      - cupiditate
-      - non
-      - provident
-      - sed
-      - ut
-      - perspiciatis
-      - unde
-      - omnis
-      - iste
-      - natus
-      - error
-      - similique
-      - sunt
-      - in
-      - culpa
-      - qui
-      - officia
-      - deserunt
-      - mollitia
-      - animi
-      - id
-      - est
-      - laborum
-      - et
-      - dolorum
-      - fuga
-      - et
-      - harum
-      - quidem
-      - rerum
-      - facilis
-      - est
-      - et
-      - expedita
-      - distinctio
-      - nam
-      - libero
-      - tempore
-      - cum
-      - soluta
-      - nobis
-      - est
-      - eligendi
-      - optio
-      - cumque
-      - nihil
-      - impedit
-      - quo
-      - porro
-      - quisquam
-      - est
-      - qui
-      - minus
-      - id
-      - quod
-      - maxime
-      - placeat
-      - facere
-      - possimus
-      - omnis
-      - voluptas
-      - assumenda
-      - est
-      - omnis
-      - dolor
-      - repellendus
-      - temporibus
-      - autem
-      - quibusdam
-      - et
-      - aut
-      - consequatur
-      - vel
-      - illum
-      - qui
-      - dolorem
-      - eum
-      - fugiat
-      - quo
-      - voluptas
-      - nulla
-      - pariatur
-      - at
-      - vero
-      - eos
-      - et
-      - accusamus
-      - officiis
-      - debitis
-      - aut
-      - rerum
-      - necessitatibus
-      - saepe
-      - eveniet
-      - ut
-      - et
-      - voluptates
-      - repudiandae
-      - sint
-      - et
-      - molestiae
-      - non
-      - recusandae
-      - itaque
-      - earum
-      - rerum
-      - hic
-      - tenetur
-      - a
-      - sapiente
-      - delectus
-      - ut
-      - aut
-      - reiciendis
-      - voluptatibus
-      - maiores
-      - doloribus
-      - asperiores
-      - repellat
       supplemental:
       - abbas
       - abduco
@@ -1210,3 +855,360 @@ en:
       - vulticulus
       - vultuosus
       - xiphias
+      words:
+      - alias
+      - consequatur
+      - aut
+      - perferendis
+      - sit
+      - voluptatem
+      - accusantium
+      - doloremque
+      - aperiam
+      - eaque
+      - ipsa
+      - quae
+      - ab
+      - illo
+      - inventore
+      - veritatis
+      - et
+      - quasi
+      - architecto
+      - beatae
+      - vitae
+      - dicta
+      - sunt
+      - explicabo
+      - aspernatur
+      - aut
+      - odit
+      - aut
+      - fugit
+      - sed
+      - quia
+      - consequuntur
+      - magni
+      - dolores
+      - eos
+      - qui
+      - ratione
+      - voluptatem
+      - sequi
+      - nesciunt
+      - neque
+      - dolorem
+      - ipsum
+      - quia
+      - dolor
+      - sit
+      - amet
+      - consectetur
+      - adipisci
+      - velit
+      - sed
+      - quia
+      - non
+      - numquam
+      - eius
+      - modi
+      - tempora
+      - incidunt
+      - ut
+      - labore
+      - et
+      - dolore
+      - magnam
+      - aliquam
+      - quaerat
+      - voluptatem
+      - ut
+      - enim
+      - ad
+      - minima
+      - veniam
+      - quis
+      - nostrum
+      - exercitationem
+      - ullam
+      - corporis
+      - nemo
+      - enim
+      - ipsam
+      - voluptatem
+      - quia
+      - voluptas
+      - sit
+      - suscipit
+      - laboriosam
+      - nisi
+      - ut
+      - aliquid
+      - ex
+      - ea
+      - commodi
+      - consequatur
+      - quis
+      - autem
+      - vel
+      - eum
+      - iure
+      - reprehenderit
+      - qui
+      - in
+      - ea
+      - voluptate
+      - velit
+      - esse
+      - quam
+      - nihil
+      - molestiae
+      - et
+      - iusto
+      - odio
+      - dignissimos
+      - ducimus
+      - qui
+      - blanditiis
+      - praesentium
+      - laudantium
+      - totam
+      - rem
+      - voluptatum
+      - deleniti
+      - atque
+      - corrupti
+      - quos
+      - dolores
+      - et
+      - quas
+      - molestias
+      - excepturi
+      - sint
+      - occaecati
+      - cupiditate
+      - non
+      - provident
+      - sed
+      - ut
+      - perspiciatis
+      - unde
+      - omnis
+      - iste
+      - natus
+      - error
+      - similique
+      - sunt
+      - in
+      - culpa
+      - qui
+      - officia
+      - deserunt
+      - mollitia
+      - animi
+      - id
+      - est
+      - laborum
+      - et
+      - dolorum
+      - fuga
+      - et
+      - harum
+      - quidem
+      - rerum
+      - facilis
+      - est
+      - et
+      - expedita
+      - distinctio
+      - nam
+      - libero
+      - tempore
+      - cum
+      - soluta
+      - nobis
+      - est
+      - eligendi
+      - optio
+      - cumque
+      - nihil
+      - impedit
+      - quo
+      - porro
+      - quisquam
+      - est
+      - qui
+      - minus
+      - id
+      - quod
+      - maxime
+      - placeat
+      - facere
+      - possimus
+      - omnis
+      - voluptas
+      - assumenda
+      - est
+      - omnis
+      - dolor
+      - repellendus
+      - temporibus
+      - autem
+      - quibusdam
+      - et
+      - aut
+      - consequatur
+      - vel
+      - illum
+      - qui
+      - dolorem
+      - eum
+      - fugiat
+      - quo
+      - voluptas
+      - nulla
+      - pariatur
+      - at
+      - vero
+      - eos
+      - et
+      - accusamus
+      - officiis
+      - debitis
+      - aut
+      - rerum
+      - necessitatibus
+      - saepe
+      - eveniet
+      - ut
+      - et
+      - voluptates
+      - repudiandae
+      - sint
+      - et
+      - molestiae
+      - non
+      - recusandae
+      - itaque
+      - earum
+      - rerum
+      - hic
+      - tenetur
+      - a
+      - sapiente
+      - delectus
+      - ut
+      - aut
+      - reiciendis
+      - voluptatibus
+      - maiores
+      - doloribus
+      - asperiores
+      - repellat
+  flash:
+    invalid_credentials: Invalid email/password combination
+    micropost_created: Micropost created!
+    no_admin_suicide: I'm sorry %{name}. I'm afraid I can't do that.
+    profile_updated: Profile Updated
+    sign_in: Please sign in.
+    user_destroyed: User destroyed.
+    welcome: Welcome to the Sample App!
+  layouts:
+    application:
+      base_title: Ruby on Rails Tutorial Sample App
+    footer:
+      about: About
+      author: by Michael Hartl
+      contact: Contact
+      news: News
+      rails_tutorial: Rails Tutorial
+    header:
+      account: Account
+      help: Help
+      home: Home
+      profile: Profile
+      sample_app: Sample App
+      settings: Settings
+      sign_in: Sign In
+      sign_out: Sign Out
+      users: Users
+  microposts:
+    micropost:
+      time_posted_ago: Posted %{time} ago.
+  sessions:
+    new:
+      email: Email
+      new_user: New User?
+      password: Password
+      sign_in: Sign In
+      sign_up: Sign up now!
+  shared:
+    delete_micropost:
+      delete: Delete
+      you_sure: You sure?
+    error_messages:
+      form_errors:
+        one: The form contains %{count} error
+        other: The form contains %{count} errors
+    feed_item:
+      time_posted_ago: Posted %{time} ago.
+    micropost_form:
+      characters_remaining: ! '&nbsp;characters remaining.'
+      compose_micropost: Compose new micropost...
+      post: Post
+    stats:
+      followers: followers
+      following: following
+    user_info:
+      microposts:
+        one: ! '%{count} micropost'
+        other: ! '%{count} microposts'
+      view_my_profile: View my profile
+  static_pages:
+    about:
+      about_us: About Us
+    contact:
+      contact: Contact
+    help:
+      help: Help
+    home:
+      post: Post
+    home_not_signed_in:
+      sign_up: Sign up now!
+    home_signed_in:
+      micropost_feed: Micropost Feed
+  users:
+    edit:
+      change: change
+      edit_user: Edit user
+      save_changes: Save changes
+      update_profile: Update your profile
+    fields:
+      confirmation: Confirmation
+      email: Email
+      name: Name
+      password: Password
+    follow:
+      follow: Follow
+    index:
+      all_users: All users
+    new:
+      create_account: Create my account
+      sign_up: Sign Up
+    show:
+      microposts:
+        one: Microposts (%{count})
+        other: Microposts (%{count})
+    show_follow:
+      followers: Followers
+      following: Following
+      microposts: ! 'Microposts:'
+      view_my_profile: View my profile
+    unfollow:
+      unfollow: Unfollow
+    user:
+      delete: Delete
+      you_sure: You sure?
+  will_paginate:
+    next_label: Next
+    previous_label: Previous

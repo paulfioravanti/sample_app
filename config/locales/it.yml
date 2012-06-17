@@ -1,374 +1,19 @@
 it:
-  layouts:
-    application:
-      base_title: Ruby on Rails Tutorial Esempio App
-    header:
-      home: Home
-      help: Aiuto
-      sign_in: Accedi
-      sample_app: Esempio App
-      users: Utenti
-      account: Account
-      profile: Profilo
-      sign_out: Esci
-      settings: Impostazioni
-    footer:
-      about: Che Cosa
-      contact: Contatti
-      news: Notizie
-      rails_tutorial: Rails Tutorial
-      author: di Michael Hartl
-  will_paginate:
-    previous_label: Precedente
-    next_label: Seguente
-  shared:
-    error_messages:
-      form_errors:
-        one: Il form contiene 1 errore
-        other: Il form contiene %{count} errori
-    user_info:
-      view_my_profile: Visualizza il mio profilo
-      microposts:
-        one: 1 micropost
-        other: ! '%{count} microposti'
-    micropost_form:
-      compose_micropost: Comporre un nuovo micropost...
-      post: Post
-      characters_remaining: ! '&nbsp;caratteri rimanenti.'
-    feed_item:
-      time_posted_ago: Pubblicato %{time} fa.
-    delete_micropost:
-      delete: Anulla
-      you_sure: Sei sicuro?
-    stats:
-      following: following
-      followers: follower
   activerecord:
-    models:
-      user: Utente
-      micropost: Micropost
     attributes:
+      micropost:
+        content: Contenuento
       user:
-        name: Nome
         email: Email
+        name: Nome
         password: Password
         password_confirmation: Confirma
         password_digest: Password
-      micropost:
-        content: Contenuento
-  flash:
-    welcome: Benvenuti al Esempio App!
-    invalid_credentials: Invalido email/password combinazione
-    profile_updated: Profilo Aggiornato
-    sign_in: Accedi per favore.
-    user_destroyed: Utente annulato.
-    no_admin_suicide: Mi dispiace %{name}. Purtroppo non posso farlo.
-    micropost_created: Micropost creato!
-  static_pages:
-    about:
-      about_us: Che Cosa
-    contact:
-      contact: Contatti
-    help:
-      help: Aiuto
-    home:
-      post: Post
-    home_signed_in:
-      micropost_feed: Feed di micropost
-    home_not_signed_in:
-      sign_up: Registrati ora!
-  users:
-    show:
-      microposts: Microposts (%{count})
-    index:
-      all_users: Tutti utenti
-    user:
-      delete: Anulla
-      you_sure: Sei sicuro?
-    new:
-      sign_up: Registrati
-      create_account: Creare il mio account
-    edit:
-      change: cambia
-      update_profile: Aggiorni il tuo profilo
-      edit_user: Modifica Utente
-      save_changes: Salva le modifiche
-    fields:
-      name: Nome
-      email: Email
-      password: Password
-      confirmation: Confirma
-    follow:
-      follow: Follow
-    unfollow:
-      unfollow: Unfollow
-    show_follow:
-      following: Following
-      followers: Followers
-      view_my_profile: Visualizza il mio profilo
-      microposts: ! 'Microposts:'
-  microposts:
-    micropost:
-      time_posted_ago: Pubblicato %{time} fa.
-  sessions:
-    new:
-      sign_in: Accedi
-      email: Email
-      password: Password
-      new_user: Nuovo Utente?
-      sign_up: Registrati ora!
+    models:
+      micropost: Micropost
+      user: Utente
   faker:
     lorem:
-      words:
-      - inferno
-      - canto
-      - i
-      - nel
-      - mezzo
-      - del
-      - cammin
-      - di
-      - nostra
-      - vita
-      - mi
-      - ritrovai
-      - per
-      - una
-      - selva
-      - oscura
-      - che
-      - la
-      - diritta
-      - via
-      - era
-      - smarrita
-      - ahi
-      - quanto
-      - a
-      - dir
-      - qual
-      - e
-      - cosa
-      - dura
-      - esta
-      - selvaggia
-      - e
-      - aspra
-      - forte
-      - che
-      - nel
-      - pensier
-      - rinova
-      - paura
-      - tante
-      - amara
-      - poco
-      - piu
-      - morte
-      - ma
-      - trattar
-      - ben
-      - chi
-      - vi
-      - trovai
-      - diro
-      - de
-      - laltre
-      - cose
-      - vho
-      - scorte
-      - io
-      - non
-      - so
-      - ridir
-      - comi
-      - vintrai
-      - tantera
-      - pien
-      - sonno
-      - quel
-      - punto
-      - verace
-      - abbandonai
-      - ma
-      - poi
-      - fui
-      - al
-      - pie
-      - dun
-      - colle
-      - giunto
-      - la
-      - dove
-      - terminava
-      - quella
-      - valle
-      - mavea
-      - paura
-      - il
-      - cor
-      - compunto
-      - guardai
-      - in
-      - alto
-      - vidi
-      - le
-      - sue
-      - spalle
-      - vestite
-      - gia
-      - de
-      - raggi
-      - pianeta
-      - mena
-      - dritto
-      - altrui
-      - ogne
-      - calle
-      - allor
-      - fu
-      - un
-      - queta
-      - lago
-      - mera
-      - durata
-      - notte
-      - passai
-      - con
-      - tanta
-      - pieta
-      - e
-      - come
-      - quei
-      - lena
-      - affannata
-      - uscito
-      - fuor
-      - pelago
-      - riva
-      - si
-      - volge
-      - lacqua
-      - perigliosa
-      - guata
-      - cosi
-      - lanimo
-      - mio
-      - chancor
-      - fuggiva
-      - volse
-      - retro
-      - rimirar
-      - lo
-      - passo
-      - lascio
-      - mai
-      - persona
-      - viva
-      - poi
-      - chei
-      - posato
-      - corpo
-      - lasso
-      - ripresi
-      - piaggia
-      - diserta
-      - si
-      - l
-      - fermo
-      - sempre
-      - basso
-      - ed
-      - ecco
-      - quasi
-      - cominciar
-      - lerta
-      - lonza
-      - leggera
-      - presta
-      - molto
-      - pel
-      - macolato
-      - coverta
-      - partia
-      - dinanzi
-      - volto
-      - anzi
-      - mpediva
-      - tanto
-      - mio
-      - cammino
-      - ritornar
-      - volte
-      - volto
-      - tempera
-      - dal
-      - principio
-      - mattino
-      - sol
-      - montava
-      - n
-      - su
-      - quelle
-      - stelle
-      - cheran
-      - lui
-      - quando
-      - lamor
-      - divino
-      - mosse
-      - prima
-      - belle
-      - cha
-      - bene
-      - sperar
-      - cagione
-      - fiera
-      - gaetta
-      - pelle
-      - lora
-      - tempo
-      - dolce
-      - stagione
-      - desse
-      - vista
-      - mapparve
-      - leone
-      - questi
-      - parea
-      - contra
-      - me
-      - venisse
-      - testalta
-      - rabbiosa
-      - fame
-      - laere
-      - ne
-      - tremesse
-      - lupa
-      - tutte
-      - brame
-      - sembiava
-      - carca
-      - sua
-      - magrezza
-      - molte
-      - genti
-      - fe
-      - viver
-      - grame
-      - questa
-      - porse
-      - gravezza
-      - chuscia
-      - vista
-      - chza
-      - laltezza
-      - volontieri
-      - acquista
-      - giugne
-      - perder
-      - face
       supplemental:
       - tutti
       - suoi
@@ -1071,3 +716,360 @@ it:
       - fue
       - intrai
       - silvestro
+      words:
+      - inferno
+      - canto
+      - i
+      - nel
+      - mezzo
+      - del
+      - cammin
+      - di
+      - nostra
+      - vita
+      - mi
+      - ritrovai
+      - per
+      - una
+      - selva
+      - oscura
+      - che
+      - la
+      - diritta
+      - via
+      - era
+      - smarrita
+      - ahi
+      - quanto
+      - a
+      - dir
+      - qual
+      - e
+      - cosa
+      - dura
+      - esta
+      - selvaggia
+      - e
+      - aspra
+      - forte
+      - che
+      - nel
+      - pensier
+      - rinova
+      - paura
+      - tante
+      - amara
+      - poco
+      - piu
+      - morte
+      - ma
+      - trattar
+      - ben
+      - chi
+      - vi
+      - trovai
+      - diro
+      - de
+      - laltre
+      - cose
+      - vho
+      - scorte
+      - io
+      - non
+      - so
+      - ridir
+      - comi
+      - vintrai
+      - tantera
+      - pien
+      - sonno
+      - quel
+      - punto
+      - verace
+      - abbandonai
+      - ma
+      - poi
+      - fui
+      - al
+      - pie
+      - dun
+      - colle
+      - giunto
+      - la
+      - dove
+      - terminava
+      - quella
+      - valle
+      - mavea
+      - paura
+      - il
+      - cor
+      - compunto
+      - guardai
+      - in
+      - alto
+      - vidi
+      - le
+      - sue
+      - spalle
+      - vestite
+      - gia
+      - de
+      - raggi
+      - pianeta
+      - mena
+      - dritto
+      - altrui
+      - ogne
+      - calle
+      - allor
+      - fu
+      - un
+      - queta
+      - lago
+      - mera
+      - durata
+      - notte
+      - passai
+      - con
+      - tanta
+      - pieta
+      - e
+      - come
+      - quei
+      - lena
+      - affannata
+      - uscito
+      - fuor
+      - pelago
+      - riva
+      - si
+      - volge
+      - lacqua
+      - perigliosa
+      - guata
+      - cosi
+      - lanimo
+      - mio
+      - chancor
+      - fuggiva
+      - volse
+      - retro
+      - rimirar
+      - lo
+      - passo
+      - lascio
+      - mai
+      - persona
+      - viva
+      - poi
+      - chei
+      - posato
+      - corpo
+      - lasso
+      - ripresi
+      - piaggia
+      - diserta
+      - si
+      - l
+      - fermo
+      - sempre
+      - basso
+      - ed
+      - ecco
+      - quasi
+      - cominciar
+      - lerta
+      - lonza
+      - leggera
+      - presta
+      - molto
+      - pel
+      - macolato
+      - coverta
+      - partia
+      - dinanzi
+      - volto
+      - anzi
+      - mpediva
+      - tanto
+      - mio
+      - cammino
+      - ritornar
+      - volte
+      - volto
+      - tempera
+      - dal
+      - principio
+      - mattino
+      - sol
+      - montava
+      - n
+      - su
+      - quelle
+      - stelle
+      - cheran
+      - lui
+      - quando
+      - lamor
+      - divino
+      - mosse
+      - prima
+      - belle
+      - cha
+      - bene
+      - sperar
+      - cagione
+      - fiera
+      - gaetta
+      - pelle
+      - lora
+      - tempo
+      - dolce
+      - stagione
+      - desse
+      - vista
+      - mapparve
+      - leone
+      - questi
+      - parea
+      - contra
+      - me
+      - venisse
+      - testalta
+      - rabbiosa
+      - fame
+      - laere
+      - ne
+      - tremesse
+      - lupa
+      - tutte
+      - brame
+      - sembiava
+      - carca
+      - sua
+      - magrezza
+      - molte
+      - genti
+      - fe
+      - viver
+      - grame
+      - questa
+      - porse
+      - gravezza
+      - chuscia
+      - vista
+      - chza
+      - laltezza
+      - volontieri
+      - acquista
+      - giugne
+      - perder
+      - face
+  flash:
+    invalid_credentials: Invalido email/password combinazione
+    micropost_created: Micropost creato!
+    no_admin_suicide: Mi dispiace %{name}. Purtroppo non posso farlo.
+    profile_updated: Profilo Aggiornato
+    sign_in: Accedi per favore.
+    user_destroyed: Utente annulato.
+    welcome: Benvenuti al Esempio App!
+  layouts:
+    application:
+      base_title: Ruby on Rails Tutorial Esempio App
+    footer:
+      about: Che Cosa
+      author: di Michael Hartl
+      contact: Contatti
+      news: Notizie
+      rails_tutorial: Rails Tutorial
+    header:
+      account: Account
+      help: Aiuto
+      home: Home
+      profile: Profilo
+      sample_app: Esempio App
+      settings: Impostazioni
+      sign_in: Accedi
+      sign_out: Esci
+      users: Utenti
+  microposts:
+    micropost:
+      time_posted_ago: Pubblicato %{time} fa.
+  sessions:
+    new:
+      email: Email
+      new_user: Nuovo Utente?
+      password: Password
+      sign_in: Accedi
+      sign_up: Registrati ora!
+  shared:
+    delete_micropost:
+      delete: Anulla
+      you_sure: Sei sicuro?
+    error_messages:
+      form_errors:
+        one: Il form contiene %{count} errore
+        other: Il form contiene %{count} errori
+    feed_item:
+      time_posted_ago: Pubblicato %{time} fa.
+    micropost_form:
+      characters_remaining: ! '&nbsp;caratteri rimanenti.'
+      compose_micropost: Comporre un nuovo micropost...
+      post: Post
+    stats:
+      followers: follower
+      following: following
+    user_info:
+      microposts:
+        one: ! '%{count} micropost'
+        other: ! '%{count} microposti'
+      view_my_profile: Visualizza il mio profilo
+  static_pages:
+    about:
+      about_us: Che Cosa
+    contact:
+      contact: Contatti
+    help:
+      help: Aiuto
+    home:
+      post: Post
+    home_not_signed_in:
+      sign_up: Registrati ora!
+    home_signed_in:
+      micropost_feed: Feed di micropost
+  users:
+    edit:
+      change: cambia
+      edit_user: Modifica Utente
+      save_changes: Salva le modifiche
+      update_profile: Aggiorni il tuo profilo
+    fields:
+      confirmation: Confirma
+      email: Email
+      name: Nome
+      password: Password
+    follow:
+      follow: Follow
+    index:
+      all_users: Tutti utenti
+    new:
+      create_account: Creare il mio account
+      sign_up: Registrati
+    show:
+      microposts:
+        one: Microposts (%{count})
+        other: Microposts (%{count})
+    show_follow:
+      followers: Followers
+      following: Following
+      microposts: ! 'Microposts:'
+      view_my_profile: Visualizza il mio profilo
+    unfollow:
+      unfollow: Unfollow
+    user:
+      delete: Anulla
+      you_sure: Sei sicuro?
+  will_paginate:
+    next_label: Seguente
+    previous_label: Precedente

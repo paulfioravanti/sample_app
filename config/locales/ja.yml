@@ -1,124 +1,199 @@
 ja:
-  layouts:
-    application:
-      base_title: Ruby on Railsチュートリアル サンプルアップ
-    header:
-      home: ホーム
-      help: ヘルプ
-      sign_in: ログイン
-      sample_app: サンプルアップ
-      users: ユーザ
-      account: アカウント
-      profile: プロフィール
-      sign_out: ログアウト
-      settings: 設定
-    footer:
-      about: サイトについて
-      contact: お問い合わせ
-      news: ニュース
-      rails_tutorial: Railsチュートリアル
-      author: by マイケル・ハートル
-  will_paginate:
-    previous_label: 前へ
-    next_label: 次へ
-  shared:
-    error_messages:
-      form_errors:
-        one: フォームに1つのエラーがある
-        other: フォームに%{count}つのエラーがある
-    user_info:
-      view_my_profile: プロフィルを参照
-      microposts:
-        one: 1つのマイクロポスト
-        other: ! '%{count}つのマイクロポスト'
-    micropost_form:
-      compose_micropost: マイクロポストを新規作成・・・
-      post: 投稿
-      characters_remaining: の入力可能な文字が残ります。
-    feed_item:
-      time_posted_ago: ! '%{time}前に投稿された。'
-    delete_micropost:
-      delete: 削除
-      you_sure: 本当に削除しますか？
-    stats:
-      following: フォロー
-      followers: フォロワー
   activerecord:
-    models:
-      user: ユーザー
-      micropost: マイクロポスト
     attributes:
+      micropost:
+        content: 内容
       user:
-        name: 名前
         email: メール
+        name: 名前
         password: パスワード
         password_confirmation: 確認
         password_digest: パスワード
-      micropost:
-        content: 内容
-  flash:
-    welcome: サンプルアップへようこそ!
-    invalid_credentials: 不正なメール／パス
-    profile_updated: プロフィールが更新されました
-    sign_in: サインインしてください。
-    user_destroyed: ユーザを削除しました。
-    no_admin_suicide: ! '%{name}様、恐れ入りますが、それをやらせることができません'
-    micropost_created: マイクロポストが正常に作成された！
-  static_pages:
-    about:
-      about_us: サイトについて
-    contact:
-      contact: お問い合わせ
-    help:
-      help: ヘルプ
-    home:
-      post: 投稿
-    home_signed_in:
-      micropost_feed: マイクロポスト・フィード
-    home_not_signed_in:
-      sign_up: 今すぐ登録！
-  users:
-    show:
-      microposts: マイクロポスト (%{count})
-    index:
-      all_users: ユーザ一覧
-    user:
-      delete: 削除
-      you_sure: 本当に削除しますか？
-    new:
-      sign_up: ユーザ登録
-      create_account: アカウントを作成
-    edit:
-      change: 変更
-      update_profile: プロフールを更新
-      edit_user: ユーザ編集
-      save_changes: 変更を保存
-    fields:
-      name: 名前
-      email: メール
-      password: パスワード
-      confirmation: 確認
-    follow:
-      follow: フォロー
-    unfollow:
-      unfollow: アンフォロー
-    show_follow:
-      following: フォロイング
-      followers: フォロワー
-      view_my_profile: プロフィルを参照
-      microposts: マイクロポスト：
-  microposts:
-    micropost:
-      time_posted_ago: ! '%{time}前に投稿された。'
-  sessions:
-    new:
-      sign_in: サインイン
-      email: メール
-      password: パスワード
-      new_user: 新しいユーザ?
-      sign_up: 今すぐ登録！
+    models:
+      micropost: マイクロポスト
+      user: ユーザー
   faker:
     lorem:
+      supplemental:
+      - 雨
+      - は
+      - 羅生門
+      - をつつんで
+      - 遠く
+      - から
+      - ざあっと
+      - 云う音
+      - をあつめてくる
+      - 夕闇
+      - 次第に
+      - 空
+      - を低く
+      - して
+      - 見上げると、門の屋根
+      - が
+      - 斜め
+      - につき出した
+      - 甍の先に
+      - 重たく
+      - うす暗い
+      - 雲
+      - を支えている
+      - どうにも
+      - ならない事
+      - どうにか
+      - する為
+      - には
+      - 手段
+      - を選んでいる
+      - 遑
+      - はい
+      - 選んでいれば、築地の下か、道ばたの土の上で、饑死をするば
+      - 少なからず
+      - この
+      - 平安朝
+      - の
+      - 下人
+      - に
+      - 影響
+      - した
+      - 申の刻下
+      - りから
+      - ふり出した
+      - 未だ
+      - 上がる
+      - がない
+      - そこ
+      - 何を措いても
+      - 差当たり
+      - 明日の暮し
+      - を
+      - しよう
+      - として
+      - ーー云わば
+      - もない考え
+      - たどりながら
+      - さっき
+      - 朱雀
+      - 大路
+      - ふる雨
+      - の音
+      - 聞くとも
+      - なく聞いていた
+      - なりである
+      - そうして
+      - この門
+      - の上へ
+      - 持って来て
+      - 犬のように
+      - 捨てられてしまう
+      - ばかり
+      - である
+      - 選ばない
+      - とすれば
+      - の考えは
+      - 何度も
+      - 同じ道
+      - 低徊した
+      - 揚句
+      - やっと
+      - この局所へ
+      - 逢着して
+      - しかし
+      - すれば
+      - いつも
+      - で
+      - たっても
+      - 結局
+      - であった
+      - という事
+      - 肯定しながらも
+      - 為に
+      - 当然
+      - この後
+      - に来る
+      - 可き
+      - 盗人
+      - になるより
+      - 外に
+      - 仕方がない
+      - と云う事
+      - 積極的に
+      - 肯定する
+      - だけ
+      - 勇気が出ず
+      - にいた
+      - のである
+      - 大きな嚏
+      - をして
+      - それから
+      - 大儀そうに
+      - 立上がった
+      - 夕冷え
+      - のする
+      - 京都
+      - もう
+      - 火桶
+      - 欲しい程
+      - 寒さ
+      - 風
+      - 門の柱
+      - と
+      - 柱との間
+      - と共に
+      - 遠慮なく
+      - 吹きぬける
+      - 丹塗の柱に
+      - とまっていた
+      - きりぎり
+      - すも
+      - どこかへ
+      - 行ってしまった
+      - 頸
+      - ちぢめながら
+      - 山吹
+      - 汗衫に重ねた
+      - 紺の襖
+      - 肩
+      - 高くして
+      - 門のまわり
+      - 見まわした
+      - 雨風
+      - の患
+      - 人目にかかる惧
+      - のない
+      - 一晩楽
+      - にねられそうな
+      - 所があれば
+      - そこで
+      - ともかくも
+      - 夜を
+      - と思ったから
+      - すると
+      - 幸門
+      - の上の
+      - 楼へ上る
+      - 幅の広い
+      - 之
+      - も
+      - 丹を塗った
+      - 梯子
+      - についた
+      - 上なら
+      - 人がいた
+      - にしても
+      - どうせ
+      - 死人
+      - 腰にさげた
+      - 聖柄
+      - 太刀
+      - 鞘走らないように
+      - 気をつけながら
+      - 藁草履
+      - はいた足
+      - その
+      - の一番下
+      - 段
+      - へふみかけた
       words:
       - 或日
       - の暮方
@@ -368,183 +443,106 @@ ja:
       - 適当
       - その上
       - 空模様
-      supplemental:
-      - 雨
-      - は
-      - 羅生門
-      - をつつんで
-      - 遠く
-      - から
-      - ざあっと
-      - 云う音
-      - をあつめてくる
-      - 夕闇
-      - 次第に
-      - 空
-      - を低く
-      - して
-      - 見上げると、門の屋根
-      - が
-      - 斜め
-      - につき出した
-      - 甍の先に
-      - 重たく
-      - うす暗い
-      - 雲
-      - を支えている
-      - どうにも
-      - ならない事
-      - どうにか
-      - する為
-      - には
-      - 手段
-      - を選んでいる
-      - 遑
-      - はい
-      - 選んでいれば、築地の下か、道ばたの土の上で、饑死をするば
-      - 少なかraず
-      - この
-      - 平安朝
-      - の
-      - 下人
-      - に
-      - 影響
-      - した
-      - 申の刻下
-      - りから
-      - ふり出した
-      - 未だ
-      - 上がる
-      - がない
-      - そこ
-      - 何を措いても
-      - 差当たり
-      - 明日の暮し
-      - を
-      - しよう
-      - として
-      - ーー云わば
-      - もない考え
-      - たどりながら
-      - さっき
-      - 朱雀
-      - 大路
-      - ふる雨
-      - の音
-      - 聞くとも
-      - なく聞いていた
-      - なりである
-      - そうして
-      - この門
-      - の上へ
-      - 持って来て
-      - 犬のように
-      - 捨てられてしまう
-      - ばかり
-      - である
-      - 選ばない
-      - とすれば
-      - の考えは
-      - 何度も
-      - 同じ道
-      - 低徊した
-      - 揚句
-      - やっと
-      - この局所へ
-      - 逢着して
-      - しかし
-      - すれば
-      - いつも
-      - で
-      - たっても
-      - 結局
-      - であった
-      - という事
-      - 肯定しながらも
-      - 為に
-      - 当然
-      - この後
-      - に来る
-      - 可き
-      - 盗人
-      - になるより
-      - 外に
-      - 仕方がない
-      - と云う事
-      - 積極的に
-      - 肯定する
-      - だけ
-      - 勇気が出ず
-      - にいた
-      - のである
-      - 大きな嚏
-      - をして
-      - それから
-      - 大儀そうに
-      - 立上がった
-      - 夕冷え
-      - のする
-      - 京都
-      - もう
-      - 火桶
-      - 欲しい程
-      - 寒さ
-      - 風
-      - 門の柱
-      - と
-      - 柱との間
-      - と共に
-      - 遠慮なく
-      - 吹きぬける
-      - 丹塗の柱に
-      - とまっていた
-      - きりぎり
-      - すも
-      - どこかへ
-      - 行ってしまった
-      - 頸
-      - ちぢめながら
-      - 山吹
-      - 汗衫に重ねた
-      - 紺の襖
-      - 肩
-      - 高くして
-      - 門のまわり
-      - 見まわした
-      - 雨風
-      - の患
-      - 人目にかかる惧
-      - のない
-      - 一晩楽
-      - にねられそうな
-      - 所があれば
-      - そこで
-      - ともかくも
-      - 夜を
-      - と思ったから
-      - すると
-      - 幸門
-      - の上の
-      - 楼へ上る
-      - 幅の広い
-      - 之
-      - も
-      - 丹を塗った
-      - 梯子
-      - についた
-      - 上なら
-      - 人がいた
-      - にしても
-      - どうせ
-      - 死人
-      - 腰にさげた
-      - 聖柄
-      - 太刀
-      - 鞘走らないように
-      - 気をつけながら
-      - 藁草履
-      - はいた足
-      - その
-      - の一番下
-      - 段
-      - へふみかけた
+  flash:
+    invalid_credentials: 不正なメール／パス
+    micropost_created: マイクロポストが正常に作成された！
+    no_admin_suicide: ! '%{name}様、恐れ入りますが、それをやらせることができません'
+    profile_updated: プロフィールが更新されました
+    sign_in: サインインしてください。
+    user_destroyed: ユーザを削除しました。
+    welcome: サンプルアップへようこそ!
+  layouts:
+    application:
+      base_title: Ruby on Railsチュートリアル サンプルアップ
+    footer:
+      about: サイトについて
+      author: by マイケル・ハートル
+      contact: お問い合わせ
+      news: ニュース
+      rails_tutorial: Railsチュートリアル
+    header:
+      account: アカウント
+      help: ヘルプ
+      home: ホーム
+      profile: プロフィール
+      sample_app: サンプルアップ
+      settings: 設定
+      sign_in: ログイン
+      sign_out: ログアウト
+      users: ユーザ
+  microposts:
+    micropost:
+      time_posted_ago: ! '%{time}前に投稿された。'
+  sessions:
+    new:
+      email: メール
+      new_user: 新しいユーザ?
+      password: パスワード
+      sign_in: サインイン
+      sign_up: 今すぐ登録！
+  shared:
+    delete_micropost:
+      delete: 削除
+      you_sure: 本当に削除しますか？
+    error_messages:
+      form_errors:
+        other: フォームに%{count}つのエラーがある
+    feed_item:
+      time_posted_ago: ! '%{time}前に投稿された。'
+    micropost_form:
+      characters_remaining: の入力可能な文字が残ります。
+      compose_micropost: マイクロポストを新規作成・・・
+      post: 投稿
+    stats:
+      followers: フォロワー
+      following: フォロー
+    user_info:
+      microposts:
+        other: ! '%{count}つのマイクロポスト'
+      view_my_profile: プロフィルを参照
+  static_pages:
+    about:
+      about_us: サイトについて
+    contact:
+      contact: お問い合わせ
+    help:
+      help: ヘルプ
+    home:
+      post: 投稿
+    home_not_signed_in:
+      sign_up: 今すぐ登録！
+    home_signed_in:
+      micropost_feed: マイクロポスト・フィード
+  users:
+    edit:
+      change: 変更
+      edit_user: ユーザ編集
+      save_changes: 変更を保存
+      update_profile: プロフールを更新
+    fields:
+      confirmation: 確認
+      email: メール
+      name: 名前
+      password: パスワード
+    follow:
+      follow: フォロー
+    index:
+      all_users: ユーザ一覧
+    new:
+      create_account: アカウントを作成
+      sign_up: ユーザ登録
+    show:
+      microposts: マイクロポスト (%{count})
+    show_follow:
+      followers: フォロワー
+      following: フォロイング
+      microposts: マイクロポスト：
+      view_my_profile: プロフィルを参照
+    unfollow:
+      unfollow: アンフォロー
+    user:
+      delete: 削除
+      you_sure: 本当に削除しますか？
+  will_paginate:
+    next_label: 次へ
+    previous_label: 前へ

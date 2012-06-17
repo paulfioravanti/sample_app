@@ -79,8 +79,10 @@ describe "Micropost pages" do
       before { visit root_path(locale) }
 
       describe "micropost counts" do
-        let(:one) { t('shared.user_info.microposts.one') }
-        let(:other) { t('shared.user_info.microposts.other', count: user.microposts.count) }
+        let(:one)   { t('shared.user_info.microposts', 
+                        count: 1) }
+        let(:other) { t('shared.user_info.microposts', 
+                        count: user.microposts.count) }
 
         context "when user has zero microposts" do
           it { should have_selector('span', text: other) }
