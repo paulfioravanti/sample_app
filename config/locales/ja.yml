@@ -485,8 +485,7 @@ ja:
       delete: 削除
       you_sure: 本当に削除しますか？
     error_messages:
-      form_errors:
-        other: フォームに%{count}つのエラーがある
+      form_errors: フォームに%{count}つのエラーがある
     feed_item:
       time_posted_ago: ! '%{time}前に投稿された。'
     micropost_form:
