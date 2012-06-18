@@ -24,24 +24,6 @@
 #   pool: 5
 #   timeout: 5000
 
-cucumber:
-  <<: *test
-
-development:
-  <<: *defaults
-
-test: &test
-  <<: *defaults
-
-production:
-  <<: *defaults
-
-defaults: &defaults
-  pool: 5
-  timeout: 5000
-  host: localhost
-  <<: *<%= ENV['DB'] || "sqlite" %>
-
 sqlite: &sqlite
   adapter: sqlite3
   database: db/<%= Rails.env %>.sqlite3
@@ -58,3 +40,21 @@ mysql: &mysql
 #   password:
 #   database: sample_app_<%= Rails.env %>
 #   min_messages: ERROR
+
+defaults: &defaults
+  pool: 5
+  timeout: 5000
+  host: localhost
+  <<: *<%= ENV['DB'] || "sqlite" %>
+
+development:
+  <<: *defaults
+
+test: &test
+  <<: *defaults
+
+production:
+  <<: *defaults
+
+cucumber:
+  <<: *test
