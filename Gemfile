@@ -22,8 +22,16 @@ gem 'globalize3', '0.2.0'
 # i18n for localeapp
 gem 'localeapp', '0.4.3'
 
-# Database gems
-gem 'pg', '0.12.2'
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  # To access Ruby objects in Javascript
+  gem 'therubyracer', '0.10.1'
+  gem 'sass-rails',   '3.2.5'
+  gem 'coffee-rails', '3.2.2'
+  # Ruby wrapper for UglifyJS JavaScript compressor.
+  gem 'uglifier', '1.2.4'
+end
 
 group :development do
   # for annotating model files with their properties
@@ -35,21 +43,9 @@ end
 
 group :development, :test do
   gem 'sqlite3', '1.3.6'
-  gem 'mysql2', '0.3.11'
   gem 'rspec-rails', '2.10.1'
   # for autotesting with rspec
   gem 'guard-rspec', '1.0.1'
-end
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  # To access Ruby objects in Javascript
-  gem 'therubyracer', '0.10.1'
-  gem 'sass-rails',   '3.2.5'
-  gem 'coffee-rails', '3.2.2'
-  # Ruby wrapper for UglifyJS JavaScript compressor.
-  gem 'uglifier', '1.2.4'
 end
 
 group :test do
@@ -70,9 +66,11 @@ group :test do
   gem 'rb-fsevent', '0.9.1', require: false
   # Growl notifications
   gem 'growl', '1.0.3'
+  # Test mysql on Travis CI
+  gem 'mysql2', '0.3.11'
 end
 
-# group :production do
-#   # Postgres for Heroku deployment
-#   gem 'pg', '0.12.2'
-# end
+group :test, :production do
+  # Postgres for Travis CI testing and Heroku deployment
+  gem 'pg', '0.12.2'
+end
