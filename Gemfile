@@ -22,6 +22,9 @@ gem 'globalize3', '0.2.0'
 # i18n for localeapp
 gem 'localeapp', '0.4.3'
 
+# Database gems
+# gem 'pg', '0.12.2'
+
 group :development do
   # for annotating model files with their properties
   gem 'annotate', '~> 2.4.1.beta'
@@ -32,6 +35,7 @@ end
 
 group :development, :test do
   gem 'sqlite3', '1.3.6'
+  gem 'mysql2', '0.3.11'
   gem 'rspec-rails', '2.10.1'
   # for autotesting with rspec
   gem 'guard-rspec', '1.0.1'
