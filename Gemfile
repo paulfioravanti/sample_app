@@ -23,7 +23,7 @@ gem 'globalize3', '0.2.0'
 gem 'localeapp', '0.4.3'
 
 # Database gems
-# gem 'pg', '0.12.2'
+gem 'pg', '0.12.2'
 
 group :development do
   # for annotating model files with their properties
@@ -72,7 +72,7 @@ group :test do
   gem 'growl', '1.0.3'
 end
 
-group :production do
-  # Postgres for Heroku deployment
-  gem 'pg', '0.12.2'
-end
+# group :production do
+#   # Postgres for Heroku deployment
+#   gem 'pg', '0.12.2'
+# end

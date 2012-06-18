@@ -10,7 +10,7 @@ rvm:
 env:
   - DB=sqlite
   - DB=mysql
-  #- DB=postgresql
+  - DB=postgresql
 # uncomment this line if your project needs to run something other than `rake`:
 script: 
   - RAILS_ENV=test bundle exec rake --trace db:migrate
@@ -18,5 +18,5 @@ script:
   - bundle exec rspec spec/
 before_script:
   - mysql -e 'create database sample_app_test'
-  #- psql -c 'create database sample_app_test' -U postgres
-bundler_args: --without production --binstubs=./bundler_stubs
+  - psql -c 'create database sample_app_test' -U postgres
+bundler_args: --binstubs=./bundler_stubs
