@@ -974,6 +974,9 @@ it:
     sign_in: Accedi per favore.
     user_destroyed: Utente annulato.
     welcome: Benvenuti al Esempio App!
+  i18n:
+    plural:
+      rule: ! 'lambda { |n| n == 1 ? :one : :other }'
   layouts:
     application:
       base_title: Ruby on Rails Tutorial Esempio App

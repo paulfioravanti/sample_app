@@ -1113,6 +1113,9 @@ en:
     sign_in: Please sign in.
     user_destroyed: User destroyed.
     welcome: Welcome to the Sample App!
+  i18n:
+    plural:
+      rule: ! 'lambda { |n| n == 1 ? :one : :other }'
   layouts:
     application:
       base_title: Ruby on Rails Tutorial Sample App

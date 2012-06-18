@@ -451,6 +451,9 @@ ja:
     sign_in: サインインしてください。
     user_destroyed: ユーザを削除しました。
     welcome: サンプルアップへようこそ!
+  i18n:
+    plural:
+      rule: ! 'lambda { |n| n == 1 ? :one : :other }'
   layouts:
     application:
       base_title: Ruby on Railsチュートリアル サンプルアップ
@@ -497,6 +500,7 @@ ja:
       following: フォロー
     user_info:
       microposts:
+        one: ! '%{count}つのマイクロポスト'
         other: ! '%{count}つのマイクロポスト'
       view_my_profile: プロフィルを参照
   static_pages:
@@ -531,7 +535,9 @@ ja:
       create_account: アカウントを作成
       sign_up: ユーザ登録
     show:
-      microposts: マイクロポスト (%{count})
+      microposts: 
+        one: マイクロポスト (%{count})
+        other: マイクロポスト (%{count})
     show_follow:
       followers: フォロワー
       following: フォロイング
