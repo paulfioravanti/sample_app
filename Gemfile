@@ -35,7 +35,7 @@ end
 
 group :development do
   # for annotating model files with their properties
-  gem 'annotate', '~> 2.4.1.beta'
+  gem 'annotate', '~> 2.5.0.pre1'
   # For html/erb to haml parsing
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '2.3.1'
@@ -45,7 +45,7 @@ group :development, :test do
   gem 'sqlite3', '1.3.6'
   gem 'rspec-rails', '2.10.1'
   # for autotesting with rspec
-  gem 'guard-rspec', '1.0.1'
+  gem 'guard-rspec', '1.1.0'
 end
 
 group :test do
@@ -57,9 +57,9 @@ group :test do
   gem 'cucumber-rails', '1.3.0', require: false
   gem 'database_cleaner', '0.8.0'
   # speed up test server
-  gem 'spork', '0.9.2'
+  gem 'spork', '1.0.0rc3'
   # guard/spork integration
-  gem 'guard-spork', '1.0.0'
+  gem 'guard-spork', '1.0.1'
   # Helps in debugging tests by being able to launch browser
   gem 'launchy', '2.1.0'
   # Mac-dependent gems
@@ -72,5 +72,5 @@ end
 
 group :test, :production do
   # Postgres for Travis CI testing and Heroku deployment
-  gem 'pg', '0.12.2'
+  gem 'pg', '0.13.2'
 end
