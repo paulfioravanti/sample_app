@@ -1,4 +1,5 @@
-# Ruby on Rails Tutorial: sample application [![Build Status](https://secure.travis-ci.org/paulfioravanti/sample_app.png)](http://travis-ci.org/paulfioravanti/sample_app)
+# Ruby on Rails Tutorial: sample application 
+[![Build Status](https://secure.travis-ci.org/paulfioravanti/sample_app.png)](http://travis-ci.org/paulfioravanti/sample_app) [![Dependency Status](https://gemnasium.com/paulfioravanti/sample_app.png?travis)](https://gemnasium.com/paulfioravanti/sample_app)
 
 This is the sample application for
 [*Ruby on Rails Tutorial: Learn Rails by Example*](http://railstutorial.org/)

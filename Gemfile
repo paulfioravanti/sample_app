@@ -38,7 +38,7 @@ group :development do
   gem 'annotate', '~> 2.5.0.pre1'
   # For html/erb to haml parsing
   gem 'hpricot', '0.8.6'
-  gem 'ruby_parser', '2.3.1'
+  gem 'ruby_parser', '3.0.0.a1'
 end
 
 group :development, :test do
@@ -72,5 +72,5 @@ end
 
 group :test, :production do
   # Postgres for Travis CI testing and Heroku deployment
-  gem 'pg', '0.13.2'
+  gem 'pg', '0.14.0.pre.353'
 end
