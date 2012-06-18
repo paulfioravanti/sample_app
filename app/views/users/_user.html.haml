@@ -3,4 +3,5 @@
   = link_to user.name, user
   - if current_user.admin? && !current_user?(user)
     |
-    = link_to t('.delete'), user, method: :delete, confirm: t('.you_sure')
+    = link_to t('.delete'), user, method: :delete, 
+                                  data: { confirm: t('.you_sure') }

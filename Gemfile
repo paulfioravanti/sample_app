@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.5'
+gem 'rails', '3.2.6'
 # Twitter frameworks to make nice UI design elements
 gem 'bootstrap-sass', '2.0.3.1'
 gem 'bootstrap-will_paginate', '0.0.7'
