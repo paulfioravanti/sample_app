@@ -34,12 +34,12 @@ mysql: &mysql
   password:
   database: sample_app_<%= Rails.env %>
 
-# postgresql: &postgresql
-#   adapter: postgresql
-#   username: postgres
-#   password:
-#   database: sample_app_<%= Rails.env %>
-#   min_messages: ERROR
+postgresql: &postgresql
+  adapter: postgresql
+  username: postgres
+  password:
+  database: sample_app_<%= Rails.env %>
+  min_messages: ERROR
 
 defaults: &defaults
   pool: 5
