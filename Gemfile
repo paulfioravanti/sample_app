@@ -30,7 +30,7 @@ group :assets do
   gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
-  gem 'uglifier', '1.2.4'
+  gem 'uglifier', '1.2.5'
 end
 
 group :development do
