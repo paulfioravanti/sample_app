@@ -1,6 +1,6 @@
 .center.hero-unit
   :markdown
-    #{render file: "static_pages/home.#{params[:locale]}.md"}
+    #{render file: localized_page_for(action_name, params[:locale])}
   = link_to t('.sign_up'), signup_path, 
             class: "btn btn-large btn-primary"
 
