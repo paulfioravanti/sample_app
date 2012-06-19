@@ -15,10 +15,10 @@ class ApplicationController < ActionController::Base
     end
 
     def set_locale
-      if params[:set_locale].present?
-        I18n.locale = params[:set_locale]
+      I18n.locale = if params[:set_locale].present?
+        params[:set_locale]
       else
-        I18n.locale = params[:locale]
+        params[:locale]
       end
     end
     
@@ -32,8 +32,8 @@ class ApplicationController < ActionController::Base
 
       if params[:set_locale].present?
         options = { controller: @redirect_controller, 
-                    action: @redirect_action, 
-                    locale: I18n.locale }
+                    action:     @redirect_action, 
+                    locale:     I18n.locale }
         options[:page] = params[:page] if params[:page].present?
         redirect_to options
       end
