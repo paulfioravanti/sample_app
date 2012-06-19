@@ -22,27 +22,38 @@ class ApplicationController < ActionController::Base
       end
     end
     
+    # redirect_action and redirect_controller instance variables exist 
+    # in case a locale change is made upon an error screen.  
+    # Rather than redirect back to index, it will now redirect to the
+    # appropriate page.
     def locale_redirect
-      # redirect_action and redirect_controller variables exist in case a 
-      # locale change is made upon an error screen.  Rather than redirect 
-      # back to index, it will now redirect to the appropriate page.
-      @redirect_action = action_name
-      if @redirect_action == 'create'
-        @redirect_action = 'new'
-      elsif @redirect_action == 'update'
-        @redirect_action = 'edit'
-      end
-
-      @redirect_controller = controller_name
-      if @redirect_controller == 'microposts' && action_name == 'create'
-        @redirect_controller = 'static_pages'
-        @redirect_action = 'home'
-      end
+      @redirect_action = redirect_action      
+      @redirect_controller = redirect_controller
 
       if params[:set_locale].present?
-        options = { controller: @redirect_controller, action: @redirect_action, locale: I18n.locale }
-        options[:page] = params[:page] if params[:page]
+        options = { controller: @redirect_controller, 
+                    action: @redirect_action, 
+                    locale: I18n.locale }
+        options[:page] = params[:page] if params[:page].present?
         redirect_to options
       end
     end
+
+    def redirect_action
+      case action_name
+        when 'create' then 'new'
+        when 'update' then 'edit'
+        else action_name
+      end
+    end
+
+    def redirect_controller
+      case
+        when controller_name == 'microposts' && action_name == 'create'
+          @redirect_action = 'home'
+          'static_pages'
+        else controller_name
+      end
+    end
+
 end
