@@ -5,7 +5,7 @@
     %section
       = render 'shared/stats'
     %section
-      = render 'shared/micropost_form'
+      = render 'shared/micropost_form', micropost: @micropost
   .span8
     %h3= t('.micropost_feed')
-    = render 'shared/feed'
+    = render 'shared/feed', feed_items: @feed_items

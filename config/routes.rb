@@ -20,7 +20,7 @@ SampleApp::Application.routes.draw do
   end
 
   resources :relationships, only: [:create, :destroy]
-  
+
   match '*path', to: redirect("/#{I18n.default_locale}/%{path}")
   match '',      to: redirect("/#{I18n.default_locale}")
 end

@@ -1,7 +1,7 @@
 %li
   %span.content= wrap(micropost.content)
   %span.timestamp
-    = t('.time_posted_ago', 
+    = t('.time_posted_ago',
         time: time_ago_in_words(micropost.created_at))
   - if current_user?(micropost.user)
     = render 'shared/delete_micropost', micropost: micropost

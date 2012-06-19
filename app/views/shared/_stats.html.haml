@@ -1,10 +1,10 @@
-- @user ||= current_user
+- user ||= current_user
 .stats
-  %a{href: following_user_path(@user)}
+  %a{href: following_user_path(user)}
     %strong#following.stat
-      = @user.followed_users.count
+      = user.followed_users.count
     = t('.following')
-  %a{href: followers_user_path(@user)}
+  %a{href: followers_user_path(user)}
     %strong#followers.stat
-      = @user.followers.count
+      = user.followers.count
     = t('.followers')

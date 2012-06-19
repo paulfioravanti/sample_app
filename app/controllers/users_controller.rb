@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :signed_in_user, 
+  before_filter :signed_in_user,
                 only: [:index, :edit, :update, :destroy, :following, :followers]
   before_filter :signed_in_users, only: [:new, :create]
   before_filter :correct_user,    only: [:edit, :update]
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      sign_in @user
+      sign_in(@user)
       flash[:success] = t('flash.welcome')
       redirect_to @user
     else
@@ -32,12 +32,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def update
     if @user.update_attributes(params[:user])
-      sign_in @user
+      sign_in(@user)
       flash[:success] = t('flash.profile_updated')
       redirect_to @user
     else

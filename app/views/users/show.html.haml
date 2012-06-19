@@ -5,11 +5,11 @@
       %h1
         = gravatar_for @user
         = @user.name
-    %section= render 'shared/stats'
+    %section= render 'shared/stats', user: @user
   .span8
-    = render 'follow_form' if signed_in?
+    = render 'follow_form', user: @user if signed_in?
     - if @user.microposts.any?
-      %h3= t('.microposts', count: @user.microposts.count) 
+      %h3= t('.microposts', count: @user.microposts.count)
       %ol.microposts
         = render @microposts
       = will_paginate @microposts

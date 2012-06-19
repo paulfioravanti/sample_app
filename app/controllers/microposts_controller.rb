@@ -6,7 +6,7 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(params[:micropost])
     LANGUAGES.transpose.last.each do |locale|
       next if locale == I18n.locale
-      @micropost.translations.build(locale: locale, 
+      @micropost.translations.build(locale: locale,
                                     content: params[:micropost][:content])
     end
     if @micropost.save
