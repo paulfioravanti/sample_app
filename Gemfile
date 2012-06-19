@@ -38,7 +38,7 @@ group :development do
   gem 'annotate', '~> 2.5.0.pre1'
   # For html/erb to haml parsing
   gem 'hpricot', '0.8.6'
-  gem 'ruby_parser', '3.0.0.a1'
+  gem 'ruby_parser', '2.3.1'
 end
 
 group :development, :test do
@@ -46,6 +46,7 @@ group :development, :test do
   gem 'rspec-rails', '2.10.1'
   # for autotesting with rspec
   gem 'guard-rspec', '1.1.0'
+  gem 'brakeman', '1.6.2'
 end
 
 group :test do
