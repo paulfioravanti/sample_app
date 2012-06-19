@@ -16,7 +16,7 @@ by [Michael Hartl](http://michaelhartl.com) (plus some modifications).
 - [RSpec](http://rspec.info/) test i18n and further refactoring
 - Addition of translations to dynamic data and its relevant sample data (microposts) using [Globalize3](https://github.com/svenfuchs/globalize3)
 - Slight [SCSS](http://sass-lang.com/) refactoring to use mix-ins, and additions to add styling to the language selector
-- Added app to [Travis CI](http://travis-ci.org/) and [Gemnasium](https://gemnasium.com/)
+- Added service hooks to [Travis CI](http://travis-ci.org/), [Gemnasium](https://gemnasium.com/), and [Rails Brakeman](http://rails-brakeman.com/repositories/50-paulfioravanti-sample_app)
 
 ### **TODO**s:
 - Try to improve the Micropost character countdown.  I'd love to be able to do proper pluralization of the text using the character count as well as change the text and count from, for example, "-2 characters remaining" to "2 characters over".  Question posted to StackOverflow [here](http://stackoverflow.com/q/10955850/567863)
