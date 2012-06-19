@@ -535,7 +535,7 @@ ja:
       create_account: アカウントを作成
       sign_up: ユーザ登録
     show:
-      microposts: 
+      microposts:
         one: マイクロポスト (%{count})
         other: マイクロポスト (%{count})
     show_follow:
