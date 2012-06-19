@@ -58,7 +58,7 @@ group :test do
   gem 'cucumber-rails', '1.3.0', require: false
   gem 'database_cleaner', '0.8.0'
   # speed up test server
-  gem 'spork', '1.0.0rc3'
+  gem 'spork', '0.9.0'
   # guard/spork integration
   gem 'guard-spork', '1.0.1'
   # Helps in debugging tests by being able to launch browser
