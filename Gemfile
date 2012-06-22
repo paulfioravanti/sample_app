@@ -76,5 +76,5 @@ end
 
 group :test, :production do
   # Test postgres on Travis CI and deploy on Heroku
-  gem 'pg', '0.13.2'
+  gem 'pg', '0.14.0.pre.353'
 end
