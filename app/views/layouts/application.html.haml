@@ -4,10 +4,13 @@
     %title= full_title(yield(:title))
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
+    = timeago_script_tag
     = csrf_meta_tags
     = render 'layouts/shim'
   %body
-    = render 'layouts/header'
+    = render 'layouts/header',
+             controller: @redirect_controller,
+             action: @redirect_action
     .container
       - flash.each do |key, value|
         = content_tag(:div, value, class: "alert alert-#{key}")

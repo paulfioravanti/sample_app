@@ -20,6 +20,6 @@
           - else
             %li= link_to t('.sign_in'), signin_path
           %li= render 'layouts/locale_selector',
-                      controller: @redirect_controller,
-                      action: @redirect_action
+                      controller: controller,
+                      action: action
 

@@ -1,4 +1,5 @@
 - if signed_in?
-  = render 'static_pages/home_signed_in'
+  = render 'static_pages/home_signed_in', micropost: @micropost,
+           feed_items: @feed_items
 - else
-  = render 'static_pages/home_not_signed_in'
+  = render 'static_pages/home_not_signed_in', page: @page

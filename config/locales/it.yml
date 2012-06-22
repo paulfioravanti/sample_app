@@ -998,7 +998,8 @@ it:
       users: Utenti
   microposts:
     micropost:
-      time_posted_ago: Pubblicato %{time} fa.
+      time_posted_prefix: Pubblicato
+      time_posted_suffix: ""
   sessions:
     new:
       email: Email
@@ -1015,7 +1016,8 @@ it:
         one: Il form contiene %{count} errore
         other: Il form contiene %{count} errori
     feed_item:
-      time_posted_ago: Pubblicato %{time} fa.
+      time_posted_prefix: Pubblicato
+      time_posted_suffix: ""
     micropost_form:
       characters_remaining: ! '&nbsp;caratteri rimanenti.'
       compose_micropost: Comporre un nuovo micropost...

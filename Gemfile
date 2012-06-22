@@ -8,7 +8,7 @@ gem 'bootstrap-will_paginate', '0.0.7'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails', '2.0.2'
 # For fake example users with “realistic” names/emails
-gem 'faker', '1.0.1' 
+gem 'faker', '1.0.1'
 # For pagination
 gem 'will_paginate', '3.0.3'
 # Simplify UI code
@@ -21,6 +21,8 @@ gem 'rails-i18n', '0.6.4'
 gem 'globalize3', '0.2.0'
 # i18n for localeapp
 gem 'localeapp', '0.4.3'
+# For JQuery timeago library
+gem 'rails-timeago', '1.3.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -39,14 +41,15 @@ group :development do
   # For html/erb to haml parsing
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '2.3.1'
+  gem 'brakeman', '1.6.2'
+  gem 'rails_best_practices', '1.10.0'
 end
 
 group :development, :test do
-  gem 'sqlite3', '1.3.6'
   gem 'rspec-rails', '2.10.1'
   # for autotesting with rspec
   gem 'guard-rspec', '1.1.0'
-  gem 'brakeman', '1.6.2'
+  gem 'sqlite3', '1.3.6'
 end
 
 group :test do
@@ -72,6 +75,6 @@ group :test do
 end
 
 group :test, :production do
-  # Postgres for Travis CI testing and Heroku deployment
-  gem 'pg', '0.14.0.pre.353'
+  # Test postgres on Travis CI and deploy on Heroku
+  gem 'pg', '0.13.2'
 end

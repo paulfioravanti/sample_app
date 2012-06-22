@@ -3,6 +3,9 @@
   %span.user= link_to feed_item.user.name, feed_item.user
   %span.content= wrap(feed_item.content)
   %span.timestamp
-    = t('.time_posted_ago', time: time_ago_in_words(feed_item.created_at) )
+    = t('.time_posted_prefix')
+    %time<
+      = timeago_tag(feed_item.created_at)
+      = t('.time_posted_suffix')
   - if current_user?(feed_item.user)
     = render 'shared/delete_micropost', micropost: feed_item

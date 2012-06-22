@@ -1137,7 +1137,8 @@ en:
       users: Users
   microposts:
     micropost:
-      time_posted_ago: Posted %{time} ago.
+      time_posted_prefix: Posted
+      time_posted_suffix: ""
   sessions:
     new:
       email: Email
@@ -1154,7 +1155,8 @@ en:
         one: The form contains %{count} error
         other: The form contains %{count} errors
     feed_item:
-      time_posted_ago: Posted %{time} ago.
+      time_posted_prefix: Posted
+      time_posted_suffix: ""
     micropost_form:
       characters_remaining: ! '&nbsp;characters remaining.'
       compose_micropost: Compose new micropost...

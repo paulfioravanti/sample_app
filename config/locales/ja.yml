@@ -475,7 +475,8 @@ ja:
       users: ユーザ
   microposts:
     micropost:
-      time_posted_ago: ! '%{time}前に投稿された。'
+      time_posted_prefix: ""
+      time_posted_suffix: に投稿された。
   sessions:
     new:
       email: メール
@@ -490,7 +491,8 @@ ja:
     error_messages:
       form_errors: フォームに%{count}つのエラーがある
     feed_item:
-      time_posted_ago: ! '%{time}前に投稿された。'
+      time_posted_prefix: ""
+      time_posted_suffix: に投稿された。
     micropost_form:
       characters_remaining: の入力可能な文字が残ります。
       compose_micropost: マイクロポストを新規作成・・・
