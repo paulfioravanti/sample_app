@@ -56,7 +56,7 @@ group :test do
   # Helps in testing by simulating how a real user would use app
   gem 'capybara', '1.1.2'
   # Use factories instead of ActiveRecord objects
-  gem 'factory_girl_rails', '3.4.0'
+  gem 'factory_girl_rails', '3.5.0'
   # Cucumber for user stories and db cleaner utility below
   gem 'cucumber-rails', '1.3.0', require: false
   gem 'database_cleaner', '0.8.0'
@@ -76,5 +76,5 @@ end
 
 group :test, :production do
   # Test postgres on Travis CI and deploy on Heroku
-  gem 'pg', '0.14.0.pre.353'
+  gem 'pg', '0.13.2'
 end
