@@ -22,7 +22,7 @@ gem 'globalize3', '0.2.0'
 # i18n for localeapp
 gem 'localeapp', '0.4.3'
 # For JQuery timeago library
-gem 'rails-timeago', '1.3.0'
+gem 'rails-timeago', '1.4.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -42,7 +42,7 @@ group :development do
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '2.3.1'
   gem 'brakeman', '1.6.2'
-  gem 'rails_best_practices', '1.10.0'
+  gem 'rails_best_practices', '1.10.1'
 end
 
 group :development, :test do
@@ -76,5 +76,5 @@ end
 
 group :test, :production do
   # Test postgres on Travis CI and deploy on Heroku
-  gem 'pg', '0.13.2'
+  gem 'pg', '0.14.0'
 end
