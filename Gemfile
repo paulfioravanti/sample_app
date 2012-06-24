@@ -22,7 +22,7 @@ gem 'globalize3', '0.2.0'
 # i18n for localeapp
 gem 'localeapp', '0.4.3'
 # For JQuery timeago library
-gem 'rails-timeago', '1.4.0'
+gem 'rails-timeago', '1.4.2'
 
 # Gems used only for assets and not required
 # in production environments by default.
