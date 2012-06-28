@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.6'
 # Twitter frameworks to make nice UI design elements
-gem 'bootstrap-sass', '2.0.3.1'
+gem 'bootstrap-sass', '2.0.4.0'
 gem 'bootstrap-will_paginate', '0.0.7'
 # For creating bcrypt encrypted hashes for user passwords
 gem 'bcrypt-ruby', '3.0.1'
