@@ -46,7 +46,7 @@ SampleApp::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( #{Rails.root}/lib/assets/javascripts/timeago/jquery.timeago.ja.js )
+  config.assets.precompile += %w( locales/jquery.timeago.it.js jquery.timeago.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
