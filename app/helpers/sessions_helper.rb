@@ -3,7 +3,7 @@ module SessionsHelper
   def sign_in(user)
     cookies.permanent[:remember_token] = user.remember_token
     # session[:user_id] = user.id
-    current_user = user
+    self.current_user = user
   end
 
   def signed_in?
@@ -31,7 +31,7 @@ module SessionsHelper
   end
 
   def sign_out
-    current_user = nil
+    self.current_user = nil
     cookies.delete(:remember_token)
     # session[:user_id] = nil
   end
