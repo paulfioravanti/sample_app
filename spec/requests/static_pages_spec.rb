@@ -13,26 +13,26 @@ describe "Static Pages" do
   shared_examples_for "all layout links" do
     it { should have_selector('title', text: full_title(page_title)) }
   end
-  
+
   I18n.available_locales.each do |locale|
-    I18n.locale = locale
-    
+    # I18n.locale = locale
+
     describe "Layout" do
       before { visit root_path(locale) }
-      
+
       describe "About link" do
         let(:page_title) { t('static_pages.about.about_us') }
         let(:about)      { t('layouts.footer.about') }
-        
-        before { click_link about }      
-        
+
+        before { click_link about }
+
         it_should_behave_like "all layout links"
       end
 
       describe "Help link" do
         let(:page_title) { t('static_pages.help.help') }
         let(:help)       { t('layouts.header.help') }
-        
+
         before { click_link help }
 
         it_should_behave_like "all layout links"
@@ -41,7 +41,7 @@ describe "Static Pages" do
       describe "Contact link" do
         let(:page_title) { t('static_pages.contact.contact') }
         let(:contact)    { t('layouts.footer.contact') }
-        
+
         before { click_link contact }
 
         it_should_behave_like "all layout links"
@@ -50,7 +50,7 @@ describe "Static Pages" do
       describe "Home link" do
         let(:page_title) { '' }
         let(:home)       { t('layouts.header.home') }
-        
+
         before { click_link home }
 
         it_should_behave_like "all layout links"
@@ -60,13 +60,13 @@ describe "Static Pages" do
         let(:page_title) { t('users.new.sign_up') }
         let(:sign_up)    { t('static_pages.home_not_signed_in.sign_up') }
         let(:sign_out)   { t('layouts.header.sign_out') }
-        
+
         before { click_link sign_up }
 
         it_should_behave_like "all layout links"
       end
     end
-    
+
     describe "Home page" do
       let(:heading)    { t('layouts.header.sample_app') }
       let(:page_title) { '' }
@@ -113,7 +113,7 @@ describe "Static Pages" do
     describe "Help Page" do
       let(:heading)    { t('static_pages.help.help') }
       let(:page_title) { t('static_pages.help.help') }
-      
+
       before { visit help_path(locale) }
 
       it_should_behave_like "all static pages"
