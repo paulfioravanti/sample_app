@@ -1,4 +1,4 @@
-# Ruby on Rails Tutorial: sample application 
+# Ruby on Rails Tutorial: sample application
 [![Build Status](https://secure.travis-ci.org/paulfioravanti/sample_app.png)](http://travis-ci.org/paulfioravanti/sample_app) [![Dependency Status](https://gemnasium.com/paulfioravanti/sample_app.png)](https://gemnasium.com/paulfioravanti/sample_app)
 
 This is the sample application for
@@ -17,6 +17,7 @@ by [Michael Hartl](http://michaelhartl.com) (plus some modifications).
 - Addition of translations to dynamic data and its relevant sample data (microposts) using [Globalize3](https://github.com/svenfuchs/globalize3)
 - Slight [SCSS](http://sass-lang.com/) refactoring to use mix-ins, and additions to add styling to the language selector
 - Added service hooks to [Travis CI](http://travis-ci.org/), [Gemnasium](https://gemnasium.com/), [Rails Brakeman](http://rails-brakeman.com/repositories/50-paulfioravanti-sample_app), [Rails Best Practices](http://railsbp.com/repositories/197-paulfioravanti-sample_app)
+- Use [rails-timeago](https://github.com/jgraichen/rails-timeago) to do time calculation for microposts on client-side rather than server-side (replaces method calls to `time_ago_in_words`)
 
 ### **TODO**s:
 - Try to improve the Micropost character countdown.  I'd love to be able to do proper pluralization of the text using the character count as well as change the text and count from, for example, "-2 characters remaining" to "2 characters over".  Question posted to StackOverflow [here](http://stackoverflow.com/q/10955850/567863)
