@@ -1,4 +1,4 @@
-// Customized Japanese
+// Japanese
 jQuery.timeago.settings.strings = {
   prefixAgo: "",
   prefixFromNow: "今より",
