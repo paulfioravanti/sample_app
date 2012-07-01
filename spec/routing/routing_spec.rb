@@ -20,7 +20,7 @@ describe "Routes" do
           let(:fake_path) { "fake_path" }
 
           before { get "/#{locale.to_s}/#{fake_path}" }
-          it { should redirect_to(root_path(locale)) }
+          it { should redirect_to(locale_root_path(locale)) }
         end
       end
 
@@ -35,7 +35,7 @@ describe "Routes" do
 
       context "no path given" do
         before { get "/" }
-        it { should redirect_to(root_path(I18n.default_locale)) }
+        it { should redirect_to(locale_root_path(I18n.default_locale)) }
       end
 
       context "a valid action" do
@@ -68,7 +68,7 @@ describe "Routes" do
         before { get "/#{invalid_info}" }
         it { should redirect_to("/#{I18n.default_locale}/#{invalid_info}") }
         # This will then get caught by the "redirecting fake paths" condition
-        # and hence be redirected to root_path with I18n.default_locale
+        # and hence be redirected to locale_root_path with I18n.default_locale
       end
     end
   end

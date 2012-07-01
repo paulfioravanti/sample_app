@@ -16,7 +16,7 @@ describe "Locale switching" do
         let(:page_title) { t('layouts.application.base_title') }
 
         before do
-          visit root_path(locale)
+          visit locale_root_path(locale)
           select target_language, from: locale_selector
           click_button locale_submit
         end
@@ -31,7 +31,7 @@ describe "Locale switching" do
         let(:next_page) { t('will_paginate.next_label') }
 
         before(:all) { 30.times { FactoryGirl.create(:user) } }
-        after(:all)  { User.delete_all } 
+        after(:all)  { User.delete_all }
 
         before do
           visit signin_path(locale)
@@ -56,14 +56,14 @@ describe "Locale switching" do
           before do
             visit signin_path(locale)
             valid_sign_in(user)
-            visit root_path(locale)
+            visit locale_root_path(locale)
             click_button post
             select target_language, from: locale_selector
             click_button locale_submit
           end
 
           it "should render the home page in the target language" do
-            expect { response.should redirect_to(root_path(target_locale)) }
+            expect { response.should redirect_to(locale_root_path(target_locale)) }
           end
           it { should have_selector('title', text: page_title)}
         end
@@ -78,7 +78,7 @@ describe "Locale switching" do
             select target_language, from: locale_selector
             click_button locale_submit
           end
-          
+
           it "should render the new user page in the target language" do
             expect { response.should redirect_to(signup_path(target_locale)) }
           end

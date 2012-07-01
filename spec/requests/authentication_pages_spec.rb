@@ -23,10 +23,10 @@ describe "Authentication" do
       let(:sign_in)    { t('sessions.new.sign_in') }
       let(:sign_out)   { t('layouts.header.sign_out') }
       let(:profile)    { t('layouts.header.profile') }
-      let(:settings)   { t('layouts.header.settings') }  
+      let(:settings)   { t('layouts.header.settings') }
 
       before { visit signin_path(locale) }
-      
+
       it { should have_selector('title',  text: page_title) }
       it { should_not have_link(users,    href: users_path(locale)) }
       it { should_not have_link(profile,  href: user_path(locale, user)) }
@@ -52,7 +52,7 @@ describe "Authentication" do
 
       context "with valid information" do
         let(:sign_in)  { t('layouts.header.sign_in') }
-        
+
         before do
           visit signin_path(locale)
           valid_sign_in(user)
@@ -73,7 +73,7 @@ describe "Authentication" do
     end
 
     describe "authorization" do
-      
+
       context "for non-signed-in users" do
         let(:user) { FactoryGirl.create(:user) }
 
@@ -97,7 +97,7 @@ describe "Authentication" do
               before do
                 click_link sign_out
                 click_link sign_in
-                valid_sign_in user                 
+                valid_sign_in user
               end
 
               it "should render the default (profile) page" do
@@ -147,7 +147,7 @@ describe "Authentication" do
         end
 
         context "in the Microposts controller" do
-          
+
           context "submitting to the create action" do
             before { post microposts_path(locale) }
             specify { response.should redirect_to(signin_path(locale)) }
@@ -162,7 +162,7 @@ describe "Authentication" do
         end
 
         context "in the Relationships controller" do
-        
+
           describe "submitting to the create action" do
             before { post relationships_path(locale) }
             specify { response.should redirect_to(signin_path(locale)) }
@@ -186,13 +186,13 @@ describe "Authentication" do
         context "visiting the signup path" do
           before { get signup_path(locale) }
 
-          specify { response.should redirect_to(root_path(locale)) }
+          specify { response.should redirect_to(locale_root_path(locale)) }
         end
 
         context "submitting a POST request to the Users#create action" do
           before { post users_path(locale) }
 
-          specify { response.should redirect_to(root_path(locale)) }
+          specify { response.should redirect_to(locale_root_path(locale)) }
         end
 
       end
@@ -208,16 +208,16 @@ describe "Authentication" do
 
         context "visiting Users#edit page" do
           let(:page_title) { t('users.edit.edit_user') }
-          
+
           before { visit edit_user_path(locale, wrong_user) }
-          
+
           it { should_not have_selector('title', text: full_title(page_title)) }
         end
 
         context "submitting a PUT request to the Users#update action" do
           before { put user_path(locale, wrong_user) }
 
-          specify { response.should redirect_to(root_path(locale)) }
+          specify { response.should redirect_to(locale_root_path(locale)) }
         end
       end
 
@@ -232,7 +232,7 @@ describe "Authentication" do
 
         context "submitting a DELETE request to the Users#destroy action" do
           before { delete user_path(locale, user) }
-          specify { response.should redirect_to(root_path(locale)) }
+          specify { response.should redirect_to(locale_root_path(locale)) }
         end
       end
 
@@ -252,11 +252,11 @@ describe "Authentication" do
           context "after failing to delete" do
             let(:no_suicide) { t('flash.no_admin_suicide', name: admin.name) }
 
-            before { delete user_path(locale, admin) }    
+            before { delete user_path(locale, admin) }
             specify { response.should redirect_to(users_path(locale)),
                                       flash[:error].should == no_suicide }
           end
-        end     
+        end
       end
     end
   end

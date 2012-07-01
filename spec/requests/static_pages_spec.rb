@@ -18,7 +18,7 @@ describe "Static Pages" do
     # I18n.locale = locale
 
     describe "Layout" do
-      before { visit root_path(locale) }
+      before { visit locale_root_path(locale) }
 
       describe "About link" do
         let(:page_title) { t('static_pages.about.about_us') }
@@ -72,7 +72,7 @@ describe "Static Pages" do
       let(:page_title) { '' }
       let(:home)       { t('layouts.header.home') }
 
-      before { visit root_path(locale) }
+      before { visit locale_root_path(locale) }
 
       it_should_behave_like "all static pages"
       it { should_not have_selector('title', text: "| #{home}") }
@@ -85,7 +85,7 @@ describe "Static Pages" do
           FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet")
           visit signin_path(locale)
           valid_sign_in(user)
-          visit root_path(locale)
+          visit locale_root_path(locale)
         end
 
         it "should render the user's feed" do
@@ -101,7 +101,7 @@ describe "Static Pages" do
 
           before do
             other_user.follow!(user)
-            visit root_path(locale)
+            visit locale_root_path(locale)
           end
 
           it { should have_link(zero_following, href: following_user_path(locale, user)) }
