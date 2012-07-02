@@ -43,16 +43,16 @@ describe "Routes" do
         let!(:default_locale_action_path) { about_path(I18n.default_locale) }
 
         context "with a valid but unsupported locale" do
-          let(:invalid_locale) { "fr" }
+          let(:unsupported_locale) { "fr" }
 
-          before { get "/#{invalid_locale}/#{action}" }
+          before { get "/#{unsupported_locale}/#{action}" }
           it { should redirect_to(default_locale_action_path) }
         end
 
         context "with invalid information for the locale" do
-          let(:invalid_info) { "invalid" }
+          let(:invalid_locale) { "invalid" }
 
-          before { get "/#{invalid_info}/#{action}" }
+          before { get "/#{invalid_locale}/#{action}" }
           it { should redirect_to(default_locale_action_path) }
         end
 
