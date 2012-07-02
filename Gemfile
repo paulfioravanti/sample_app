@@ -16,7 +16,7 @@ gem 'haml-rails', '0.3.4'
 # To enable the use of Markdown
 gem 'rdiscount', '1.6.8'
 # i18n strings for default Rails
-gem 'rails-i18n', '0.6.4'
+gem 'rails-i18n', '0.6.5'
 # i18n for database content
 gem 'globalize3', '0.2.0'
 # i18n for localeapp
