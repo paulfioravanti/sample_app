@@ -497,6 +497,9 @@ ja:
       characters_remaining:
         one: ! '%{count}つの入力可能な文字が残ります。'
         other: ! '%{count}つの入力可能な文字が残ります。'
+      characters_over:
+        one: ! '%{count}つの文字が入力制限を超えています。'
+        other: ! '%{count}つの文字が入力制限を超えています。'
       compose_micropost: マイクロポストを新規作成・・・
       post: 投稿
     stats:
