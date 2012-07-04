@@ -13,5 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require rails-timeago
+//= require i18n
+//= require i18n/translations
 //= require bootstrap
 //= require_tree .

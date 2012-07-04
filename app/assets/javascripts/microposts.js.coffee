@@ -1,12 +1,25 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+updateCountdownString = (remaining) ->
+  if remaining > 1 or remaining is 0
+    $(".countdown").text I18n.t('shared.micropost_form.characters_remaining.other',
+                                count: remaining)
+  else if remaining is 1
+    $(".countdown").text I18n.t('shared.micropost_form.characters_remaining.one',
+                                count: remaining)
+  else if remaining is -1
+    $(".countdown").text I18n.t('shared.micropost_form.characters_over.one',
+                                count: Math.abs(remaining))
+  else
+    $(".countdown").text I18n.t('shared.micropost_form.characters_over.other',
+                                count: Math.abs(remaining))
 
 updateCountdownAttributes = (toRemove, toAdd = null) ->
   for attr in toRemove
-    $(".remaining, .countdown").removeClass attr
+    $(".countdown").removeClass attr
   if toAdd
-    $(".remaining, .countdown").addClass toAdd
+    $(".countdown").addClass toAdd
     if toAdd is "overlimit"
       $("input.btn.btn-large.btn-primary").attr("disabled", "true")
     else
@@ -26,10 +39,11 @@ updateCountdown = ->
   if remaining < 0
     toAdd = (toRemove.filter (attr) -> attr is "overlimit").toString()
     updateCountdownAttributes(toRemove, toAdd)
-  $(".countdown").text remaining
+  updateCountdownString(remaining)
 
 $(document).ready ->
-  $(".countdown").text 140
+  $(".countdown").text I18n.t('shared.micropost_form.characters_remaining.other',
+                              count: 140)
   $("#micropost_content").change updateCountdown
   $("#micropost_content").keyup updateCountdown
   $("#micropost_content").keydown updateCountdown

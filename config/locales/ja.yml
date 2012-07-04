@@ -475,7 +475,7 @@ ja:
       users: ユーザ
   microposts:
     micropost:
-      time_posted_prefix: ""
+      time_posted_prefix: ! '  '
       time_posted_suffix: に投稿された。
   sessions:
     new:
@@ -491,10 +491,12 @@ ja:
     error_messages:
       form_errors: フォームに%{count}つのエラーがある
     feed_item:
-      time_posted_prefix: ""
+      time_posted_prefix: ''
       time_posted_suffix: に投稿された。
     micropost_form:
-      characters_remaining: の入力可能な文字が残ります。
+      characters_remaining:
+        one: ! '%{count}つの入力可能な文字が残ります。'
+        other: ! '%{count}つの入力可能な文字が残ります。'
       compose_micropost: マイクロポストを新規作成・・・
       post: 投稿
     stats:
