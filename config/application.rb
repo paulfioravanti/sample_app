@@ -64,6 +64,7 @@ module SampleApp
 
     # Heroku settings
     # config.assets.initialize_on_precompile = false
+    # Changed for i18n_js
     config.assets.initialize_on_precompile = true
   end
 end
