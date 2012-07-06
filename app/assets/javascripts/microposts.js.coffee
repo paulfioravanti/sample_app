@@ -10,41 +10,39 @@ updateCountdownString = (remaining) ->
                                 count: remaining)
   else if remaining is -1
     $(".countdown").text I18n.t('shared.micropost_form.characters_over.one',
-                                count: Math.abs(remaining))
+                                count: -remaining)
   else
     $(".countdown").text I18n.t('shared.micropost_form.characters_over.other',
-                                count: Math.abs(remaining))
+                                count: -remaining)
 
-updateCountdownAttributes = (toRemove, toAdd = null) ->
-  for attr in toRemove
-    $(".countdown").removeClass attr
-  if toAdd
+takeFromCollection = (collection, className) ->
+  (collection.filter (attr) -> attr is className).toString()
+
+updateCountdownAttributes = (remaining) ->
+  toRemove = ["nearlimit", "almostlimit", "overlimit"]
+  if remaining < 20
+    toAdd = takeFromCollection(toRemove, "nearlimit")
+  if remaining < 11
+    toAdd = takeFromCollection(toRemove, "almostlimit")
+  if remaining < 0
+    toAdd = takeFromCollection(toRemove, "overlimit")
+
+  if toAdd isnt null
+    for attr in toRemove
+      $(".countdown").removeClass attr
     $(".countdown").addClass toAdd
-    if toAdd is "overlimit"
-      $("input.btn.btn-large.btn-primary").attr("disabled", "true")
-    else
-      $("input.btn.btn-large.btn-primary").removeAttr("disabled")
+  if toAdd is "overlimit"
+    $("input.btn.btn-large.btn-primary").attr("disabled", "true")
+  else
+    $("input.btn.btn-large.btn-primary").removeAttr("disabled")
 
 updateCountdown = ->
   remaining = 140 - $("#micropost_content").val().length
-  toRemove = ["nearlimit", "almostlimit", "overlimit"]
-  if remaining > 19
-    updateCountdownAttributes(toRemove)
-  if remaining < 20
-    toAdd = (toRemove.filter (attr) -> attr is "nearlimit").toString()
-    updateCountdownAttributes(toRemove, toAdd)
-  if remaining < 11
-    toAdd = (toRemove.filter (attr) -> attr is "almostlimit").toString()
-    updateCountdownAttributes(toRemove, toAdd)
-  if remaining < 0
-    toAdd = (toRemove.filter (attr) -> attr is "overlimit").toString()
-    updateCountdownAttributes(toRemove, toAdd)
   updateCountdownString(remaining)
+  updateCountdownAttributes(remaining)
 
 $(document).ready ->
   $(".countdown").text I18n.t('shared.micropost_form.characters_remaining.other',
                               count: 140)
-  $("#micropost_content").change updateCountdown
-  $("#micropost_content").keyup updateCountdown
-  $("#micropost_content").keydown updateCountdown
-  $("#micropost_content").keypress updateCountdown
+  $("#micropost_content").on("change keyup keydown keypress paste drop",
+                             updateCountdown)
