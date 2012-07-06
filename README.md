@@ -21,5 +21,4 @@ by [Michael Hartl](http://michaelhartl.com) (plus some modifications).
 - Use [rails-timeago](https://github.com/jgraichen/rails-timeago) to do time calculation for microposts on client-side rather than server-side (replaces method calls to `time_ago_in_words`)
 
 ### **TODO**s:
-- Try to improve the Micropost character countdown.  I'd love to be able to do proper pluralization of the text using the character count as well as change the text and count from, for example, "-2 characters remaining" to "2 characters over".  Question posted to StackOverflow [here](http://stackoverflow.com/q/10955850/567863)
 - Decide whether it's worth refactoring the i18n YAML files to include dictionaries, and hence necessarily take translation keys out of Localeapp and manage them manually.  StackOverflow question about this posted [here](http://stackoverflow.com/q/11097572/567863)
