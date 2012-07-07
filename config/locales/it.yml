@@ -1023,8 +1023,8 @@ it:
         one: ! '%{count} carattere rimanente.'
         other: ! '%{count} caratteri rimanenti.'
       characters_over:
-        one: "%{count} carattere superato il limite."
-        other: "%{count} caratteri superato il limite."
+        one: ! '%{count} carattere superato il limite.'
+        other: ! '%{count} caratteri superato il limite.'
       compose_micropost: Comporre un nuovo micropost...
       post: Post
     stats:

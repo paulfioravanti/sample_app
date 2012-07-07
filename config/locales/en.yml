@@ -1159,11 +1159,11 @@ en:
       time_posted_suffix: ''
     micropost_form:
       characters_remaining:
-        one: "%{count} character remaining."
-        other: "%{count} characters remaining."
+        one: ! '%{count} character remaining.'
+        other: ! '%{count} characters remaining.'
       characters_over:
-        one: "%{count} character over limit."
-        other: "%{count} characters over limit."
+        one: ! '%{count} character over limit.'
+        other: ! '%{count} characters over limit.'
       compose_micropost: Compose new micropost...
       post: Post
     stats:
