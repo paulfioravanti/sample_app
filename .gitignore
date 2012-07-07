@@ -17,6 +17,7 @@
 # Ignore development reports
 brakeman.html
 rails_best_practices_output.html
+coverage
 
 .bundle
 .idea/*

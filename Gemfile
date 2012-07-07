@@ -74,6 +74,8 @@ group :test do
   gem 'growl', '1.0.3'
   # Test mysql on Travis CI
   gem 'mysql2', '0.3.11'
+  # Code coverage reports
+  gem 'simplecov', '0.6.4', require: false
 end
 
 group :test, :production do

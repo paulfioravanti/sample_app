@@ -53,6 +53,23 @@ describe "Micropost pages" do
           expect { click_link delete }.should change(Micropost, :count).by(-1)
         end
       end
+
+      context "as an incorrect user" do
+        let(:other_micropost)      { FactoryGirl.create(:micropost,
+                                       user: FactoryGirl.create(:user)) }
+        let(:other_micropost_path) { micropost_path(locale, other_micropost) }
+
+        before { delete other_micropost_path }
+
+        subject { response }
+
+        it { should redirect_to(locale_root_path(locale)) }
+
+        it "should not delete a micropost" do
+          expect { delete other_micropost_path }.should_not
+            change(Micropost, :count).by(-1)
+        end
+      end
     end
 
     describe "pagination" do
@@ -111,7 +128,8 @@ describe "Micropost pages" do
     end
 
     describe "feed" do
-      let!(:current_user_micropost) { FactoryGirl.create(:micropost, user: user) }
+      let!(:current_user_micropost) { FactoryGirl.create(:micropost,
+                                                         user: user) }
 
       before { visit locale_root_path(locale) }
 
@@ -119,15 +137,18 @@ describe "Micropost pages" do
         let(:delete) { t('shared.delete_micropost.delete') }
 
         context "for user's microposts" do
-          it { should have_link(delete, href: micropost_path(locale, current_user_micropost)) }
+          it { should have_link(delete, href: micropost_path(locale,
+                                                current_user_micropost)) }
         end
 
         context "for other user's microposts" do
-          let(:other_micropost) { FactoryGirl.create(:micropost, user: FactoryGirl.create(:user)) }
+          let(:other_micropost) { FactoryGirl.create(:micropost,
+                                    user: FactoryGirl.create(:user)) }
 
           before { visit locale_root_path(locale) }
 
-          it { should_not have_link(delete, href: micropost_path(locale, other_micropost)) }
+          it { should_not have_link(delete,
+                            href: micropost_path(locale, other_micropost)) }
         end
       end
     end

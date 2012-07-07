@@ -15,7 +15,6 @@ describe "Static Pages" do
   end
 
   I18n.available_locales.each do |locale|
-    # I18n.locale = locale
 
     describe "Layout" do
       before { visit locale_root_path(locale) }
