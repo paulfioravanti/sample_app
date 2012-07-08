@@ -15,7 +15,7 @@
 require 'spec_helper'
 
 describe User do
-  
+
   let(:user) { valid_user }
 
   subject { user }
@@ -27,7 +27,7 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:admin) }
-  
+
   it { should respond_to(:authenticate) }
   it { should respond_to(:microposts) }
   it { should respond_to(:feed) }
@@ -90,6 +90,16 @@ describe User do
         user.email = valid_address
         user.should be_valid
       end
+    end
+  end
+
+  context "when email address is mixed case" do
+    let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
+
+    it "should be saved as all lower-case" do
+      user.email = mixed_case_email
+      user.save
+      user.reload.email.should == mixed_case_email.downcase
     end
   end
 
@@ -223,9 +233,9 @@ describe User do
 
     context "when a follower/followed user is destroyed" do
       subject { other_user }
-      
+
       before { user.destroy }
-      
+
       its(:relationships) { should_not include(user) }
       its(:reverse_relationships) { should_not include(user) }
     end
