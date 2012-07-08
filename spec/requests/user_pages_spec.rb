@@ -1,14 +1,14 @@
 require 'spec_helper'
 
 describe "User pages" do
-  
+
   subject { page }
 
   shared_examples_for "all user pages" do
     it { should have_selector('h1',    text: heading) }
     it { should have_selector('title', text: full_title(page_title)) }
   end
-  
+
   I18n.available_locales.each do |locale|
 
     describe "index" do
@@ -16,7 +16,7 @@ describe "User pages" do
       let(:page_title) { t('users.index.all_users') }
 
       before(:all) { 30.times { FactoryGirl.create(:user) } }
-      after(:all)  { User.delete_all } 
+      after(:all)  { User.delete_all }
 
       before do
         visit signin_path(locale)
@@ -62,7 +62,7 @@ describe "User pages" do
         end
       end
     end
-    
+
     describe "sign up page" do
       let(:heading)    { t('users.new.sign_up') }
       let(:page_title) { t('users.new.sign_up') }
@@ -74,15 +74,15 @@ describe "User pages" do
 
     describe "profile page" do
       let(:user)       { FactoryGirl.create(:user) }
-      let!(:m1)        { FactoryGirl.create(:micropost, 
-                                            user: user, 
+      let!(:m1)        { FactoryGirl.create(:micropost,
+                                            user: user,
                                             content: "Foo") }
-      let!(:m2)        { FactoryGirl.create(:micropost, 
-                                            user: user, 
+      let!(:m2)        { FactoryGirl.create(:micropost,
+                                            user: user,
                                             content: "Bar") }
       let(:heading)    { user.name }
       let(:page_title) { user.name }
-      
+
       before { visit user_path(locale, user) }
 
       it_should_behave_like "all user pages"
@@ -97,7 +97,7 @@ describe "User pages" do
         let(:other_user) { FactoryGirl.create(:user) }
         let(:follow) { t('users.follow.follow') }
         let(:unfollow) { t('users.unfollow.unfollow') }
-        
+
         before do
           visit signin_path(locale)
           valid_sign_in(user)
@@ -151,7 +151,7 @@ describe "User pages" do
 
       describe "user stats" do
         let(:other_user) { FactoryGirl.create(:user) }
-        
+
         before do
           user.follow!(other_user)
           other_user.follow!(user)
@@ -166,7 +166,7 @@ describe "User pages" do
             user.unfollow!(other_user)
             visit user_path(locale, user)
           end
-          
+
           it { should have_selector('#following.stat', text: '0') }
         end
 
@@ -184,7 +184,7 @@ describe "User pages" do
 
     describe "sign up" do
       let(:submit) { t('users.new.create_account') }
-      
+
       before { visit signup_path(locale) }
 
       context "with invalid information" do
@@ -204,7 +204,9 @@ describe "User pages" do
       end
 
       context "with valid information" do
-        before { valid_sign_up }
+        let(:new_user) { FactoryGirl.build(:user) }
+
+        before { fill_in_fields(new_user) }
 
         it "should create a user" do
           expect { click_button submit }.to change(User, :count).by(1)
@@ -216,7 +218,7 @@ describe "User pages" do
 
           before { click_button submit }
 
-          let(:user) { User.find_by_email('user@example.com') }
+          let(:user) { User.find_by_email("#{new_user.email}") }
 
           # Redirect from signup page to signed in user profile page
           it { should have_selector('title', text: user.name) }
@@ -255,9 +257,9 @@ describe "User pages" do
         let(:new_name)  { "New Name" }
         let(:new_email) { "new@example.com" }
         let(:sign_out)  { t('layouts.header.sign_out') }
-        
+
         before do
-          valid_update(user, new_name, new_email)
+          fill_in_fields(user, new_name, new_email)
           click_button save_changes
         end
 
@@ -272,7 +274,7 @@ describe "User pages" do
     describe "following/followers" do
       let(:user)       { FactoryGirl.create(:user) }
       let(:other_user) { FactoryGirl.create(:user) }
-      
+
       before { user.follow!(other_user) }
 
       describe "followed users" do
@@ -286,7 +288,7 @@ describe "User pages" do
 
         it { should have_selector('title', text: full_title(following)) }
         it { should have_selector('h3', text: following) }
-        it { should have_link(other_user.name, 
+        it { should have_link(other_user.name,
                               href: user_path(locale, other_user)) }
       end
 

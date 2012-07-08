@@ -1,22 +1,11 @@
 # Allow for methods in ApplicationHelper to be tested
 include ApplicationHelper
 
-def valid_user
-  User.new(name:     "Example User", 
-           email:    "user@example.com",
-           password: "foobar", 
-           password_confirmation: "foobar")
-end
-
-def valid_micropost(user)
-  user.microposts.build(content: "Lorem Ipsum")
-end
-
-def valid_sign_up
-  fill_in t('users.fields.name'),         with: "Example User"
-  fill_in t('users.fields.email'),        with: "user@example.com"
-  fill_in t('users.fields.password'),     with: "foobar"
-  fill_in t('users.fields.confirmation'), with: "foobar"
+def fill_in_fields(user, new_name = nil, new_email = nil)
+  fill_in t('users.fields.name'),         with: new_name || user.name
+  fill_in t('users.fields.email'),        with: new_email || user.email
+  fill_in t('users.fields.password'),     with: user.password
+  fill_in t('users.fields.confirmation'), with: user.password
 end
 
 def valid_sign_in(user)
@@ -25,19 +14,6 @@ def valid_sign_in(user)
   click_button t('sessions.new.sign_in')
   # Sign in when not using Capybara as well.
   cookies[:remember_token] = user.remember_token
-end
-
-def valid_update(user, new_name, new_email)
-  fill_in t('users.fields.name'),         with: new_name
-  fill_in t('users.fields.email'),        with: new_email
-  fill_in t('users.fields.password'),     with: user.password
-  fill_in t('users.fields.confirmation'), with: user.password
-end
-
-def save_user(user)
-  user_with_same_email = user.dup
-  user_with_same_email.email.upcase!
-  user_with_same_email.save
 end
 
 def invalid_email_addresses
@@ -49,7 +25,7 @@ def valid_email_addresses
   %w[user@foo.com A_USER@f.b.org frst.lst@foo.jp a+b@baz.cn]
 end
 
-def t(string, options={})
+def t(string, options = {})
   I18n.t(string, options)
 end
 

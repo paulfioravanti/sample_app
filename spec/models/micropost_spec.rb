@@ -12,7 +12,7 @@ require 'spec_helper'
 
 describe Micropost do
   let(:user)      { FactoryGirl.create(:user) }
-  let(:micropost) { valid_micropost(user) }
+  let(:micropost) { FactoryGirl.create(:micropost, user: user) }
 
   subject { micropost }
 

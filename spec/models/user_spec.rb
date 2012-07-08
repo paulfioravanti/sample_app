@@ -16,7 +16,7 @@ require 'spec_helper'
 
 describe User do
 
-  let(:user) { valid_user }
+  let(:user) { FactoryGirl.create(:user) }
 
   subject { user }
 
@@ -104,7 +104,17 @@ describe User do
   end
 
   context "when email address is already taken" do
-    before { save_user(user) }
+    let(:user_with_same_email) do
+      FactoryGirl.build(:user, email: user.email)
+    end
+
+    subject { user_with_same_email }
+
+    before do
+      user_with_same_email.email.upcase!
+      user_with_same_email.save
+    end
+
     it { should_not be_valid }
   end
 
