@@ -6,7 +6,7 @@ SampleApp::Application.routes.draw do
       end
     end
     resources :sessions,      only: [:new, :create, :destroy]
-    resources :microposts,    only: [:create, :destroy]
+    resources :microposts,    only: [:create, :update, :destroy]
 
     match '/signup',  to: 'users#new'
     match '/signin',  to: 'sessions#new'
@@ -33,7 +33,7 @@ SampleApp::Application.routes.draw do
 
 end
 #== Route Map
-# Generated on 01 Jul 2012 10:53
+# Generated on 09 Jul 2012 10:20
 #
 # followers_user GET    /:locale/users/:id/followers(.:format) users#followers {:locale=>/en|it|ja/}
 #          users GET    /:locale/users(.:format)               users#index {:locale=>/en|it|ja/}
@@ -47,7 +47,8 @@ end
 #    new_session GET    /:locale/sessions/new(.:format)        sessions#new {:locale=>/en|it|ja/}
 #        session DELETE /:locale/sessions/:id(.:format)        sessions#destroy {:locale=>/en|it|ja/}
 #     microposts POST   /:locale/microposts(.:format)          microposts#create {:locale=>/en|it|ja/}
-#      micropost DELETE /:locale/microposts/:id(.:format)      microposts#destroy {:locale=>/en|it|ja/}
+#      micropost PUT    /:locale/microposts/:id(.:format)      microposts#update {:locale=>/en|it|ja/}
+#                DELETE /:locale/microposts/:id(.:format)      microposts#destroy {:locale=>/en|it|ja/}
 #         signup        /:locale/signup(.:format)              users#new {:locale=>/en|it|ja/}
 #         signin        /:locale/signin(.:format)              sessions#new {:locale=>/en|it|ja/}
 #        signout DELETE /:locale/signout(.:format)             sessions#destroy {:locale=>/en|it|ja/}

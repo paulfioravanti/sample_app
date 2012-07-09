@@ -41,8 +41,10 @@ updateCountdown = ->
   updateCountdownString(remaining)
   updateCountdownAttributes(remaining)
 
-$(document).ready ->
+$ ->
   $(".countdown").text I18n.t('shared.micropost_form.characters_remaining.other',
                               count: 140)
   $("#micropost_content").on("change keyup keydown keypress paste drop",
                              updateCountdown)
+  $('.best_in_place').best_in_place().bind "ajax:success", ->
+    $(this).closest("li").effect "highlight", {}, 2000

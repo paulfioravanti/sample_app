@@ -10,7 +10,7 @@ describe "Micropost pages" do
 
     before do
       visit signin_path(locale)
-      valid_sign_in user
+      valid_sign_in(user)
     end
 
     describe "micropost creation" do
@@ -55,8 +55,9 @@ describe "Micropost pages" do
       end
 
       context "as an incorrect user" do
-        let(:other_micropost)      { FactoryGirl.create(:micropost,
-                                       user: FactoryGirl.create(:user)) }
+        let(:other_micropost) do
+          FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
+        end
         let(:other_micropost_path) { micropost_path(locale, other_micropost) }
 
         before { delete other_micropost_path }
@@ -96,10 +97,10 @@ describe "Micropost pages" do
       before { visit locale_root_path(locale) }
 
       describe "micropost counts" do
-        let(:one)   { t('shared.user_info.microposts',
-                        count: 1) }
-        let(:other) { t('shared.user_info.microposts',
-                        count: user.microposts.count) }
+        let(:one)   { t('shared.user_info.microposts', count: 1) }
+        let(:other) do
+          t('shared.user_info.microposts', count: user.microposts.count)
+        end
 
         context "when user has zero microposts" do
           it { should have_selector('span', text: other) }
@@ -128,8 +129,9 @@ describe "Micropost pages" do
     end
 
     describe "feed" do
-      let!(:current_user_micropost) { FactoryGirl.create(:micropost,
-                                                         user: user) }
+      let!(:current_user_micropost) do
+        FactoryGirl.create(:micropost, user: user)
+      end
 
       before { visit locale_root_path(locale) }
 

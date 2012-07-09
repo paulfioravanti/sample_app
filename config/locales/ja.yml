@@ -12,6 +12,12 @@ ja:
     models:
       micropost: マイクロポスト
       user: ユーザー
+    errors:
+      models:
+        micropost:
+          attributes:
+            content:
+              too_long: は140文字以内で入力してください。
   faker:
     lorem:
       supplemental:

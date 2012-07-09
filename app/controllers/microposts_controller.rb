@@ -1,6 +1,10 @@
 class MicropostsController < ApplicationController
-  before_filter :signed_in_user, only: [:create, :destroy]
-  before_filter :correct_user,   only: :destroy
+  include MicropostsHelper
+
+  before_filter :signed_in_user, only: [:create, :update, :destroy]
+  before_filter :correct_user,   only: [:update, :destroy]
+
+  respond_to :html, :json
 
   def create
     @micropost = current_user.microposts.build(params[:micropost])
@@ -16,6 +20,14 @@ class MicropostsController < ApplicationController
       @feed_items = []
       render 'static_pages/home'
     end
+  end
+
+  def update
+    micropost = params[:micropost]
+    micropost[:content] = wrap(micropost[:content], false)
+    # @micropost.update_attributes(params[:micropost])
+    @micropost.update_attributes(micropost)
+    respond_with_bip @micropost
   end
 
   def destroy

@@ -187,6 +187,10 @@ input, textarea, select, .uneditable-input {
   padding: 10px;
   height: auto;
   margin-bottom: 15px;
+  // @include box-sizing;
+}
+
+textarea, select, .uneditable-input {
   @include box-sizing;
 }
 
@@ -229,8 +233,9 @@ input, textarea, select, .uneditable-input {
   }
 }
 
-.content {
+.content, .best_in_place {
   display: block;
+  @include box-sizing;
 }
 
 .timestamp {
@@ -251,7 +256,7 @@ aside {
 
 /* Micropost character countdown */
 
-.countdown {
+.countdown, .best_in_place_countdown {
   display: inline;
   color: $grayLight;
   float: right;
@@ -267,6 +272,19 @@ aside {
 
 .nearlimit {
   color: $gray;
+}
+
+/* Best in place */
+
+.purr {
+  position: fixed;
+  top: 30px;
+  right: 100px;
+  width: 250px;
+  padding: 20px;
+  background-color: #FCC;
+  border: solid 2px #C66;
+  &:first-letter { text-transform: uppercase; }
 }
 
 /* Footer */

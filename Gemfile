@@ -25,6 +25,8 @@ gem 'localeapp', '0.5.0'
 gem 'rails-timeago', '1.4.2'
 # For accessing i18n in js files
 gem 'i18n-js', '2.1.2'
+# Editing in place
+gem 'best_in_place', '1.1.2'
 
 # Gems used only for assets and not required
 # in production environments by default.
