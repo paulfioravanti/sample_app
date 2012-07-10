@@ -12,7 +12,7 @@
 require 'spec_helper'
 
 describe Relationship do
-  
+
   let(:follower) { FactoryGirl.create(:user) }
   let(:followed) { FactoryGirl.create(:user) }
   let(:relationship) { follower.relationships.build(followed_id: followed.id) }
@@ -25,7 +25,7 @@ describe Relationship do
     it "should not allow access to the follower_id" do
       expect do
         Relationship.new(follower_id: follower.id)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end
 

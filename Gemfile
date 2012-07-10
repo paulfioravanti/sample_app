@@ -50,9 +50,9 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '2.10.1'
+  gem 'rspec-rails', '2.11.0'
   # for autotesting with rspec
-  gem 'guard-rspec', '1.1.0'
+  gem 'guard-rspec', '1.2.0'
   gem 'sqlite3', '1.3.6'
 end
 

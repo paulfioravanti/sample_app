@@ -21,7 +21,7 @@ describe "Micropost pages" do
       context "with invalid information" do
 
         it "should not create a micropost" do
-          expect { click_button post }.should_not change(Micropost, :count)
+          expect { click_button post }.to_not change(Micropost, :count)
         end
 
         describe "error messages" do
@@ -36,7 +36,7 @@ describe "Micropost pages" do
         before { fill_in micropost_content, with: "Lorem Ipsum" }
 
         it "should create a micropost" do
-          expect { click_button post }.should change(Micropost, :count).by(1)
+          expect { click_button post }.to change(Micropost, :count).by(1)
         end
       end
     end
@@ -50,7 +50,7 @@ describe "Micropost pages" do
         before { visit locale_root_path(locale) }
 
         it "should delete a micropost" do
-          expect { click_link delete }.should change(Micropost, :count).by(-1)
+          expect { click_link delete }.to change(Micropost, :count).by(-1)
         end
       end
 
@@ -67,8 +67,8 @@ describe "Micropost pages" do
         it { should redirect_to(locale_root_path(locale)) }
 
         it "should not delete a micropost" do
-          expect { delete other_micropost_path }.should_not
-            change(Micropost, :count).by(-1)
+          expect { delete other_micropost_path }.to_not(
+            change(Micropost, :count).by(-1))
         end
       end
     end
