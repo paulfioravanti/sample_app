@@ -30,7 +30,7 @@ describe "Locale switching" do
         let(:user)      { FactoryGirl.create(:user) }
         let(:next_page) { t('will_paginate.next_label') }
 
-        before(:all) { 30.times { FactoryGirl.create(:user) } }
+        before(:all) { FactoryGirl.create_list(:user, 30) }
         after(:all)  { User.delete_all }
 
         before do

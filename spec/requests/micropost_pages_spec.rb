@@ -75,7 +75,7 @@ describe "Micropost pages" do
 
     describe "pagination" do
       before do
-        31.times { FactoryGirl.create(:micropost, user: user) }
+        FactoryGirl.create_list(:micropost, 31, user: user)
         visit locale_root_path(locale)
       end
       after { Micropost.delete_all }
@@ -118,7 +118,7 @@ describe "Micropost pages" do
 
         context "when user has multiple microposts" do
           before do
-            2.times { FactoryGirl.create(:micropost, user: user) }
+            FactoryGirl.create_list(:micropost, 2, user: user)
             visit locale_root_path(locale)
           end
 
