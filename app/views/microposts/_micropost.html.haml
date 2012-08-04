@@ -1,7 +1,6 @@
 %li
   = best_in_place(micropost, :content, type: :textarea,
                              path: micropost_path(micropost))
-  %span.best_in_place_countdown
   %span.timestamp
     = t('.time_posted_prefix')
     %time<
