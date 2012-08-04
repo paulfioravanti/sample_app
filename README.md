@@ -19,6 +19,3 @@ by [Michael Hartl](http://michaelhartl.com) (plus some modifications).
 - Slight [SCSS](http://sass-lang.com/) refactoring to use mix-ins, and additions to add styling to the language selector
 - Added service hooks to [Travis CI](http://travis-ci.org/), [Gemnasium](https://gemnasium.com/), [Rails Brakeman](http://rails-brakeman.com/repositories/50-paulfioravanti-sample_app), [Rails Best Practices](http://railsbp.com/repositories/197-paulfioravanti-sample_app)
 - Use [rails-timeago](https://github.com/jgraichen/rails-timeago) to do time calculation for microposts on client-side rather than server-side (replaces method calls to `time_ago_in_words`)
-
-### **TODO**s:
-- Decide whether it's worth refactoring the i18n YAML files to include dictionaries, and hence necessarily take translation keys out of Localeapp and manage them manually.  StackOverflow question about this posted [here](http://stackoverflow.com/q/11097572/567863)
