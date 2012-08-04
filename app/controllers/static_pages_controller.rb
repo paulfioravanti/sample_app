@@ -1,13 +1,15 @@
 class StaticPagesController < ApplicationController
 
-  before_filter :localized_page, only: [:help, :about, :contact]
+  before_filter(only: [:help, :about, :contact]) do |c|
+    c.localized_page(params[:locale])
+  end
 
   def home
     if signed_in?
       @micropost  = current_user.microposts.build
       @feed_items = current_user.feed.paginate(page: params[:page])
     else
-      localized_page
+      localized_page(params[:locale])
     end
   end
 
@@ -20,10 +22,13 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
-  private
+  protected
 
-    def localized_page
+    def localized_page(locale)
+      if !I18n.available_locales.include?(locale.to_sym)
+        locale = I18n.default_locale
+      end
       @page = "#{Rails.root}/config/locales/"\
-              "#{action_name}/#{action_name}.#{params[:locale].to_s}.md"
+              "#{action_name}/#{action_name}.#{locale}.md"
     end
 end
