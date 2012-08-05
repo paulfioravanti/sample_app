@@ -1,7 +1,9 @@
 class StaticPagesController < ApplicationController
 
+  # Writing before_filter in standard way triggers Dynamic Path Render
+  # warning in Brakeman.
   before_filter(only: [:help, :about, :contact]) do |c|
-    c.localized_page(params[:locale])
+    c.localized_page
   end
 
   def home
@@ -9,7 +11,7 @@ class StaticPagesController < ApplicationController
       @micropost  = current_user.microposts.build
       @feed_items = current_user.feed.paginate(page: params[:page])
     else
-      localized_page(params[:locale])
+      localized_page
     end
   end
 
@@ -24,7 +26,8 @@ class StaticPagesController < ApplicationController
 
   protected
 
-    def localized_page(locale)
+    def localized_page
+      locale = params[:locale]
       if !I18n.available_locales.include?(locale.to_sym)
         locale = I18n.default_locale
       end
