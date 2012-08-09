@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.8.rc2'
+gem 'rails', '3.2.8'
 # Twitter frameworks to make nice UI design elements
 gem 'bootstrap-sass', '2.0.4.0'
 gem 'bootstrap-will_paginate', '0.0.7'
@@ -69,7 +69,7 @@ group :test do
   # guard/spork integration
   gem 'guard-spork', '1.1.0'
   # Helps in debugging tests by being able to launch browser
-  gem 'launchy', '2.1.1'
+  gem 'launchy', '2.1.2'
   # Mac-dependent gems
   gem 'rb-fsevent', '0.9.1', require: false
   # Growl notifications
