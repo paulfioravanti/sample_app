@@ -6,7 +6,7 @@ gem 'bootstrap-sass', '2.0.4.0'
 gem 'bootstrap-will_paginate', '0.0.7'
 # For creating bcrypt encrypted hashes for user passwords
 gem 'bcrypt-ruby', '3.0.1'
-gem 'jquery-rails', '2.0.2'
+gem 'jquery-rails', '2.1.1'
 # For fake example users with “realistic” names/emails
 gem 'faker', '1.0.1'
 # For pagination
@@ -20,7 +20,7 @@ gem 'rails-i18n', '0.6.5'
 # i18n for database content
 gem 'globalize3', '0.2.0'
 # i18n for localeapp
-gem 'localeapp', '0.5.0'
+gem 'localeapp', '0.5.1'
 # For JQuery timeago library
 gem 'rails-timeago', '1.4.2'
 # For accessing i18n in js files
