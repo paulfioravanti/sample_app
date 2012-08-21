@@ -19,3 +19,4 @@ by [Michael Hartl](http://michaelhartl.com) (plus some modifications).
 - Slight [SCSS](http://sass-lang.com/) refactoring to use mix-ins, and additions to add styling to the language selector
 - Added service hooks to [Travis CI](http://travis-ci.org/), [Gemnasium](https://gemnasium.com/), [Rails Brakeman](http://rails-brakeman.com/repositories/50-paulfioravanti-sample_app), [Rails Best Practices](http://railsbp.com/repositories/197-paulfioravanti-sample_app)
 - Use [rails-timeago](https://github.com/jgraichen/rails-timeago) to do time calculation for microposts on client-side rather than server-side (replaces method calls to `time_ago_in_words`)
+- Refactored model specs using [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
