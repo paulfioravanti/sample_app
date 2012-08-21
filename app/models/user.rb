@@ -2,20 +2,26 @@
 #
 # Table name: users
 #
-#  id              :integer         not null, primary key
+#  id              :integer          not null, primary key
 #  name            :string(255)
 #  email           :string(255)
-#  created_at      :datetime        not null
-#  updated_at      :datetime        not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #  password_digest :string(255)
 #  remember_token  :string(255)
-#  admin           :boolean         default(FALSE)
+#  admin           :boolean          default(FALSE)
+#
+# Indexes
+#
+#  index_users_on_email           (email) UNIQUE
+#  index_users_on_remember_token  (remember_token)
 #
 
 class User < ActiveRecord::Base
 
-  attr_accessible :name, :email, :password, :password_confirmation
   has_secure_password
+  attr_accessible :name, :email, :password, :password_confirmation
+
   has_many :microposts, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
