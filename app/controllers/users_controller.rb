@@ -53,7 +53,7 @@ class UsersController < ApplicationController
     else
       flash[:error] = t('flash.no_admin_suicide', name: user.name)
     end
-    redirect_to users_path
+    redirect_to users_url
   end
 
   def following
@@ -74,15 +74,15 @@ class UsersController < ApplicationController
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to locale_root_path unless current_user?(@user)
+      redirect_to locale_root_url unless current_user?(@user)
     end
 
     def admin_user
-      redirect_to locale_root_path unless current_user.admin?
+      redirect_to locale_root_url unless current_user.admin?
     end
 
     def signed_in_users
-      redirect_to locale_root_path if signed_in?
+      redirect_to locale_root_url if signed_in?
     end
 
 end

@@ -121,7 +121,7 @@ describe "Authentication" do
 
           context "submitting to the update action" do
             before { put user_path(locale, user) }
-            specify { response.should redirect_to(signin_path(locale)) }
+            specify { response.should redirect_to(signin_url(locale)) }
           end
 
           context "visiting the user index" do
@@ -150,14 +150,14 @@ describe "Authentication" do
 
           context "submitting to the create action" do
             before { post microposts_path(locale) }
-            specify { response.should redirect_to(signin_path(locale)) }
+            specify { response.should redirect_to(signin_url(locale)) }
           end
 
           context "submitting to the destroy action" do
             before do
               delete micropost_path(locale, FactoryGirl.create(:micropost))
             end
-            specify { response.should redirect_to(signin_path(locale)) }
+            specify { response.should redirect_to(signin_url(locale)) }
           end
         end
 
@@ -165,12 +165,12 @@ describe "Authentication" do
 
           describe "submitting to the create action" do
             before { post relationships_path(locale) }
-            specify { response.should redirect_to(signin_path(locale)) }
+            specify { response.should redirect_to(signin_url(locale)) }
           end
 
           describe "submitting to the destroy action" do
             before { delete relationship_path(locale, 1) }
-            specify { response.should redirect_to(signin_path(locale)) }
+            specify { response.should redirect_to(signin_url(locale)) }
           end
         end
       end
@@ -186,13 +186,13 @@ describe "Authentication" do
         context "visiting the signup path" do
           before { get signup_path(locale) }
 
-          specify { response.should redirect_to(locale_root_path(locale)) }
+          specify { response.should redirect_to(locale_root_url(locale)) }
         end
 
         context "submitting a POST request to the Users#create action" do
           before { post users_path(locale) }
 
-          specify { response.should redirect_to(locale_root_path(locale)) }
+          specify { response.should redirect_to(locale_root_url(locale)) }
         end
 
       end
@@ -217,7 +217,7 @@ describe "Authentication" do
         context "submitting a PUT request to the Users#update action" do
           before { put user_path(locale, wrong_user) }
 
-          specify { response.should redirect_to(locale_root_path(locale)) }
+          specify { response.should redirect_to(locale_root_url(locale)) }
         end
       end
 
@@ -232,7 +232,7 @@ describe "Authentication" do
 
         context "submitting a DELETE request to the Users#destroy action" do
           before { delete user_path(locale, user) }
-          specify { response.should redirect_to(locale_root_path(locale)) }
+          specify { response.should redirect_to(locale_root_url(locale)) }
         end
       end
 
@@ -253,7 +253,7 @@ describe "Authentication" do
             let(:no_suicide) { t('flash.no_admin_suicide', name: admin.name) }
 
             before { delete user_path(locale, admin) }
-            specify { response.should redirect_to(users_path(locale)),
+            specify { response.should redirect_to(users_url(locale)),
                                       flash[:error].should == no_suicide }
           end
         end

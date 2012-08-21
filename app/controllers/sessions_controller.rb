@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    redirect_to locale_root_path
+    redirect_to locale_root_url
   end
 
 end

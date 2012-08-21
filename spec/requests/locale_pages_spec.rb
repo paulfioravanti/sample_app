@@ -63,7 +63,7 @@ describe "Locale switching" do
           end
 
           it "should render the home page in the target language" do
-            expect { response.should redirect_to(locale_root_path(target_locale)) }
+            expect { response.should redirect_to(locale_root_url(target_locale)) }
           end
           it { should have_selector('title', text: page_title)}
         end
@@ -80,7 +80,7 @@ describe "Locale switching" do
           end
 
           it "should render the new user page in the target language" do
-            expect { response.should redirect_to(signup_path(target_locale)) }
+            expect { response.should redirect_to(signup_url(target_locale)) }
           end
           it { should have_selector('title', text: page_title) }
 
@@ -101,7 +101,7 @@ describe "Locale switching" do
           end
 
           it "should render the edit user page in the target language" do
-            expect { response.should redirect_to(edit_user_path(target_locale, user)) }
+            expect { response.should redirect_to(edit_user_url(target_locale, user)) }
           end
           it { should have_selector('title', text: page_title)}
         end

@@ -64,7 +64,7 @@ describe "Micropost pages" do
 
         subject { response }
 
-        it { should redirect_to(locale_root_path(locale)) }
+        it { should redirect_to(locale_root_url(locale)) }
 
         it "should not delete a micropost" do
           expect { delete other_micropost_path }.to_not(

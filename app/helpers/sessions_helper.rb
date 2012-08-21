@@ -13,7 +13,7 @@ module SessionsHelper
   def signed_in_user
     unless signed_in?
       store_location # to redirect to original page after signin
-      redirect_to signin_path, notice: t('flash.sign_in')
+      redirect_to signin_url, notice: t('flash.sign_in')
     end
   end
 
@@ -42,7 +42,7 @@ module SessionsHelper
   end
 
   def store_location
-    session[:return_to] = request.fullpath
+    session[:return_to] = request.url
   end
 
 end

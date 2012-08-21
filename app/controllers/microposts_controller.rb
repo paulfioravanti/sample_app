@@ -15,7 +15,7 @@ class MicropostsController < ApplicationController
     end
     if @micropost.save
       flash[:success] = t('flash.micropost_created')
-      redirect_to locale_root_path
+      redirect_to locale_root_url
     else
       @feed_items = []
       render 'static_pages/home'
@@ -32,7 +32,7 @@ class MicropostsController < ApplicationController
 
   def destroy
     @micropost.destroy
-    redirect_to locale_root_path
+    redirect_to locale_root_url
   end
 
   private
@@ -40,6 +40,6 @@ class MicropostsController < ApplicationController
     def correct_user
       @micropost = current_user.microposts.find(params[:id])
     rescue
-      redirect_to locale_root_path
+      redirect_to locale_root_url
     end
 end
