@@ -33,7 +33,7 @@ SampleApp::Application.routes.draw do
 
 end
 #== Route Map
-# Generated on 09 Jul 2012 10:20
+# Generated on 19 Aug 2012 18:39
 #
 # followers_user GET    /:locale/users/:id/followers(.:format) users#followers {:locale=>/en|it|ja/}
 #          users GET    /:locale/users(.:format)               users#index {:locale=>/en|it|ja/}
