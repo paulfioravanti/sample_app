@@ -2,14 +2,19 @@
 #
 # Table name: users
 #
-#  id              :integer         not null, primary key
+#  id              :integer          not null, primary key
 #  name            :string(255)
 #  email           :string(255)
-#  created_at      :datetime        not null
-#  updated_at      :datetime        not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #  password_digest :string(255)
 #  remember_token  :string(255)
-#  admin           :boolean         default(FALSE)
+#  admin           :boolean          default(FALSE)
+#
+# Indexes
+#
+#  index_users_on_email           (email) UNIQUE
+#  index_users_on_remember_token  (remember_token)
 #
 
 require 'spec_helper'
@@ -20,33 +25,107 @@ describe User do
 
   subject { user }
 
-  it { should respond_to(:name) }
-  it { should respond_to(:email) }
-  it { should respond_to(:password_digest) }
-  it { should respond_to(:password) }
-  it { should respond_to(:password_confirmation) }
-  it { should respond_to(:remember_token) }
-  it { should respond_to(:admin) }
+  describe "database schema" do
+    it { should have_db_column(:id).of_type(:integer)
+                               .with_options(null: false) }
+    it { should have_db_column(:name).of_type(:string) }
+    it { should have_db_column(:email).of_type(:string) }
+    it { should have_db_column(:created_at).of_type(:datetime)
+                               .with_options(null: false) }
+    it { should have_db_column(:updated_at).of_type(:datetime)
+                               .with_options(null: false) }
+    it { should have_db_column(:password_digest).of_type(:string) }
+    it { should have_db_column(:remember_token).of_type(:string) }
+    it { should have_db_column(:admin).of_type(:boolean)
+                               .with_options(default: false) }
+    it { should have_db_index(:email).unique(true) }
+    it { should have_db_index(:remember_token) }
+  end
 
-  it { should respond_to(:authenticate) }
-  it { should respond_to(:microposts) }
-  it { should respond_to(:feed) }
-  it { should respond_to(:relationships) }
-  it { should respond_to(:followed_users) }
-  it { should respond_to(:reverse_relationships) }
-  it { should respond_to(:followers) }
-  it { should respond_to(:following?) }
-  it { should respond_to(:follow!) }
-  it { should respond_to(:unfollow!) }
+  describe "associations" do
+    it { should have_many(:microposts).dependent(:destroy) }
+    it { should have_many(:relationships).dependent(:destroy) }
+    it { should have_many(:followed_users).through(:relationships) }
+    it { should have_many(:reverse_relationships).class_name("Relationship")
+                          .dependent(:destroy) }
+    it { should have_many(:followers).through(:reverse_relationships) }
+  end
 
-  it { should be_valid }
-  it { should_not be_admin }
+  describe "model attributes" do
+    it { should respond_to(:name) }
+    it { should respond_to(:email) }
+    it { should respond_to(:password_digest) }
+    it { should respond_to(:remember_token) }
+    it { should respond_to(:admin) }
+    it { should respond_to(:microposts) }
+    it { should respond_to(:relationships) }
+    it { should respond_to(:followed_users) }
+    it { should respond_to(:reverse_relationships) }
+    it { should respond_to(:followers) }
+  end
+
+  describe "virtual attributes and methods from has_secure_password" do
+    it { should respond_to(:password) }
+    it { should respond_to(:password_confirmation) }
+    it { should respond_to(:authenticate) }
+  end
 
   describe "accessible attributes" do
-    it "should not allow access to admin" do
-      expect do
-        User.new(admin: true)
-      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    it { should_not allow_mass_assignment_of(:password_digest) }
+    it { should_not allow_mass_assignment_of(:remember_token) }
+    it { should_not allow_mass_assignment_of(:admin) }
+  end
+
+  describe "instance methods" do
+    it { should respond_to(:feed) }
+    it { should respond_to(:following?) }
+    it { should respond_to(:follow!) }
+    it { should respond_to(:unfollow!) }
+  end
+
+  describe "initial state" do
+    it { should be_valid }
+    it { should_not be_admin }
+    its(:remember_token) { should_not be_blank }
+    its(:email) { should_not =~ /\p{Upper}/ }
+  end
+
+  describe "validations" do
+    context "for name" do
+      it { should validate_presence_of(:name) }
+      it { should_not allow_value(" ").for(:name) }
+      it { should ensure_length_of(:name).is_at_most(50) }
+    end
+
+    context "for email" do
+      it { should validate_presence_of(:email) }
+      it { should_not allow_value(" ").for(:email) }
+      it { should validate_uniqueness_of(:email).case_insensitive }
+
+      context "when email format is invalid" do
+        invalid_email_addresses.each do |invalid_address|
+          it { should_not allow_value(invalid_address).for(:email) }
+        end
+      end
+
+      context "when email format is valid" do
+        valid_email_addresses.each do |valid_address|
+          it { should allow_value(valid_address).for(:email) }
+        end
+      end
+    end
+
+    context "for password" do
+      it { should ensure_length_of(:password).is_at_least(6) }
+      it { should_not allow_value(" ").for(:password) }
+
+      context "when password doesn't match confirmation" do
+        it { should_not allow_value("mismatch").for(:password) }
+      end
+    end
+
+    context "for password_confirmation" do
+      it { should validate_presence_of(:password_confirmation) }
     end
   end
 
@@ -55,91 +134,7 @@ describe User do
     it { should be_admin }
   end
 
-  describe "remember token" do
-    before { user.save }
-    its(:remember_token) { should_not be_blank }
-  end
-
-  context "when name is not present" do
-    before { user.name = " " }
-    it { should_not be_valid }
-  end
-
-  context "when name is too long" do
-    before { user.name = "a" * 51 }
-    it { should_not be_valid }
-  end
-
-  context "when email is not present" do
-    before { user.email = " "}
-    it { should_not be_valid }
-  end
-
-  context "when email format is invalid" do
-    it "should be invalid" do
-      invalid_email_addresses.each do |invalid_address|
-        user.email = invalid_address
-        user.should_not be_valid
-      end
-    end
-  end
-
-  context "when email format is valid" do
-    it "should be valid" do
-      valid_email_addresses.each do |valid_address|
-        user.email = valid_address
-        user.should be_valid
-      end
-    end
-  end
-
-  context "when email address is mixed case" do
-    let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
-
-    it "should be saved as all lower-case" do
-      user.email = mixed_case_email
-      user.save
-      user.reload.email.should == mixed_case_email.downcase
-    end
-  end
-
-  context "when email address is already taken" do
-    let(:user_with_same_email) do
-      FactoryGirl.build(:user, email: user.email)
-    end
-
-    subject { user_with_same_email }
-
-    before do
-      user_with_same_email.email.upcase!
-      user_with_same_email.save
-    end
-
-    it { should_not be_valid }
-  end
-
-  context "when password is not present" do
-    before { user.password = user.password_confirmation = " " }
-    it { should_not be_valid }
-  end
-
-  context "when password doesn't match confirmation" do
-    before { user.password = "mismatch" }
-    it { should_not be_valid }
-  end
-
-  context "when password is too short" do
-    before { user.password = "a" * 5 }
-    it { should be_invalid }
-  end
-
-  context "when password confirmation is nil" do
-    before { user.password_confirmation = nil }
-    it { should_not be_valid }
-  end
-
   describe "return value of authenticate method" do
-    before { user.save }
     let(:found_user) { User.find_by_email(user.email) }
 
     context "with valid password" do
@@ -154,7 +149,6 @@ describe User do
   end
 
   describe "micropost associations" do
-    before { user.save }
     let!(:older_micropost) do
       FactoryGirl.create(:micropost, user: user, created_at: 1.day.ago)
     end
@@ -199,10 +193,7 @@ describe User do
   describe "following" do
     let(:other_user) { FactoryGirl.create(:user) }
 
-    before do
-      user.save
-      user.follow!(other_user)
-    end
+    before { user.follow!(other_user) }
 
     it { should be_following(other_user) }
     its(:followed_users) { should include(other_user) }
@@ -224,7 +215,6 @@ describe User do
     let(:other_user) { FactoryGirl.create(:user) }
 
     before do
-      user.save
       user.follow!(other_user)
       other_user.follow!(user)
     end
