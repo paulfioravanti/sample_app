@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
                     action:     @redirect_action,
                     locale:     I18n.locale }
         options[:page] = params[:page] if params[:page].present?
-        redirect_to options, only_path: true
+        redirect_to options #, only_path: true
       end
     end
 
