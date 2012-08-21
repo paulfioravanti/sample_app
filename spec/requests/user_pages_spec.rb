@@ -218,7 +218,7 @@ describe "User pages" do
 
           before { click_button submit }
 
-          let(:user) { User.find_by_email("#{new_user.email}") }
+          let(:user) { User.find_by_email("#{new_user.email.downcase}") }
 
           # Redirect from signup page to signed in user profile page
           it { should have_selector('title', text: user.name) }
