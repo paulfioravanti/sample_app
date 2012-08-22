@@ -12,4 +12,12 @@ module ApplicationHelper
   def gravatar_link
     'http://gravatar.com/emails'
   end
+
+  def locale_languages
+    [
+      [I18n.t('locale_selector.en'), 'en'],
+      [I18n.t('locale_selector.it'), 'it'],
+      [I18n.t('locale_selector.ja'), 'ja']
+    ]
+  end
 end

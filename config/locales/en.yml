@@ -1151,6 +1151,7 @@ en:
     micropost:
       time_posted_prefix: Posted
       time_posted_suffix: ! ' '
+      time_posted_ago: Posted %{time} ago.
   sessions:
     new:
       email: Email
@@ -1169,6 +1170,7 @@ en:
     feed_item:
       time_posted_prefix: Posted
       time_posted_suffix: ''
+      time_posted_ago: Posted %{time} ago.
     micropost_form:
       characters_remaining:
         one: ! '%{count} character remaining.'
@@ -1234,3 +1236,7 @@ en:
   will_paginate:
     next_label: Next
     previous_label: Previous
+  locale_selector:
+    en: English
+    it: Italian (Italiano)
+    ja: Japanese (日本語)

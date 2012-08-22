@@ -12,6 +12,18 @@ it:
     models:
       micropost: Micropost
       user: Utente
+    errors:
+      models:
+        micropost:
+          attributes:
+            content:
+              too_long: è troppo lungo (il massimo è 140 caratteri)
+        user:
+          attributes:
+            password:
+              too_short: è troppo corto (il minimo è 6 caratteri)
+            password_confirmation:
+              blank: non può essere lasciato in bianco
   faker:
     lorem:
       supplemental:
@@ -1000,6 +1012,7 @@ it:
     micropost:
       time_posted_prefix: ! ' Pubblicato'
       time_posted_suffix: ! ' '
+      time_posted_ago: Pubblicato %{time} fa.
   sessions:
     new:
       email: Email
@@ -1018,6 +1031,7 @@ it:
     feed_item:
       time_posted_prefix: Pubblicato
       time_posted_suffix: ''
+      time_posted_ago: Pubblicato %{time} fa.
     micropost_form:
       characters_remaining:
         one: ! '%{count} carattere rimanente.'
@@ -1083,3 +1097,7 @@ it:
   will_paginate:
     next_label: Seguente
     previous_label: Precedente
+  locale_selector:
+    en: Inglese (English)
+    it: Italiano
+    ja: Giapponese (日本語)

@@ -18,6 +18,12 @@ ja:
           attributes:
             content:
               too_long: は140文字以内で入力してください。
+        user:
+          attributes:
+            password:
+              too_short: は6文字以上で入力してください。
+            password_confirmation:
+              blank: を入力してください。
   faker:
     lorem:
       supplemental:
@@ -483,6 +489,7 @@ ja:
     micropost:
       time_posted_prefix: ! '  '
       time_posted_suffix: に投稿された。
+      time_posted_ago: ! '%{time}前に投稿された。'
   sessions:
     new:
       email: メール
@@ -499,6 +506,7 @@ ja:
     feed_item:
       time_posted_prefix: ''
       time_posted_suffix: に投稿された。
+      time_posted_ago: ! '%{time}前に投稿された。'
     micropost_form:
       characters_remaining:
         one: ! '%{count}つの入力可能な文字が残ります。'
@@ -564,3 +572,7 @@ ja:
   will_paginate:
     next_label: 次へ
     previous_label: 前へ
+  locale_selector:
+    en: 英語 (English)
+    it: イタリア語 (Italiano)
+    ja: 日本語

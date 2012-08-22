@@ -3,6 +3,6 @@
              method: 'get',
              class: 'locale') do
   = select_tag 'set_locale',
-               options_for_select(LANGUAGES, I18n.locale)
+               options_for_select(locale_languages, I18n.locale)
   = hidden_field_tag 'page', params[:page] if params[:page]
   = submit_tag 'submit'
