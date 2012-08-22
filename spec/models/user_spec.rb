@@ -26,80 +26,90 @@ describe User do
   subject { user }
 
   describe "database schema" do
-    it { should have_db_column(:id).of_type(:integer)
-                               .with_options(null: false) }
-    it { should have_db_column(:name).of_type(:string) }
-    it { should have_db_column(:email).of_type(:string) }
-    it { should have_db_column(:created_at).of_type(:datetime)
-                               .with_options(null: false) }
-    it { should have_db_column(:updated_at).of_type(:datetime)
-                               .with_options(null: false) }
+    it do
+      should have_db_column(:id).of_type(:integer)
+                                .with_options(null: false)
+    end
+    it { should have_db_column(:name).of_type(:string)            }
+    it { should have_db_column(:email).of_type(:string)           }
+    it do
+      should have_db_column(:created_at).of_type(:datetime)
+                                        .with_options(null: false)
+    end
+    it do
+      should have_db_column(:updated_at).of_type(:datetime)
+                               .with_options(null: false)
+    end
     it { should have_db_column(:password_digest).of_type(:string) }
-    it { should have_db_column(:remember_token).of_type(:string) }
-    it { should have_db_column(:admin).of_type(:boolean)
-                               .with_options(default: false) }
-    it { should have_db_index(:email).unique(true) }
-    it { should have_db_index(:remember_token) }
+    it { should have_db_column(:remember_token).of_type(:string)  }
+    it do
+      should have_db_column(:admin).of_type(:boolean)
+                                   .with_options(default: false)
+    end
+    it { should have_db_index(:email).unique(true)                }
+    it { should have_db_index(:remember_token)                    }
   end
 
   describe "associations" do
-    it { should have_many(:microposts).dependent(:destroy) }
-    it { should have_many(:relationships).dependent(:destroy) }
-    it { should have_many(:followed_users).through(:relationships) }
-    it { should have_many(:reverse_relationships).class_name("Relationship")
-                          .dependent(:destroy) }
+    it { should have_many(:microposts).dependent(:destroy)            }
+    it { should have_many(:relationships).dependent(:destroy)         }
+    it { should have_many(:followed_users).through(:relationships)    }
+    it do
+      should have_many(:reverse_relationships).class_name("Relationship")
+                                              .dependent(:destroy)
+    end
     it { should have_many(:followers).through(:reverse_relationships) }
   end
 
   describe "model attributes" do
-    it { should respond_to(:name) }
-    it { should respond_to(:email) }
-    it { should respond_to(:password_digest) }
-    it { should respond_to(:remember_token) }
-    it { should respond_to(:admin) }
-    it { should respond_to(:microposts) }
-    it { should respond_to(:relationships) }
-    it { should respond_to(:followed_users) }
+    it { should respond_to(:name)                  }
+    it { should respond_to(:email)                 }
+    it { should respond_to(:password_digest)       }
+    it { should respond_to(:remember_token)        }
+    it { should respond_to(:admin)                 }
+    it { should respond_to(:microposts)            }
+    it { should respond_to(:relationships)         }
+    it { should respond_to(:followed_users)        }
     it { should respond_to(:reverse_relationships) }
-    it { should respond_to(:followers) }
+    it { should respond_to(:followers)             }
   end
 
   describe "virtual attributes and methods from has_secure_password" do
-    it { should respond_to(:password) }
+    it { should respond_to(:password)              }
     it { should respond_to(:password_confirmation) }
-    it { should respond_to(:authenticate) }
+    it { should respond_to(:authenticate)          }
   end
 
   describe "accessible attributes" do
     it { should_not allow_mass_assignment_of(:password_digest) }
-    it { should_not allow_mass_assignment_of(:remember_token) }
-    it { should_not allow_mass_assignment_of(:admin) }
+    it { should_not allow_mass_assignment_of(:remember_token)  }
+    it { should_not allow_mass_assignment_of(:admin)           }
   end
 
   describe "instance methods" do
-    it { should respond_to(:feed) }
+    it { should respond_to(:feed)       }
     it { should respond_to(:following?) }
-    it { should respond_to(:follow!) }
-    it { should respond_to(:unfollow!) }
+    it { should respond_to(:follow!)    }
+    it { should respond_to(:unfollow!)  }
   end
 
   describe "initial state" do
-    it { should be_valid }
-    it { should_not be_admin }
+    it { should be_valid                       }
+    it { should_not be_admin                   }
     its(:remember_token) { should_not be_blank }
-    its(:email) { should_not =~ /\p{Upper}/ }
+    its(:email) { should_not =~ /\p{Upper}/    }
   end
 
   describe "validations" do
     context "for name" do
-      it { should validate_presence_of(:name) }
-      it { should_not allow_value(" ").for(:name) }
+      it { should validate_presence_of(:name)            }
+      it { should_not allow_value(" ").for(:name)        }
       it { should ensure_length_of(:name).is_at_most(50) }
     end
 
     context "for email" do
-      it { should validate_presence_of(:email) }
-      it { should_not allow_value(" ").for(:email) }
+      it { should validate_presence_of(:email)                    }
+      it { should_not allow_value(" ").for(:email)                }
       it { should validate_uniqueness_of(:email).case_insensitive }
 
       context "when email format is invalid" do
@@ -143,7 +153,8 @@ describe User do
 
     context "with invalid password" do
       let(:user_with_invalid_password) { found_user.authenticate("invalid") }
-      it { should_not == user_with_invalid_password }
+
+      it { should_not == user_with_invalid_password        }
       specify { user_with_invalid_password.should be_false }
     end
   end
@@ -179,8 +190,8 @@ describe User do
         3.times { followed_user.microposts.create!(content: "Lorem Ipsum") }
       end
 
-      its(:feed) { should include(newer_micropost) }
-      its(:feed) { should include(older_micropost) }
+      its(:feed) { should include(newer_micropost)     }
+      its(:feed) { should include(older_micropost)     }
       its(:feed) { should_not include(unfollowed_post) }
       its(:feed) do
         followed_user.microposts.each do |micropost|
@@ -195,13 +206,13 @@ describe User do
 
     before { user.follow!(other_user) }
 
-    it { should be_following(other_user) }
+    it { should be_following(other_user)              }
     its(:followed_users) { should include(other_user) }
 
     describe "and unfollowing" do
       before { user.unfollow!(other_user) }
 
-      it { should_not be_following(other_user) }
+      it { should_not be_following(other_user)              }
       its(:followed_users) { should_not include(other_user) }
     end
 
@@ -236,7 +247,7 @@ describe User do
 
       before { user.destroy }
 
-      its(:relationships) { should_not include(user) }
+      its(:relationships)         { should_not include(user) }
       its(:reverse_relationships) { should_not include(user) }
     end
   end

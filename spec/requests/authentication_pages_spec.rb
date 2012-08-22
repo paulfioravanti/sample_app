@@ -12,26 +12,26 @@ describe "Authentication" do
 
       before { visit signin_path(locale) }
 
-      it { should have_selector('h1',    text: heading) }
+      it { should have_selector('h1',    text: heading)    }
       it { should have_selector('title', text: page_title) }
     end
 
     describe "signin" do
-      let(:user)       { FactoryGirl.create(:user) }
-      let(:users)      { t('layouts.header.users') }
-      let(:page_title) { t('sessions.new.sign_in') }
-      let(:sign_in)    { t('sessions.new.sign_in') }
+      let(:user)       { FactoryGirl.create(:user)    }
+      let(:users)      { t('layouts.header.users')    }
+      let(:page_title) { t('sessions.new.sign_in')    }
+      let(:sign_in)    { t('sessions.new.sign_in')    }
       let(:sign_out)   { t('layouts.header.sign_out') }
-      let(:profile)    { t('layouts.header.profile') }
+      let(:profile)    { t('layouts.header.profile')  }
       let(:settings)   { t('layouts.header.settings') }
 
       before { visit signin_path(locale) }
 
-      it { should have_selector('title',  text: page_title) }
-      it { should_not have_link(users,    href: users_path(locale)) }
-      it { should_not have_link(profile,  href: user_path(locale, user)) }
+      it { should have_selector('title',  text: page_title)                   }
+      it { should_not have_link(users,    href: users_path(locale))           }
+      it { should_not have_link(profile,  href: user_path(locale, user))      }
       it { should_not have_link(settings, href: edit_user_path(locale, user)) }
-      it { should_not have_link(sign_out, href: signout_path(locale)) }
+      it { should_not have_link(sign_out, href: signout_path(locale))         }
 
       context "with invalid information" do
         let(:invalid) { t('flash.invalid_credentials') }
@@ -39,7 +39,7 @@ describe "Authentication" do
         before { click_button sign_in }
 
         it { should have_selector('title',      text: page_title) }
-        it { should have_alert_message('error', invalid) }
+        it { should have_alert_message('error', invalid)          }
 
         context "after visiting another page" do
           let(:home) { t('layouts.header.home') }
@@ -58,12 +58,12 @@ describe "Authentication" do
           valid_sign_in(user)
         end
 
-        it { should have_selector('title', text: user.name) }
-        it { should have_link(users,       href: users_path(locale)) }
-        it { should have_link(profile,     href: user_path(locale, user)) }
-        it { should have_link(settings,    href: edit_user_path(locale, user)) }
-        it { should have_link(sign_out,    href: signout_path(locale)) }
-        it { should_not have_link(sign_in, href: signin_path(locale)) }
+        it { should have_selector('title', text: user.name)                   }
+        it { should have_link(users,       href: users_path(locale))          }
+        it { should have_link(profile,     href: user_path(locale, user))     }
+        it { should have_link(settings,   href: edit_user_path(locale, user)) }
+        it { should have_link(sign_out,    href: signout_path(locale))        }
+        it { should_not have_link(sign_in, href: signin_path(locale))         }
 
         context "followed by sign out" do
           before { click_link sign_out }
@@ -92,7 +92,7 @@ describe "Authentication" do
 
             context "when signing in again" do
               let(:sign_out)  { t('layouts.header.sign_out') }
-              let(:sign_in)   { t('layouts.header.sign_in') }
+              let(:sign_in)   { t('layouts.header.sign_in')  }
 
               before do
                 click_link sign_out
@@ -111,12 +111,12 @@ describe "Authentication" do
 
           context "visting the edit page" do
             let(:page_title) { t('sessions.new.sign_in') }
-            let(:sign_in)    { t('flash.sign_in') }
+            let(:sign_in)    { t('flash.sign_in')        }
 
             before { visit edit_user_path(locale, user) }
 
             it { should have_selector('title', text: page_title) }
-            it { should have_alert_message('notice', sign_in) }
+            it { should have_alert_message('notice', sign_in)    }
           end
 
           context "submitting to the update action" do
@@ -198,8 +198,8 @@ describe "Authentication" do
       end
 
       context "as a wrong user" do
-        let(:user)       { FactoryGirl.create(:user) }
-        let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
+        let(:user)       { FactoryGirl.create(:user)                        }
+        let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@eg.com") }
 
         before do
           visit signin_path(locale)
@@ -211,7 +211,9 @@ describe "Authentication" do
 
           before { visit edit_user_path(locale, wrong_user) }
 
-          it { should_not have_selector('title', text: full_title(page_title)) }
+          it do
+            should_not have_selector('title', text: full_title(page_title))
+          end
         end
 
         context "submitting a PUT request to the Users#update action" do
@@ -246,15 +248,19 @@ describe "Authentication" do
 
         context "should prevent admin users from destroying themselves" do
           it "should not delete the user" do
-            expect { delete user_path(locale, admin) }.not_to change(User, :count)
+            expect do
+              delete user_path(locale, admin)
+            end.not_to change(User, :count)
           end
 
           context "after failing to delete" do
             let(:no_suicide) { t('flash.no_admin_suicide', name: admin.name) }
 
             before { delete user_path(locale, admin) }
-            specify { response.should redirect_to(users_url(locale)),
-                                      flash[:error].should == no_suicide }
+            specify do
+              response.should redirect_to(users_url(locale)),
+                                          flash[:error].should == no_suicide
+            end
           end
         end
       end

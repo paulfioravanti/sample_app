@@ -139,18 +139,24 @@ describe "Micropost pages" do
         let(:delete) { t('shared.delete_micropost.delete') }
 
         context "for user's microposts" do
-          it { should have_link(delete, href: micropost_path(locale,
-                                                current_user_micropost)) }
+          it do
+            should have_link(delete,
+                             href: micropost_path(locale,
+                                                  current_user_micropost))
+          end
         end
 
         context "for other user's microposts" do
-          let(:other_micropost) { FactoryGirl.create(:micropost,
-                                    user: FactoryGirl.create(:user)) }
+          let(:other_micropost) do
+            FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
+          end
 
           before { visit locale_root_path(locale) }
 
-          it { should_not have_link(delete,
-                            href: micropost_path(locale, other_micropost)) }
+          it do
+            should_not have_link(delete,
+                                 href: micropost_path(locale, other_micropost))
+          end
         end
       end
     end

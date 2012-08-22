@@ -17,20 +17,27 @@
 require 'spec_helper'
 
 describe Micropost do
-  let(:user)      { FactoryGirl.create(:user) }
+  let(:user)      { FactoryGirl.create(:user)                 }
   let(:micropost) { FactoryGirl.build(:micropost, user: user) }
 
   subject { micropost }
 
   describe "database schema" do
-    it { should have_db_column(:id).of_type(:integer)
-                               .with_options(null: false) }
-    it { should have_db_column(:user_id).of_type(:integer)
-                               .with_options(null: false) }
-    it { should have_db_column(:created_at).of_type(:datetime)
-                               .with_options(null: false) }
-    it { should have_db_column(:updated_at).of_type(:datetime)
-                               .with_options(null: false) }
+    it do
+      should have_db_column(:id).of_type(:integer).with_options(null: false)
+    end
+    it do
+      should have_db_column(:user_id).of_type(:integer)
+                                     .with_options(null: false)
+    end
+    it do
+      should have_db_column(:created_at).of_type(:datetime)
+                                        .with_options(null: false)
+    end
+    it do
+      should have_db_column(:updated_at).of_type(:datetime)
+                                        .with_options(null: false)
+    end
     it { should have_db_index([:user_id, :created_at]) }
   end
 
@@ -44,7 +51,7 @@ describe Micropost do
 
     context "for Globalize3 translations" do
       it { should respond_to(:translations) }
-      it { should respond_to(:content) }
+      it { should respond_to(:content)      }
     end
   end
 
@@ -53,9 +60,9 @@ describe Micropost do
   end
 
   describe "validations" do
-    it { should validate_presence_of(:user) }
-    it { should validate_presence_of(:content) }
-    it { should_not allow_value(" ").for(:content) }
+    it { should validate_presence_of(:user)                }
+    it { should validate_presence_of(:content)             }
+    it { should_not allow_value(" ").for(:content)         }
     it { should ensure_length_of(:content).is_at_most(140) }
   end
 

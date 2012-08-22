@@ -39,7 +39,7 @@ describe "Routes" do
       end
 
       context "a valid action" do
-        let(:action) { "about" }
+        let(:action)                     { "about"                        }
         let!(:default_locale_action_url) { about_url(I18n.default_locale) }
 
         context "with a valid but unsupported locale" do
