@@ -9,11 +9,13 @@ describe "Locale switching" do
 
   I18n.available_locales.each do |locale|
 
-    LANGUAGES.each do |target_language, target_locale|
+    I18n.available_locales.each do |target_locale|
       next if locale == target_locale
 
       context "to another language" do
         let(:page_title) { t('layouts.application.base_title') }
+        let(:target_language) { t("locale_selector.#{target_locale}") }
+        let(:new_language) { t("locale_selector.#{I18n.locale}") }
 
         before do
           visit locale_root_path(locale)
@@ -21,7 +23,7 @@ describe "Locale switching" do
           click_button locale_submit
         end
 
-        it { should have_selector('select', text: target_language) }
+        it { should have_selector('select', text: new_language) }
         it { should have_selector('title', text: page_title) }
         specify { I18n.locale.should == target_locale.to_sym }
       end
@@ -29,6 +31,7 @@ describe "Locale switching" do
       context "during pagination" do
         let(:user)      { FactoryGirl.create(:user) }
         let(:next_page) { t('will_paginate.next_label') }
+        let(:target_language) { t("locale_selector.#{target_locale}") }
 
         before(:all) { FactoryGirl.create_list(:user, 30) }
         after(:all)  { User.delete_all }
@@ -52,6 +55,7 @@ describe "Locale switching" do
           let(:user)   { FactoryGirl.create(:user) }
           let(:page_title) { t('layouts.application.base_title') }
           let(:post) { t('shared.micropost_form.post') }
+          let(:target_language) { t("locale_selector.#{target_locale}") }
 
           before do
             visit signin_path(locale)
@@ -71,6 +75,7 @@ describe "Locale switching" do
         context "when failing to create a user" do
           let(:page_title) { t('users.new.sign_up') }
           let(:submit) { t('users.new.create_account') }
+          let(:target_language) { t("locale_selector.#{target_locale}") }
 
           before do
             visit signup_path(locale)
@@ -90,6 +95,7 @@ describe "Locale switching" do
           let(:user)   { FactoryGirl.create(:user) }
           let(:page_title) { t('users.edit.edit_user') }
           let(:submit) { t('users.edit.save_changes') }
+          let(:target_language) { t("locale_selector.#{target_locale}") }
 
           before do
             visit signin_path(locale)
