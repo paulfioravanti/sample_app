@@ -35,7 +35,10 @@ class ApplicationController < ActionController::Base
                     action:     @redirect_action,
                     locale:     I18n.locale }
         options[:page] = params[:page] if params[:page].present?
-        redirect_to options #, only_path: true
+        # only_path option used here instead of a full url to protect
+        # against unwanted redirects from user-supplied values:
+        # http://brakemanscanner.org/docs/warning_types/redirect/
+        redirect_to options, only_path: true
       end
     end
 
