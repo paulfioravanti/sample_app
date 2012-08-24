@@ -17,6 +17,6 @@ by [Michael Hartl](http://michaelhartl.com) (plus some modifications).
 - Added i18n-specific routing
 - Addition of translations to dynamic data and its relevant sample data (microposts) using [Globalize3](https://github.com/svenfuchs/globalize3)
 - Slight [SCSS](http://sass-lang.com/) refactoring to use mix-ins, and additions to add styling to the language selector
-- Added service hooks to [Travis CI](http://travis-ci.org/), [Gemnasium](https://gemnasium.com/), [Rails Brakeman](http://rails-brakeman.com/repositories/50-paulfioravanti-sample_app), [Rails Best Practices](http://railsbp.com/repositories/197-paulfioravanti-sample_app)
+- Added service hooks to [Travis CI](http://travis-ci.org/), [Gemnasium](https://gemnasium.com/), [Rails Brakeman](http://rails-brakeman.com/repositories/50-paulfioravanti-sample_app), [Rails Best Practices](http://railsbp.com/repositories/197-paulfioravanti-sample_app), [Code Climate](https://codeclimate.com/github/paulfioravanti/sample_app)
 - Use [rails-timeago](https://github.com/jgraichen/rails-timeago) to do time calculation for microposts on client-side rather than server-side (replaces method calls to `time_ago_in_words`)
 - Refactor model specs to use [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
