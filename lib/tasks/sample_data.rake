@@ -32,9 +32,9 @@
 #       I18n.locale = :en
 #       content = Faker::Lorem.sentence(5)
 #       micropost = user.microposts.create!(content: content)
-#       LANGUAGES.transpose.last.each do |locale|
-#         next if locale == "en"
-#         I18n.locale = locale.to_sym
+#       I18n.availbale_locales.each do |locale|
+#         next if locale == :en
+#         I18n.locale = locale
 #         translation = Faker::Lorem.sentence(5)
 #         micropost.translations.create!(locale: locale, content: translation)
 #       end

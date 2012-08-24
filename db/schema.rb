@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120819052935) do
+ActiveRecord::Schema.define(:version => 20120609091244) do
 
   create_table "micropost_translations", :force => true do |t|
     t.integer  "micropost_id"

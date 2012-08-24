@@ -27,6 +27,8 @@ gem 'rails-timeago', '1.4.2'
 gem 'i18n-js', '2.1.2'
 # Editing in place
 gem 'best_in_place', '1.1.2'
+# Develop on, and test postgres on Travis CI, and deploy on Heroku
+gem 'pg', '0.14.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -53,7 +55,7 @@ group :development, :test do
   gem 'rspec-rails', '2.11.0'
   # for autotesting with rspec
   gem 'guard-rspec', '1.2.1'
-  gem 'sqlite3', '1.3.6'
+
 end
 
 group :test do
@@ -77,11 +79,12 @@ group :test do
   gem 'growl', '1.0.3'
   # Test mysql on Travis CI
   gem 'mysql2', '0.3.11'
+  # Test sqlite3 on Travis CI
+  gem 'sqlite3', '1.3.6'
   # Code coverage reports
   gem 'simplecov', '0.6.4', require: false
 end
 
 group :test, :production do
-  # Test postgres on Travis CI and deploy on Heroku
-  gem 'pg', '0.14.0'
+
 end
