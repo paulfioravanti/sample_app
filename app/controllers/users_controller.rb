@@ -57,20 +57,24 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = t('users.show_follow.following')
     @user = User.find(params[:id])
     @users = @user.followed_users.paginate(page: params[:page])
-    render 'show_follow'
+    show_follow
   end
 
   def followers
-    @title = t('users.show_follow.followers')
     @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
-    render 'show_follow'
+    show_follow
   end
 
   private
+
+    def show_follow
+      calling_method = caller[0][/`(.*)'/, 1]
+      @title = t("users.show_follow.#{calling_method}")
+      render 'show_follow'
+    end
 
     def correct_user
       @user = User.find(params[:id])
