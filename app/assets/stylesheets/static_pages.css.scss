@@ -1,3 +1,20 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* GitHub Ribbon */
+
+.github_ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  z-index: 1030;
+}

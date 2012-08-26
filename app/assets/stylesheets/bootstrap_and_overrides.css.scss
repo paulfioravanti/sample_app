@@ -17,16 +17,6 @@ $grayMediumLight: hsl(0, 0%, 92%);
   box-sizing: border-box;
 }
 
-/* Miscellaneous */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box-sizing;
-}
-
 /* Universal */
 
 html {
@@ -35,6 +25,8 @@ html {
 }
 
 body {
+  // accommodate the “Bootstrap black bar” heading created by
+  // the navbar-fixed-top class in the header tag
   padding-top: 60px;
 }
 
@@ -45,13 +37,6 @@ section {
 textarea {
   // Automatically resizes text areas based on amount of text
   resize: vertical;
-}
-
-.center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
 }
 
 /* Typography */
@@ -111,16 +96,6 @@ p {
   }
 }
 
-/* GitHub Ribbon */
-
-.github_ribbon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: 0;
-  z-index: 1030;
-}
-
 /* Sidebar */
 
 aside {
@@ -145,11 +120,6 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
 .stats {
   overflow: auto;
   a {
@@ -168,14 +138,6 @@ aside {
   }
   strong {
     display: block;
-  }
-}
-
-.user_avatars {
-  overflow: auto;
-  margin-top: 10px;
-  .gravatar {
-    margin: 1px 1px;
   }
 }
 
@@ -207,17 +169,28 @@ textarea, select, .uneditable-input {
   @extend .error;
 }
 
-/* Users Index */
+/* Footer */
 
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-top: 1px solid $grayLighter;
-    &:last-child {
-      border-bottom: 1px solid $grayLighter;
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $grayLight;
+  a {
+    color: $gray;
+    &:hover {
+      color: $grayDarker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
     }
   }
 }
@@ -287,28 +260,12 @@ aside {
   &:first-letter { text-transform: uppercase; }
 }
 
-/* Footer */
+/* Miscellaneous */
 
-footer {
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
   margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
-  a {
-    color: $gray;
-    &:hover {
-      color: $grayDarker;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 10px;
-    }
-  }
+  @include box-sizing;
 }
