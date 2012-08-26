@@ -9,6 +9,7 @@ by [Michael Hartl](http://michaelhartl.com) (plus some modifications).
 - Translation keys are currently being managed [here](http://www.localeapp.com/projects/1043) with [Localeapp](http://www.localeapp.com/).
 
 ### Changes from the original tutorial content:
+- Moved development database over to [Postgresql](http://www.postgresql.org/) to match deployment database on Heroku.
 - All views changed from HTML/ERb to [Haml](http://haml-lang.com/)
 - Added locale switcher
 - I18n of app labels with translations for Japanese and Italian
