@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_filter :signed_in_user,
                 only: [:index, :edit, :update, :destroy, :following, :followers]
   before_filter :signed_in_users, only: [:new, :create]
+  before_filter :find_user,
+                only: [:show, :edit, :update, :following, :followers]
   before_filter :correct_user,    only: [:edit, :update]
   before_filter :admin_user,      only: :destroy
 
@@ -12,7 +14,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
   end
 
@@ -57,18 +58,20 @@ class UsersController < ApplicationController
   end
 
   def following
-    @user = User.find(params[:id])
     @users = @user.followed_users.paginate(page: params[:page])
     show_follow
   end
 
   def followers
-    @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     show_follow
   end
 
   private
+
+    def find_user
+      @user = User.find(params[:id])
+    end
 
     def show_follow
       calling_method = caller[0][/`(.*)'/, 1]
@@ -77,7 +80,6 @@ class UsersController < ApplicationController
     end
 
     def correct_user
-      @user = User.find(params[:id])
       redirect_to locale_root_url unless current_user?(@user)
     end
 
