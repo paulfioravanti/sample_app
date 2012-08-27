@@ -20,6 +20,13 @@ en:
               too_short: is too short (minimum is 6 characters)
             password_confirmation:
               blank: can't be blank
+            email:
+              blank: can't be blank
+              invalid: is invalid
+            name:
+              blank: can't be blank
+            password_digest:
+              blank: can't be blank
         micropost:
           attributes:
             content:
