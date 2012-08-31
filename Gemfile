@@ -2,8 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.8'
 # Twitter frameworks to make nice UI design elements
-gem 'bootstrap-sass', '2.0.4.0'
-gem 'bootstrap-will_paginate', '0.0.7'
+gem 'bootstrap-sass', '2.0.4.1'
+gem 'bootstrap-will_paginate', '0.0.8'
 # For creating bcrypt encrypted hashes for user passwords
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails', '2.1.1'
@@ -63,7 +63,7 @@ group :test do
   gem 'capybara', '1.1.2'
   # Use factories instead of ActiveRecord objects
   gem 'factory_girl_rails', '4.0.0'
-  gem 'shoulda-matchers', '1.2.0'
+  gem 'shoulda-matchers', '1.3.0'
   # Cucumber for user stories and db cleaner utility below
   gem 'cucumber-rails', '1.3.0', require: false
   gem 'database_cleaner', '0.8.0'
