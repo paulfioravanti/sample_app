@@ -15,7 +15,8 @@ Spork.prefork do
   end
 
   require 'rails/application'
-  require ::Rails.root.join("config/application")
+  # require ::Rails.root.join("config/application")
+  require File.expand_path("../../config/application", __FILE__)
 
   ENV["RAILS_ENV"] ||= 'test'
   # require File.expand_path("../../config/environment", __FILE__)
