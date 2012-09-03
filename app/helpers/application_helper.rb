@@ -1,7 +1,7 @@
 module ApplicationHelper
   # Returns the full title on a per-page basis.
   def full_title(page_title)
-    base_title = I18n.t('layouts.application.base_title')
+    base_title = t('layouts.application.base_title')
     if page_title.empty?
       base_title
     else
@@ -15,9 +15,9 @@ module ApplicationHelper
 
   def locale_languages
     [
-      [I18n.t('locale_selector.en'), 'en'],
-      [I18n.t('locale_selector.it'), 'it'],
-      [I18n.t('locale_selector.ja'), 'ja']
+      [t('locale_selector.en'), 'en'],
+      [t('locale_selector.it'), 'it'],
+      [t('locale_selector.ja'), 'ja']
     ]
   end
 end
