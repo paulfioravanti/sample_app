@@ -25,31 +25,6 @@ describe User do
 
   subject { user }
 
-  describe "database schema" do
-    it do
-      should have_db_column(:id).of_type(:integer)
-                                .with_options(null: false)
-    end
-    it { should have_db_column(:name).of_type(:string)            }
-    it { should have_db_column(:email).of_type(:string)           }
-    it do
-      should have_db_column(:created_at).of_type(:datetime)
-                                        .with_options(null: false)
-    end
-    it do
-      should have_db_column(:updated_at).of_type(:datetime)
-                               .with_options(null: false)
-    end
-    it { should have_db_column(:password_digest).of_type(:string) }
-    it { should have_db_column(:remember_token).of_type(:string)  }
-    it do
-      should have_db_column(:admin).of_type(:boolean)
-                                   .with_options(default: false)
-    end
-    it { should have_db_index(:email).unique(true)                }
-    it { should have_db_index(:remember_token)                    }
-  end
-
   describe "associations" do
     it { should have_many(:microposts).dependent(:destroy)            }
     it { should have_many(:relationships).dependent(:destroy)         }
@@ -67,11 +42,6 @@ describe User do
     it { should respond_to(:password_digest)       }
     it { should respond_to(:remember_token)        }
     it { should respond_to(:admin)                 }
-    it { should respond_to(:microposts)            }
-    it { should respond_to(:relationships)         }
-    it { should respond_to(:followed_users)        }
-    it { should respond_to(:reverse_relationships) }
-    it { should respond_to(:followers)             }
   end
 
   describe "virtual attributes and methods from has_secure_password" do
@@ -87,10 +57,10 @@ describe User do
   end
 
   describe "instance methods" do
-    it { should respond_to(:feed)       }
-    it { should respond_to(:following?) }
-    it { should respond_to(:follow!)    }
-    it { should respond_to(:unfollow!)  }
+    it { should respond_to(:feed).with(0).arguments      }
+    it { should respond_to(:following?).with(1).argument }
+    it { should respond_to(:follow!).with(1).argument    }
+    it { should respond_to(:unfollow!).with(1).argument  }
   end
 
   describe "initial state" do

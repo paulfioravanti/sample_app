@@ -22,32 +22,12 @@ describe Micropost do
 
   subject { micropost }
 
-  describe "database schema" do
-    it do
-      should have_db_column(:id).of_type(:integer).with_options(null: false)
-    end
-    it do
-      should have_db_column(:user_id).of_type(:integer)
-                                     .with_options(null: false)
-    end
-    it do
-      should have_db_column(:created_at).of_type(:datetime)
-                                        .with_options(null: false)
-    end
-    it do
-      should have_db_column(:updated_at).of_type(:datetime)
-                                        .with_options(null: false)
-    end
-    it { should have_db_index([:user_id, :created_at]) }
-  end
-
   describe "associations" do
     it { should belong_to(:user) }
+    its(:user) { should == user }
   end
 
   describe "model attributes" do
-    it { should respond_to(:user) }
-    its(:user) { should == user }
 
     context "for Globalize3 translations" do
       it { should respond_to(:translations) }
@@ -69,5 +49,7 @@ describe Micropost do
   describe "initial state" do
     it { should be_valid }
   end
+
+  # self.from_users_followed_by(user) tested in user_spec status
 
 end
