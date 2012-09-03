@@ -28,7 +28,7 @@ gem 'i18n-js', '2.1.2'
 # Editing in place
 gem 'best_in_place', '1.1.2'
 # Develop on, and test postgres on Travis CI, and deploy on Heroku
-gem 'pg', '0.14.0'
+gem 'pg', '0.14.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -38,7 +38,7 @@ group :assets do
   gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
-  gem 'uglifier', '1.2.7'
+  gem 'uglifier', '1.3.0'
 end
 
 group :development do
