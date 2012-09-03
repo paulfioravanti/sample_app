@@ -573,6 +573,6 @@ ja:
     next_label: 次へ
     previous_label: 前へ
   locale_selector:
-    en: 英語 (English)
-    it: イタリア語 (Italiano)
+    en: English (英語)
+    it: Italiano (イタリア語)
     ja: 日本語

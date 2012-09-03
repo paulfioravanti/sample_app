@@ -1098,6 +1098,6 @@ it:
     next_label: Seguente
     previous_label: Precedente
   locale_selector:
-    en: Inglese (English)
+    en: English (Inglese)
     it: Italiano
-    ja: Giapponese (日本語)
+    ja: 日本語 (Giapponese)
