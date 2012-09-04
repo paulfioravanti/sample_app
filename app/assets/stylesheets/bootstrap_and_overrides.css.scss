@@ -1,4 +1,6 @@
 @import "bootstrap";
+// Font Awesome - http://fortawesome.github.com/Font-Awesome
+@import "font-awesome";
 
 /* Variables, mixins, etc. */
 
@@ -61,6 +63,41 @@ p {
 }
 
 /* Header */
+
+// header {
+//   li {
+//     a {
+//       color: $grayLight;
+//       i {
+//         opacity: 0.5;
+//       }
+//     }
+//     &:hover {
+//       color: $white;
+//       text-decoration: none;
+//       i {
+//         opacity: 1;
+//       }
+//     }
+//   }
+  // ul.dropdown-menu {
+  //   li {
+  //     a {
+  //       // color: $grayLight;
+  //       i {
+  //         opacity: 1;
+  //       }
+  //     }
+  //     &:hover {
+  //       // color: $white;
+  //       // text-decoration: none;
+  //       i {
+  //         opacity: 1;
+  //       }
+  //     }
+  //   }
+  // }
+// }
 
 #logo {
   float: left;
