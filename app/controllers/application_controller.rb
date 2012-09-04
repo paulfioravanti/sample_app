@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
         options = { controller: @redirect_controller,
                     action:     @redirect_action,
                     locale:     I18n.locale }
-        options[:page] = params[:page] if params[:page].present?
+        options[:page] = params[:page] unless params[:page].nil?
         # only_path option used here instead of a full url to protect
         # against unwanted redirects from user-supplied values:
         # http://brakemanscanner.org/docs/warning_types/redirect/

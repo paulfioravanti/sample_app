@@ -485,6 +485,8 @@ ja:
       sign_in: ログイン
       sign_out: ログアウト
       users: ユーザ
+    locale_selector:
+      language: 言語
   microposts:
     micropost:
       time_posted_prefix: ! '  '

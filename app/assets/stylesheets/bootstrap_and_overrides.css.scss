@@ -64,46 +64,11 @@ p {
 
 /* Header */
 
-// header {
-//   li {
-//     a {
-//       color: $grayLight;
-//       i {
-//         opacity: 0.5;
-//       }
-//     }
-//     &:hover {
-//       color: $white;
-//       text-decoration: none;
-//       i {
-//         opacity: 1;
-//       }
-//     }
-//   }
-  // ul.dropdown-menu {
-  //   li {
-  //     a {
-  //       // color: $grayLight;
-  //       i {
-  //         opacity: 1;
-  //       }
-  //     }
-  //     &:hover {
-  //       // color: $white;
-  //       // text-decoration: none;
-  //       i {
-  //         opacity: 1;
-  //       }
-  //     }
-  //   }
-  // }
-// }
-
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: $white;
+  color: $grayLight;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -112,24 +77,6 @@ p {
   &:hover {
     color: $white;
     text-decoration: none;
-  }
-}
-
-.locale {
-  padding-top: 5px;
-  padding-left: 5px;
-  margin: -0.25em;
-  #set_locale {
-    width: 85px;
-    height: 36px;
-    color: $grayLight;
-    border: none;
-    background: none;
-    text-align: center;
-    &:hover {
-      color: $white;
-      text-decoration: none;
-    }
   }
 }
 

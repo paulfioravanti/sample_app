@@ -1154,6 +1154,8 @@ en:
       sign_in: Sign In
       sign_out: Sign Out
       users: Users
+    locale_selector:
+      language: Language
   microposts:
     micropost:
       time_posted_prefix: Posted

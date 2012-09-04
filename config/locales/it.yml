@@ -1008,6 +1008,8 @@ it:
       sign_in: Accedi
       sign_out: Esci
       users: Utenti
+    locale_selector:
+      language: Lingua
   microposts:
     micropost:
       time_posted_prefix: ! ' Pubblicato'

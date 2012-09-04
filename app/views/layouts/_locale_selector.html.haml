@@ -1,8 +1,13 @@
-= form_tag({ controller: controller,
-             action: action },
-             method: 'get',
-             class: 'locale') do
-  = select_tag 'set_locale',
-               options_for_select(locale_languages, I18n.locale)
-  = hidden_field_tag 'page', params[:page] if params[:page]
-  = submit_tag 'submit'
+%li#fat-menu.dropdown
+  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+    %i.icon-globe
+    = t('.language')
+    %b.caret
+  %ul.dropdown-menu
+    - locale_languages.each do |language|
+      %li
+        = link_to language[:label],
+                  controller: controller,
+                  action: action,
+                  set_locale: language[:locale],
+                  page: params[:page]

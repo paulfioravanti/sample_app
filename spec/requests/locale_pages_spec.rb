@@ -4,9 +4,6 @@ describe "Locale switching" do
 
   subject { page }
 
-  let(:locale_selector) { 'set_locale' }
-  let(:locale_submit)   { 'submit'     }
-
   I18n.available_locales.each do |locale|
 
     I18n.available_locales.each do |target_locale|
@@ -19,11 +16,9 @@ describe "Locale switching" do
 
         before do
           visit locale_root_path(locale)
-          select target_language, from: locale_selector
-          click_button locale_submit
+          click_link target_language
         end
 
-        it { should have_selector('select', text: new_language) }
         it { should have_selector('title', text: page_title)    }
         specify { I18n.locale.should == target_locale.to_sym    }
       end
@@ -41,8 +36,7 @@ describe "Locale switching" do
           valid_sign_in(user)
           visit users_path(locale)
           click_link next_page
-          select target_language, from: locale_selector
-          click_button locale_submit
+          click_link target_language
         end
 
         it { should have_link('2', class: 'active') }
@@ -62,8 +56,7 @@ describe "Locale switching" do
             valid_sign_in(user)
             visit locale_root_path(locale)
             click_button post
-            select target_language, from: locale_selector
-            click_button locale_submit
+            click_link target_language
           end
 
           it "should render the home page in the target language" do
@@ -82,8 +75,7 @@ describe "Locale switching" do
           before do
             visit signup_path(locale)
             click_button submit
-            select target_language, from: locale_selector
-            click_button locale_submit
+            click_link target_language
           end
 
           it "should render the new user page in the target language" do
@@ -104,8 +96,7 @@ describe "Locale switching" do
             valid_sign_in(user)
             visit edit_user_path(locale, user)
             click_button submit
-            select target_language, from: locale_selector
-            click_button locale_submit
+            click_link target_language
           end
 
           it "should render the edit user page in the target language" do

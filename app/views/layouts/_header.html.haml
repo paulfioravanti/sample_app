@@ -41,7 +41,7 @@
               = link_to signin_path do
                 %i.icon-signin
                 = t('.sign_in')
-          %li= render 'layouts/locale_selector',
-                      controller: controller,
-                      action: action
+          = render 'layouts/locale_selector',
+                    controller: controller,
+                    action: action
 
