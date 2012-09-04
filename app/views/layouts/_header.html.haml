@@ -4,21 +4,43 @@
       = link_to t('.sample_app'), locale_root_path, id: "logo"
       %nav
         %ul.nav.pull-right
-          %li= link_to t('.home'), locale_root_path
-          %li= link_to t('.help'), help_path
+          %li
+            = link_to locale_root_path do
+              %i.icon-home
+              = t('.home')
+          %li
+            = link_to help_path do
+              %i.icon-question-sign
+              = t('.help')
           - if signed_in?
-            %li= link_to t('.users'), users_path
+            %li
+              = link_to users_path do
+                %i.icon-user
+                = t('.users')
             %li#fat-menu.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                %i.icon-briefcase
                 = t('.account')
                 %b.caret
               %ul.dropdown-menu
-                %li= link_to t('.profile'),  current_user
-                %li= link_to t('.settings'), edit_user_path(current_user)
+                %li
+                  = link_to current_user do
+                    %i.icon-edit
+                    = t('.profile')
+                %li
+                  = link_to edit_user_path(current_user) do
+                    %i.icon-cogs
+                    = t('.settings')
                 %li.divider
-                %li= link_to t('.sign_out'), signout_path, method: :delete
+                %li
+                  = link_to signout_path, method: :delete do
+                    %i.icon-signout
+                    = t('.sign_out')
           - else
-            %li= link_to t('.sign_in'), signin_path
+            %li
+              = link_to signin_path do
+                %i.icon-signin
+                = t('.sign_in')
           %li= render 'layouts/locale_selector',
                       controller: controller,
                       action: action

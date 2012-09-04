@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 # Twitter frameworks to make nice UI design elements
 gem 'bootstrap-sass', '2.0.4.2'
 gem 'bootstrap-will_paginate', '0.0.8'
+gem 'font-awesome-sass-rails', '2.0.0.0'
 # For creating bcrypt encrypted hashes for user passwords
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails', '2.1.1'
