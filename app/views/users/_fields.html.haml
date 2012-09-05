@@ -1,15 +1,6 @@
 = render 'shared/error_messages', object: f.object
-
-= f.label :name, t('.name')
-= f.text_field :name
-
-= f.label :email, t('.email')
-= f.text_field :email
-
-= f.label :password, t('.password')
-= f.password_field :password
-
-= f.label :password_confirmation, t('.confirmation')
-= f.password_field :password_confirmation
-
-= f.submit button_label, class: "btn btn-large btn-primary"
+= f.input :name
+= f.input :email
+= f.input :password
+= f.input :password_confirmation
+= f.button :submit, button_label, class: "btn btn-large btn-primary"

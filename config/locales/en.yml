@@ -31,6 +31,11 @@ en:
           attributes:
             content:
               too_long: is too long (maximum is 140 characters)
+  simple_form:
+    labels:
+    hints:
+    placeholders:
+
   faker:
     lorem:
       supplemental:
@@ -1173,9 +1178,7 @@ en:
       delete: Delete
       you_sure: You sure?
     error_messages:
-      form_errors:
-        one: The form contains %{count} error
-        other: The form contains %{count} errors
+      form_errors: "Please review the problems below:"
     feed_item:
       time_posted_prefix: Posted
       time_posted_suffix: ''
@@ -1216,11 +1219,6 @@ en:
       edit_user: Edit user
       save_changes: Save changes
       update_profile: Update your profile
-    fields:
-      confirmation: Confirmation
-      email: Email
-      name: Name
-      password: Password
     follow:
       follow: Follow
     index:
@@ -1249,3 +1247,16 @@ en:
     en: English
     it: Italiano (Italian)
     ja: 日本語 (Japanese)
+  helpers:
+    submit:
+      user:
+        create: Create User
+  simple_form:
+    required:
+      html: <abbr title="required">*</abbr>
+  user:
+    new:
+      email: ''
+      name: ''
+      password: ''
+      password_confirmation: ''

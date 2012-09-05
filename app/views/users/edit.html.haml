@@ -2,7 +2,7 @@
 %h1= t('.update_profile')
 .row
   .span6.offset3
-    = form_for(@user) do |f|
+    = simple_form_for(@user, :html => {class: 'form-vertical' }) do |f|
       = render 'fields', f: f, button_label: t('.save_changes')
     = gravatar_for @user
     = link_to t('.change'), gravatar_link, target: "_blank"

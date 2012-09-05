@@ -1,7 +1,8 @@
 - if object.errors.any?
   #error_explanation
     .alert.alert-error
-      = t('.form_errors', count: object.errors.count)
-    %ul
-      - object.errors.full_messages.each do |msg|
-        %li= msg 
+      %a{href: '#', class: 'close', "data-dismiss" => 'alert'}="×"
+      = t('.form_errors')
+    / %ul
+    /   - object.errors.full_messages.each do |msg|
+    /     %li= msg

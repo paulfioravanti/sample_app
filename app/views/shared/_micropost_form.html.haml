@@ -1,5 +1,10 @@
-= form_for micropost do |f|
+= simple_form_for micropost do |f|
   = render 'shared/error_messages', object: f.object
-  .field= f.text_area :content, placeholder: t('.compose_micropost')
+  .field= f.input :content,
+                  as: :text,
+                  label: false,
+                  required: false,
+                  placeholder: t('.compose_micropost'),
+                  error: false
   %span.countdown
-  = f.submit t('.post'), class: "btn btn-large btn-primary"
+  = f.button :submit, t('.post'), class: "btn btn-large btn-primary"

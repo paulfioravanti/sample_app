@@ -2,16 +2,18 @@
 include ApplicationHelper
 
 def fill_in_fields(user, new_name = nil, new_email = nil)
-  fill_in t('users.fields.name'),         with: new_name || user.name
-  fill_in t('users.fields.email'),        with: new_email || user.email
-  fill_in t('users.fields.password'),     with: user.password
-  fill_in t('users.fields.confirmation'), with: user.password
+  scope = 'activerecord.attributes.user'
+  fill_in t(:name, scope: scope),     with: new_name || user.name
+  fill_in t(:email, scope: scope),    with: new_email || user.email
+  fill_in t(:password, scope: scope), with: user.password
+  fill_in t(:password_confirmation, scope: scope), with: user.password
 end
 
 def valid_sign_in(user)
-  fill_in t('sessions.new.email'),    with: user.email
-  fill_in t('sessions.new.password'), with: user.password
-  click_button t('sessions.new.sign_in')
+  scope = 'sessions.new'
+  fill_in t(:email, scope: scope),    with: user.email
+  fill_in t(:password, scope: scope), with: user.password
+  click_button t(:sign_in, scope: scope)
   # Sign in when not using Capybara as well.
   cookies[:remember_token] = user.remember_token
 end

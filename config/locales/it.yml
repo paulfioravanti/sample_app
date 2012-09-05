@@ -24,6 +24,11 @@ it:
               too_short: è troppo corto (il minimo è 6 caratteri)
             password_confirmation:
               blank: non può essere lasciato in bianco
+  simple_form:
+    labels:
+    hints:
+    placeholders:
+
   faker:
     lorem:
       supplemental:
@@ -1027,9 +1032,7 @@ it:
       delete: Anulla
       you_sure: Sei sicuro?
     error_messages:
-      form_errors:
-        one: Il form contiene %{count} errore
-        other: Il form contiene %{count} errori
+      form_errors: "Si prega di rivedere i problemi di seguito:"
     feed_item:
       time_posted_prefix: Pubblicato
       time_posted_suffix: ''
@@ -1070,11 +1073,6 @@ it:
       edit_user: Modifica Utente
       save_changes: Salva le modifiche
       update_profile: Aggiorni il tuo profilo
-    fields:
-      confirmation: Confirma
-      email: Email
-      name: Nome
-      password: Password
     follow:
       follow: Follow
     index:
@@ -1103,3 +1101,18 @@ it:
     en: English (Inglese)
     it: Italiano
     ja: 日本語 (Giapponese)
+  helpers:
+    submit:
+      user:
+        create: Crea Utente
+  simple_form:
+    required:
+      html: <abbr title="required">*</abbr>
+      mark: ! '*'
+      text: required
+  user:
+    new:
+      email: ''
+      name: ''
+      password: ''
+      password_confirmation: ''

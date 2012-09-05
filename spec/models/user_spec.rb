@@ -30,8 +30,9 @@ describe User do
     it { should have_many(:relationships).dependent(:destroy)         }
     it { should have_many(:followed_users).through(:relationships)    }
     it do
-      should have_many(:reverse_relationships).class_name("Relationship")
-                                              .dependent(:destroy)
+      should have_many(:reverse_relationships)
+                       .class_name("Relationship")
+                       .dependent(:destroy)
     end
     it { should have_many(:followers).through(:reverse_relationships) }
   end
@@ -96,6 +97,7 @@ describe User do
     end
 
     context "for password" do
+      it { should validate_presence_of(:password) }
       it { should ensure_length_of(:password).is_at_least(6) }
       it { should_not allow_value(" ").for(:password) }
 
