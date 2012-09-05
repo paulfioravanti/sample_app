@@ -11,6 +11,7 @@ by [Michael Hartl](http://michaelhartl.com) (plus some modifications).
 ### Changes from the original tutorial content:
 - Moved development database over to [Postgresql](http://www.postgresql.org/) to match deployment database on Heroku.
 - All views changed from HTML/ERb to [Haml](http://haml-lang.com/)
+- Added [Font Awesome](http://fortawesome.github.com/Font-Awesome/) icons to the header
 - Added locale switcher
 - I18n of app labels with translations for Japanese and Italian
 - All static content internationalized in [Markdown](http://daringfireball.net/projects/markdown/) files instead of HTML/ERb files
