@@ -1,6 +1,11 @@
 %li
-  = best_in_place(micropost, :content, type: :textarea,
-                             path: micropost_path(micropost))
+  / = best_in_place(micropost,
+  /                 :content,
+  /                 type: :textarea,
+  /                 path: micropost_path(micropost),
+  /                 ok_button: "Save",
+  /                 cancel_button: "Cancel")
+  %span.content= micropost.content
   %span.timestamp
     = t('.time_posted_prefix')
     %time<

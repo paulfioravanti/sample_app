@@ -19,13 +19,13 @@ class MicropostsController < ApplicationController
     end
   end
 
-  def update
-    micropost = params[:micropost]
-    micropost[:content] = wrap(micropost[:content], false)
-    # @micropost.update_attributes(params[:micropost])
-    @micropost.update_attributes(micropost)
-    respond_with_bip @micropost
-  end
+  # def update
+  #   micropost = params[:micropost]
+  #   micropost[:content] = wrap(micropost[:content], false)
+  #   # @micropost.update_attributes(params[:micropost])
+  #   @micropost.update_attributes(micropost)
+  #   respond_with_bip @micropost
+  # end
 
   def destroy
     @micropost.destroy

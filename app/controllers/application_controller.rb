@@ -29,12 +29,13 @@ class ApplicationController < ActionController::Base
     def locale_redirect
       @redirect_action = redirect_action
       @redirect_controller = redirect_controller
+      @page = parse_page
 
       if params[:set_locale].present?
         options = { controller: @redirect_controller,
                     action:     @redirect_action,
                     locale:     I18n.locale }
-        options[:page] = params[:page] unless params[:page].nil?
+        options[:page] = @page unless @page.nil?
         # only_path option used here instead of a full url to protect
         # against unwanted redirects from user-supplied values:
         # http://brakemanscanner.org/docs/warning_types/redirect/
@@ -56,6 +57,14 @@ class ApplicationController < ActionController::Base
           @redirect_action = 'home'
           'static_pages'
         else controller_name
+      end
+    end
+
+    def parse_page
+      if params[:page].present? && params[:page] =~ /^\d+$/
+        params[:page]
+      else
+        nil
       end
     end
 

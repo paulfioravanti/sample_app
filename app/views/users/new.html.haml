@@ -2,5 +2,5 @@
 %h1= t('.sign_up')
 .row
   .span6.offset3
-    = simple_form_for(@user, :html => {class: 'form-vertical' }) do |f|
+    = simple_form_for(@user, html: {class: 'form-vertical' }) do |f|
       = render 'fields', f: f, button_label: t('.create_account')
