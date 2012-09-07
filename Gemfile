@@ -2,11 +2,11 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.8'
 # Twitter frameworks to make nice UI design elements
-gem 'bootstrap-sass', '2.0.4.2'
+gem 'bootstrap-sass', '2.1.0.0'
 gem 'bootstrap-will_paginate', '0.0.8'
 # For creating bcrypt encrypted hashes for user passwords
 gem 'bcrypt-ruby', '3.0.1'
-gem 'jquery-rails', '2.1.1'
+gem 'jquery-rails', '2.1.2'
 # For fake example users with “realistic” names/emails
 gem 'faker', '1.0.1'
 # For pagination
@@ -18,7 +18,7 @@ gem 'haml-rails', '0.3.4'
 # To enable the use of Markdown
 gem 'rdiscount', '1.6.8'
 # i18n strings for default Rails
-gem 'rails-i18n', '0.6.5'
+gem 'rails-i18n', '0.6.6'
 # i18n for database content
 gem 'globalize3', '0.2.0'
 # i18n for localeapp
