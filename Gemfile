@@ -1,8 +1,10 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.8'
+
 # Twitter frameworks to make nice UI design elements
 gem 'bootstrap-sass', '2.1.0.0'
+gem 'sass-rails',   '3.2.5'
 gem 'bootstrap-will_paginate', '0.0.8'
 # For creating bcrypt encrypted hashes for user passwords
 gem 'bcrypt-ruby', '3.0.1'
@@ -14,7 +16,7 @@ gem 'will_paginate', '3.0.3'
 # Simplified forms
 gem 'simple_form', '2.0.2'
 # Simplify UI code
-gem 'haml-rails', '0.3.4'
+gem 'haml-rails', '0.3.5'
 # To enable the use of Markdown
 gem 'rdiscount', '1.6.8'
 # i18n strings for default Rails
@@ -37,7 +39,6 @@ gem 'pg', '0.14.1'
 group :assets do
   # To access Ruby objects in Javascript
   gem 'therubyracer', '0.10.1'
-  gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
   gem 'uglifier', '1.3.0'
