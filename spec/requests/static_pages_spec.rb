@@ -113,14 +113,6 @@ describe "Static Pages" do
           end
         end
       end
-
-      # context "with an incorrect locale" do
-      #   let(:invalid_locale) { 'fr' }
-      #   before { visit locale_root_path(invalid_locale) }
-      #   it "should show the page in the default locale" do
-      #     expect { I18n.current_locale == I18n.default_locale }
-      #   end
-      # end
     end
 
     describe "Help Page" do
