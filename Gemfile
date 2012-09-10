@@ -2,9 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.8'
 
-# Twitter frameworks to make nice UI design elements
-gem 'bootstrap-sass', '2.1.0.0'
-gem 'sass-rails',   '3.2.5'
 gem 'bootstrap-will_paginate', '0.0.8'
 # For creating bcrypt encrypted hashes for user passwords
 gem 'bcrypt-ruby', '3.0.1'
@@ -37,6 +34,9 @@ gem 'pg', '0.14.1'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  # Twitter frameworks to make nice UI design elements
+  gem 'bootstrap-sass', '2.1.0.0'
+  gem 'sass-rails',   '3.2.5'
   # To access Ruby objects in Javascript
   gem 'therubyracer', '0.10.1'
   gem 'coffee-rails', '3.2.2'
@@ -75,7 +75,7 @@ group :test do
   # speed up test server
   gem 'spork', '0.9.0'
   # guard/spork integration
-  gem 'guard-spork', '1.1.0'
+  gem 'guard-spork', '1.2.0'
   # Helps in debugging tests by being able to launch browser
   gem 'launchy', '2.1.2'
   # Mac-dependent gems
