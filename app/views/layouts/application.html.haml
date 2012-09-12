@@ -12,7 +12,7 @@
     = render 'layouts/header',
              controller: @redirect_controller,
              action: @redirect_action,
-             page: @page
+             page: @page_number
     .container
       - flash.each do |key, value|
         = content_tag(:div, value, class: "alert alert-#{key}")
