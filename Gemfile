@@ -54,6 +54,7 @@ group :development do
   gem 'ruby_parser', '2.3.1'
   gem 'brakeman', '1.8.0'
   gem 'rails_best_practices', '1.10.1'
+  gem 'bullet', '4.1.6'
 end
 
 group :development, :test do
