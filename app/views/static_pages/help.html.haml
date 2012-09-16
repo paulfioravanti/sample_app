@@ -1,3 +1,1 @@
-- provide(:title, t('.help'))
-:markdown
-  #{render file: @page}
+= render 'static_pages/static_page', title: t('.help'), page: @page

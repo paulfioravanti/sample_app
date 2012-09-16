@@ -1,7 +1,6 @@
 = render 'layouts/github_ribbon'
 .center.hero-unit
-  :markdown
-    #{render file: page}
+  = render 'static_pages/static_page', title: nil, page: page
   = link_to t('.sign_up'), signup_path,
             class: "btn btn-large btn-primary"
 
