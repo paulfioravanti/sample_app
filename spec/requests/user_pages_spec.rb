@@ -211,7 +211,7 @@ describe "User pages" do
 
         context "after saving the user" do
           let(:welcome)  { t('flash.welcome') }
-          let(:sign_out) { t('layouts.header.sign_out') }
+          let(:sign_out) { t('layouts.account_dropdown.sign_out') }
 
           before { click_button submit }
 
@@ -253,7 +253,7 @@ describe "User pages" do
       context "with valid information" do
         let(:new_name)  { "New Name"                   }
         let(:new_email) { "new@example.com"            }
-        let(:sign_out)  { t('layouts.header.sign_out') }
+        let(:sign_out)  { t('layouts.account_dropdown.sign_out') }
 
         before do
           fill_in_fields(user, new_name, new_email)

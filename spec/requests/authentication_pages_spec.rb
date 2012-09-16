@@ -17,13 +17,13 @@ describe "Authentication" do
     end
 
     describe "signin" do
-      let(:user)       { FactoryGirl.create(:user)    }
-      let(:users)      { t('layouts.header.users')    }
-      let(:page_title) { t('sessions.new.sign_in')    }
-      let(:sign_in)    { t('sessions.new.sign_in')    }
-      let(:sign_out)   { t('layouts.header.sign_out') }
-      let(:profile)    { t('layouts.header.profile')  }
-      let(:settings)   { t('layouts.header.settings') }
+      let(:user)       { FactoryGirl.create(:user)              }
+      let(:users)      { t('layouts.header.users')              }
+      let(:page_title) { t('sessions.new.sign_in')              }
+      let(:sign_in)    { t('sessions.new.sign_in')              }
+      let(:sign_out)   { t('layouts.account_dropdown.sign_out') }
+      let(:profile)    { t('layouts.account_dropdown.profile')  }
+      let(:settings)   { t('layouts.account_dropdown.settings') }
 
       before { visit signin_path(locale) }
 
@@ -91,8 +91,8 @@ describe "Authentication" do
             end
 
             context "when signing in again" do
-              let(:sign_out)  { t('layouts.header.sign_out') }
-              let(:sign_in)   { t('layouts.header.sign_in')  }
+              let(:sign_out)  { t('layouts.account_dropdown.sign_out') }
+              let(:sign_in)   { t('layouts.header.sign_in')            }
 
               before do
                 click_link sign_out

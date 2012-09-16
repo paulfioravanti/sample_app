@@ -1150,15 +1150,16 @@ en:
       news: News
       rails_tutorial: Rails Tutorial
     header:
-      account: Account
       help: Help
       home: Home
-      profile: Profile
       sample_app: Sample App
-      settings: Settings
       sign_in: Sign In
-      sign_out: Sign Out
       users: Users
+    account_dropdown:
+      account: Account
+      profile: Profile
+      settings: Settings
+      sign_out: Sign Out
     locale_selector:
       language: Language
   microposts:

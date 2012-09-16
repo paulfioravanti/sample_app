@@ -481,15 +481,16 @@ ja:
       news: ニュース
       rails_tutorial: Railsチュートリアル
     header:
-      account: アカウント
       help: ヘルプ
       home: ホーム
-      profile: プロフィール
       sample_app: サンプルアップ
-      settings: 設定
       sign_in: ログイン
-      sign_out: ログアウト
       users: ユーザ
+    account_dropdown:
+      account: アカウント
+      profile: プロフィール
+      settings: 設定
+      sign_out: ログアウト
     locale_selector:
       language: 言語
   microposts:

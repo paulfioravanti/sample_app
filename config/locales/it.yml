@@ -1004,15 +1004,16 @@ it:
       news: Notizie
       rails_tutorial: Rails Tutorial
     header:
-      account: Account
       help: Aiuto
       home: Home
-      profile: Profilo
       sample_app: Esempio App
-      settings: Impostazioni
       sign_in: Accedi
-      sign_out: Esci
       users: Utenti
+    account_dropdown:
+      account: Account
+      profile: Profilo
+      settings: Impostazioni
+      sign_out: Esci
     locale_selector:
       language: Lingua
   microposts:

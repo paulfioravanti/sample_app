@@ -1,0 +1,19 @@
+%li#fat-menu.dropdown
+  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+    %i.icon-briefcase
+    = t('.account')
+    %b.caret
+  %ul.dropdown-menu
+    %li
+      = link_to current_user do
+        %i.icon-edit
+        = t('.profile')
+    %li
+      = link_to edit_user_path(current_user) do
+        %i.icon-cogs
+        = t('.settings')
+    %li.divider
+    %li
+      = link_to signout_path, method: :delete do
+        %i.icon-signout
+        = t('.sign_out')
