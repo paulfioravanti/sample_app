@@ -1,7 +1,7 @@
 class MicropostsController < ApplicationController
   include MicropostsHelper
 
-  before_filter :signed_in_user, only: [:create, :update, :destroy]
+  before_filter :signed_in_user, only: [:create, :destroy]
   before_filter :correct_user,   only: [:update, :destroy]
 
   after_filter :translations, only: :create
