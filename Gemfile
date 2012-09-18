@@ -30,6 +30,7 @@ gem 'i18n-js', '2.1.2'
 gem 'best_in_place', '1.1.2'
 # Develop on, and test postgres on Travis CI, and deploy on Heroku
 gem 'pg', '0.14.1'
+gem 'newrelic_rpm', '3.4.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
