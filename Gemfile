@@ -7,7 +7,7 @@ gem 'bootstrap-will_paginate', '0.0.8'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails', '2.1.2'
 # For fake example users with “realistic” names/emails
-gem 'faker', '1.1.0'
+gem 'faker', '1.1.1'
 # For pagination
 gem 'will_paginate', '3.0.3'
 # Simplified forms
