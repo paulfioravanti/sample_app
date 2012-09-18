@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   before_filter :signed_in_user,
-                only: [:index, :edit, :update, :destroy, :following, :followers]
+                only: [:index, :edit, :update, :destroy, :following,
+                       :followers]
   before_filter :signed_in_users, only: [:new, :create]
   before_filter :find_user,
                 only: [:show, :edit, :update, :following, :followers]
@@ -15,8 +16,8 @@ class UsersController < ApplicationController
 
   def show
     @microposts = @user.microposts.
-                        includes(:translations).
-                        paginate(page: params[:page])
+                        paginate(include: :translations,
+                                 page: params[:page])
   end
 
   def new
