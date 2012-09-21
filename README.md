@@ -1,14 +1,27 @@
 # Ruby on Rails Tutorial: sample application
 [![Build Status](https://secure.travis-ci.org/paulfioravanti/sample_app.png)](http://travis-ci.org/paulfioravanti/sample_app) [![Security Status](http://rails-brakeman.com/paulfioravanti/sample_app.png)](http://rails-brakeman.com/paulfioravanti/sample_app) [![Dependency Status](https://gemnasium.com/paulfioravanti/sample_app.png)](https://gemnasium.com/paulfioravanti/sample_app) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/paulfioravanti/sample_app)
 
-[![Endorse](http://api.coderwall.com/pfioravanti/endorse.png)](http://coderwall.com/pfioravanti)
-
 This is the sample application for
 [*Ruby on Rails Tutorial: Learn Rails by Example*](http://railstutorial.org/)
 by [Michael Hartl](http://michaelhartl.com) (plus some modifications).
 
 - This code is currently deployed [here](https://pf-sampleapp.herokuapp.com) using [Heroku](http://www.heroku.com/)
 - Translation keys are currently being managed [here](http://www.localeapp.com/projects/1043) with [Localeapp](http://www.localeapp.com/).
+
+Please consider an [![Endorse](http://api.coderwall.com/pfioravanti/endorse.png)](http://coderwall.com/pfioravanti) if you find this repo useful.
+
+## Cloning Locally
+
+    $ cd /tmp
+    $ git clone git@github.com:paulfioravanti/sample_app.git
+    $ cd sample_app
+    $ bundle install
+    $ bundle exec rake db:migrate
+    $ bundle exec rake db:seed
+    $ bundle exec rake db:test:prepare RAILS_ENV=test
+    $ bundle exec rspec spec/
+
+If you do not have [Postgresql](http://www.postgresql.org/) installed on your machine (or don't use it), change the string in [line 22 of **config/database.yml**](https://github.com/paulfioravanti/sample_app/blob/master/config/database.yml#L22) to `"sqlite"` or `"mysql"`, and set the `username` and `password` variables appropriately for your environment.
 
 ## Changes from the original tutorial content:
 
