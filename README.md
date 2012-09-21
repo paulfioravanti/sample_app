@@ -8,9 +8,9 @@ by [Michael Hartl](http://michaelhartl.com) (plus some modifications).
 - This code is currently deployed [here](https://pf-sampleapp.herokuapp.com) using [Heroku](http://www.heroku.com/)
 - Translation keys are currently being managed [here](http://www.localeapp.com/projects/1043) with [Localeapp](http://www.localeapp.com/).
 
-Please consider an [![Endorse](http://api.coderwall.com/pfioravanti/endorse.png)](http://coderwall.com/pfioravanti) if you find this repo useful.
+If you find this repo useful, please consider an [![Endorse](http://api.coderwall.com/pfioravanti/endorse.png)](http://coderwall.com/pfioravanti)
 
-## Cloning Locally
+### Cloning Locally
 
     $ cd /tmp
     $ git clone git@github.com:paulfioravanti/sample_app.git
