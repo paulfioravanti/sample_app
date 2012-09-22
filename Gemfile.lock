@@ -32,7 +32,7 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.2)
-    awesome_print (1.0.2)
+    awesome_print (1.1.0)
     bcrypt-ruby (3.0.1)
     best_in_place (1.1.2)
       jquery-rails
@@ -64,6 +64,8 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.5)
       ffi (~> 1.0, >= 1.0.6)
+    code_analyzer (0.2.0)
+      sexp_processor
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -181,14 +183,14 @@ GEM
     rails-timeago (1.4.2)
       actionpack (>= 3.1)
       activesupport (>= 3.1)
-    rails_best_practices (1.10.1)
+    rails_best_practices (1.11.1)
       activesupport
       awesome_print
+      code_analyzer
       colored
       erubis
       i18n
       progressbar
-      sexp_processor
     railties (3.2.8)
       actionpack (= 3.2.8)
       activesupport (= 3.2.8)
@@ -301,7 +303,7 @@ DEPENDENCIES
   rails (= 3.2.8)
   rails-i18n (= 0.6.6)
   rails-timeago (= 1.4.2)
-  rails_best_practices (= 1.10.1)
+  rails_best_practices (= 1.11.1)
   rb-fsevent (= 0.9.1)
   rdiscount (= 1.6.8)
   rspec-rails (= 2.11.0)

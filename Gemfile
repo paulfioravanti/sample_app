@@ -56,7 +56,7 @@ group :development do
   gem 'ruby_parser', '2.3.1'
   # Security checking
   gem 'brakeman', '1.8.0'
-  gem 'rails_best_practices', '1.10.1'
+  gem 'rails_best_practices', '1.11.1'
   # Query optimization monitoring
   gem 'bullet', '4.1.6'
 end
@@ -65,7 +65,6 @@ group :development, :test do
   gem 'rspec-rails', '2.11.0'
   # for autotesting with rspec
   gem 'guard-rspec', '1.2.1'
-
 end
 
 group :test do
