@@ -5,7 +5,7 @@ gem 'rails', '3.2.8'
 gem 'bootstrap-will_paginate', '0.0.8'
 # For creating bcrypt encrypted hashes for user passwords
 gem 'bcrypt-ruby', '3.0.1'
-gem 'jquery-rails', '2.1.2'
+gem 'jquery-rails', '2.1.3'
 # For fake example users with “realistic” names/emails
 gem 'faker', '1.1.2'
 # For pagination
@@ -55,7 +55,7 @@ group :development do
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '2.3.1'
   # Security checking
-  gem 'brakeman', '1.8.0'
+  gem 'brakeman', '1.8.1'
   gem 'rails_best_practices', '1.11.1'
   # Query optimization monitoring
   gem 'bullet', '4.1.6'
