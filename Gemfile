@@ -83,7 +83,7 @@ group :test do
   # Helps in debugging tests by being able to launch browser
   gem 'launchy', '2.1.2'
   # Mac-dependent gems
-  gem 'rb-fsevent', '0.9.1', require: false
+  gem 'rb-fsevent', '0.9.2', require: false
   # Growl notifications
   gem 'growl', '1.0.3'
   # Test mysql on Travis CI
