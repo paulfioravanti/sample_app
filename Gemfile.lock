@@ -38,7 +38,7 @@ GEM
       jquery-rails
       rails (~> 3.1)
     bootstrap-sass (2.1.0.0)
-    bootstrap-will_paginate (0.0.8)
+    bootstrap-will_paginate (0.0.9)
       will_paginate
     brakeman (1.8.1)
       activesupport
@@ -277,7 +277,7 @@ DEPENDENCIES
   bcrypt-ruby (= 3.0.1)
   best_in_place (= 1.1.2)
   bootstrap-sass (= 2.1.0.0)
-  bootstrap-will_paginate (= 0.0.8)
+  bootstrap-will_paginate (= 0.0.9)
   brakeman (= 1.8.1)
   bullet (= 4.1.6)
   capybara (= 1.1.2)
