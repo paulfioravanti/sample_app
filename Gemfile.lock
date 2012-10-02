@@ -113,8 +113,8 @@ GEM
       thor (>= 0.14.6)
     guard-rspec (1.2.1)
       guard (>= 1.1)
-    guard-spork (1.2.0)
-      childprocess
+    guard-spork (1.2.1)
+      childprocess (>= 0.2.3)
       guard (>= 1.1)
       spork (>= 0.8.4)
       sys-proctable
@@ -290,7 +290,7 @@ DEPENDENCIES
   globalize3 (= 0.2.0)
   growl (= 1.0.3)
   guard-rspec (= 1.2.1)
-  guard-spork (= 1.2.0)
+  guard-spork (= 1.2.1)
   haml-rails (= 0.3.5)
   hpricot (= 0.8.6)
   i18n-js (= 2.1.2)
