@@ -45,6 +45,7 @@ If you do not have [Postgresql](http://www.postgresql.org/) installed on your ma
 ### Testing
 - Internationalized [RSpec](http://rspec.info/) tests and further refactored them
 - Refactored model specs to use [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
+- Changed RSpec output to show a progress bar instead of dots using [Fuubar](https://github.com/jeffkreeftmeijer/fuubar)
 
 ### Reporting/Optimizing
 - Added service hooks to [Travis CI](http://travis-ci.org/), [Rails Brakeman](http://rails-brakeman.com/), [Gemnasium](https://gemnasium.com/), [Code Climate](https://codeclimate.com), [Rails Best Practices](http://railsbp.com/).  See badges under title for details.

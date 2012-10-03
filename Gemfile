@@ -65,6 +65,8 @@ group :development, :test do
   gem 'rspec-rails', '2.11.0'
   # for autotesting with rspec
   gem 'guard-rspec', '1.2.1'
+  # Prettier RSpec output
+  gem 'fuubar', '1.1.0'
 end
 
 group :test do
