@@ -241,7 +241,7 @@ GEM
       multi_json (~> 1.0)
       rubyzip
     sexp_processor (3.2.0)
-    shoulda-matchers (1.3.0)
+    shoulda-matchers (1.4.0)
       activesupport (>= 3.0.0)
     simple_form (2.0.2)
       actionpack (~> 3.0)
@@ -316,7 +316,7 @@ DEPENDENCIES
   rspec-rails (= 2.11.0)
   ruby_parser (= 2.3.1)
   sass-rails (= 3.2.5)
-  shoulda-matchers (= 1.3.0)
+  shoulda-matchers (= 1.4.0)
   simple_form (= 2.0.2)
   simplecov (= 0.6.4)
   spork (= 0.9.0)
