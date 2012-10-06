@@ -11,7 +11,7 @@ gem 'faker', '1.1.2'
 # For pagination
 gem 'will_paginate', '3.0.3'
 # Simplified forms
-gem 'simple_form', '2.0.2'
+gem 'simple_form', '2.0.3'
 # Simplify UI code
 gem 'haml-rails', '0.3.5'
 # To enable the use of Markdown
@@ -58,13 +58,13 @@ group :development do
   gem 'brakeman', '1.8.1'
   gem 'rails_best_practices', '1.11.1'
   # Query optimization monitoring
-  gem 'bullet', '4.1.6'
+  gem 'bullet', '4.2.0'
 end
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
   # for autotesting with rspec
-  gem 'guard-rspec', '1.2.1'
+  gem 'guard-rspec', '2.0.0'
   # Prettier RSpec output
   gem 'fuubar', '1.1.0'
 end
