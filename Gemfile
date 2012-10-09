@@ -11,7 +11,7 @@ gem 'faker', '1.1.2'
 # For pagination
 gem 'will_paginate', '3.0.3'
 # Simplified forms
-gem 'simple_form', '2.0.3'
+gem 'simple_form', '2.0.4'
 # Simplify UI code
 gem 'haml-rails', '0.3.5'
 # To enable the use of Markdown
@@ -21,7 +21,7 @@ gem 'rails-i18n', '0.6.6'
 # i18n for database content
 gem 'globalize3', '0.2.0'
 # i18n for localeapp
-gem 'localeapp', '0.5.2'
+gem 'localeapp', '0.6.0'
 # For JQuery timeago library
 gem 'rails-timeago', '1.4.2'
 # For accessing i18n in js files
