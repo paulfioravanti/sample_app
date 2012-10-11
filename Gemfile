@@ -93,7 +93,7 @@ group :test do
   # Test sqlite3 on Travis CI
   gem 'sqlite3', '1.3.6'
   # Code coverage reports
-  gem 'simplecov', '0.6.4', require: false
+  gem 'simplecov', '0.7.0', require: false
 end
 
 group :test, :production do
