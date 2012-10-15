@@ -62,7 +62,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '2.11.0'
+  gem 'rspec-rails', '2.11.4'
   # for autotesting with rspec
   gem 'guard-rspec', '2.1.0'
   # Prettier RSpec output
