@@ -21,7 +21,7 @@ gem 'rails-i18n', '0.6.6'
 # i18n for database content
 gem 'globalize3', '0.2.0'
 # i18n for localeapp
-gem 'localeapp', '0.6.1'
+gem 'localeapp', '0.6.2'
 # For JQuery timeago library
 gem 'rails-timeago', '1.4.2'
 # For accessing i18n in js files
@@ -74,7 +74,7 @@ group :test do
   gem 'capybara', '1.1.2'
   # Use factories instead of ActiveRecord objects
   gem 'factory_girl_rails', '4.1.0'
-  gem 'shoulda-matchers', '1.4.0'
+  gem 'shoulda-matchers', '1.4.1'
   # Cucumber for user stories and db cleaner utility below
   gem 'cucumber-rails', '1.3.0', require: false
   gem 'database_cleaner', '0.9.1'
