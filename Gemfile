@@ -55,7 +55,7 @@ group :development do
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '2.3.1'
   # Security checking
-  gem 'brakeman', '1.8.1'
+  gem 'brakeman', '1.8.2'
   gem 'rails_best_practices', '1.11.1'
   # Query optimization monitoring
   gem 'bullet', '4.2.0'

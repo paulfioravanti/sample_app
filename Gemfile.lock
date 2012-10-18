@@ -40,7 +40,7 @@ GEM
     bootstrap-sass (2.1.0.1)
     bootstrap-will_paginate (0.0.9)
       will_paginate
-    brakeman (1.8.1)
+    brakeman (1.8.2)
       activesupport
       erubis (~> 2.6)
       fastercsv (~> 1.5)
@@ -285,7 +285,7 @@ DEPENDENCIES
   best_in_place (= 1.1.2)
   bootstrap-sass (= 2.1.0.1)
   bootstrap-will_paginate (= 0.0.9)
-  brakeman (= 1.8.1)
+  brakeman (= 1.8.2)
   bullet (= 4.2.0)
   capybara (= 1.1.2)
   coffee-rails (= 3.2.2)
