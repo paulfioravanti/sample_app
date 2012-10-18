@@ -20,6 +20,7 @@
       = render 'layouts/footer'
       - if Rails.env.development?
         = debug(params)
+        = debug(session)
         =# debug(local_variables)
         =# debug(instance_variables)
         =# debug(global_variables)
