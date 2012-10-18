@@ -10,25 +10,25 @@ describe "Locale switching" do
       next if locale == target_locale
 
       context "to another language" do
-        let(:page_title)      { t('layouts.application.base_title')   }
+        let(:page_title)      { t('layouts.application.base_title') }
         let(:target_language) { t("locale_selector.#{target_locale}") }
-        let(:new_language)    { t("locale_selector.#{I18n.locale}")   }
+        let(:new_language)    { t("locale_selector.#{I18n.locale}") }
 
         before do
           visit locale_root_path(locale)
           click_link target_language
         end
 
-        it { should have_selector('title', text: page_title)    }
-        specify { I18n.locale.should == target_locale.to_sym    }
+        it { should have_selector('title', text: page_title) }
+        specify { I18n.locale.should == target_locale.to_sym }
       end
 
       context "during pagination" do
-        let(:user)            { FactoryGirl.create(:user)             }
-        let(:next_page)       { t('will_paginate.next_label')         }
+        let(:user)            { create(:user) }
+        let(:next_page)       { t('will_paginate.next_label') }
         let(:target_language) { t("locale_selector.#{target_locale}") }
 
-        before(:all) { FactoryGirl.create_list(:user, 30) }
+        before(:all) { create_list(:user, 30) }
         after(:all)  { User.delete_all }
 
         before do
@@ -46,9 +46,9 @@ describe "Locale switching" do
 
       context "after a validation error" do
         context "when failing to create a micropost" do
-          let(:user)            { FactoryGirl.create(:user)             }
-          let(:page_title)      { t('layouts.application.base_title')   }
-          let(:post)            { t('shared.micropost_form.post')       }
+          let(:user)            { create(:user) }
+          let(:page_title)      { t('layouts.application.base_title') }
+          let(:post)            { t('shared.micropost_form.post') }
           let(:target_language) { t("locale_selector.#{target_locale}") }
 
           before do
@@ -59,7 +59,7 @@ describe "Locale switching" do
             click_link target_language
           end
 
-          it "should render the home page in the target language" do
+          it "renders the home page in the target language" do
             expect do
               response.should redirect_to(locale_root_url(target_locale))
             end
@@ -68,8 +68,8 @@ describe "Locale switching" do
         end
 
         context "when failing to create a user" do
-          let(:page_title)      { t('users.new.sign_up')                }
-          let(:submit)          { t('users.new.create_account')         }
+          let(:page_title)      { t('users.new.sign_up') }
+          let(:submit)          { t('users.new.create_account') }
           let(:target_language) { t("locale_selector.#{target_locale}") }
 
           before do
@@ -78,7 +78,7 @@ describe "Locale switching" do
             click_link target_language
           end
 
-          it "should render the new user page in the target language" do
+          it "renders the new user page in the target language" do
             expect { response.should redirect_to(signup_url(target_locale)) }
           end
           it { should have_selector('title', text: page_title) }
@@ -86,9 +86,9 @@ describe "Locale switching" do
         end
 
         context "when failing to update a user" do
-          let(:user)            { FactoryGirl.create(:user)             }
-          let(:page_title)      { t('users.edit.edit_user')             }
-          let(:submit)          { t('users.edit.save_changes')          }
+          let(:user)            { create(:user) }
+          let(:page_title)      { t('users.edit.edit_user') }
+          let(:submit)          { t('users.edit.save_changes') }
           let(:target_language) { t("locale_selector.#{target_locale}") }
 
           before do
@@ -99,12 +99,12 @@ describe "Locale switching" do
             click_link target_language
           end
 
-          it "should render the edit user page in the target language" do
+          it "renders the edit user page in the target language" do
             expect do
               response.should redirect_to(edit_user_url(target_locale, user))
             end
           end
-          it { should have_selector('title', text: page_title)}
+          it { should have_selector('title', text: page_title) }
         end
       end
     end

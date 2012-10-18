@@ -17,39 +17,35 @@
 require 'spec_helper'
 
 describe Micropost do
-  let(:user)      { FactoryGirl.create(:user)                 }
-  let(:micropost) { FactoryGirl.build(:micropost, user: user) }
+  let(:user)      { create(:user) }
+  let(:micropost) { build(:micropost, user: user) }
 
   subject { micropost }
+
+  specify "Globalize3 model attributes" do
+    should respond_to(:translations)
+    should respond_to(:content)
+  end
+
+  specify "accessible attributes" do
+    should_not allow_mass_assignment_of(:user)
+  end
 
   describe "associations" do
     it { should belong_to(:user) }
     its(:user) { should == user }
   end
 
-  describe "model attributes" do
-
-    context "for Globalize3 translations" do
-      it { should respond_to(:translations) }
-      it { should respond_to(:content)      }
-    end
-  end
-
-  describe "accessible attributes" do
-    it { should_not allow_mass_assignment_of(:user) }
-  end
-
-  describe "validations" do
-    it { should validate_presence_of(:user)                }
-    it { should validate_presence_of(:content)             }
-    it { should_not allow_value(" ").for(:content)         }
-    it { should ensure_length_of(:content).is_at_most(140) }
-  end
-
   describe "initial state" do
     it { should be_valid }
   end
 
-  # self.from_users_followed_by(user) tested in user_spec status
+  specify "validations" do
+    should validate_presence_of(:user)
+    should validate_presence_of(:content)
+    should_not allow_value(" ").for(:content)
+    should ensure_length_of(:content).is_at_most(140)
+  end
 
+  # self.from_users_followed_by(user) tested in user_spec status
 end

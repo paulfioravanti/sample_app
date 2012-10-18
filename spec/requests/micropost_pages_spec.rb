@@ -4,7 +4,7 @@ describe "Micropost pages" do
 
   subject { page }
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
 
   I18n.available_locales.each do |locale|
 
@@ -20,7 +20,7 @@ describe "Micropost pages" do
 
       context "with invalid information" do
 
-        it "should not create a micropost" do
+        it "does not create a micropost" do
           expect { click_button post }.to_not change(Micropost, :count)
         end
 
@@ -35,28 +35,28 @@ describe "Micropost pages" do
 
         before { fill_in micropost_content, with: "Lorem Ipsum" }
 
-        it "should create a micropost" do
+        it "creates a micropost" do
           expect { click_button post }.to change(Micropost, :count).by(1)
         end
       end
     end
 
     describe "micropost destruction" do
-      before { FactoryGirl.create(:micropost, user: user) }
+      before { create(:micropost, user: user) }
 
       context "as correct user" do
         let(:delete) { t('shared.delete_micropost.delete') }
 
         before { visit locale_root_path(locale) }
 
-        it "should delete a micropost" do
+        it "deletes a micropost" do
           expect { click_link delete }.to change(Micropost, :count).by(-1)
         end
       end
 
       context "as an incorrect user" do
         let(:other_micropost) do
-          FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
+          create(:micropost, user: create(:user))
         end
         let(:other_micropost_path) { micropost_path(locale, other_micropost) }
 
@@ -66,16 +66,17 @@ describe "Micropost pages" do
 
         it { should redirect_to(locale_root_url(locale)) }
 
-        it "should not delete a micropost" do
-          expect { delete other_micropost_path }.to_not(
-            change(Micropost, :count).by(-1))
+        it "does not delete a micropost" do
+          expect do
+            delete other_micropost_path
+          end.to_not(change(Micropost, :count).by(-1))
         end
       end
     end
 
     describe "pagination" do
       before do
-        FactoryGirl.create_list(:micropost, 31, user: user)
+        create_list(:micropost, 31, user: user)
         visit locale_root_path(locale)
       end
       after { Micropost.delete_all }
@@ -85,7 +86,7 @@ describe "Micropost pages" do
       it { should have_link(next_page) }
       its(:html) { should match('>2</a>') }
 
-      it "should list each micropost" do
+      it "lists each micropost" do
         Micropost.all[0..2].each do |micropost|
           # Each name should be a link (span>a)
           page.should have_selector('span>a', text: micropost.user.name)
@@ -109,7 +110,7 @@ describe "Micropost pages" do
 
         context "when user has one micropost" do
           before do
-            FactoryGirl.create(:micropost, user: user)
+            create(:micropost, user: user)
             visit locale_root_path(locale)
           end
 
@@ -118,7 +119,7 @@ describe "Micropost pages" do
 
         context "when user has multiple microposts" do
           before do
-            FactoryGirl.create_list(:micropost, 2, user: user)
+            create_list(:micropost, 2, user: user)
             visit locale_root_path(locale)
           end
 
@@ -130,7 +131,7 @@ describe "Micropost pages" do
 
     describe "feed" do
       let!(:current_user_micropost) do
-        FactoryGirl.create(:micropost, user: user)
+        create(:micropost, user: user)
       end
 
       before { visit locale_root_path(locale) }
@@ -140,22 +141,21 @@ describe "Micropost pages" do
 
         context "for user's microposts" do
           it do
-            should have_link(delete,
-                             href: micropost_path(locale,
-                                                  current_user_micropost))
+            should have_link(delete, href: micropost_path(locale,
+                                           current_user_micropost))
           end
         end
 
         context "for other user's microposts" do
           let(:other_micropost) do
-            FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
+            create(:micropost, user: create(:user))
           end
 
           before { visit locale_root_path(locale) }
 
           it do
-            should_not have_link(delete,
-                                 href: micropost_path(locale, other_micropost))
+            should_not have_link(delete, href: micropost_path(locale,
+                                               other_micropost))
           end
         end
       end

@@ -32,7 +32,7 @@ class Micropost < ActiveRecord::Base
           user_id: user.id)
 
     # This preferred code brings up a high warning of an SQL injection in
-    # Brakeman 1.7.0, so it will remain commented out until the issue is
+    # Brakeman 1.8.2, so it will remain commented out until the issue is
     # resolved.
     #
     # followed_user_ids = Relationship.select(:followed_id).

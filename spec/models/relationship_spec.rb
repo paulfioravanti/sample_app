@@ -19,34 +19,31 @@ require 'spec_helper'
 
 describe Relationship do
 
-  let(:follower)     { FactoryGirl.create(:user)                              }
-  let(:followed)     { FactoryGirl.create(:user)                              }
-  let(:relationship) { follower.relationships.build(followed_id: followed.id) }
+  let(:follower)     { create(:user) }
+  let(:followed)     { create(:user) }
+  let(:relationship) do
+    follower.relationships.build(followed_id: followed.id)
+  end
 
   subject { relationship }
 
   describe "associations" do
     it { should belong_to(:follower).class_name("User") }
-    its(:follower) { should == follower                 }
+    its(:follower) { should == follower }
     it { should belong_to(:followed).class_name("User") }
-    its(:followed) { should == followed                 }
+    its(:followed) { should == followed }
   end
 
-  describe "model attributes" do
-
+  specify "accessible attributes" do
+    should_not allow_mass_assignment_of(:follower_id)
   end
 
-  describe "accessible attributes" do
-    it { should_not allow_mass_assignment_of(:follower_id) }
-  end
-
-  describe "validations" do
-    it { should validate_presence_of(:follower) }
-    it { should validate_presence_of(:followed) }
+  specify "validations" do
+    should validate_presence_of(:follower)
+    should validate_presence_of(:followed)
   end
 
   describe "initial state" do
     it { should be_valid }
   end
-
 end

@@ -6,7 +6,7 @@ describe "Routes" do
     I18n.available_locales.each do |locale|
 
       describe "routing" do
-        it "should route /:locale to the root path" do
+        it "routes /:locale to the root path" do
           get("/#{locale.to_s}").
             should route_to("static_pages#home", locale: locale.to_s)
         end
@@ -39,7 +39,7 @@ describe "Routes" do
       end
 
       context "a valid action" do
-        let(:action)                     { "about"                        }
+        let(:action) { "about" }
         let!(:default_locale_action_url) { about_url(I18n.default_locale) }
 
         context "with a valid but unsupported locale" do

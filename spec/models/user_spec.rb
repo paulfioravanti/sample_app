@@ -21,66 +21,64 @@ require 'spec_helper'
 
 describe User do
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
 
   subject { user }
 
-  describe "associations" do
-    it { should have_many(:microposts).dependent(:destroy)            }
-    it { should have_many(:relationships).dependent(:destroy)         }
-    it { should have_many(:followed_users).through(:relationships)    }
-    it do
-      should have_many(:reverse_relationships)
-                       .class_name("Relationship")
-                       .dependent(:destroy)
-    end
-    it { should have_many(:followers).through(:reverse_relationships) }
+  specify "model attributes" do
+    should respond_to(:name)
+    should respond_to(:email)
+    should respond_to(:password_digest)
+    should respond_to(:remember_token)
+    should respond_to(:admin)
   end
 
-  describe "model attributes" do
-    it { should respond_to(:name)                  }
-    it { should respond_to(:email)                 }
-    it { should respond_to(:password_digest)       }
-    it { should respond_to(:remember_token)        }
-    it { should respond_to(:admin)                 }
+  specify "accessible attributes" do
+    should_not allow_mass_assignment_of(:password_digest)
+    should_not allow_mass_assignment_of(:remember_token)
+    should_not allow_mass_assignment_of(:admin)
   end
 
-  describe "virtual attributes and methods from has_secure_password" do
-    it { should respond_to(:password)              }
-    it { should respond_to(:password_confirmation) }
-    it { should respond_to(:authenticate)          }
+  specify "associations" do
+    should have_many(:microposts).dependent(:destroy)
+    should have_many(:relationships).dependent(:destroy)
+    should have_many(:followed_users).through(:relationships)
+    should have_many(:reverse_relationships)
+                     .class_name("Relationship")
+                     .dependent(:destroy)
+    should have_many(:followers).through(:reverse_relationships)
   end
 
-  describe "accessible attributes" do
-    it { should_not allow_mass_assignment_of(:password_digest) }
-    it { should_not allow_mass_assignment_of(:remember_token)  }
-    it { should_not allow_mass_assignment_of(:admin)           }
+  specify "virtual attributes/methods from has_secure_password" do
+    should respond_to(:password)
+    should respond_to(:password_confirmation)
+    should respond_to(:authenticate)
   end
 
-  describe "instance methods" do
-    it { should respond_to(:feed).with(0).arguments      }
-    it { should respond_to(:following?).with(1).argument }
-    it { should respond_to(:follow!).with(1).argument    }
-    it { should respond_to(:unfollow!).with(1).argument  }
+  specify "instance methods" do
+    should respond_to(:feed).with(0).arguments
+    should respond_to(:following?).with(1).argument
+    should respond_to(:follow!).with(1).argument
+    should respond_to(:unfollow!).with(1).argument
   end
 
   describe "initial state" do
-    it { should be_valid                       }
-    it { should_not be_admin                   }
+    it { should be_valid }
+    it { should_not be_admin }
     its(:remember_token) { should_not be_blank }
-    its(:email) { should_not =~ /\p{Upper}/    }
+    its(:email) { should_not =~ /\p{Upper}/ }
   end
 
   describe "validations" do
     context "for name" do
-      it { should validate_presence_of(:name)            }
-      it { should_not allow_value(" ").for(:name)        }
+      it { should validate_presence_of(:name) }
+      it { should_not allow_value(" ").for(:name) }
       it { should ensure_length_of(:name).is_at_most(50) }
     end
 
     context "for email" do
-      it { should validate_presence_of(:email)                    }
-      it { should_not allow_value(" ").for(:email)                }
+      it { should validate_presence_of(:email) }
+      it { should_not allow_value(" ").for(:email) }
       it { should validate_uniqueness_of(:email).case_insensitive }
 
       context "when email format is invalid" do
@@ -116,7 +114,7 @@ describe User do
     it { should be_admin }
   end
 
-  describe "return value of authenticate method" do
+  describe "#authenticate from has_secure_password" do
     let(:found_user) { User.find_by_email(user.email) }
 
     context "with valid password" do
@@ -126,24 +124,24 @@ describe User do
     context "with invalid password" do
       let(:user_with_invalid_password) { found_user.authenticate("invalid") }
 
-      it { should_not == user_with_invalid_password        }
+      it { should_not == user_with_invalid_password }
       specify { user_with_invalid_password.should be_false }
     end
   end
 
   describe "micropost associations" do
     let!(:older_micropost) do
-      FactoryGirl.create(:micropost, user: user, created_at: 1.day.ago)
+      create(:micropost, user: user, created_at: 1.day.ago)
     end
     let!(:newer_micropost) do
-      FactoryGirl.create(:micropost, user: user, created_at: 1.hour.ago)
+      create(:micropost, user: user, created_at: 1.hour.ago)
     end
 
-    it "should have the right microposts in the right order" do
+    it "have order of microposts.created_at DESC" do
       subject.microposts.should == [newer_micropost, older_micropost]
     end
 
-    it "should destroy associated microposts" do
+    it "destroys dependent microposts" do
       microposts = user.microposts
       user.destroy
       microposts.each do |micropost|
@@ -152,18 +150,16 @@ describe User do
     end
 
     describe "status" do
-      let(:unfollowed_post) do
-        FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
-      end
-      let(:followed_user) { FactoryGirl.create(:user) }
+      let(:unfollowed_post) { create(:micropost, user: create(:user)) }
+      let(:followed_user) { create(:user) }
 
       before do
         user.follow!(followed_user)
         3.times { followed_user.microposts.create!(content: "Lorem Ipsum") }
       end
 
-      its(:feed) { should include(newer_micropost)     }
-      its(:feed) { should include(older_micropost)     }
+      its(:feed) { should include(newer_micropost) }
+      its(:feed) { should include(older_micropost) }
       its(:feed) { should_not include(unfollowed_post) }
       its(:feed) do
         followed_user.microposts.each do |micropost|
@@ -173,18 +169,18 @@ describe User do
     end
   end
 
-  describe "following" do
-    let(:other_user) { FactoryGirl.create(:user) }
+  describe "#follow!" do
+    let(:other_user) { create(:user) }
 
     before { user.follow!(other_user) }
 
-    it { should be_following(other_user)              }
+    it { should be_following(other_user) }
     its(:followed_users) { should include(other_user) }
 
-    describe "and unfollowing" do
+    describe "#unfollow!" do
       before { user.unfollow!(other_user) }
 
-      it { should_not be_following(other_user)              }
+      it { should_not be_following(other_user) }
       its(:followed_users) { should_not include(other_user) }
     end
 
@@ -195,20 +191,20 @@ describe User do
   end
 
   describe "relationship associations" do
-    let(:other_user) { FactoryGirl.create(:user) }
+    let(:other_user) { create(:user) }
 
     before do
       user.follow!(other_user)
       other_user.follow!(user)
     end
 
-    it "should destroy associated relationships" do
+    it "destroys dependent relationships" do
       relationships = user.relationships
       user.destroy
       relationships.should be_empty
     end
 
-    it "should destroy associated reverse relationships" do
+    it "destroys dependent reverse relationships" do
       reverse_relationships = user.reverse_relationships
       user.destroy
       reverse_relationships.should be_empty
@@ -219,7 +215,7 @@ describe User do
 
       before { user.destroy }
 
-      its(:relationships)         { should_not include(user) }
+      its(:relationships) { should_not include(user) }
       its(:reverse_relationships) { should_not include(user) }
     end
   end
