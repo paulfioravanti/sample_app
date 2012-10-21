@@ -59,6 +59,8 @@ group :development do
   gem 'rails_best_practices', '1.11.1'
   # Query optimization monitoring
   gem 'bullet', '4.2.0'
+  # Debugging information
+  gem 'rails-footnotes', '3.7.8'
 end
 
 group :development, :test do

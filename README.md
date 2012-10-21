@@ -42,10 +42,11 @@ If you do not have [Postgresql](http://www.postgresql.org/) installed on your ma
 - Used [rails-timeago](https://github.com/jgraichen/rails-timeago) to do time calculation for microposts on client-side rather than server-side (replaces method calls to `time_ago_in_words`)
 - Simplified implementation of most forms with [SimpleForm](https://github.com/plataformatec/simple_form)
 
-### Testing
+### Testing/Debugging
 - Internationalized [RSpec](http://rspec.info/) tests and further refactored them
 - Refactored model specs to use [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
 - Changed RSpec output to show a progress bar instead of dots using [Fuubar](https://github.com/jeffkreeftmeijer/fuubar)
+- Swapped out the debug block in the footer for [rails-footnotes](https://github.com/josevalim/rails-footnotes)
 
 ### Reporting/Optimizing
 - Added service hooks to [Travis CI](http://travis-ci.org/), [Rails Brakeman](http://rails-brakeman.com/), [Gemnasium](https://gemnasium.com/), [Code Climate](https://codeclimate.com), [Rails Best Practices](http://railsbp.com/).  See badges under title for details.

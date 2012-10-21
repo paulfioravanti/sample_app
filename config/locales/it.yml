@@ -25,10 +25,10 @@ it:
             password_confirmation:
               blank: non può essere lasciato in bianco
   simple_form:
-    labels:
-    hints:
-    placeholders:
-
+    required:
+      html: <abbr title="required">*</abbr>
+      mark: ! '*'
+      text: required
   faker:
     lorem:
       supplemental:
@@ -1033,7 +1033,7 @@ it:
       delete: Anulla
       you_sure: Sei sicuro?
     error_messages:
-      form_errors: "Si prega di rivedere i problemi di seguito:"
+      form_errors: ! 'Si prega di rivedere i problemi di seguito:'
     feed_item:
       time_posted_prefix: Pubblicato
       time_posted_suffix: ''
@@ -1106,14 +1106,17 @@ it:
     submit:
       user:
         create: Crea Utente
-  simple_form:
-    required:
-      html: <abbr title="required">*</abbr>
-      mark: ! '*'
-      text: required
   user:
     new:
       email: ''
       name: ''
       password: ''
       password_confirmation: ''
+    edit:
+      email:
+      name:
+      password:
+      password_confirmation:
+  micropost:
+    home:
+      content:

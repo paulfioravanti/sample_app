@@ -25,10 +25,10 @@ ja:
             password_confirmation:
               blank: を入力してください。
   simple_form:
-    labels:
-    hints:
-    placeholders:
-
+    required:
+      html: <abbr title="required">*</abbr>
+      mark: ! '*'
+      text: required
   faker:
     lorem:
       supplemental:
@@ -510,7 +510,7 @@ ja:
       delete: 削除
       you_sure: 本当に削除しますか？
     error_messages:
-      form_errors: "以下の問題をご確認ください:"
+      form_errors: ! '以下の問題をご確認ください:'
     feed_item:
       time_posted_prefix: ''
       time_posted_suffix: に投稿された。
@@ -583,14 +583,17 @@ ja:
     submit:
       user:
         create: 登録する
-  simple_form:
-    required:
-      html: <abbr title="required">*</abbr>
-      mark: ! '*'
-      text: required
   user:
     new:
       email: ''
       name: ''
       password: ''
       password_confirmation: ''
+    edit:
+      email:
+      name:
+      password:
+      password_confirmation:
+  micropost:
+    home:
+      content: ''
