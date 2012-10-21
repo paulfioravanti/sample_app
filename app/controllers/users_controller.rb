@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @microposts = @user.microposts.
-                        paginate(include: :translations,
+                        paginate(include: [:user, :translations],
                                  page: params[:page])
   end
 
