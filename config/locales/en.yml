@@ -1262,5 +1262,5 @@ en:
       password: ''
       password_confirmation: ''
   micropost:
-    home:
+    home: ''
       content: ''

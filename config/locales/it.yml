@@ -1113,10 +1113,10 @@ it:
       password: ''
       password_confirmation: ''
     edit:
-      email:
-      name:
-      password:
-      password_confirmation:
+      email: ''
+      name: ''
+      password: ''
+      password_confirmation: ''
   micropost:
-    home:
-      content:
+    home: ''
+      content: ''
