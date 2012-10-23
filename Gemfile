@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
@@ -31,7 +31,7 @@ gem 'best_in_place', '1.1.2'
 # Develop on, and test postgres on Travis CI, and deploy on Heroku
 gem 'pg', '0.14.1'
 # New Relic reporting
-gem 'newrelic_rpm', '3.5.0'
+gem 'newrelic_rpm', '3.5.0.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
