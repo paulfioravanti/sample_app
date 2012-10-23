@@ -1250,17 +1250,3 @@ en:
     submit:
       user:
         create: Create User
-  user:
-    new:
-      email: ''
-      name: ''
-      password: ''
-      password_confirmation: ''
-    edit:
-      email: ''
-      name: ''
-      password: ''
-      password_confirmation: ''
-  micropost:
-    home: ''
-      content: ''

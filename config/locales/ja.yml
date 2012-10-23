@@ -583,17 +583,3 @@ ja:
     submit:
       user:
         create: 登録する
-  user:
-    new:
-      email: ''
-      name: ''
-      password: ''
-      password_confirmation: ''
-    edit:
-      email: ''
-      name: ''
-      password: ''
-      password_confirmation: ''
-  micropost:
-    home: ''
-      content: ''
