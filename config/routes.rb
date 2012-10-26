@@ -5,16 +5,16 @@ SampleApp::Application.routes.draw do
         get :following, :followers
       end
     end
-    resources :sessions,      only: [:new, :create, :destroy]
-    resources :microposts,    only: [:create, :destroy]
+    resources :sessions,   only: [:new, :create, :destroy]
+    resources :microposts, only: [:create, :destroy]
 
     match '/signup',  to: 'users#new'
     match '/signin',  to: 'sessions#new'
     match '/signout', to: 'sessions#destroy', via: :delete
 
-    match '/help',    to: 'static_pages#help'
-    match '/about',   to: 'static_pages#about'
-    match '/contact', to: 'static_pages#contact'
+    %w(help about contact).each do |page|
+      get page, controller: "static_pages", action: page
+    end
 
     # handles /en|it|ja
     root to: 'static_pages#home', as: "locale_root"
@@ -33,7 +33,7 @@ SampleApp::Application.routes.draw do
 
 end
 #== Route Map
-# Generated on 19 Aug 2012 18:39
+# Generated on 26 Oct 2012 16:22
 #
 # followers_user GET    /:locale/users/:id/followers(.:format) users#followers {:locale=>/en|it|ja/}
 #          users GET    /:locale/users(.:format)               users#index {:locale=>/en|it|ja/}
@@ -47,14 +47,13 @@ end
 #    new_session GET    /:locale/sessions/new(.:format)        sessions#new {:locale=>/en|it|ja/}
 #        session DELETE /:locale/sessions/:id(.:format)        sessions#destroy {:locale=>/en|it|ja/}
 #     microposts POST   /:locale/microposts(.:format)          microposts#create {:locale=>/en|it|ja/}
-#      micropost PUT    /:locale/microposts/:id(.:format)      microposts#update {:locale=>/en|it|ja/}
-#                DELETE /:locale/microposts/:id(.:format)      microposts#destroy {:locale=>/en|it|ja/}
+#      micropost DELETE /:locale/microposts/:id(.:format)      microposts#destroy {:locale=>/en|it|ja/}
 #         signup        /:locale/signup(.:format)              users#new {:locale=>/en|it|ja/}
 #         signin        /:locale/signin(.:format)              sessions#new {:locale=>/en|it|ja/}
 #        signout DELETE /:locale/signout(.:format)             sessions#destroy {:locale=>/en|it|ja/}
-#           help        /:locale/help(.:format)                static_pages#help {:locale=>/en|it|ja/}
-#          about        /:locale/about(.:format)               static_pages#about {:locale=>/en|it|ja/}
-#        contact        /:locale/contact(.:format)             static_pages#contact {:locale=>/en|it|ja/}
+#           help GET    /:locale/help(.:format)                static_pages#help {:locale=>/en|it|ja/}
+#          about GET    /:locale/about(.:format)               static_pages#about {:locale=>/en|it|ja/}
+#        contact GET    /:locale/contact(.:format)             static_pages#contact {:locale=>/en|it|ja/}
 #    locale_root        /:locale(.:format)                     static_pages#home {:locale=>/en|it|ja/}
 #                       /:locale/*path(.:format)               :controller#:action {:locale=>/en|it|ja/}
 #  relationships POST   /relationships(.:format)               relationships#create
