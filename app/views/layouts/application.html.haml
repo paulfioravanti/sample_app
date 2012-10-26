@@ -14,7 +14,6 @@
              action: @redirect_action,
              page: @page_number
     .container
-      - flash.each do |key, value|
-        = content_tag(:div, value, class: "alert alert-#{key}")
+      = render 'layouts/messages'
       = yield
       = render 'layouts/footer'
