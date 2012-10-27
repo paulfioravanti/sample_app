@@ -21,7 +21,7 @@ gem 'rails-i18n', '0.7.0'
 # i18n for database content
 gem 'globalize3', '0.2.0'
 # i18n for localeapp
-gem 'localeapp', '0.6.3'
+gem 'localeapp', '0.6.4'
 # For JQuery timeago library
 gem 'rails-timeago', '1.4.2'
 # For accessing i18n in js files
@@ -60,7 +60,7 @@ group :development do
   # Query optimization monitoring
   gem 'bullet', '4.2.0'
   # Debugging information
-  gem 'rails-footnotes', '3.7.8'
+  gem 'rails-footnotes', '3.7.9'
 end
 
 group :development, :test do
