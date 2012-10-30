@@ -73,7 +73,7 @@ end
 
 group :test do
   # Helps in testing by simulating how a real user would use app
-  gem 'capybara', '1.1.2'
+  gem 'capybara', '1.1.3'
   # Use factories instead of ActiveRecord objects
   gem 'factory_girl_rails', '4.1.0'
   gem 'shoulda-matchers', '1.4.1'
