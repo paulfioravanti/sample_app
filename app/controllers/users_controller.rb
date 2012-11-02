@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   before_filter :signed_in_users, only: [:new, :create]
   before_filter :find_user,
                 only: [:show, :edit, :update, :following, :followers]
-  before_filter :correct_user,    only: [:edit, :update]
-  before_filter :admin_user,      only: :destroy
+  before_filter :correct_user, only: [:edit, :update]
+  before_filter :admin_user,   only: :destroy
 
 
   def index
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
 
   def destroy
     user = User.find(params[:id])
-    if current_user.admin? && !current_user?(user)
+    if !current_user?(user)
       user.destroy
       flash[:success] = t('flash.user_destroyed')
     else
