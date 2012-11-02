@@ -1,4 +1,5 @@
-def make_users
+def create_users
+  puts "Creating Users..."
   admin = User.create!(name: "Example User",
                        email: "example@railstutorial.org",
                        password: "foobar",
@@ -16,7 +17,8 @@ def make_users
   end
 end
 
-def make_microposts
+def create_microposts
+  puts "Creating Microposts..."
   users = User.all(limit: 6)
   users.each do |user|
     50.times do
@@ -33,7 +35,8 @@ def make_microposts
   end
 end
 
-def make_relationships
+def create_relationships
+  puts "Creating Relationships..."
   users = User.all
   user = users.first
   followed_users = users[2..50]
@@ -42,6 +45,6 @@ def make_relationships
   followers.each      { |follower| follower.follow!(user) }
 end
 
-make_users
-make_microposts
-make_relationships
+create_users
+create_microposts
+create_relationships
