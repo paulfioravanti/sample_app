@@ -205,7 +205,7 @@ describe User do
       relationships.should be_empty
     end
 
-    it "destroys dependent reverse relationships" do
+    it "destroys dependent passive relationships" do
       passive_relationships = user.passive_relationships
       user.destroy
       passive_relationships.should be_empty
