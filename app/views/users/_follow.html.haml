@@ -1,4 +1,4 @@
-= simple_form_for(current_user.relationships.build(followed_id: user.id),
+= simple_form_for(current_user.active_relationships.build(followed_id: user.id),
            remote: true) do |f|
   %div= f.hidden_field :followed_id
   = f.button :submit, t('.follow'), class: "btn btn-large btn-primary"

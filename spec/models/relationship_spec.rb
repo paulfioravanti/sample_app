@@ -19,13 +19,13 @@ require 'spec_helper'
 
 describe Relationship do
 
-  let(:follower)     { create(:user) }
-  let(:followed)     { create(:user) }
-  let(:relationship) do
-    follower.relationships.build(followed_id: followed.id)
+  let(:follower) { create(:user) }
+  let(:followed) { create(:user) }
+  let(:active_relationship) do
+    follower.active_relationships.build(followed_id: followed.id)
   end
 
-  subject { relationship }
+  subject { active_relationship }
 
   describe "associations" do
     it { should belong_to(:follower).class_name("User") }

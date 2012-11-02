@@ -41,8 +41,10 @@ describe User do
 
   specify "associations" do
     should have_many(:microposts).dependent(:destroy)
-    should have_many(:relationships).dependent(:destroy)
-    should have_many(:followed_users).through(:relationships)
+    should have_many(:active_relationships)
+                     .class_name("Relationship")
+                     .dependent(:destroy)
+    should have_many(:followed_users).through(:active_relationships)
     should have_many(:passive_relationships)
                      .class_name("Relationship")
                      .dependent(:destroy)
@@ -199,10 +201,10 @@ describe User do
       other_user.follow!(user)
     end
 
-    it "destroys dependent relationships" do
-      relationships = user.relationships
+    it "destroys dependent active relationships" do
+      active_relationships = user.active_relationships
       user.destroy
-      relationships.should be_empty
+      active_relationships.should be_empty
     end
 
     it "destroys dependent passive relationships" do
@@ -216,7 +218,7 @@ describe User do
 
       before { user.destroy }
 
-      its(:relationships) { should_not include(user) }
+      its(:active_relationships) { should_not include(user) }
       its(:passive_relationships) { should_not include(user) }
     end
   end
