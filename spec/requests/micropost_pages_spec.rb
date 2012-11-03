@@ -15,18 +15,20 @@ describe "Micropost pages" do
 
     describe "micropost creation" do
       let(:post) { t('static_pages.home.post') }
+      let(:click_post) { click_button post }
 
       before { visit locale_root_path(locale) }
 
       context "with invalid information" do
 
-        it "does not create a micropost" do
-          expect { click_button post }.to_not change(Micropost, :count)
-        end
-
-        describe "error messages" do
+        describe "appearance" do
           before { click_button post }
           it { should have_alert_message('error') }
+        end
+
+        describe "result" do
+          subject { -> { click_post } }
+          it { should_not change(Micropost, :count) }
         end
       end
 
@@ -35,8 +37,9 @@ describe "Micropost pages" do
 
         before { fill_in micropost_content, with: "Lorem Ipsum" }
 
-        it "creates a micropost" do
-          expect { click_button post }.to change(Micropost, :count).by(1)
+        describe "result" do
+          subject { -> { click_post } }
+          it { should change(Micropost, :count).by(1) }
         end
       end
     end
@@ -46,30 +49,30 @@ describe "Micropost pages" do
 
       context "as correct user" do
         let(:delete) { t('shared.delete_micropost.delete') }
+        let(:click_delete) { click_link delete }
 
         before { visit locale_root_path(locale) }
 
-        it "deletes a micropost" do
-          expect { click_link delete }.to change(Micropost, :count).by(-1)
+        describe "result" do
+          subject { -> { click_delete } }
+          it { should change(Micropost, :count).by(-1) }
         end
       end
 
       context "as an incorrect user" do
-        let(:other_micropost) do
-          create(:micropost, user: create(:user))
-        end
+        let(:other_micropost)      { create(:micropost, user: create(:user)) }
         let(:other_micropost_path) { micropost_path(locale, other_micropost) }
 
         before { delete other_micropost_path }
 
-        subject { response }
+        describe "behaviour" do
+          subject { response }
+          it { should redirect_to(locale_root_url(locale)) }
+        end
 
-        it { should redirect_to(locale_root_url(locale)) }
-
-        it "does not delete a micropost" do
-          expect do
-            delete other_micropost_path
-          end.to_not(change(Micropost, :count).by(-1))
+        describe "result" do
+          subject { -> { delete other_micropost_path } }
+          it { should_not change(Micropost, :count).by(-1) }
         end
       end
     end

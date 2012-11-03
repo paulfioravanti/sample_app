@@ -247,20 +247,24 @@ describe "Authentication" do
         end
 
         context "prevents admin users from destroying themselves" do
-          it "does not delete the user" do
-            expect do
-              delete user_path(locale, admin)
-            end.not_to change(User, :count)
-          end
+          let(:delete_admin) { delete user_path(locale, admin) }
 
-          context "after failing to delete" do
+          context "behaviour" do
             let(:no_suicide) { t('flash.no_admin_suicide', name: admin.name) }
 
-            before { delete user_path(locale, admin) }
-            specify do
-              response.should redirect_to(users_url(locale)),
-                                          flash[:error].should == no_suicide
+            subject { response }
+
+            before { delete_admin }
+
+            it do
+              should redirect_to(users_url(locale)),
+                                 flash[:error].should == no_suicide
             end
+          end
+
+          describe "result" do
+            subject { -> { delete_admin } }
+            it { should_not change(User, :count) }
           end
         end
       end

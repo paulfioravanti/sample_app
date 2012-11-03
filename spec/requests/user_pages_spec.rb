@@ -42,6 +42,7 @@ describe "User pages" do
 
       describe "delete links" do
         let(:delete) { t('users.user.delete') }
+        let(:click_delete) { click_link(delete) }
 
         it { should_not have_link(delete) }
 
@@ -54,12 +55,16 @@ describe "User pages" do
             visit users_path(locale)
           end
 
-          it { should have_link(delete, href: user_path(locale, User.first)) }
-          it "is able to delete another user" do
-            expect { click_link(delete) }.to change(User, :count).by(-1)
+          describe "appearance" do
+            it { should have_link(delete, href: user_path(locale, User.first)) }
+            # Shouldn't have delete link to himself
+            it { should_not have_link(delete, href: user_path(locale, admin)) }
           end
-          # Shouldn't have delete link to himself
-          it { should_not have_link(delete, href: user_path(locale, admin)) }
+
+          describe "result" do
+            subject { -> { click_delete } }
+            it { should change(User, :count).by(-1) }
+          end
         end
       end
     end
@@ -181,15 +186,13 @@ describe "User pages" do
 
     describe "sign up" do
       let(:submit) { t('users.new.create_account') }
+      let(:click_submit) { click_button submit }
 
       before { visit signup_path(locale) }
 
       context "with invalid information" do
-        it "does not create a user" do
-          expect { click_button submit }.not_to change(User, :count)
-        end
 
-        context "after submission" do
+        describe "appearance" do
           let(:heading)    { t('users.new.sign_up') }
           let(:page_title) { t('users.new.sign_up') }
 
@@ -198,6 +201,11 @@ describe "User pages" do
           it_should_behave_like "a user page"
           it { should have_alert_message('error') }
         end
+
+        describe "result" do
+          subject { -> { click_submit } }
+          it { should_not change(User, :count) }
+        end
       end
 
       context "with valid information" do
@@ -205,22 +213,22 @@ describe "User pages" do
 
         before { fill_in_fields(new_user) }
 
-        it "creates a user" do
-          expect { click_button submit }.to change(User, :count).by(1)
-        end
-
-        context "after saving the user" do
+        describe "appearance" do
           let(:welcome)  { t('flash.welcome') }
           let(:sign_out) { t('layouts.account_dropdown.sign_out') }
+          let(:user) { User.find_by_email("#{new_user.email.downcase}") }
 
           before { click_button submit }
-
-          let(:user) { User.find_by_email("#{new_user.email.downcase}") }
 
           # Redirect from signup page to signed in user profile page
           it { should have_selector('title', text: user.name) }
           it { should have_alert_message('success', welcome) }
           it { should have_link sign_out }
+        end
+
+        describe "result" do
+          subject { -> { click_submit } }
+          it { should change(User, :count).by(1) }
         end
       end
     end
