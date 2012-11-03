@@ -15,6 +15,7 @@ If you find this repo useful, please help me level-up on [Coderwall](http://code
     $ cd /tmp
     $ git clone git@github.com:paulfioravanti/sample_app.git
     $ cd sample_app
+    $ cp config/application.example.yml config/application.yml
     $ bundle install
     $ bundle exec rake db:migrate
     $ bundle exec rake db:seed
@@ -41,6 +42,7 @@ If you do not have [Postgresql](http://www.postgresql.org/) installed on your ma
 - Refactored [SCSS](http://sass-lang.com/) files to use more mix-ins, as well as additions to add styling to the language selector
 - Used [rails-timeago](https://github.com/jgraichen/rails-timeago) to do time calculation for microposts on client-side rather than server-side (replaces method calls to `time_ago_in_words`)
 - Simplified implementation of most forms with [SimpleForm](https://github.com/plataformatec/simple_form)
+- Used [Figaro](https://github.com/laserlemon/figaro) to handle secret keys
 
 ### Testing/Debugging
 - Internationalized [RSpec](http://rspec.info/) tests and further refactored them

@@ -20,7 +20,7 @@ gem 'rdiscount', '1.6.8'
 gem 'rails-i18n', '0.7.0'
 # i18n for database content
 gem 'globalize3', '0.2.0'
-# i18n for localeapp
+# i18n using Locale
 gem 'localeapp', '0.6.5'
 # For JQuery timeago library
 gem 'rails-timeago', '1.4.2'
@@ -32,6 +32,8 @@ gem 'best_in_place', '1.1.2'
 gem 'pg', '0.14.1'
 # New Relic reporting
 gem 'newrelic_rpm', '3.5.0.1'
+# App secret key configuration
+gem 'figaro', '0.5.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
