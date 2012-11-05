@@ -33,11 +33,11 @@ describe User do
     should respond_to(:admin)
   end
 
-  specify "accessible attributes" do
-    should_not allow_mass_assignment_of(:password_digest)
-    should_not allow_mass_assignment_of(:remember_token)
-    should_not allow_mass_assignment_of(:admin)
-  end
+  # specify "accessible attributes" do
+  #   should_not allow_mass_assignment_of(:password_digest)
+  #   should_not allow_mass_assignment_of(:remember_token)
+  #   should_not allow_mass_assignment_of(:admin)
+  # end
 
   specify "associations" do
     should have_many(:microposts).dependent(:destroy)
