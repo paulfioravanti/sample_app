@@ -16,6 +16,7 @@
 
 class Micropost < ActiveRecord::Base
 
+  attr_accessible :content
   translates :content
   belongs_to :user
 
