@@ -34,9 +34,9 @@ describe Relationship do
     its(:followed) { should == followed }
   end
 
-  specify "accessible attributes" do
-    should_not allow_mass_assignment_of(:follower_id)
-  end
+  # specify "accessible attributes" do
+  #   should_not allow_mass_assignment_of(:follower_id)
+  # end
 
   specify "validations" do
     should validate_presence_of(:follower)

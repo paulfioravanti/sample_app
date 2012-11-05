@@ -43,6 +43,7 @@ If you do not have [Postgresql](http://www.postgresql.org/) installed on your ma
 - Used [rails-timeago](https://github.com/jgraichen/rails-timeago) to do time calculation for microposts on client-side rather than server-side (replaces method calls to `time_ago_in_words`)
 - Simplified implementation of most forms with [SimpleForm](https://github.com/plataformatec/simple_form)
 - Used [Figaro](https://github.com/laserlemon/figaro) to handle secret keys
+- Moved mass assignment handling over to [strong_parameters](https://github.com/rails/strong_parameters) in anticipation of Rails 4.  No specific tests for it yet...
 
 ### Testing/Debugging
 - Internationalized [RSpec](http://rspec.info/) tests and further refactored them

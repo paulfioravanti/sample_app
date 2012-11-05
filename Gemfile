@@ -34,6 +34,8 @@ gem 'pg', '0.14.1'
 gem 'newrelic_rpm', '3.5.0.1'
 # App secret key configuration
 gem 'figaro', '0.5.0'
+# Rails 4 preparation
+gem 'strong_parameters', '0.1.5'
 
 # Gems used only for assets and not required
 # in production environments by default.
