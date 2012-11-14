@@ -249,19 +249,17 @@ describe "Authentication" do
         context "prevents admin users from destroying themselves" do
           let(:delete_admin) { delete user_path(locale, admin) }
 
+          before { delete_admin }
+
           describe "behaviour" do
-            let(:no_suicide) { t('flash.no_admin_suicide', name: admin.name) }
-
-            before { delete_admin }
-
             subject { response }
-
             it { should redirect_to(users_url(locale)) }
+          end
 
-            context "appearance after redirection" do
-              subject { flash[:error] }
-              it { should == no_suicide }
-            end
+          describe "appearance" do
+            let(:no_suicide) { t('flash.no_admin_suicide', name: admin.name) }
+            subject { flash[:error] }
+            it { should == no_suicide }
           end
 
           describe "result" do
