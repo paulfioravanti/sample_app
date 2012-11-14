@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.9'
 
 gem 'bootstrap-will_paginate', '0.0.9'
 # For creating bcrypt encrypted hashes for user passwords
@@ -21,7 +21,7 @@ gem 'rails-i18n', '0.7.0'
 # i18n for database content
 gem 'globalize3', '0.2.0'
 # i18n using Locale
-gem 'localeapp', '0.6.6'
+gem 'localeapp', '0.6.7'
 # For JQuery timeago library
 gem 'rails-timeago', '1.4.2'
 # For accessing i18n in js files
@@ -31,7 +31,7 @@ gem 'best_in_place', '1.1.2'
 # Develop on, and test postgres on Travis CI, and deploy on Heroku
 gem 'pg', '0.14.1'
 # New Relic reporting
-gem 'newrelic_rpm', '3.5.0.1'
+gem 'newrelic_rpm', '3.5.1.14'
 # App secret key configuration
 gem 'figaro', '0.5.0'
 
@@ -56,8 +56,9 @@ group :development do
   # For html/erb to haml parsing
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '2.3.1'
+  # gem 'ruby_parser', '3.0.1'
   # Security checking
-  gem 'brakeman', '1.8.2'
+  gem 'brakeman', '1.8.3'
   gem 'rails_best_practices', '1.12.0'
   # Query optimization monitoring
   gem 'bullet', '4.2.0'
@@ -66,7 +67,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '2.11.4'
+  gem 'rspec-rails', '2.12.0'
   # for autotesting with rspec
   gem 'guard-rspec', '2.1.1'
   # Prettier RSpec output
