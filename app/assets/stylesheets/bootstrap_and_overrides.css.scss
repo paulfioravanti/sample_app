@@ -131,9 +131,13 @@ input, textarea, select, .uneditable-input {
   border: 1px solid hsl(0, 0%, 73%);
   width: 100%;
   padding: 10px;
-  height: auto;
   margin-bottom: 15px;
   // @include box-sizing;
+}
+
+
+input {
+  height: auto !important;
 }
 
 textarea, select, .uneditable-input {
