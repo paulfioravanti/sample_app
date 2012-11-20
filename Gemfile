@@ -39,7 +39,7 @@ gem 'figaro', '0.5.0'
 # in production environments by default.
 group :assets do
   # Twitter frameworks to make nice UI design elements
-  gem 'bootstrap-sass', '2.1.1.0'
+  gem 'bootstrap-sass', '2.2.1.1'
   gem 'sass-rails',   '3.2.5'
   # To access Ruby objects in Javascript
   gem 'therubyracer', '0.10.1'
