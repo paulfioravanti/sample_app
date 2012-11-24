@@ -21,7 +21,7 @@ gem 'rails-i18n', '0.7.0'
 # i18n for database content
 gem 'globalize3', '0.2.0'
 # i18n using Locale
-gem 'localeapp', '0.6.7'
+gem 'localeapp', '0.6.8'
 # For JQuery timeago library
 gem 'rails-timeago', '1.4.2'
 # For accessing i18n in js files
@@ -39,7 +39,7 @@ gem 'figaro', '0.5.0'
 # in production environments by default.
 group :assets do
   # Twitter frameworks to make nice UI design elements
-  gem 'bootstrap-sass', '2.1.1.0'
+  gem 'bootstrap-sass', '2.2.1.1'
   gem 'sass-rails',   '3.2.5'
   # To access Ruby objects in Javascript
   gem 'therubyracer', '0.10.1'
@@ -59,7 +59,7 @@ group :development do
   # gem 'ruby_parser', '3.0.1'
   # Security checking
   gem 'brakeman', '1.8.3'
-  gem 'rails_best_practices', '1.12.0'
+  gem 'rails_best_practices', '1.13.0'
   # Query optimization monitoring
   gem 'bullet', '4.2.0'
   # Debugging information
