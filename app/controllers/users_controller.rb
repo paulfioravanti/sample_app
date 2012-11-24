@@ -24,7 +24,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    # @user = User.new(params[:user])
+    @user = User.new(user_params)
     if @user.save
       sign_in(@user)
       flash[:success] = t('flash.welcome')
@@ -39,7 +40,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(params[:user])
+    # if @user.update_attributes(params[:user])
+    if @user.update_attributes(user_params)
       sign_in(@user)
       flash[:success] = t('flash.profile_updated')
       redirect_to @user
@@ -73,6 +75,10 @@ class UsersController < ApplicationController
 
     def find_user
       @user = User.find(params[:id])
+    end
+
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
     def show_follow

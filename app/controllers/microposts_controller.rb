@@ -9,7 +9,8 @@ class MicropostsController < ApplicationController
   respond_to :html, :json
 
   def create
-    @micropost = current_user.microposts.build(params[:micropost])
+    # @micropost = current_user.microposts.build(params[:micropost])
+    @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash[:success] = t('flash.micropost_created')
       redirect_to locale_root_url
@@ -34,11 +35,16 @@ class MicropostsController < ApplicationController
 
   private
 
+    def micropost_params
+      params.require(:micropost).permit(:content)
+    end
+
     def translations
       I18n.available_locales.each do |locale|
         next if locale == I18n.locale
         @micropost.translations.build(locale: locale,
-                                      content: params[:micropost][:content])
+                                      # content: params[:micropost][:content])
+                                      content: micropost_params[:content])
       end
     end
 

@@ -35,6 +35,8 @@ gem 'newrelic_rpm', '3.5.1.14'
 # App secret key configuration
 gem 'figaro', '0.5.0'
 
+gem 'strong_parameters', '0.1.5'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
