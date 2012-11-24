@@ -24,6 +24,13 @@ ja:
               too_short: は6文字以上で入力してください。
             password_confirmation:
               blank: を入力してください。
+            email:
+              blank: を入力してください。
+              invalid: は不正な値です。
+            name:
+              blank: を入力してください。
+            password_digest:
+              blank: を入力してください。
   simple_form:
     required:
       html: <abbr title="required">*</abbr>

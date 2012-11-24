@@ -24,6 +24,13 @@ it:
               too_short: è troppo corto (il minimo è 6 caratteri)
             password_confirmation:
               blank: non può essere lasciato in bianco
+            email:
+              blank: non può essere lasciato in bianco
+              invalid: non è valido
+            name:
+              blank: non può essere lasciato in bianco
+            password_digest:
+              blank: non può essere lasciato in bianco
   simple_form:
     required:
       html: <abbr title="required">*</abbr>
