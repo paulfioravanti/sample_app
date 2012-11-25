@@ -17,7 +17,7 @@ gem 'haml-rails', '0.3.5'
 # To enable the use of Markdown
 gem 'rdiscount', '1.6.8'
 # i18n strings for default Rails
-gem 'rails-i18n', '0.7.0'
+gem 'rails-i18n', '0.7.1'
 # i18n for database content
 gem 'globalize3', '0.2.0'
 # i18n using Locale
@@ -34,7 +34,7 @@ gem 'pg', '0.14.1'
 gem 'newrelic_rpm', '3.5.1.14'
 # App secret key configuration
 gem 'figaro', '0.5.0'
-
+# Rails 4 prep
 gem 'strong_parameters', '0.1.5'
 
 # Gems used only for assets and not required
