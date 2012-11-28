@@ -27,7 +27,7 @@ gem 'rails-timeago', '1.4.3'
 # For accessing i18n in js files
 gem 'i18n-js', '2.1.2'
 # Editing in place
-gem 'best_in_place', '2.0.1'
+gem 'best_in_place', '2.0.2'
 # Develop on, and test postgres on Travis CI, and deploy on Heroku
 gem 'pg', '0.14.1'
 # New Relic reporting
@@ -71,7 +71,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '2.12.0'
   # for autotesting with rspec
-  gem 'guard-rspec', '2.2.1'
+  gem 'guard-rspec', '2.2.2'
   # Prettier RSpec output
   gem 'fuubar', '1.1.0'
 end
@@ -88,7 +88,7 @@ group :test do
   # speed up test server
   gem 'spork', '0.9.0'
   # guard/spork integration
-  gem 'guard-spork', '1.2.3'
+  gem 'guard-spork', '1.3.0'
   # Helps in debugging tests by being able to launch browser
   gem 'launchy', '2.1.2'
   # Mac-dependent gems
