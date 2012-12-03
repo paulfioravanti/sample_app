@@ -1,0 +1,5 @@
+$('ol.microposts').append("#{j render partial: 'shared/feed_item', collection: @feed_items}");
+- if @feed_items.next_page
+  $('.pagination').replaceWith("#{j will_paginate(@feed_items)}");
+- else
+  $('.pagination').remove();

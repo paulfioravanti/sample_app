@@ -28,6 +28,7 @@ If you do not have [Postgresql](http://www.postgresql.org/) installed on your ma
 
 ### User Interface
 - Added [Font Awesome](http://fortawesome.github.com/Font-Awesome/) icons to the header
+- Added an endless scroll to pages with paginated lists of users or microposts, as shown in [Railscast #114 Endless Page (revised)](http://railscasts.com/episodes/114-endless-page-revised).  TODO: Tests and refactoring.
 
 ### i18n
 - Added locale switcher

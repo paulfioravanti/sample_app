@@ -1039,6 +1039,9 @@ it:
     delete_micropost:
       delete: Anulla
       you_sure: Sei sicuro?
+    endless_scroll:
+      fetching_users: Recupero più utenti...
+      fetching_microposts: Recupero più micropost...
     error_messages:
       form_errors: ! 'Si prega di rivedere i problemi di seguito:'
     feed_item:

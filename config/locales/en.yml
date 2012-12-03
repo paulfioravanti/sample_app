@@ -1178,6 +1178,9 @@ en:
     delete_micropost:
       delete: Delete
       you_sure: You sure?
+    endless_scroll:
+      fetching_users: Fetching more users...
+      fetching_microposts: Fetching more microposts...
     error_messages:
       form_errors: ! 'Please review the problems below:'
     feed_item:

@@ -8,7 +8,7 @@
     = csrf_meta_tags
     = render 'layouts/shim'
     = render 'layouts/i18n_js'
-  %body
+  %body{ class: "#{controller_name}-controller #{action_name}-action" }
     = render 'layouts/header',
              controller: @redirect_controller,
              action: @redirect_action,
