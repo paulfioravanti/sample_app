@@ -61,7 +61,7 @@ group :development do
   # gem 'ruby_parser', '3.0.1'
   # Security checking
   gem 'brakeman', '1.8.3'
-  gem 'rails_best_practices', '1.13.0'
+  gem 'rails_best_practices', '1.13.1'
   # Query optimization monitoring
   gem 'bullet', '4.2.0'
   # Debugging information
