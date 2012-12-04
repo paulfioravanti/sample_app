@@ -1,3 +1,1 @@
-:plain
-  $("#follow_form").html("#{escape_javascript(render('users/unfollow', user: @user))}")
-  $("#followers").html("#{@user.followers.count}")
+= render 'relationship', partial: 'users/unfollow'
