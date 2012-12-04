@@ -1,5 +1,2 @@
-$('ol.microposts').append("#{j render @microposts}");
-- if @microposts.next_page
-  $('.pagination').replaceWith("#{j will_paginate(@microposts)}");
-- else
-  $('.pagination').remove();
+= render 'shared/endless_scroll', target: 'ol.microposts',
+                                  collection: @microposts

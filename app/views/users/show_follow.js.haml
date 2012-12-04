@@ -1,5 +1,1 @@
-$('ul.users').append("#{j render @users}");
-- if @users.next_page
-  $('.pagination').replaceWith("#{j will_paginate(@users)}");
-- else
-  $('.pagination').remove();
+= render 'shared/endless_scroll', target: 'ul.users', collection: @users

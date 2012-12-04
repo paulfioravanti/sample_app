@@ -1,0 +1,8 @@
+- if partial
+  $("#{target}").append("#{j render partial: partial, collection: collection}");
+- else
+  $("#{target}").append("#{j render collection}");
+- if collection.next_page
+  $('.pagination').replaceWith("#{j will_paginate(collection)}");
+- else
+  $('.pagination').remove();
