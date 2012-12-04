@@ -28,7 +28,8 @@ If you do not have [Postgresql](http://www.postgresql.org/) installed on your ma
 
 ### User Interface
 - Added [Font Awesome](http://fortawesome.github.com/Font-Awesome/) icons to the header
-- Added an endless scroll to pages with paginated lists of users or microposts, as shown in [Railscast #114 Endless Page (revised)](http://railscasts.com/episodes/114-endless-page-revised).  TODO: Tests and refactoring.
+- Added micropost character countdown based on Twitter's
+- Added an endless scroll to pages with paginated lists of users or microposts, as shown in [Railscast #114 Endless Page (revised)](http://railscasts.com/episodes/114-endless-page-revised)
 
 ### i18n
 - Added locale switcher
@@ -57,3 +58,6 @@ If you do not have [Postgresql](http://www.postgresql.org/) installed on your ma
 - Used [SimpleCov](https://github.com/colszowka/simplecov) to ensure as much test coverage as possible.  Currently at 100%.
 - Used [Bullet](https://github.com/flyerhzm/bullet) to optimize queries
 - Added performance monitoring with [New Relic](http://newrelic.com/)
+
+### TODOs
+- Tests for Javascript-based functionality: Follow/Unfollow button, micropost countdown, endless scroll
