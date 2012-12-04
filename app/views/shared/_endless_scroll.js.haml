@@ -1,5 +1,5 @@
-- if partial
-  $("#{target}").append("#{j render partial: partial, collection: collection}");
+- if defined? partial
+  $("#{target}").append("#{j render partial, collection: collection}");
 - else
   $("#{target}").append("#{j render collection}");
 - if collection.next_page
