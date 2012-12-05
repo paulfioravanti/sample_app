@@ -45,6 +45,8 @@ group :assets do
   gem 'sass-rails',   '3.2.5'
   # To access Ruby objects in Javascript
   gem 'therubyracer', '0.11.0'
+  # Libraries to get therubyracer working
+  gem 'libv8', '3.11.8.3'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
   gem 'uglifier', '1.3.0'
