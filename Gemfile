@@ -31,7 +31,7 @@ gem 'best_in_place', '2.0.2'
 # Develop on, and test postgres on Travis CI, and deploy on Heroku
 gem 'pg', '0.14.1'
 # New Relic reporting
-gem 'newrelic_rpm', '3.5.2.17'
+gem 'newrelic_rpm', '3.5.3.25'
 # App secret key configuration
 gem 'figaro', '0.5.0'
 # Rails 4 prep
@@ -46,7 +46,7 @@ group :assets do
   # To access Ruby objects in Javascript
   gem 'therubyracer', '0.11.0'
   # Libraries to get therubyracer working
-  gem 'libv8', '3.11.8.3'
+  gem 'libv8', '3.11.8.4'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
   gem 'uglifier', '1.3.0'
@@ -88,7 +88,7 @@ group :test do
   gem 'cucumber-rails', '1.3.0', require: false
   gem 'database_cleaner', '0.9.1'
   # speed up test server
-  gem 'spork', '0.9.0'
+  gem 'spork', '0.9.2'
   # guard/spork integration
   gem 'guard-spork', '1.4.0'
   # Helps in debugging tests by being able to launch browser
