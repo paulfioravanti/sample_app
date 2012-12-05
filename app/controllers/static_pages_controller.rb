@@ -1,10 +1,6 @@
 class StaticPagesController < ApplicationController
 
-  # Writing before_filter in standard way triggers Dynamic Path Render
-  # warning in Brakeman.
-  before_filter(only: [:help, :about, :contact]) do |c|
-    c.localized_page
-  end
+  before_filter :localized_page, only: [:help, :about, :contact]
 
   def home
     if signed_in?
@@ -29,9 +25,6 @@ class StaticPagesController < ApplicationController
 
     def localized_page
       locale = params[:locale]
-      # if !I18n.available_locales.include?(locale.to_sym)
-      #   locale = I18n.default_locale
-      # end
       @page = "#{Rails.root}/config/locales/"\
               "#{action_name}/#{action_name}.#{locale}.md"
     end
