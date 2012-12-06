@@ -1,21 +1,19 @@
 require 'spec_helper'
 
 describe MicropostsHelper do
-  describe "wrap" do
+  describe "#wrap" do
+    let(:zero_width_space) { '&#8203;' }
+
     context "short strings" do
       let(:short_string) { "a" * 5 }
-
-      it "does not insert zero width spaces" do
-        wrap(short_string).should_not =~ /&#8203;/
-      end
+      subject { wrap(short_string) }
+      it { should_not =~ /#{zero_width_space}/ }
     end
 
     context "long strings" do
       let(:long_string) { "a" * 50 }
-
-      it "inserts zero width spaces" do
-        wrap(long_string).should =~ /&#8203;/
-      end
+      subject { wrap(long_string) }
+      it { should =~ /#{zero_width_space}/ }
     end
   end
 end

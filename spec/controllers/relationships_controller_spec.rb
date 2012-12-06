@@ -5,6 +5,8 @@ describe RelationshipsController do
   let(:user)       { create(:user) }
   let(:other_user) { create(:user) }
 
+  subject { response }
+
   before do
     visit signin_path
     valid_sign_in(user)
@@ -17,7 +19,6 @@ describe RelationshipsController do
 
     describe "behaviour" do
       before { create_relationship }
-      subject { response }
       it { should be_success }
     end
 
@@ -39,7 +40,6 @@ describe RelationshipsController do
 
     describe "behaviour" do
       before { destroy_relationship }
-      subject { response }
       it { should be_success }
     end
 
