@@ -52,6 +52,7 @@ If you do not have [Postgresql](http://www.postgresql.org/) installed on your ma
 - Refactored model specs to use [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
 - Changed RSpec output to show a progress bar instead of dots using [Fuubar](https://github.com/jeffkreeftmeijer/fuubar)
 - Swapped out the debug block in the footer for [rails-footnotes](https://github.com/josevalim/rails-footnotes)
+- Complete refactoring of test suite to upgrade to [Capybara 2.0](https://github.com/jnicklas/capybara)
 
 ### Reporting/Optimizing
 - Added service hooks to [Travis CI](http://travis-ci.org/), [Rails Brakeman](http://rails-brakeman.com/), [Gemnasium](https://gemnasium.com/), [Code Climate](https://codeclimate.com), [Rails Best Practices](http://railsbp.com/).  See badges under title for details.
