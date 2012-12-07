@@ -8,21 +8,20 @@ describe "Micropost pages" do
 
   I18n.available_locales.each do |locale|
 
-    before do
-      visit signin_path(locale)
-      valid_sign_in(user)
-    end
+    describe "micropost creation", type: :feature do
+      let(:post_button) { t('static_pages.home.post') }
+      let(:click_post) { click_button post_button }
 
-    describe "micropost creation" do
-      let(:post) { t('static_pages.home.post') }
-      let(:click_post) { click_button post }
-
-      before { visit locale_root_path(locale) }
+      before do
+        visit signin_path(locale)
+        valid_sign_in(user)
+        visit locale_root_path(locale)
+      end
 
       context "with invalid information" do
 
         describe "appearance" do
-          before { click_button post }
+          before { click_post }
           it { should have_alert_message('error') }
         end
 
@@ -47,11 +46,15 @@ describe "Micropost pages" do
     describe "micropost destruction" do
       before { create(:micropost, user: user) }
 
-      context "as correct user" do
+      context "as correct user", type: :feature do
         let(:delete) { t('shared.delete_micropost.delete') }
         let(:click_delete) { click_link delete }
 
-        before { visit locale_root_path(locale) }
+        before do
+          visit signin_path(locale)
+          valid_sign_in(user)
+          visit locale_root_path(locale)
+        end
 
         describe "result" do
           subject { -> { click_delete } }
@@ -63,7 +66,10 @@ describe "Micropost pages" do
         let(:other_micropost)      { create(:micropost, user: create(:user)) }
         let(:other_micropost_path) { micropost_path(locale, other_micropost) }
 
-        before { delete other_micropost_path }
+        before do
+          sign_in_request(locale, user)
+          delete other_micropost_path
+        end
 
         describe "behaviour" do
           subject { response }
@@ -77,14 +83,16 @@ describe "Micropost pages" do
       end
     end
 
-    describe "pagination" do
+    describe "pagination", type: :feature do
+      let(:next_page) { t('will_paginate.next_label') }
+
       before do
+        visit signin_path(locale)
+        valid_sign_in(user)
         create_list(:micropost, 31, user: user)
         visit locale_root_path(locale)
       end
       after { Micropost.delete_all }
-
-      let(:next_page) { t('will_paginate.next_label') }
 
       it { should have_link(next_page) }
       its(:html) { should match('>2</a>') }
@@ -97,11 +105,15 @@ describe "Micropost pages" do
       end
     end
 
-    describe "sidebar" do
-      before { visit locale_root_path(locale) }
+    describe "sidebar", type: :feature do
+      before do
+        visit signin_path(locale)
+        valid_sign_in(user)
+        visit locale_root_path(locale)
+      end
 
       describe "micropost counts" do
-        let(:one)   { t('shared.user_info.microposts', count: 1) }
+        let(:one) { t('shared.user_info.microposts', count: 1) }
         let(:other) do
           t('shared.user_info.microposts', count: user.microposts.count)
         end
@@ -132,12 +144,16 @@ describe "Micropost pages" do
       end
     end
 
-    describe "feed" do
+    describe "feed", type: :feature do
       let!(:current_user_micropost) do
         create(:micropost, user: user)
       end
 
-      before { visit locale_root_path(locale) }
+      before do
+        visit signin_path(locale)
+        valid_sign_in(user)
+        visit locale_root_path(locale)
+      end
 
       describe "delete links" do
         let(:delete) { t('shared.delete_micropost.delete') }

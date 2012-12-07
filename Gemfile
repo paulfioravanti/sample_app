@@ -76,11 +76,12 @@ group :development, :test do
   gem 'guard-rspec', '2.3.0'
   # Prettier RSpec output
   gem 'fuubar', '1.1.0'
+  gem 'debugger', '1.2.2'
 end
 
 group :test do
   # Helps in testing by simulating how a real user would use app
-  gem 'capybara', '1.1.3'
+  gem 'capybara', '2.0.1'
   # Use factories instead of ActiveRecord objects
   gem 'factory_girl_rails', '4.1.0'
   gem 'shoulda-matchers', '1.4.2'

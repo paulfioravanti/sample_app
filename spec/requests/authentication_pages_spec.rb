@@ -6,17 +6,17 @@ describe "Authentication" do
 
   I18n.available_locales.each do |locale|
 
-    describe "signin page" do
+    describe "signin page", type: :feature do
       let(:heading)    { t('sessions.new.sign_in') }
       let(:page_title) { t('sessions.new.sign_in') }
 
       before { visit signin_path(locale) }
 
-      it { should have_selector('h1',    text: heading) }
-      it { should have_selector('title', text: page_title) }
+      it { should have_selector('h1', text: heading) }
+      it { should have_title(page_title) }
     end
 
-    describe "signin" do
+    describe "signin", type: :feature do
       let(:user)       { create(:user) }
       let(:users)      { t('layouts.header.users') }
       let(:page_title) { t('sessions.new.sign_in') }
@@ -27,7 +27,7 @@ describe "Authentication" do
 
       before { visit signin_path(locale) }
 
-      it { should have_selector('title',  text: page_title) }
+      it { should have_title(page_title) }
       it { should_not have_link(users,    href: users_path(locale)) }
       it { should_not have_link(profile,  href: user_path(locale, user)) }
       it { should_not have_link(settings, href: edit_user_path(locale, user)) }
@@ -38,7 +38,7 @@ describe "Authentication" do
 
         before { click_button sign_in }
 
-        it { should have_selector('title',      text: page_title) }
+        it { should have_title(page_title) }
         it { should have_alert_message('error', invalid) }
 
         context "after visiting another page" do
@@ -58,7 +58,7 @@ describe "Authentication" do
           valid_sign_in(user)
         end
 
-        it { should have_selector('title', text: user.name) }
+        it { should have_title(user.name) }
         it { should have_link(users, href: users_path(locale)) }
         it { should have_link(profile, href: user_path(locale, user)) }
         it { should have_link(settings, href: edit_user_path(locale, user)) }
@@ -77,7 +77,7 @@ describe "Authentication" do
       context "for non-signed-in users" do
         let(:user) { create(:user) }
 
-        context "when attempting to visit a protected page" do
+        context "when attempting to visit a protected page", type: :feature do
           before do
             visit edit_user_path(locale, user)
             valid_sign_in(user)
@@ -87,7 +87,7 @@ describe "Authentication" do
             let(:page_title) { t('users.edit.edit_user') }
 
             it "renders the desired protected page" do
-              page.should have_selector('title', text: page_title)
+              page.should have_title(page_title)
             end
 
             context "when signing in again" do
@@ -101,7 +101,7 @@ describe "Authentication" do
               end
 
               it "renders the default (profile) page" do
-                page.should have_selector('title', text: user.name)
+                page.should have_title(user.name)
               end
             end
           end
@@ -109,55 +109,59 @@ describe "Authentication" do
 
         context "in the UsersController" do
 
-          context "GET Users#edit" do
+          context "GET Users#edit", type: :feature do
             let(:page_title) { t('sessions.new.sign_in') }
             let(:sign_in)    { t('flash.sign_in') }
 
             before { visit edit_user_path(locale, user) }
 
-            it { should have_selector('title', text: page_title) }
+            it { should have_title(page_title) }
             it { should have_alert_message('notice', sign_in) }
           end
 
           context "PUT Users#update" do
             before { put user_path(locale, user) }
-            specify { response.should redirect_to(signin_url(locale)) }
+            subject { response }
+            it { should redirect_to(signin_url(locale)) }
           end
 
-          context "GET Users#index" do
+          context "GET Users#index", type: :feature do
             let(:page_title) { t('sessions.new.sign_in') }
 
             before { visit users_path(locale) }
-            it { should have_selector('title', text: page_title) }
+            it { should have_title(page_title) }
           end
 
-          context "GET Users#following" do
+          context "GET Users#following", type: :feature do
             let(:sign_in) { t('sessions.new.sign_in') }
 
             before { visit following_user_path(locale, user) }
-            it { should have_selector('title', text: sign_in) }
+
+            it { should have_title(sign_in) }
           end
 
-          context "GET Users#followers" do
+          context "GET Users#followers", type: :feature do
             let(:sign_in) { t('sessions.new.sign_in') }
 
             before { visit followers_user_path(locale, user) }
-            it { should have_selector('title', text: sign_in)}
+
+            it { should have_title(sign_in) }
           end
         end
 
         context "in the MicropostsController" do
 
+          subject { response }
+
           context "POST Microposts#create" do
             before { post microposts_path(locale) }
-            specify { response.should redirect_to(signin_url(locale)) }
+            it { should redirect_to(signin_url(locale)) }
           end
 
           context "DELETE Microposts#destroy" do
-            before do
-              delete micropost_path(locale, create(:micropost))
-            end
-            specify { response.should redirect_to(signin_url(locale)) }
+            let(:micropost) { create(:micropost) }
+            before { delete micropost_path(locale, micropost) }
+            it { should redirect_to(signin_url(locale)) }
           end
         end
 
@@ -178,21 +182,18 @@ describe "Authentication" do
       context "for signed-in users" do
         let(:user) { create(:user) }
 
-        before do
-          visit signin_path(locale)
-          valid_sign_in(user)
-        end
+        subject { response }
+
+        before { sign_in_request(locale, user) }
 
         context "GET Users#new" do
           before { get signup_path(locale) }
-
-          specify { response.should redirect_to(locale_root_url(locale)) }
+          it { should redirect_to(locale_root_url(locale)) }
         end
 
         context "POST Users#create" do
           before { post users_path(locale) }
-
-          specify { response.should redirect_to(locale_root_url(locale)) }
+          it { should redirect_to(locale_root_url(locale)) }
         end
 
       end
@@ -202,24 +203,19 @@ describe "Authentication" do
         let(:wrong_user) { create(:user, email: "wrong@eg.com") }
 
         before do
-          visit signin_path(locale)
-          valid_sign_in(user)
+          sign_in_request(locale, user)
         end
 
-        context "GET Users#edit" do
-          let(:page_title) { t('users.edit.edit_user') }
-
+        context "GET Users#edit", type: :feature do
+          let(:page_title) { full_title(t('users.edit.edit_user')) }
           before { visit edit_user_path(locale, wrong_user) }
-
-          it do
-            should_not have_selector('title', text: full_title(page_title))
-          end
+          it { should_not have_title(page_title) }
         end
 
         context "PUT Users#update" do
           before { put user_path(locale, wrong_user) }
-
-          specify { response.should redirect_to(locale_root_url(locale)) }
+          subject { response }
+          it { should redirect_to(locale_root_url(locale)) }
         end
       end
 
@@ -227,24 +223,19 @@ describe "Authentication" do
         let(:user)      { create(:user) }
         let(:non_admin) { create(:user) }
 
-        before do
-          visit signin_path(locale)
-          valid_sign_in(non_admin)
-        end
+        before { sign_in_request(locale, user) }
 
         context "DELETE Users#destroy" do
           before { delete user_path(locale, user) }
-          specify { response.should redirect_to(locale_root_url(locale)) }
+          subject { response }
+          it { should redirect_to(locale_root_url(locale)) }
         end
       end
 
       context "as an admin user" do
         let(:admin) { create(:admin) }
 
-        before do
-          visit signin_path(locale)
-          valid_sign_in(admin)
-        end
+        before { sign_in_request(locale, admin) }
 
         context "prevents admin users from destroying themselves" do
           let(:delete_admin) { delete user_path(locale, admin) }

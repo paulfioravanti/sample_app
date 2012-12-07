@@ -6,21 +6,21 @@ describe "Static Pages" do
 
   # full_title method referenced in spec/support/utilties.rb
   shared_examples_for "a static page" do
-    it { should have_selector('h1',    text: heading) }
-    it { should have_selector('title', text: full_title(page_title)) }
+    it { should have_selector('h1', text: heading) }
+    it { should have_title(page_title) }
   end
 
   shared_examples_for "a layout link" do
-    it { should have_selector('title', text: full_title(page_title)) }
+    it { should have_title(page_title) }
   end
 
   I18n.available_locales.each do |locale|
 
-    describe "Layout" do
+    describe "Layout", type: :feature do
       before { visit locale_root_path(locale) }
 
       describe "About link" do
-        let(:page_title) { t('static_pages.about.about_us') }
+        let(:page_title) { full_title(t('static_pages.about.about_us')) }
         let(:about)      { t('layouts.footer.about') }
 
         before { click_link about }
@@ -29,7 +29,7 @@ describe "Static Pages" do
       end
 
       describe "Help link" do
-        let(:page_title) { t('static_pages.help.help') }
+        let(:page_title) { full_title(t('static_pages.help.help')) }
         let(:help)       { t('layouts.header.help') }
 
         before { click_link help }
@@ -38,7 +38,7 @@ describe "Static Pages" do
       end
 
       describe "Contact link" do
-        let(:page_title) { t('static_pages.contact.contact') }
+        let(:page_title) { full_title(t('static_pages.contact.contact')) }
         let(:contact)    { t('layouts.footer.contact') }
 
         before { click_link contact }
@@ -47,7 +47,7 @@ describe "Static Pages" do
       end
 
       describe "Home link" do
-        let(:page_title) { '' }
+        let(:page_title) { full_title('') }
         let(:home)       { t('layouts.header.home') }
 
         before { click_link home }
@@ -56,7 +56,7 @@ describe "Static Pages" do
       end
 
       describe "Sign up link" do
-        let(:page_title) { t('users.new.sign_up') }
+        let(:page_title) { full_title(t('users.new.sign_up')) }
         let(:sign_up)    { t('static_pages.home_not_signed_in.sign_up') }
         let(:sign_out)   { t('layouts.header.sign_out') }
 
@@ -66,15 +66,15 @@ describe "Static Pages" do
       end
     end
 
-    describe "Home page" do
+    describe "Home page", type: :feature do
       let(:heading)    { t('layouts.header.sample_app') }
-      let(:page_title) { '' }
+      let(:page_title) { full_title('') }
       let(:home)       { t('layouts.header.home') }
 
       before { visit locale_root_path(locale) }
 
       it_should_behave_like "a static page"
-      it { should_not have_selector('title', text: "| #{home}") }
+      it { should_not have_title("| #{home}") }
 
       context "for signed-in users" do
         let(:user) { create(:user) }
@@ -115,27 +115,27 @@ describe "Static Pages" do
       end
     end
 
-    describe "Help Page" do
+    describe "Help Page", type: :feature do
       let(:heading)    { t('static_pages.help.help') }
-      let(:page_title) { t('static_pages.help.help') }
+      let(:page_title) { full_title(t('static_pages.help.help')) }
 
       before { visit help_path(locale) }
 
       it_should_behave_like "a static page"
     end
 
-    describe "About Page" do
+    describe "About Page", type: :feature do
       let(:heading)    { t('static_pages.about.about_us') }
-      let(:page_title) { t('static_pages.about.about_us') }
+      let(:page_title) { full_title(t('static_pages.about.about_us')) }
 
       before { visit about_path(locale) }
 
       it_should_behave_like "a static page"
     end
 
-    describe "Contact Page" do
+    describe "Contact Page", type: :feature do
       let(:heading)    { t('static_pages.contact.contact') }
-      let(:page_title) { t('static_pages.contact.contact') }
+      let(:page_title) { full_title(t('static_pages.contact.contact')) }
 
       before { visit contact_path(locale) }
 

@@ -14,7 +14,10 @@ def valid_sign_in(user)
   fill_in t(:email, scope: scope),    with: user.email
   fill_in t(:password, scope: scope), with: user.password
   click_button t(:sign_in, scope: scope)
-  # Sign in when not using Capybara as well.
+end
+
+def sign_in_request(locale, user)
+  post sessions_path(locale, email: user.email, password: user.password)
   cookies[:remember_token] = user.remember_token
 end
 
@@ -33,6 +36,14 @@ end
 
 RSpec::Matchers::define :have_alert_message do |type, message|
   match do |page|
-    page.should have_selector("div.alert.alert-#{type}", text: message)
+    page.has_selector?("div.alert.alert-#{type}", text: message)
+  end
+end
+
+# This matcher exists due to a quirk in Capybara 2.0 in not recognising
+# the title on a page in have_selector unlike behaviour in 1.1.3
+RSpec::Matchers::define :have_title do |text|
+  match do |page|
+    Capybara.string(page.body).has_selector?('title', text: text)
   end
 end

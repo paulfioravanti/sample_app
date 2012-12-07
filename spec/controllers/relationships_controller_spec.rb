@@ -8,8 +8,10 @@ describe RelationshipsController do
   subject { response }
 
   before do
-    visit signin_path
-    valid_sign_in(user)
+    # Substitute to actually logging in via sign_in_request.
+    # The scope of these tests are limited to the relationships
+    # controller, so the sessions controller is not accessible
+    cookies[:remember_token] = user.remember_token
   end
 
   describe "creating a relationship with Ajax" do

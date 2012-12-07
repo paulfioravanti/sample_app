@@ -6,14 +6,14 @@ describe "User pages" do
 
   shared_examples_for "a user page" do
     it { should have_selector('h1',    text: heading) }
-    it { should have_selector('title', text: full_title(page_title)) }
+    it { should have_title(page_title) }
   end
 
   I18n.available_locales.each do |locale|
 
-    describe "index" do
+    describe "index", type: :feature do
       let(:user)       { create(:user) }
-      let(:page_title) { t('users.index.all_users') }
+      let(:page_title) { full_title(t('users.index.all_users')) }
 
       before(:all) { create_list(:user, 30) }
       after(:all)  { User.delete_all }
@@ -24,7 +24,7 @@ describe "User pages" do
         visit users_path(locale)
       end
 
-      it { should have_selector('title', text: page_title) }
+      it { should have_title(page_title) }
 
       describe "pagination" do
         let(:next_page) { t('will_paginate.next_label') }
@@ -41,49 +41,57 @@ describe "User pages" do
       end
 
       describe "delete links" do
-        let(:delete) { t('users.user.delete') }
-        let(:click_delete) { click_link(delete) }
+        let(:delete_link) { t('users.user.delete') }
 
-        it { should_not have_link(delete) }
+        it { should_not have_link(delete_link) }
 
         context "as an admin user" do
           let(:admin) { create(:admin) }
 
-          before do
-            visit signin_path(locale)
-            valid_sign_in(admin)
-            visit users_path(locale)
-          end
-
           describe "appearance" do
-            it { should have_link(delete, href: user_path(locale, User.first)) }
+            before do
+              visit signin_path(locale)
+              valid_sign_in(admin)
+              visit users_path(locale)
+            end
+            it do
+              should have_link(delete_link,
+                               href: user_path(locale, User.first))
+            end
             # Shouldn't have delete link to himself
-            it { should_not have_link(delete, href: user_path(locale, admin)) }
+            it do
+              should_not have_link(delete_link,
+                                   href: user_path(locale, admin))
+            end
           end
 
           describe "result" do
-            subject { -> { click_delete } }
+            let(:delete_user) { delete user_path(locale, User.first) }
+            before do
+              sign_in_request(locale, admin)
+            end
+            subject { -> { delete_user } }
             it { should change(User, :count).by(-1) }
           end
         end
       end
     end
 
-    describe "sign up page" do
+    describe "sign up page", type: :feature do
       let(:heading)    { t('users.new.sign_up') }
-      let(:page_title) { t('users.new.sign_up') }
+      let(:page_title) { full_title(t('users.new.sign_up')) }
 
       before { visit signup_path(locale) }
 
       it_should_behave_like "a user page"
     end
 
-    describe "profile page" do
+    describe "profile page", type: :feature do
       let(:user) { create(:user) }
       let!(:m1) { create(:micropost, user: user, content: "Foo") }
       let!(:m2) { create(:micropost, user: user, content: "Bar") }
       let(:heading)    { user.name }
-      let(:page_title) { user.name }
+      let(:page_title) { full_title(user.name) }
 
       before { visit user_path(locale, user) }
 
@@ -108,21 +116,15 @@ describe "User pages" do
         describe "following a user" do
           before { visit user_path(locale, other_user) }
 
-          it "increments the followed user count" do
-            expect do
-              click_button follow
-            end.to change(user.followed_users, :count).by(1)
-          end
-
-          it "increments the other user's followers count" do
-            expect do
-              click_button follow
-            end.to change(other_user.followers, :count).by(1)
+          describe "incrementing following/follower counts" do
+            subject { -> { click_button follow } }
+            it { should change(user.followed_users, :count).by(1) }
+            it { should change(other_user.followers, :count).by(1) }
           end
 
           describe "toggling the button" do
             before { click_button follow }
-            it { should have_selector('input', value: unfollow) }
+            it { should have_button(unfollow) }
           end
         end
 
@@ -132,21 +134,15 @@ describe "User pages" do
             visit user_path(locale, other_user)
           end
 
-          it "decrements the followed user count" do
-            expect do
-              click_button unfollow
-            end.to change(user.followed_users, :count).by(-1)
-          end
-
-          it "decrements the other user's followers count" do
-            expect do
-              click_button unfollow
-            end.to change(other_user.followers, :count).by(-1)
+          describe "decrementing following/follower counts" do
+            subject { -> { click_button unfollow } }
+            it { should change(user.followed_users, :count).by(-1) }
+            it { should change(other_user.followers, :count).by(-1) }
           end
 
           describe "toggling the button" do
             before { click_button unfollow }
-            it { should have_selector('input', value: follow) }
+            it { should have_button(follow) }
           end
         end
       end
@@ -180,11 +176,10 @@ describe "User pages" do
 
           it { should have_selector('#followers.stat', text: '0') }
         end
-
       end
     end
 
-    describe "sign up" do
+    describe "sign up", type: :feature do
       let(:submit) { t('users.new.create_account') }
       let(:click_submit) { click_button submit }
 
@@ -194,9 +189,9 @@ describe "User pages" do
 
         describe "appearance" do
           let(:heading)    { t('users.new.sign_up') }
-          let(:page_title) { t('users.new.sign_up') }
+          let(:page_title) { full_title(t('users.new.sign_up')) }
 
-          before { click_button submit }
+          before { click_submit }
 
           it_should_behave_like "a user page"
           it { should have_alert_message('error') }
@@ -218,10 +213,10 @@ describe "User pages" do
           let(:sign_out) { t('layouts.account_dropdown.sign_out') }
           let(:user) { User.find_by_email("#{new_user.email.downcase}") }
 
-          before { click_button submit }
+          before { click_submit }
 
           # Redirect from signup page to signed in user profile page
-          it { should have_selector('title', text: user.name) }
+          it { should have_title(user.name) }
           it { should have_alert_message('success', welcome) }
           it { should have_link sign_out }
         end
@@ -233,7 +228,7 @@ describe "User pages" do
       end
     end
 
-    describe "edit" do
+    describe "edit", type: :feature do
       let(:user)         { create(:user) }
       let(:save_changes) { t('users.edit.save_changes') }
 
@@ -245,7 +240,7 @@ describe "User pages" do
 
       describe "page" do
         let(:heading)    { t('users.edit.update_profile') }
-        let(:page_title) { t('users.edit.edit_user') }
+        let(:page_title) { full_title(t('users.edit.edit_user')) }
         let(:change)     { t('users.edit.change') }
 
         it_should_behave_like "a user page"
@@ -268,15 +263,19 @@ describe "User pages" do
           click_button save_changes
         end
 
-        it { should have_selector('title', text: new_name) }
+        it { should have_title(new_name) }
         it { should have_alert_message('success') }
         it { should have_link(sign_out, href: signout_path(locale)) }
-        specify { user.reload.name.should == new_name }
-        specify { user.reload.email.should == new_email }
+
+        context "after save" do
+          subject { user.reload }
+          its(:name) { should == new_name }
+          its(:email) { should == new_email }
+        end
       end
     end
 
-    describe "following/followers" do
+    describe "following/followers", type: :feature do
       let(:user)       { create(:user) }
       let(:other_user) { create(:user) }
 
@@ -291,7 +290,7 @@ describe "User pages" do
           visit following_user_path(locale, user)
         end
 
-        it { should have_selector('title', text: full_title(following)) }
+        it { should have_title(full_title(following)) }
         it { should have_selector('h3', text: following) }
         it do
           should have_link(other_user.name,
@@ -308,7 +307,7 @@ describe "User pages" do
           visit followers_user_path(locale, other_user)
         end
 
-        it { should have_selector('title', text: full_title(followers)) }
+        it { should have_title(full_title(followers)) }
         it { should have_selector('h3', text: followers) }
         it { should have_link(user.name, href: user_path(locale, user)) }
       end

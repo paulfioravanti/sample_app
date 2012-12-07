@@ -5,32 +5,25 @@ describe "Routes" do
   describe "locale scoped paths" do
     I18n.available_locales.each do |locale|
 
-      describe "routing" do
-        it "routes /:locale to the root path" do
-          get("/#{locale.to_s}").
-            should route_to("static_pages#home", locale: locale.to_s)
-        end
+      describe "locale root routing" do
+        subject { get("/#{locale.to_s}") }
+        it { should route_to("static_pages#home", locale: locale.to_s) }
       end
 
       describe "redirecting", type: :request do
-
         subject { response }
 
         context "fake paths" do
           let(:fake_path) { "fake_path" }
-
           before { get "/#{locale.to_s}/#{fake_path}" }
           it { should redirect_to(locale_root_url(locale)) }
         end
       end
-
     end
   end
 
-  describe "non-locale scoped paths" do
-
-    describe "redirecting", type: :request do
-
+  describe "non-locale scoped paths", type: :request do
+    describe "redirecting" do
       subject { response }
 
       context "no path given" do
