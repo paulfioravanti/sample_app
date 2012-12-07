@@ -12,4 +12,4 @@ script:
 before_script:
   - mysql -e 'create database sample_app_test'
   - psql -c 'create database sample_app_test' -U postgres
-bundler_args: --binstubs=./bundler_stubs
+bundler_args: --binstubs=./bundler_stubs --without development
