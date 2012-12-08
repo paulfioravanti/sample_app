@@ -19,7 +19,7 @@ SampleApp::Application.routes.draw do
     # handles /en|it|ja
     root to: 'static_pages#home', as: "locale_root"
     # handles /en|it|ja/fake-path
-    match '*path', to: redirect { |params, request| "/#{params[:locale]}" }
+    get '*path', to: redirect { |params, request| "/#{params[:locale]}" }
   end
 
   resources :relationships, only: [:create, :destroy]
@@ -27,9 +27,9 @@ SampleApp::Application.routes.draw do
   # handles /
   root to: redirect("/#{I18n.default_locale}")
   # handles /bad-locale|anything/valid-path
-  match '/*locale/*path', to: redirect("/#{I18n.default_locale}/%{path}")
+  get '/*locale/*path', to: redirect("/#{I18n.default_locale}/%{path}")
   # handles /anything|valid-path-but-no-locale
-  match '/*path', to: redirect("/#{I18n.default_locale}/%{path}")
+  get '/*path', to: redirect("/#{I18n.default_locale}/%{path}")
 
 end
 #== Route Map
