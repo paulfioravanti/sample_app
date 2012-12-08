@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "User pages" do
+describe "User Pages on UI" do
 
   subject { page }
 
@@ -11,7 +11,7 @@ describe "User pages" do
 
   I18n.available_locales.each do |locale|
 
-    describe "index", type: :feature do
+    describe "index" do
       let(:user)       { create(:user) }
       let(:page_title) { full_title(t('users.index.all_users')) }
 
@@ -48,36 +48,24 @@ describe "User pages" do
         context "as an admin user" do
           let(:admin) { create(:admin) }
 
-          describe "appearance" do
-            before do
-              visit signin_path(locale)
-              valid_sign_in(admin)
-              visit users_path(locale)
-            end
-            it do
-              should have_link(delete_link,
-                               href: user_path(locale, User.first))
-            end
-            # Shouldn't have delete link to himself
-            it do
-              should_not have_link(delete_link,
-                                   href: user_path(locale, admin))
-            end
+          before do
+            visit signin_path(locale)
+            valid_sign_in(admin)
+            visit users_path(locale)
           end
 
-          describe "result" do
-            let(:delete_user) { delete user_path(locale, User.first) }
-            before do
-              sign_in_request(locale, admin)
-            end
-            subject { -> { delete_user } }
-            it { should change(User, :count).by(-1) }
+          specify "appearance" do
+            should have_link(delete_link,
+                             href: user_path(locale, User.first))
+            # Shouldn't have delete link to himself
+            should_not have_link(delete_link,
+                                 href: user_path(locale, admin))
           end
         end
       end
     end
 
-    describe "sign up page", type: :feature do
+    describe "sign up page" do
       let(:heading)    { t('users.new.sign_up') }
       let(:page_title) { full_title(t('users.new.sign_up')) }
 
@@ -86,7 +74,7 @@ describe "User pages" do
       it_should_behave_like "a user page"
     end
 
-    describe "profile page", type: :feature do
+    describe "profile page" do
       let(:user) { create(:user) }
       let!(:m1) { create(:micropost, user: user, content: "Foo") }
       let!(:m2) { create(:micropost, user: user, content: "Bar") }
@@ -179,7 +167,7 @@ describe "User pages" do
       end
     end
 
-    describe "sign up", type: :feature do
+    describe "sign up" do
       let(:submit) { t('users.new.create_account') }
       let(:click_submit) { click_button submit }
 
@@ -228,7 +216,7 @@ describe "User pages" do
       end
     end
 
-    describe "edit", type: :feature do
+    describe "edit" do
       let(:user)         { create(:user) }
       let(:save_changes) { t('users.edit.save_changes') }
 
@@ -275,9 +263,11 @@ describe "User pages" do
       end
     end
 
-    describe "following/followers", type: :feature do
-      let(:user)       { create(:user) }
-      let(:other_user) { create(:user) }
+    describe "following/followers" do
+      let(:user)            { create(:user) }
+      let(:user_link)       { user_path(locale, user) }
+      let(:other_user)      { create(:user) }
+      let(:other_user_link) { user_path(locale, other_user) }
 
       before { user.follow!(other_user) }
 
@@ -292,10 +282,7 @@ describe "User pages" do
 
         it { should have_title(full_title(following)) }
         it { should have_selector('h3', text: following) }
-        it do
-          should have_link(other_user.name,
-                           href: user_path(locale, other_user))
-        end
+        it { should have_link(other_user.name, href: other_user_link) }
       end
 
       describe "followers" do
@@ -309,7 +296,7 @@ describe "User pages" do
 
         it { should have_title(full_title(followers)) }
         it { should have_selector('h3', text: followers) }
-        it { should have_link(user.name, href: user_path(locale, user)) }
+        it { should have_link(user.name, href: user_link) }
       end
     end
   end

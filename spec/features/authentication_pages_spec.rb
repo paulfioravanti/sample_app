@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe "Authentication" do
+describe "Authentication on UI" do
 
   subject { page }
 
   I18n.available_locales.each do |locale|
 
-    describe "signin page", type: :feature do
+    describe "signin page" do
       let(:heading)    { t('sessions.new.sign_in') }
       let(:page_title) { t('sessions.new.sign_in') }
 
@@ -16,7 +16,7 @@ describe "Authentication" do
       it { should have_title(page_title) }
     end
 
-    describe "signin", type: :feature do
+    describe "signin" do
       let(:user)       { create(:user) }
       let(:users)      { t('layouts.header.users') }
       let(:page_title) { t('sessions.new.sign_in') }
@@ -43,9 +43,7 @@ describe "Authentication" do
 
         context "after visiting another page" do
           let(:home) { t('layouts.header.home') }
-
           before { click_link home }
-
           it { should_not have_alert_message('error') }
         end
       end
@@ -77,7 +75,7 @@ describe "Authentication" do
       context "for non-signed-in users" do
         let(:user) { create(:user) }
 
-        context "when attempting to visit a protected page", type: :feature do
+        context "when attempting to visit a protected page" do
           before do
             visit edit_user_path(locale, user)
             valid_sign_in(user)
@@ -109,7 +107,7 @@ describe "Authentication" do
 
         context "in the UsersController" do
 
-          context "GET Users#edit", type: :feature do
+          context "visiting Users#edit" do
             let(:page_title) { t('sessions.new.sign_in') }
             let(:sign_in)    { t('flash.sign_in') }
 
@@ -119,144 +117,34 @@ describe "Authentication" do
             it { should have_alert_message('notice', sign_in) }
           end
 
-          context "PUT Users#update" do
-            before { put user_path(locale, user) }
-            subject { response }
-            it { should redirect_to(signin_url(locale)) }
-          end
-
-          context "GET Users#index", type: :feature do
+          context "visiting Users#index" do
             let(:page_title) { t('sessions.new.sign_in') }
-
             before { visit users_path(locale) }
             it { should have_title(page_title) }
           end
 
-          context "GET Users#following", type: :feature do
+          context "visiting Users#following" do
             let(:sign_in) { t('sessions.new.sign_in') }
-
             before { visit following_user_path(locale, user) }
-
             it { should have_title(sign_in) }
           end
 
-          context "GET Users#followers", type: :feature do
+          context "visiting Users#followers" do
             let(:sign_in) { t('sessions.new.sign_in') }
-
             before { visit followers_user_path(locale, user) }
-
             it { should have_title(sign_in) }
           end
         end
-
-        context "in the MicropostsController" do
-
-          subject { response }
-
-          context "POST Microposts#create" do
-            before { post microposts_path(locale) }
-            it { should redirect_to(signin_url(locale)) }
-          end
-
-          context "DELETE Microposts#destroy" do
-            let(:micropost) { create(:micropost) }
-            before { delete micropost_path(locale, micropost) }
-            it { should redirect_to(signin_url(locale)) }
-          end
-        end
-
-        context "in the RelationshipsController" do
-
-          describe "POST Relationships#create" do
-            before { post relationships_path(locale) }
-            specify { response.should redirect_to(signin_url(locale)) }
-          end
-
-          describe "DELETE Relationships#destroy" do
-            before { delete relationship_path(locale, 1) }
-            specify { response.should redirect_to(signin_url(locale)) }
-          end
-        end
-      end
-
-      context "for signed-in users" do
-        let(:user) { create(:user) }
-
-        subject { response }
-
-        before { sign_in_request(locale, user) }
-
-        context "GET Users#new" do
-          before { get signup_path(locale) }
-          it { should redirect_to(locale_root_url(locale)) }
-        end
-
-        context "POST Users#create" do
-          before { post users_path(locale) }
-          it { should redirect_to(locale_root_url(locale)) }
-        end
-
       end
 
       context "as a wrong user" do
         let(:user)       { create(:user) }
         let(:wrong_user) { create(:user, email: "wrong@eg.com") }
 
-        before do
-          sign_in_request(locale, user)
-        end
-
-        context "GET Users#edit", type: :feature do
+        context "visiting Users#edit" do
           let(:page_title) { full_title(t('users.edit.edit_user')) }
           before { visit edit_user_path(locale, wrong_user) }
           it { should_not have_title(page_title) }
-        end
-
-        context "PUT Users#update" do
-          before { put user_path(locale, wrong_user) }
-          subject { response }
-          it { should redirect_to(locale_root_url(locale)) }
-        end
-      end
-
-      context "as a non-admin user" do
-        let(:user)      { create(:user) }
-        let(:non_admin) { create(:user) }
-
-        before { sign_in_request(locale, user) }
-
-        context "DELETE Users#destroy" do
-          before { delete user_path(locale, user) }
-          subject { response }
-          it { should redirect_to(locale_root_url(locale)) }
-        end
-      end
-
-      context "as an admin user" do
-        let(:admin) { create(:admin) }
-
-        before { sign_in_request(locale, admin) }
-
-        context "prevents admin users from destroying themselves" do
-          let(:delete_admin) { delete user_path(locale, admin) }
-
-          before { delete_admin }
-
-          describe "behaviour" do
-            subject { response }
-            it { should redirect_to(users_url(locale)) }
-          end
-
-          describe "appearance" do
-            let(:no_suicide) { t('flash.no_admin_suicide', name: admin.name) }
-            subject { flash[:error] }
-            it { should == no_suicide }
-          end
-
-          describe "result" do
-            subject { -> { delete_admin } }
-            it { should_not change(User, :count) }
-          end
         end
       end
     end

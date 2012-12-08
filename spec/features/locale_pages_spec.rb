@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Locale switching" do
+describe "Locale Switching on UI" do
 
   subject { page }
 
@@ -9,7 +9,7 @@ describe "Locale switching" do
     I18n.available_locales.each do |target_locale|
       next if locale == target_locale
 
-      context "to another language", type: :feature do
+      context "to another language" do
         let(:page_title)      { t('layouts.application.base_title') }
         let(:target_language) { t("locale_selector.#{target_locale}") }
         let(:new_language)    { t("locale_selector.#{I18n.locale}") }
@@ -20,10 +20,14 @@ describe "Locale switching" do
         end
 
         it { should have_title(page_title) }
-        specify { I18n.locale.should == target_locale.to_sym }
+
+        context "changes locale to target language" do
+          subject { I18n.locale }
+          it { should == target_locale.to_sym }
+        end
       end
 
-      context "during pagination", type: :feature do
+      context "during pagination" do
         let(:user)            { create(:user) }
         let(:next_page)       { t('will_paginate.next_label') }
         let(:target_language) { t("locale_selector.#{target_locale}") }
@@ -39,7 +43,6 @@ describe "Locale switching" do
           click_link target_language
         end
 
-        # it { should have_link('2', class: 'active') }
         it { should have_css("li.active a", text: '2') }
         its(:current_url) { should =~ /\?page/ }
 
@@ -62,16 +65,6 @@ describe "Locale switching" do
             end
             it { should have_title(page_title) }
           end
-
-          context "behaviour" do
-            before do
-              sign_in_request(locale, user)
-              post microposts_path(locale)
-              get locale_root_url(set_locale: target_locale)
-            end
-            subject { response }
-            it { should redirect_to(locale_root_url(target_locale)) }
-          end
         end
 
         context "when failing to create a user" do
@@ -86,15 +79,6 @@ describe "Locale switching" do
               click_link target_language
             end
             it { should have_title(page_title) }
-          end
-
-          context "behaviour" do
-            before do
-              post users_path(locale)
-              get signup_path(set_locale: target_locale)
-            end
-            subject { response }
-            it { should redirect_to(signup_url(target_locale)) }
           end
         end
 
@@ -113,16 +97,6 @@ describe "Locale switching" do
               click_link target_language
             end
             it { should have_title(page_title) }
-          end
-
-          context "behaviour" do
-            before do
-              sign_in_request(locale, user)
-              put user_path(locale, user)
-              get edit_user_path(user, set_locale: target_locale)
-            end
-            subject { response }
-            it { should redirect_to(edit_user_url(target_locale, user)) }
           end
         end
       end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Static Pages" do
+describe "Static Pages on UI" do
 
   subject { page }
 
@@ -16,7 +16,7 @@ describe "Static Pages" do
 
   I18n.available_locales.each do |locale|
 
-    describe "Layout", type: :feature do
+    describe "Layout" do
       before { visit locale_root_path(locale) }
 
       describe "About link" do
@@ -66,7 +66,7 @@ describe "Static Pages" do
       end
     end
 
-    describe "Home page", type: :feature do
+    describe "Home page" do
       let(:heading)    { t('layouts.header.sample_app') }
       let(:page_title) { full_title('') }
       let(:home)       { t('layouts.header.home') }
@@ -103,11 +103,11 @@ describe "Static Pages" do
             visit locale_root_path(locale)
           end
 
-          it do
+          specify "user's following section" do
             should have_link(zero_following,
                              href: following_user_path(locale, user))
           end
-          it do
+          specify "user's follower section" do
             should have_link(one_follower,
                              href: followers_user_path(locale, user))
           end
@@ -115,7 +115,7 @@ describe "Static Pages" do
       end
     end
 
-    describe "Help Page", type: :feature do
+    describe "Help Page" do
       let(:heading)    { t('static_pages.help.help') }
       let(:page_title) { full_title(t('static_pages.help.help')) }
 
@@ -124,7 +124,7 @@ describe "Static Pages" do
       it_should_behave_like "a static page"
     end
 
-    describe "About Page", type: :feature do
+    describe "About Page" do
       let(:heading)    { t('static_pages.about.about_us') }
       let(:page_title) { full_title(t('static_pages.about.about_us')) }
 
@@ -133,7 +133,7 @@ describe "Static Pages" do
       it_should_behave_like "a static page"
     end
 
-    describe "Contact Page", type: :feature do
+    describe "Contact Page" do
       let(:heading)    { t('static_pages.contact.contact') }
       let(:page_title) { full_title(t('static_pages.contact.contact')) }
 

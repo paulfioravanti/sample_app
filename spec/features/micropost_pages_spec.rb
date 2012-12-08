@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Micropost pages" do
+describe "Microposts on UI" do
 
   subject { page }
 
@@ -8,7 +8,7 @@ describe "Micropost pages" do
 
   I18n.available_locales.each do |locale|
 
-    describe "micropost creation", type: :feature do
+    describe "micropost creation" do
       let(:post_button) { t('static_pages.home.post') }
       let(:click_post) { click_button post_button }
 
@@ -46,9 +46,9 @@ describe "Micropost pages" do
     describe "micropost destruction" do
       before { create(:micropost, user: user) }
 
-      context "as correct user", type: :feature do
-        let(:delete) { t('shared.delete_micropost.delete') }
-        let(:click_delete) { click_link delete }
+      context "as correct user" do
+        let(:delete_link) { t('shared.delete_micropost.delete') }
+        let(:click_delete) { click_link delete_link }
 
         before do
           visit signin_path(locale)
@@ -61,29 +61,9 @@ describe "Micropost pages" do
           it { should change(Micropost, :count).by(-1) }
         end
       end
-
-      context "as an incorrect user" do
-        let(:other_micropost)      { create(:micropost, user: create(:user)) }
-        let(:other_micropost_path) { micropost_path(locale, other_micropost) }
-
-        before do
-          sign_in_request(locale, user)
-          delete other_micropost_path
-        end
-
-        describe "behaviour" do
-          subject { response }
-          it { should redirect_to(locale_root_url(locale)) }
-        end
-
-        describe "result" do
-          subject { -> { delete other_micropost_path } }
-          it { should_not change(Micropost, :count).by(-1) }
-        end
-      end
     end
 
-    describe "pagination", type: :feature do
+    describe "pagination" do
       let(:next_page) { t('will_paginate.next_label') }
 
       before do
@@ -105,7 +85,7 @@ describe "Micropost pages" do
       end
     end
 
-    describe "sidebar", type: :feature do
+    describe "sidebar" do
       before do
         visit signin_path(locale)
         valid_sign_in(user)
@@ -144,7 +124,7 @@ describe "Micropost pages" do
       end
     end
 
-    describe "feed", type: :feature do
+    describe "feed" do
       let!(:current_user_micropost) do
         create(:micropost, user: user)
       end
@@ -157,25 +137,18 @@ describe "Micropost pages" do
 
       describe "delete links" do
         let(:delete) { t('shared.delete_micropost.delete') }
-
-        context "for user's microposts" do
-          it do
-            should have_link(delete, href: micropost_path(locale,
-                                           current_user_micropost))
-          end
+        let(:other_micropost) do
+          create(:micropost, user: create(:user))
         end
 
-        context "for other user's microposts" do
-          let(:other_micropost) do
-            create(:micropost, user: create(:user))
-          end
+        specify "for user's microposts" do
+          should have_link(delete, href: micropost_path(locale,
+                                         current_user_micropost))
+        end
 
-          before { visit locale_root_path(locale) }
-
-          it do
-            should_not have_link(delete, href: micropost_path(locale,
-                                               other_micropost))
-          end
+        specify "for other user's microposts" do
+          should_not have_link(delete, href: micropost_path(locale,
+                                             other_micropost))
         end
       end
     end
