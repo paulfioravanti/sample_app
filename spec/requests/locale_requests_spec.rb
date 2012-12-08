@@ -12,12 +12,12 @@ describe "Locale Switching Requests" do
       context "after a validation error" do
 
         context "when failing to create a micropost" do
-          let(:user)            { create(:user) }
+          let(:user) { create(:user) }
 
           context "behaviour" do
             before do
               sign_in_request(locale, user)
-              post microposts_path(locale)
+              post microposts_path(locale) # nil micropost
               get locale_root_url(set_locale: target_locale)
             end
 
@@ -25,7 +25,7 @@ describe "Locale Switching Requests" do
           end
         end
 
-        context "when failing to create a user" do
+        context "when failing to sign up" do
 
           context "behaviour" do
             before do
@@ -38,7 +38,7 @@ describe "Locale Switching Requests" do
         end
 
         context "when failing to update a user" do
-          let(:user)            { create(:user) }
+          let(:user) { create(:user) }
 
           context "behaviour" do
             before do
@@ -48,6 +48,18 @@ describe "Locale Switching Requests" do
             end
 
             it { should redirect_to(edit_user_url(target_locale, user)) }
+          end
+        end
+
+        context "when failing to sign in" do
+
+          context "behaviour" do
+            before do
+              post sessions_path(locale)
+              get signin_path(set_locale: target_locale)
+            end
+
+            it { should redirect_to(signin_url(target_locale)) }
           end
         end
       end

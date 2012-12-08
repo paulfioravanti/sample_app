@@ -32,21 +32,7 @@ class ApplicationController < ActionController::Base
       @page_number = parse_page_number
 
       if params[:set_locale].present?
-        if @redirect_controller == 'users' && @redirect_action == 'new'
-          redirect_to signup_url, locale: I18n.locale, only_path: true
-        # elsif @redirect_controller == 'sessions' && @redirect_action == 'new'
-        #   redirect_to signin_url, locale: I18n.locale, only_path: true
-        else
-          options = { controller: @redirect_controller,
-                      action:     @redirect_action,
-                      locale:     I18n.locale }
-          options[:page] = @page_number unless @page_number.nil?
-          redirect_to options, only_path: true
-        end
-        # only_path option used here instead of a full url to protect
-        # against unwanted redirects from user-supplied values:
-        # http://brakemanscanner.org/docs/warning_types/redirect/
-        # redirect_to options, only_path: true
+        execute_redirect
       end
     end
 
@@ -73,6 +59,25 @@ class ApplicationController < ActionController::Base
       else
         nil
       end
+    end
+
+    def execute_redirect
+      options = { locale: I18n.locale, only_path: true }
+      case
+        when @redirect_controller == 'users' && @redirect_action == 'new'
+          redirect_to signup_url, options
+        when @redirect_controller == 'sessions' && @redirect_action == 'new'
+          redirect_to signin_url, options
+        else
+          options[:controller] = @redirect_controller
+          options[:action] = @redirect_action
+          options[:page] = @page_number unless @page_number.nil?
+          redirect_to options
+      end
+      # only_path option used here instead of a full url to protect
+      # against unwanted redirects from user-supplied values:
+      # http://brakemanscanner.org/docs/warning_types/redirect/
+      # redirect_to options, only_path: true
     end
 
 end
