@@ -10,20 +10,27 @@ describe "Locale Switching on UI" do
       next if locale == target_locale
 
       context "to another language" do
-        let(:page_title)      { t('layouts.application.base_title') }
+        let(:current_locale_page_title) do
+          t('layouts.application.base_title', locale: locale)
+        end
+        let(:target_locale_page_title) do
+          t('layouts.application.base_title', locale: target_locale)
+        end
         let(:target_language) { t("locale_selector.#{target_locale}") }
         let(:new_language)    { t("locale_selector.#{I18n.locale}") }
 
-        before do
-          visit locale_root_path(locale)
-          click_link target_language
-        end
+        before { visit locale_root_path(locale) }
 
-        it { should have_title(page_title) }
+        it { should have_title(current_locale_page_title) }
 
-        context "changes locale to target language" do
-          subject { I18n.locale }
-          it { should == target_locale.to_sym }
+        context "changes text to target language" do
+          before { click_link target_language }
+          it { should have_title(target_locale_page_title) }
+
+          context "and changes locale to target locale" do
+            subject { I18n.locale }
+            it { should == target_locale.to_sym }
+          end
         end
       end
 
