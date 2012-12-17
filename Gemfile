@@ -104,6 +104,8 @@ group :test do
   gem 'sqlite3', '1.3.6'
   # Code coverage reports
   gem 'simplecov', '0.7.1', require: false
+  # Performance testing
+  gem 'rack-perftools_profiler', require: 'rack/perftools_profiler'
 end
 
 group :test, :production do

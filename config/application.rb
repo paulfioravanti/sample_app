@@ -68,5 +68,9 @@ module SampleApp
     # config.assets.initialize_on_precompile = false
     # Changed for i18n_js
     config.assets.initialize_on_precompile = true
+
+    config.middleware.use ::Rack::PerftoolsProfiler,
+                          default_printer: 'gif',
+                          bundler: true
   end
 end
