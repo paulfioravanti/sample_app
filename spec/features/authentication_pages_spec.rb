@@ -52,7 +52,7 @@ describe "Authentication on UI" do
         let(:sign_in) { t('layouts.header.sign_in') }
 
         before do
-          visit signin_path(locale)
+          # visit signin_path(locale)
           valid_sign_in(user)
         end
 
@@ -95,7 +95,7 @@ describe "Authentication on UI" do
               before do
                 click_link sign_out
                 click_link sign_in
-                valid_sign_in user
+                valid_sign_in(user)
               end
 
               it "renders the default (profile) page" do
