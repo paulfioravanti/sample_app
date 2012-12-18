@@ -35,7 +35,7 @@ gem 'newrelic_rpm', '3.5.3.25'
 # App secret key configuration
 gem 'figaro', '0.5.0'
 # Rails 4 prep
-gem 'strong_parameters', '0.1.5'
+gem 'strong_parameters', '0.1.6'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -63,7 +63,7 @@ group :development do
   # gem 'ruby_parser', '3.0.1'
   # Security checking
   gem 'brakeman', '1.8.3'
-  gem 'rails_best_practices', '1.13.1'
+  gem 'rails_best_practices', '1.13.2'
   # Query optimization monitoring
   gem 'bullet', '4.2.0'
   # Debugging information
