@@ -57,6 +57,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'spork', '0.9.2'
   # Helps in testing by simulating how a real user would use app
   gem 'capybara', '2.0.1'
   # Use factories instead of ActiveRecord objects
