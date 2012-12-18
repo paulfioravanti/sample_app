@@ -35,6 +35,10 @@ SampleApp::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
+  config.middleware.use ::Rack::PerftoolsProfiler,
+                        default_printer: 'gif',
+                        bundler: true
+
   # Speed up tests by lowering BCrypt's cost function
   require 'bcrypt'
   silence_warnings do
