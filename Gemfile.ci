@@ -52,6 +52,8 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '2.12.0'
+  # Prettier RSpec output
+  gem 'fuubar', '1.1.0'
 end
 
 group :test do
