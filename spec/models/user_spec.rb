@@ -139,17 +139,14 @@ describe User do
       create(:micropost, user: user, created_at: 1.hour.ago)
     end
 
-    it "have order of microposts.created_at DESC" do
-      subject.microposts.should == [newer_micropost, older_micropost]
+    context "ordered by microposts.created_at DESC" do
+      subject { user.microposts }
+      it { should == [newer_micropost, older_micropost] }
     end
 
-    it "destroys dependent microposts" do
-      microposts = user.microposts.dup
-      user.destroy
-      microposts.should_not be_empty
-      microposts.each do |micropost|
-        Micropost.find_by_id(micropost.id).should be_nil
-      end
+    context "when user is destroyed" do
+      subject { -> { user.destroy } }
+      it { should change(Micropost, :count).by(-2) }
     end
 
     describe "status" do
@@ -201,26 +198,35 @@ describe User do
       other_user.follow!(user)
     end
 
-    it "destroys dependent active relationships" do
-      active_relationships = user.active_relationships
-      user.destroy
-      active_relationships.should be_empty
-    end
+    context "when user is destroyed" do
 
-    it "destroys dependent passive relationships" do
-      passive_relationships = user.passive_relationships
-      user.destroy
-      passive_relationships.should be_empty
+      describe "behaviour" do
+        before { user.destroy }
+        its(:active_relationships) { should be_empty }
+        its(:passive_relationships) { should be_empty }
+      end
+
+      describe "result" do
+        subject { -> { user.destroy } }
+        it { should change(Relationship, :count).by(-2) }
+      end
+
     end
 
     context "when a follower/followed user is destroyed" do
+
       subject { other_user }
 
-      before { user.destroy }
+      describe "behaviour" do
+        before { user.destroy }
+        its(:active_relationships) { should_not include(user) }
+        its(:passive_relationships) { should_not include(user) }
+      end
 
-      its(:active_relationships) { should_not include(user) }
-      its(:passive_relationships) { should_not include(user) }
+      describe "result" do
+        subject { -> { user.destroy } }
+        it { should change(Relationship, :count).by(-2) }
+      end
     end
   end
-
 end
