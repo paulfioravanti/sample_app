@@ -19,7 +19,7 @@ gem 'rdiscount', '1.6.8'
 # i18n strings for default Rails
 gem 'rails-i18n', '0.7.1'
 # i18n for database content
-gem 'globalize3', '0.2.0'
+gem 'globalize3', '0.3.0'
 # i18n using Locale
 gem 'localeapp', '0.6.8'
 # For JQuery timeago library
