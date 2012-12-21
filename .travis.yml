@@ -12,12 +12,14 @@ before_script:
   - psql -c 'create database sample_app_production' -U postgres
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
-  - bundle exec rspec spec/
+  - RAILS_ENV=test bundle exec rake db:test:prepare
+  - bundle exec rspec --format progress spec/
   - RAILS_ENV=production bundle exec rake assets:precompile
+after_success:
+  - git config --global user.name "Paul Fioravanti"
+  - git config --global user.email paul.fioravanti@gmail.com
   - git add .
   - git commit -m "Precompile assets"
-after_success:
   - gem install heroku
   - git remote add heroku git@heroku.com:pf-sampleapp.git
   # Turn off warnings about SSH keys:
