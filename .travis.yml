@@ -8,12 +8,12 @@ env:
     - DB=postgresql
 bundler_args: --binstubs=./bundler_stubs --without development
 before_script:
-  - psql -c 'create database sample_app_test' -U postgres
-  - psql -c 'create database sample_app_production' -U postgres
+  - psql -c 'create database sample_app_test;' -U postgres
+  - psql -c 'create database sample_app_production;' -U postgres
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - RAILS_ENV=test bundle exec rake db:test:prepare
-  - bundle exec rspec --format progress spec/
+  - bundle exec rspec --no-drb --format progress spec/
   - RAILS_ENV=production bundle exec rake assets:precompile
 after_success:
   - git config --global user.name "Paul Fioravanti"
