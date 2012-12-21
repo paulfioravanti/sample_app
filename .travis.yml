@@ -17,7 +17,7 @@ script:
   - RAILS_ENV=production bundle exec rake assets:precompile
   - git add .
   - git commit -m "Precompile assets"
-after_script:
+after_success:
   - gem install heroku
   - git remote add heroku git@heroku.com:pf-sampleapp.git
   # Turn off warnings about SSH keys:
