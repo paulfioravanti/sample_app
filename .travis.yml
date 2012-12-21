@@ -2,20 +2,17 @@ language: ruby
 rvm:
   - 1.9.3
 env:
-  # - DB=sqlite
-  # - DB=mysql
   - DB=postgresql
   global:
     - secure: "YZLEEev+JQoqlThsreCS0Px3LPMgQJX8BCquS7jsXsBG5FZba00tEdhviL5Z\nQurx5rsO0YS6dW3PA1yl+H+npro4FBpfMTV0tU+FrfO19h08Gro7cBwTxqlI\nOp0Zje4u/e4lMA1NQFcM+z/SUqr7tWkFraXb+AWby9ZQQG7Klm8="
+bundler_args: --binstubs=./bundler_stubs --without development
+before_script:
+  - psql -c 'create database sample_app_test' -U postgres
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
   - bundle exec rspec spec/
   - RAILS_ENV=production bundle exec rake assets:precompile
-before_script:
-  # - mysql -e 'create database sample_app_test'
-  - psql -c 'create database sample_app_test' -U postgres
-bundler_args: --binstubs=./bundler_stubs --without development
 after_script:
   - gem install heroku
   - git remote add heroku git@heroku.com:pf-sampleapp.git
