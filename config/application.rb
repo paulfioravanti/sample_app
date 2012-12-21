@@ -65,8 +65,8 @@ module SampleApp
     config.assets.version = '1.0'
 
     # Heroku settings
-    config.assets.initialize_on_precompile = false
-    # Changed for i18n_js, but changed back again for deployment from Travis
-    # config.assets.initialize_on_precompile = true
+    # config.assets.initialize_on_precompile = false
+    # Changed for i18n_js
+    config.assets.initialize_on_precompile = true
   end
 end
