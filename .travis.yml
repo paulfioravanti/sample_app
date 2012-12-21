@@ -18,7 +18,7 @@ script:
 after_success:
   - git config --global user.name "Paul Fioravanti"
   - git config --global user.email paul.fioravanti@gmail.com
-  - git add .
+  - git add public/assets
   - git commit -m "Precompile assets"
   - gem install heroku
   - git remote add heroku git@heroku.com:pf-sampleapp.git
