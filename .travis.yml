@@ -15,6 +15,8 @@ script:
   - bundle exec rake db:test:prepare
   - bundle exec rspec spec/
   - RAILS_ENV=production bundle exec rake assets:precompile
+  - git add .
+  - git commit -m "Precompile assets"
 after_script:
   - gem install heroku
   - git remote add heroku git@heroku.com:pf-sampleapp.git
