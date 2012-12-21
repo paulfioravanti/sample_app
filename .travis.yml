@@ -2,9 +2,10 @@ language: ruby
 rvm:
   - 1.9.3
 env:
-  - DB=postgresql
   global:
     - secure: "YZLEEev+JQoqlThsreCS0Px3LPMgQJX8BCquS7jsXsBG5FZba00tEdhviL5Z\nQurx5rsO0YS6dW3PA1yl+H+npro4FBpfMTV0tU+FrfO19h08Gro7cBwTxqlI\nOp0Zje4u/e4lMA1NQFcM+z/SUqr7tWkFraXb+AWby9ZQQG7Klm8="
+  matrix:
+    - DB=postgresql
 bundler_args: --binstubs=./bundler_stubs --without development
 before_script:
   - psql -c 'create database sample_app_test' -U postgres
