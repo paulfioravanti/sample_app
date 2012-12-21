@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'spork'
 require 'simplecov'
 #uncomment the following line to use spork with the debugger
