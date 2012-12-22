@@ -9,17 +9,15 @@ env:
 bundler_args: --binstubs=./bundler_stubs --without development
 before_script:
   - psql -c 'create database sample_app_test;' -U postgres
-  - psql -c 'create database sample_app_production;' -U postgres
+  # - psql -c 'create database sample_app_production;' -U postgres
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
   - bundle exec rspec --no-drb --format progress spec/
-  # heroku labs:enable user-env-compile -a pf-sampleapp enabled
+  # heroku labs:enable user-env-compile -a pf-sampleapp
+  # enabled so no need to precompile assets before deploy anymore
   # - bundle exec rake assets:precompile
 after_success:
-  # Set up Git, check in precompiled assets
-  # - git config --global user.name "Paul Fioravanti"
-  # - git config --global user.email paul.fioravanti@gmail.com
   # - git add public/assets
   # - git commit -m "Precompile assets"
   - gem install heroku
