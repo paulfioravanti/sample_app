@@ -17,6 +17,7 @@ script:
   # heroku labs:enable user-env-compile -a pf-sampleapp enabled
   - bundle exec rake assets:precompile
 after_success:
+  # Set up Git, check in precompiled assets
   - git config --global user.name "Paul Fioravanti"
   - git config --global user.email paul.fioravanti@gmail.com
   - git add public/assets
