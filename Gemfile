@@ -43,10 +43,6 @@ group :assets do
   # Twitter frameworks to make nice UI design elements
   gem 'bootstrap-sass', '2.2.1.1'
   gem 'sass-rails',   '3.2.5'
-  # To access Ruby objects in Javascript
-  # gem 'therubyracer', '0.11.0'
-  # Libraries to get therubyracer working
-  # gem 'libv8', '3.11.8.4'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
   gem 'uglifier', '1.3.0'
@@ -60,7 +56,7 @@ group :development do
   # For html/erb to haml parsing
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '2.3.1'
-  # gem 'ruby_parser', '3.0.1'
+  # gem 'ruby_parser', '3.1.1'
   # Security checking
   gem 'brakeman', '1.8.3'
   gem 'rails_best_practices', '1.13.2'
@@ -73,7 +69,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '2.12.0'
   # for autotesting with rspec
-  gem 'guard-rspec', '2.3.2'
+  gem 'guard-rspec', '2.3.3'
   # Prettier RSpec output
   gem 'fuubar', '1.1.0'
   gem 'debugger', '1.2.2'
