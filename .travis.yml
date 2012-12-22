@@ -12,9 +12,10 @@ before_script:
   - psql -c 'create database sample_app_production;' -U postgres
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - RAILS_ENV=test bundle exec rake db:test:prepare
+  - bundle exec rake db:test:prepare
   - bundle exec rspec --no-drb --format progress spec/
-  - RAILS_ENV=production bundle exec rake assets:precompile
+  # heroku labs:enable user-env-compile -a pf-sampleapp enabled
+  - bundle exec rake assets:precompile
 after_success:
   - git config --global user.name "Paul Fioravanti"
   - git config --global user.email paul.fioravanti@gmail.com
