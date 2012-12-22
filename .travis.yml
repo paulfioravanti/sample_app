@@ -15,13 +15,13 @@ script:
   - bundle exec rake db:test:prepare
   - bundle exec rspec --no-drb --format progress spec/
   # heroku labs:enable user-env-compile -a pf-sampleapp enabled
-  - bundle exec rake assets:precompile
+  # - bundle exec rake assets:precompile
 after_success:
   # Set up Git, check in precompiled assets
-  - git config --global user.name "Paul Fioravanti"
-  - git config --global user.email paul.fioravanti@gmail.com
-  - git add public/assets
-  - git commit -m "Precompile assets"
+  # - git config --global user.name "Paul Fioravanti"
+  # - git config --global user.email paul.fioravanti@gmail.com
+  # - git add public/assets
+  # - git commit -m "Precompile assets"
   - gem install heroku
   - git remote add heroku git@heroku.com:pf-sampleapp.git
   # Turn off warnings about SSH keys:
