@@ -62,6 +62,10 @@ class ApplicationController < ActionController::Base
     end
 
     def execute_redirect
+      # only_path option used here instead of a full url to protect
+      # against unwanted redirects from user-supplied values:
+      # http://brakemanscanner.org/docs/warning_types/redirect/
+      # redirect_to options, only_path: true
       options = { locale: I18n.locale, only_path: true }
       case
         when @redirect_controller == 'users' && @redirect_action == 'new'
@@ -74,10 +78,6 @@ class ApplicationController < ActionController::Base
           options[:page] = @page_number unless @page_number.nil?
           redirect_to options
       end
-      # only_path option used here instead of a full url to protect
-      # against unwanted redirects from user-supplied values:
-      # http://brakemanscanner.org/docs/warning_types/redirect/
-      # redirect_to options, only_path: true
     end
 
 end

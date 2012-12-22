@@ -215,10 +215,11 @@ describe User do
 
     context "when a follower/followed user is destroyed" do
 
-      subject { other_user }
-
       describe "behaviour" do
+        subject { other_user }
+
         before { user.destroy }
+
         its(:active_relationships) { should_not include(user) }
         its(:passive_relationships) { should_not include(user) }
       end

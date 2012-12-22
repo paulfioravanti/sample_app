@@ -62,7 +62,7 @@ describe "Locale Switching on UI" do
           let(:post_button)     { t('shared.micropost_form.post') }
           let(:target_language) { t("locale_selector.#{target_locale}") }
 
-          context "appearance", type: :feature do
+          context "appearance" do
             before do
               visit signin_path(locale)
               valid_sign_in(user)
@@ -79,7 +79,7 @@ describe "Locale Switching on UI" do
           let(:submit)          { t('users.new.create_account') }
           let(:target_language) { t("locale_selector.#{target_locale}") }
 
-          context "appearance", type: :feature do
+          context "appearance" do
             before do
               visit signup_path(locale)
               click_button submit
@@ -95,7 +95,7 @@ describe "Locale Switching on UI" do
           let(:submit)          { t('users.edit.save_changes') }
           let(:target_language) { t("locale_selector.#{target_locale}") }
 
-          context "appearance", type: :feature do
+          context "appearance" do
             before do
               visit signin_path(locale)
               valid_sign_in(user)

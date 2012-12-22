@@ -52,7 +52,6 @@ describe "Authentication on UI" do
         let(:sign_in) { t('layouts.header.sign_in') }
 
         before do
-          # visit signin_path(locale)
           valid_sign_in(user)
         end
 

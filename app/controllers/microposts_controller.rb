@@ -1,5 +1,4 @@
 class MicropostsController < ApplicationController
-  include MicropostsHelper
 
   before_filter :signed_in_user, only: [:create, :destroy]
   before_filter :correct_user,   only: [:update, :destroy]
@@ -9,7 +8,6 @@ class MicropostsController < ApplicationController
   respond_to :html, :json
 
   def create
-    # @micropost = current_user.microposts.build(params[:micropost])
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash[:success] = t('flash.micropost_created')
@@ -43,7 +41,6 @@ class MicropostsController < ApplicationController
       I18n.available_locales.each do |locale|
         next if locale == I18n.locale
         @micropost.translations.build(locale: locale,
-                                      # content: params[:micropost][:content])
                                       content: micropost_params[:content])
       end
     end
