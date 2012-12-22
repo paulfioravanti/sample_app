@@ -37,7 +37,7 @@ GEM
     best_in_place (2.0.2)
       jquery-rails
       rails (~> 3.1)
-    bootstrap-sass (2.2.1.1)
+    bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
     bootstrap-will_paginate (0.0.9)
       will_paginate
@@ -321,7 +321,7 @@ DEPENDENCIES
   annotate (= 2.5.0)
   bcrypt-ruby (= 3.0.1)
   best_in_place (= 2.0.2)
-  bootstrap-sass (= 2.2.1.1)
+  bootstrap-sass (= 2.2.2.0)
   bootstrap-will_paginate (= 0.0.9)
   brakeman (= 1.9.0.pre1)
   bullet (= 4.2.0)
