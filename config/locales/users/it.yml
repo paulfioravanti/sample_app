@@ -1,0 +1,28 @@
+it:
+  users:
+    edit:
+      change: cambia
+      edit_user: Modifica Utente
+      save_changes: Salva le modifiche
+      update_profile: Aggiorni il tuo profilo
+    follow:
+      follow: Follow
+    index:
+      all_users: Tutti utenti
+    new:
+      create_account: Creare il mio account
+      sign_up: Registrati
+    show:
+      microposts:
+        one: Microposts (%{count})
+        other: Microposts (%{count})
+    show_follow:
+      followers: Followers
+      following: Following
+      microposts: ! 'Microposts:'
+      view_my_profile: Visualizza il mio profilo
+    unfollow:
+      unfollow: Unfollow
+    user:
+      delete: Anulla
+      you_sure: Sei sicuro?

@@ -1,0 +1,8 @@
+ja:
+  sessions:
+    new:
+      email: メール
+      new_user: 新しいユーザ?
+      password: パスワード
+      sign_in: サインイン
+      sign_up: 今すぐ登録！

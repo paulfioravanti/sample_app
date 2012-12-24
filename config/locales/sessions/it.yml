@@ -1,0 +1,8 @@
+it:
+  sessions:
+    new:
+      email: Email
+      new_user: Nuovo Utente?
+      password: Password
+      sign_in: Accedi
+      sign_up: Registrati ora!

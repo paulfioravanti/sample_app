@@ -1,0 +1,6 @@
+ja:
+  simple_form:
+    required:
+      html: <abbr title="required">*</abbr>
+      mark: ! '*'
+      text: 必須事項

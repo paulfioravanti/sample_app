@@ -1,0 +1,6 @@
+en:
+  microposts:
+    micropost:
+      time_posted_prefix: Posted
+      time_posted_suffix: ! ' '
+      time_posted_ago: Posted %{time} ago.

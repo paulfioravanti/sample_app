@@ -1,0 +1,31 @@
+ja:
+  shared:
+    delete_micropost:
+      delete: 削除
+      you_sure: 本当に削除しますか？
+    endless_scroll:
+      fetching_users: ユーザを読み込み中…
+      fetching_microposts: マイクロポストを読み込み中…
+    error_messages:
+      form_errors: ! '以下の問題をご確認ください:'
+    feed_item:
+      time_posted_prefix: ''
+      time_posted_suffix: に投稿された。
+      time_posted_ago: ! '%{time}前に投稿された。'
+    micropost_form:
+      characters_remaining:
+        one: ! '%{count}つの入力可能な文字が残ります。'
+        other: ! '%{count}つの入力可能な文字が残ります。'
+      characters_over:
+        one: ! '%{count}つの文字が入力制限を超えています。'
+        other: ! '%{count}つの文字が入力制限を超えています。'
+      compose_micropost: マイクロポストを新規作成・・・
+      post: 投稿
+    stats:
+      followers: フォロワー
+      following: フォロー
+    user_info:
+      microposts:
+        one: ! '%{count}つのマイクロポスト'
+        other: ! '%{count}つのマイクロポスト'
+      view_my_profile: プロフィルを参照

@@ -1,0 +1,33 @@
+it:
+  activerecord:
+    attributes:
+      micropost:
+        content: Contenuento
+      user:
+        email: Email
+        name: Nome
+        password: Password
+        password_confirmation: Confirma
+        password_digest: Password
+    models:
+      micropost: Micropost
+      user: Utente
+    errors:
+      models:
+        micropost:
+          attributes:
+            content:
+              too_long: è troppo lungo (il massimo è 140 caratteri)
+        user:
+          attributes:
+            password:
+              too_short: è troppo corto (il minimo è 6 caratteri)
+            password_confirmation:
+              blank: non può essere lasciato in bianco
+            email:
+              blank: non può essere lasciato in bianco
+              invalid: non è valido
+            name:
+              blank: non può essere lasciato in bianco
+            password_digest:
+              blank: non può essere lasciato in bianco

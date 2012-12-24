@@ -1,0 +1,6 @@
+ja:
+  microposts:
+    micropost:
+      time_posted_prefix: ! '  '
+      time_posted_suffix: に投稿された。
+      time_posted_ago: ! '%{time}前に投稿された。'

@@ -1,0 +1,9 @@
+en:
+  flash:
+    invalid_credentials: Invalid email/password combination
+    micropost_created: Micropost created!
+    no_admin_suicide: I'm sorry %{name}. I'm afraid I can't do that.
+    profile_updated: Profile Updated
+    sign_in: Please sign in.
+    user_destroyed: User destroyed.
+    welcome: Welcome to the Sample App!

@@ -1,0 +1,31 @@
+en:
+  shared:
+    delete_micropost:
+      delete: Delete
+      you_sure: You sure?
+    endless_scroll:
+      fetching_users: Fetching more users...
+      fetching_microposts: Fetching more microposts...
+    error_messages:
+      form_errors: ! 'Please review the problems below:'
+    feed_item:
+      time_posted_prefix: Posted
+      time_posted_suffix: ''
+      time_posted_ago: Posted %{time} ago.
+    micropost_form:
+      characters_remaining:
+        one: ! '%{count} character remaining.'
+        other: ! '%{count} characters remaining.'
+      characters_over:
+        one: ! '%{count} character over limit.'
+        other: ! '%{count} characters over limit.'
+      compose_micropost: Compose new micropost...
+      post: Post
+    stats:
+      followers: followers
+      following: following
+    user_info:
+      microposts:
+        one: ! '%{count} micropost'
+        other: ! '%{count} microposts'
+      view_my_profile: View my profile

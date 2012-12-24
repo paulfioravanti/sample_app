@@ -1,0 +1,33 @@
+ja:
+  activerecord:
+    attributes:
+      micropost:
+        content: 内容
+      user:
+        email: メール
+        name: 名前
+        password: パスワード
+        password_confirmation: 確認
+        password_digest: パスワード
+    models:
+      micropost: マイクロポスト
+      user: ユーザー
+    errors:
+      models:
+        micropost:
+          attributes:
+            content:
+              too_long: は140文字以内で入力してください。
+        user:
+          attributes:
+            password:
+              too_short: は6文字以上で入力してください。
+            password_confirmation:
+              blank: を入力してください。
+            email:
+              blank: を入力してください。
+              invalid: は不正な値です。
+            name:
+              blank: を入力してください。
+            password_digest:
+              blank: を入力してください。

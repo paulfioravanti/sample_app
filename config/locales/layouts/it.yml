@@ -1,0 +1,26 @@
+it:
+  layouts:
+    application:
+      base_title: Ruby on Rails Tutorial Esempio App
+    footer:
+      about: Che Cosa
+      author: di Michael Hartl
+      contact: Contatti
+      news: Notizie
+      rails_tutorial: Rails Tutorial
+    header:
+      help: Aiuto
+      home: Home
+      sample_app: Esempio App
+      sign_in: Accedi
+      users: Utenti
+    account_dropdown:
+      account: Account
+      profile: Profilo
+      settings: Impostazioni
+      sign_out: Esci
+    locale_selector:
+      language: Lingua
+      en: English (Inglese)
+      it: Italiano
+      ja: 日本語 (Giapponese)

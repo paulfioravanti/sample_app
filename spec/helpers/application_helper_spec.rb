@@ -33,9 +33,9 @@ describe ApplicationHelper do
     describe "#locale_languages" do
       let(:labels) do
         [
-          { label: t('locale_selector.en'), locale: 'en' },
-          { label: t('locale_selector.it'), locale: 'it' },
-          { label: t('locale_selector.ja'), locale: 'ja' }
+          { label: t('layouts.locale_selector.en'), locale: 'en' },
+          { label: t('layouts.locale_selector.it'), locale: 'it' },
+          { label: t('layouts.locale_selector.ja'), locale: 'ja' }
         ]
       end
 

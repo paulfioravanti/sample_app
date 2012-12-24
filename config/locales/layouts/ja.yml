@@ -1,0 +1,26 @@
+ja:
+  layouts:
+    application:
+      base_title: Ruby on Railsチュートリアル サンプルアップ
+    footer:
+      about: サイトについて
+      author: by マイケル・ハートル
+      contact: お問い合わせ
+      news: ニュース
+      rails_tutorial: Railsチュートリアル
+    header:
+      help: ヘルプ
+      home: ホーム
+      sample_app: サンプルアップ
+      sign_in: ログイン
+      users: ユーザ
+    account_dropdown:
+      account: アカウント
+      profile: プロフィール
+      settings: 設定
+      sign_out: ログアウト
+    locale_selector:
+      language: 言語
+      en: English (英語)
+      it: Italiano (イタリア語)
+      ja: 日本語

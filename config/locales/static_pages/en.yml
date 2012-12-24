@@ -1,0 +1,14 @@
+en:
+  static_pages:
+    about:
+      about_us: About Us
+    contact:
+      contact: Contact
+    help:
+      help: Help
+    home:
+      post: Post
+    home_not_signed_in:
+      sign_up: Sign up now!
+    home_signed_in:
+      micropost_feed: Micropost Feed

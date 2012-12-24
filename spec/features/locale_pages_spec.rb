@@ -16,8 +16,8 @@ describe "Locale Switching on UI" do
         let(:target_locale_page_title) do
           t('layouts.application.base_title', locale: target_locale)
         end
-        let(:target_language) { t("locale_selector.#{target_locale}") }
-        let(:new_language)    { t("locale_selector.#{I18n.locale}") }
+        let(:target_language) { t("layouts.locale_selector.#{target_locale}") }
+        let(:new_language)    { t("layouts.locale_selector.#{I18n.locale}") }
 
         before { visit locale_root_path(locale) }
 
@@ -37,7 +37,7 @@ describe "Locale Switching on UI" do
       context "during pagination" do
         let(:user)            { create(:user) }
         let(:next_page)       { t('will_paginate.next_label') }
-        let(:target_language) { t("locale_selector.#{target_locale}") }
+        let(:target_language) { t("layouts.locale_selector.#{target_locale}") }
 
         before(:all) { create_list(:user, 30) }
         after(:all)  { User.delete_all }
@@ -60,7 +60,7 @@ describe "Locale Switching on UI" do
           let(:user)            { create(:user) }
           let(:page_title)      { t('layouts.application.base_title') }
           let(:post_button)     { t('shared.micropost_form.post') }
-          let(:target_language) { t("locale_selector.#{target_locale}") }
+          let(:target_language) { t("layouts.locale_selector.#{target_locale}") }
 
           context "appearance" do
             before do
@@ -77,7 +77,7 @@ describe "Locale Switching on UI" do
         context "when failing to create a user" do
           let(:page_title)      { t('users.new.sign_up') }
           let(:submit)          { t('users.new.create_account') }
-          let(:target_language) { t("locale_selector.#{target_locale}") }
+          let(:target_language) { t("layouts.locale_selector.#{target_locale}") }
 
           context "appearance" do
             before do
@@ -93,7 +93,7 @@ describe "Locale Switching on UI" do
           let(:user)            { create(:user) }
           let(:page_title)      { t('users.edit.edit_user') }
           let(:submit)          { t('users.edit.save_changes') }
-          let(:target_language) { t("locale_selector.#{target_locale}") }
+          let(:target_language) { t("layouts.locale_selector.#{target_locale}") }
 
           context "appearance" do
             before do

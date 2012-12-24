@@ -1,0 +1,9 @@
+ja:
+  flash:
+    invalid_credentials: 不正なメール／パス
+    micropost_created: マイクロポストが正常に作成された！
+    no_admin_suicide: ! '%{name}様、恐れ入りますが、それをやらせることができません'
+    profile_updated: プロフィールが更新されました
+    sign_in: サインインしてください。
+    user_destroyed: ユーザを削除しました。
+    welcome: サンプルアップへようこそ!
