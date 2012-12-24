@@ -43,7 +43,7 @@ GEM
       will_paginate
     bourne (1.1.2)
       mocha (= 0.10.5)
-    brakeman (1.9.0.pre1)
+    brakeman (1.9.0.pre2)
       activesupport
       erubis (~> 2.6)
       fastercsv (~> 1.5)
@@ -323,7 +323,7 @@ DEPENDENCIES
   best_in_place (= 2.0.2)
   bootstrap-sass (= 2.2.2.0)
   bootstrap-will_paginate (= 0.0.9)
-  brakeman (= 1.9.0.pre1)
+  brakeman (= 1.9.0.pre2)
   bullet (= 4.2.0)
   capybara (= 2.0.1)
   coffee-rails (= 3.2.2)
