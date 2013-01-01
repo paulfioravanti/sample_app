@@ -17,7 +17,7 @@ gem 'haml-rails', '0.3.5'
 # To enable the use of Markdown
 gem 'rdiscount', '1.6.8'
 # i18n strings for default Rails
-gem 'rails-i18n', '0.7.1'
+gem 'rails-i18n', '0.7.2'
 # i18n for database content
 gem 'globalize3', '0.3.0'
 # i18n using Locale
@@ -60,7 +60,7 @@ group :development do
   gem 'brakeman', '1.9.0'
   gem 'rails_best_practices', '1.13.2'
   # Query optimization monitoring
-  gem 'bullet', '4.2.0'
+  gem 'bullet', '4.3.0'
   # Debugging information
   gem 'rails-footnotes', '3.7.9'
 end
@@ -76,7 +76,7 @@ end
 
 group :test do
   # Helps in testing by simulating how a real user would use app
-  gem 'capybara', '2.0.1'
+  gem 'capybara', '2.0.2'
   # Use factories instead of ActiveRecord objects
   gem 'factory_girl_rails', '4.1.0'
   gem 'shoulda-matchers', '1.4.2'
@@ -90,7 +90,7 @@ group :test do
   # Helps in debugging tests by being able to launch browser
   gem 'launchy', '2.1.2'
   # Mac-dependent gems
-  gem 'rb-fsevent', '0.9.2', require: false
+  gem 'rb-fsevent', '0.9.3', require: false
   # Growl notifications
   gem 'growl', '1.0.3'
   # Test mysql on Travis CI
