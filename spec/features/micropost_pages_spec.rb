@@ -68,9 +68,6 @@ describe "Microposts on UI" do
       let(:second_page) { user.microposts.paginate(page: 2) }
       let(:next_page) { t('will_paginate.next_label') }
 
-      # before(:all) { create_list(:micropost, 31, user: user) }
-      # after(:all) { Micropost.delete_all }
-
       before do
         visit signin_path(locale)
         valid_sign_in(user)
