@@ -64,7 +64,12 @@ describe "Microposts on UI" do
     end
 
     describe "pagination" do
+      let(:first_page)  { user.microposts.paginate(page: 1) }
+      let(:second_page) { user.microposts.paginate(page: 2) }
       let(:next_page) { t('will_paginate.next_label') }
+
+      # before(:all) { create_list(:micropost, 31, user: user) }
+      # after(:all) { Micropost.delete_all }
 
       before do
         visit signin_path(locale)
@@ -74,13 +79,32 @@ describe "Microposts on UI" do
       end
       after { Micropost.delete_all }
 
+      it { should have_selector('div.pagination') }
       it { should have_link(next_page) }
       its(:html) { should match('>2</a>') }
 
-      it "lists each micropost" do
-        Micropost.all[0..2].each do |micropost|
-          # Each name should be a link (span>a)
-          page.should have_selector('span>a', text: micropost.user.name)
+
+      describe "first page" do
+        it "lists the first page of microposts" do
+          first_page[0..2].each do |micropost|
+            page.should have_selector('span', text: micropost.content)
+          end
+        end
+
+        it "does not list the second page of microposts" do
+          second_page[0..2].each do |micropost|
+            page.should_not have_selector('span', text: micropost.content)
+          end
+        end
+      end
+
+      describe "second page" do
+        before { visit locale_root_path(locale, page: 2) }
+
+        it "should list the second page of microposts" do
+          second_page[0..2].each do |micropost|
+            page.should have_selector('span', text: micropost.content)
+          end
         end
       end
     end

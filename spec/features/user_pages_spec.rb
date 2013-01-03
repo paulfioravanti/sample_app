@@ -20,22 +20,43 @@ describe "User Pages on UI" do
 
       before do
         visit signin_path(locale)
-        valid_sign_in user
+        valid_sign_in(user)
         visit users_path(locale)
       end
 
       it { should have_title(page_title) }
 
       describe "pagination" do
+        let(:first_page)  { User.paginate(page: 1) }
+        let(:second_page) { User.paginate(page: 2) }
         let(:next_page) { t('will_paginate.next_label') }
 
+        it { should have_selector('div.pagination') }
         it { should have_link(next_page) }
         its(:html) { should match('>2</a>') }
 
-        it "lists each user" do
-          User.all[0..2].each do |user|
-            # Each name should be a link (li>a)
-            page.should have_selector('li>a', text: user.name)
+        describe "first page" do
+          it "lists the first page of users" do
+            first_page[0..2].each do |user|
+              # Each name should be a link (li>a)
+              page.should have_selector('li>a', text: user.name)
+            end
+          end
+
+          it "does not list the second page of users" do
+            second_page[0..2].each do |user|
+              page.should_not have_selector('li>a', text: user.name)
+            end
+          end
+        end
+
+        describe "second page" do
+          before { visit users_path(locale, page: 2) }
+
+          it "should list the second page of users" do
+            second_page[0..2].each do |user|
+              page.should have_selector('li>a', text: user.name)
+            end
           end
         end
       end
