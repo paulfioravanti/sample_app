@@ -33,7 +33,7 @@ gem 'pg', '0.14.1'
 # New Relic reporting
 gem 'newrelic_rpm', '3.5.4.34'
 # App secret key configuration
-gem 'figaro', '0.5.0'
+gem 'figaro', '0.5.2'
 # Rails 4 prep
 gem 'strong_parameters', '0.1.6'
 
@@ -66,7 +66,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '2.12.0'
+  gem 'rspec-rails', '2.12.1'
   # for autotesting with rspec
   gem 'guard-rspec', '2.3.3'
   # Prettier RSpec output
@@ -86,7 +86,7 @@ group :test do
   # speed up test server
   gem 'spork', '0.9.2'
   # guard/spork integration
-  gem 'guard-spork', '1.4.0'
+  gem 'guard-spork', '1.4.1'
   # Helps in debugging tests by being able to launch browser
   gem 'launchy', '2.1.2'
   # Mac-dependent gems
