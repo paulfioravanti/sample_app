@@ -40,7 +40,7 @@ class MicropostsController < ApplicationController
     def translations
       I18n.available_locales.each do |locale|
         next if locale == I18n.locale
-        @micropost.translations.build(locale: locale,
+        @micropost.translations.create(locale: locale,
                                       content: micropost_params[:content])
       end
     end
