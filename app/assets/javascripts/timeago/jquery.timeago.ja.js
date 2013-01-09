@@ -1,5 +1,5 @@
 // Japanese
-jQuery.timeago.settings.strings = {
+jQuery.timeago.settings.strings["ja"] = {
   prefixAgo: "",
   prefixFromNow: "今より",
   suffixAgo: "前",

@@ -23,7 +23,7 @@ gem 'globalize3', '0.3.0'
 # i18n using Locale
 gem 'localeapp', '0.6.8'
 # For JQuery timeago library
-gem 'rails-timeago', '1.4.3'
+gem 'rails-timeago', '2.1.0'
 # For accessing i18n in js files
 gem 'i18n-js', '2.1.2'
 # Editing in place
