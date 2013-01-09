@@ -3,13 +3,12 @@ class MicropostsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
   before_filter :correct_user,   only: [:update, :destroy]
 
-  after_filter :translations, only: :create
-
   respond_to :html, :json
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
+      create_translations
       flash[:success] = t('flash.micropost_created')
       redirect_to locale_root_url
     else
@@ -37,11 +36,11 @@ class MicropostsController < ApplicationController
       params.require(:micropost).permit(:content)
     end
 
-    def translations
+    def create_translations
       I18n.available_locales.each do |locale|
         next if locale == I18n.locale
         @micropost.translations.create(locale: locale,
-                                      content: micropost_params[:content])
+                                       content: micropost_params[:content])
       end
     end
 
