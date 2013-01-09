@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require rails-timeago
-//= require jquery.timeago.js
 //= require locales/jquery.timeago.it.js
 //= require timeago/jquery.timeago.ja.js
 //= require i18n
