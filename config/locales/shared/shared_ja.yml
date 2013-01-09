@@ -14,8 +14,8 @@ ja:
       time_posted_ago: ! '%{time}前に投稿された。'
     micropost_form:
       characters_remaining:
-        one: ! '%{count}つの入力可能な文字が残ります。'
-        other: ! '%{count}つの入力可能な文字が残ります。'
+        one: ! '%{count}つの入力可能な文字が残る。'
+        other: ! '%{count}つの入力可能な文字が残る。'
       characters_over:
         one: ! '%{count}つの文字が入力制限を超えています。'
         other: ! '%{count}つの文字が入力制限を超えています。'
