@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.10'
+gem 'rails', '3.2.11'
 
 gem 'bootstrap-will_paginate', '0.0.9'
 # For creating bcrypt encrypted hashes for user passwords
@@ -47,7 +47,7 @@ group :assets do
   # Ruby wrapper for UglifyJS JavaScript compressor.
   gem 'uglifier', '1.3.0'
   # Font Awesome fonts
-  gem 'font-awesome-sass-rails', '3.0.0.0'
+  gem 'font-awesome-sass-rails', '3.0.0.1'
 end
 
 group :development do
