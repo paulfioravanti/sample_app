@@ -17,8 +17,8 @@ ja:
         one: ! '%{count}つの入力可能な文字が残る。'
         other: ! '%{count}つの入力可能な文字が残る。'
       characters_over:
-        one: ! '%{count}つの文字が入力制限を超えています。'
-        other: ! '%{count}つの文字が入力制限を超えています。'
+        one: ! '%{count}つの文字が制限を超えている。'
+        other: ! '%{count}つの文字が制限を超えている。'
       compose_micropost: マイクロポストを新規作成・・・
       post: 投稿
     stats:
