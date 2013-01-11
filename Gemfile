@@ -9,7 +9,7 @@ gem 'jquery-rails', '2.1.4'
 # For fake example users with “realistic” names/emails
 gem 'faker', '1.1.2'
 # For pagination
-gem 'will_paginate', '3.0.3'
+gem 'will_paginate', '3.0.4'
 # Simplified forms
 gem 'simple_form', '2.0.4'
 # Simplify UI code
