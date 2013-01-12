@@ -93,14 +93,13 @@ group :test do
   gem 'rb-fsevent', '0.9.3', require: false
   # Growl notifications
   gem 'growl', '1.0.3'
-  # Test mysql on Travis CI
-  gem 'mysql2', '0.3.11'
-  # Test sqlite3 on Travis CI
-  gem 'sqlite3', '1.3.7'
   # Code coverage reports
   gem 'simplecov', '0.7.1', require: false
   # Performance testing
   gem 'rack-perftools_profiler', require: 'rack/perftools_profiler'
+  # Test other databases on Travis CI if needed
+  # gem 'mysql2', '0.3.11'
+  # gem 'sqlite3', '1.3.7'
 end
 
 group :test, :production do
