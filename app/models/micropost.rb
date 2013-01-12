@@ -23,18 +23,16 @@ class Micropost < ActiveRecord::Base
   validates :user, presence: true
   validates :content, presence: true, length: { maximum: 140 }
 
-  default_scope order: 'microposts.created_at DESC'
+  default_scope order: 'created_at DESC'
 
-  def self.from_users_followed_by(user)
-    followed_user_ids = "SELECT followed_id FROM relationships
-                         WHERE follower_id = :user_id"
+  def self.from_users_actively_followed_by(user)
+    # followed_user_ids = "SELECT followed_id FROM relationships
+    #                      WHERE follower_id = :user_id"
     # When Rails Brakeman service upgrades to 1.9.0, this
     # code can be swapped in for the above
-    # followed_user_ids = Relationship.select(:followed_id).
-    #                     where("follower_id = :user_id").
-    #                     to_sql
-    where("user_id IN (#{followed_user_ids}) OR user_id = :user_id",
-          user_id: user.id)
+    followed_users = Relationship.actively_followed_by(user).to_sql
+    where("user_id IN (#{followed_users}) OR user_id = :user",
+          user: user)
   end
 
 end

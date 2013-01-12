@@ -47,5 +47,5 @@ describe Micropost do
     should ensure_length_of(:content).is_at_most(140)
   end
 
-  # self.from_users_followed_by(user) tested in user_spec status
+  # self.from_users_actively_followed_by(user) tested in user_spec status
 end
