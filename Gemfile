@@ -96,7 +96,7 @@ group :test do
   # Test mysql on Travis CI
   gem 'mysql2', '0.3.11'
   # Test sqlite3 on Travis CI
-  gem 'sqlite3', '1.3.6'
+  gem 'sqlite3', '1.3.7'
   # Code coverage reports
   gem 'simplecov', '0.7.1', require: false
   # Performance testing
