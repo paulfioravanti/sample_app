@@ -25,7 +25,8 @@ class Relationship < ActiveRecord::Base
   validates :follower, presence: true
   validates :followed, presence: true
 
-  def self.users_actively_followed_by(user)
-    select(:followed_id).where("follower_id = ?", user)
-  end
+  # Uncomment when Brakeman service upgrades to 1.9
+  # def self.users_actively_followed_by(user)
+  #   select(:followed_id).where("follower_id = ?", user)
+  # end
 end
