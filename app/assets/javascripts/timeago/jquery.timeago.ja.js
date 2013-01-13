@@ -10,7 +10,7 @@ jQuery.timeago.settings.strings["ja"] = {
   hour: "約1時間",
   hours: "約%d時間",
   day: "1日",
-  days: "%d日ほど",
+  days: "%d日間ほど",
   month: "約1ヶ月",
   months: "%dヶ月ほど",
   year: "約1年間",
