@@ -9,8 +9,8 @@ describe "Microposts on UI" do
   I18n.available_locales.each do |locale|
 
     describe "micropost creation" do
-      let(:post_button) { t('static_pages.home.post') }
-      let(:click_post) { click_button post_button }
+      let(:translations) { Micropost.translation_class }
+      let(:click_post_button) { click_button t('static_pages.home.post') }
 
       before do
         visit signin_path(locale)
@@ -21,44 +21,75 @@ describe "Microposts on UI" do
       context "with invalid information" do
 
         describe "appearance" do
-          before { click_post }
+          before { click_post_button }
           it { should have_alert_message('error') }
         end
 
         describe "result" do
-          subject { -> { click_post } }
+          subject { -> { click_post_button } }
           it { should_not change(Micropost, :count) }
+          it { should_not change(translations, :count) }
         end
       end
 
       context "with valid information" do
         let(:micropost_content) { 'micropost_content' }
+        let(:content) { "Lorem Ipsum Test" }
 
-        before { fill_in micropost_content, with: "Lorem Ipsum" }
+        before { fill_in micropost_content, with: content }
+
+        describe "appearance" do
+          before { click_post_button }
+          it { should have_selector('span', text: content) }
+
+          I18n.available_locales.each do |target_locale|
+            next if locale == target_locale
+
+            context "in other locales" do
+              let(:target_language) do
+                t("layouts.locale_selector.#{target_locale}")
+              end
+              before { click_link target_language }
+              it { should have_selector('span', text: content) }
+            end
+          end
+        end
 
         describe "result" do
-          subject { -> { click_post } }
+          let(:locale_count) { I18n.available_locales.count }
+
+          subject { -> { click_post_button } }
+
           it { should change(Micropost, :count).by(1) }
+          it { should change(translations, :count).by(locale_count) }
         end
       end
     end
 
     describe "micropost destruction" do
-      before { create(:micropost, user: user) }
+      let(:micropost_content) { 'micropost_content' }
+      let(:content) { "Lorem Ipsum Test" }
+      let(:click_post_button) { click_button t('static_pages.home.post') }
+
+      before do
+        visit signin_path(locale)
+        valid_sign_in(user)
+        visit locale_root_path(locale)
+        fill_in micropost_content, with: content
+        click_post_button
+      end
 
       context "as correct user" do
-        let(:delete_link) { t('shared.delete_micropost.delete') }
-        let(:click_delete) { click_link delete_link }
-
-        before do
-          visit signin_path(locale)
-          valid_sign_in(user)
-          visit locale_root_path(locale)
+        let(:click_delete_link) do
+          click_link t('shared.delete_micropost.delete')
         end
+        let(:translations) { Micropost.translation_class }
+        let(:locale_count) { I18n.available_locales.count }
 
         describe "result" do
-          subject { -> { click_delete } }
+          subject { -> { click_delete_link } }
           it { should change(Micropost, :count).by(-1) }
+          it { should change(translations, :count).by(-locale_count) }
         end
       end
     end
