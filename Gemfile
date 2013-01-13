@@ -33,7 +33,7 @@ gem 'pg', '0.14.1'
 # New Relic reporting
 gem 'newrelic_rpm', '3.5.4.34'
 # App secret key configuration
-gem 'figaro', '0.5.2'
+gem 'figaro', '0.5.3'
 # Rails 4 prep
 gem 'strong_parameters', '0.1.6'
 
@@ -66,7 +66,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '2.12.1'
+  gem 'rspec-rails', '2.12.2'
   # for autotesting with rspec
   gem 'guard-rspec', '2.3.3'
   # Prettier RSpec output
