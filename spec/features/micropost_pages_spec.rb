@@ -71,6 +71,8 @@ describe "Microposts on UI" do
       let(:content) { "Lorem Ipsum Test" }
       let(:click_post_button) { click_button t('static_pages.home.post') }
 
+      # Using a factory here won't create the translations, so micropost
+      # creation must be done "manually"
       before do
         visit signin_path(locale)
         valid_sign_in(user)
