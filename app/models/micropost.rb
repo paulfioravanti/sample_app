@@ -26,11 +26,7 @@ class Micropost < ActiveRecord::Base
   default_scope order: 'microposts.created_at DESC'
 
   def self.from_users_actively_followed_by(user)
-    followed_users = "SELECT followed_id FROM relationships
-                      WHERE follower_id = :user"
-    # When Rails Brakeman service upgrades to 1.9.0, this
-    # code can be swapped in for the above
-    # followed_users = Relationship.users_actively_followed_by(user).to_sql
+    followed_users = Relationship.users_actively_followed_by(user).to_sql
     where("user_id IN (#{followed_users}) OR user_id = :user",
           user: user)
   end
