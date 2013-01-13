@@ -14,9 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @microposts = @user.microposts.
-                        paginate(include: [:user, :translations],
-                                 page: params[:page])
+    @microposts = @user.microposts.paginate_eagerly(params[:page])
   end
 
   def new
@@ -76,7 +74,8 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation)
     end
 
     def show_follow

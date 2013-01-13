@@ -35,4 +35,8 @@ class Micropost < ActiveRecord::Base
           user: user)
   end
 
+  def self.paginate_eagerly(page)
+    paginate(include: [:user, :translations], page: page)
+  end
+
 end
