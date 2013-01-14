@@ -71,15 +71,7 @@ describe "Microposts on UI" do
       let(:content) { "Lorem Ipsum Test" }
       let(:click_post_button) { click_button t('static_pages.home.post') }
 
-      # Using a factory here won't create the translations, so micropost
-      # creation must be done "manually"
-      before do
-        visit signin_path(locale)
-        valid_sign_in(user)
-        visit locale_root_path(locale)
-        fill_in micropost_content, with: content
-        click_post_button
-      end
+      before { create(:micropost_with_translations, user: user) }
 
       context "as correct user" do
         let(:click_delete_link) do
@@ -87,6 +79,12 @@ describe "Microposts on UI" do
         end
         let(:translations) { Micropost.translation_class }
         let(:locale_count) { I18n.available_locales.count }
+
+        before do
+          visit signin_path(locale)
+          valid_sign_in(user)
+          visit locale_root_path(locale)
+        end
 
         describe "result" do
           subject { -> { click_delete_link } }

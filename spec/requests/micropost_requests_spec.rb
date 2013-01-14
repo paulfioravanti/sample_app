@@ -9,10 +9,11 @@ describe "Micropost Requests" do
   I18n.available_locales.each do |locale|
 
     describe "micropost destruction" do
-      before { create(:micropost, user: user) }
+      before { create(:micropost_with_translations, user: user) }
 
       context "as an incorrect user" do
         let(:other_micropost) { create(:micropost, user: create(:user)) }
+        let(:translations) { Micropost.translation_class }
         let(:delete_other_micropost)  do
           delete micropost_path(locale, other_micropost)
         end
@@ -28,7 +29,8 @@ describe "Micropost Requests" do
 
         describe "result" do
           subject { -> { delete_other_micropost } }
-          it { should_not change(Micropost, :count).by(-1) }
+          it { should_not change(Micropost, :count) }
+          it { should_not change(translations, :count) }
         end
       end
     end
