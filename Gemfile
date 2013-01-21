@@ -21,7 +21,7 @@ gem 'rails-i18n', '0.7.2'
 # i18n for database content
 gem 'globalize3', '0.3.0'
 # i18n using Locale
-gem 'localeapp', '0.6.8'
+gem 'localeapp', '0.6.9'
 # For JQuery timeago library
 gem 'rails-timeago', '2.1.0'
 # For accessing i18n in js files
@@ -31,7 +31,7 @@ gem 'best_in_place', '2.0.2'
 # Develop on, and test postgres on Travis CI, and deploy on Heroku
 gem 'pg', '0.14.1'
 # New Relic reporting
-gem 'newrelic_rpm', '3.5.4.34'
+gem 'newrelic_rpm', '3.5.5.38'
 # App secret key configuration
 gem 'figaro', '0.5.3'
 # Rails 4 prep
