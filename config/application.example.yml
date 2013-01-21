@@ -1,1 +1,2 @@
 LOCALE_API_KEY: 'Z2i561HQg8QRPkgRxoyhBbW0af6x2Ez4wbw0VDb8Wo5abbQDiC'
+SECRET_TOKEN: # run rake secret to generate your secret token, then place here
