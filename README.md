@@ -54,6 +54,7 @@ If you do not have [Postgresql](http://www.postgresql.org/) installed on your ma
 - Swapped out the debug block in the footer for [rails-footnotes](https://github.com/josevalim/rails-footnotes)
 - Complete refactoring of test suite to upgrade to [Capybara 2.0](https://github.com/jnicklas/capybara)
 - Performance tested the RSpec test suite and as a result refactored the [**spec_helper.rb**](https://github.com/paulfioravanti/sample_app/blob/master/spec/spec_helper.rb) file.  See [this StackOverflow thread](http://stackoverflow.com/a/12215946/567863) for details.
+- Added tests for [Globalize3](https://github.com/svenfuchs/globalize3) translations and expanded factories to include a micropost with its relevant translations
 
 ### Reporting/Optimizing
 - Added service hooks to [Travis CI](http://travis-ci.org/), [Rails Brakeman](http://rails-brakeman.com/), [Gemnasium](https://gemnasium.com/), [Code Climate](https://codeclimate.com), [Rails Best Practices](http://railsbp.com/).  See badges under title for details.
