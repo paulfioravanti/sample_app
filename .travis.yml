@@ -14,7 +14,7 @@ env:
     - DB: postgresql
 bundler_args: --binstubs=./bundler_stubs --without development
 before_script:
-  - psql -c 'create database $APP_DB_NAME_TEST;' -U $APP_DB_USER
+  - psql -c "create database $APP_DB_NAME_TEST;" -U $APP_DB_USER
   # - psql -c 'create database sample_app_production;' -U postgres
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
