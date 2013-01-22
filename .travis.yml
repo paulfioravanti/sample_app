@@ -3,7 +3,8 @@ rvm:
   - 1.9.3
 env:
   global:
-    - secure: "YZLEEev+JQoqlThsreCS0Px3LPMgQJX8BCquS7jsXsBG5FZba00tEdhviL5Z\nQurx5rsO0YS6dW3PA1yl+H+npro4FBpfMTV0tU+FrfO19h08Gro7cBwTxqlI\nOp0Zje4u/e4lMA1NQFcM+z/SUqr7tWkFraXb+AWby9ZQQG7Klm8="
+    - heroku_api_key: "YZLEEev+JQoqlThsreCS0Px3LPMgQJX8BCquS7jsXsBG5FZba00tEdhviL5Z\nQurx5rsO0YS6dW3PA1yl+H+npro4FBpfMTV0tU+FrfO19h08Gro7cBwTxqlI\nOp0Zje4u/e4lMA1NQFcM+z/SUqr7tWkFraXb+AWby9ZQQG7Klm8="
+    - heroku_repo: "VMKk0X4vHuBtM+kc+eFgROeeYOj1aBHT9QuxIO6dmHV9fScJyeZayZMozyY/\nw4E96kXz4TcrZR+ejRSQon281lvFIRFyMSCHvERbLQvScjP+lBiOBFnA1aPj\nxoz1Qi/Cn+73LJaLtMxGQkx2ixjQuDY67mwwCHESGzJFt2CVc6U="
   matrix:
     - DB=postgresql
 bundler_args: --binstubs=./bundler_stubs --without development
@@ -21,7 +22,7 @@ after_success:
   # - git add public/assets
   # - git commit -m "Precompile assets"
   - gem install heroku
-  - git remote add heroku git@heroku.com:pf-sampleapp.git
+  - git remote add heroku $HEROKU_REPO
   # Turn off warnings about SSH keys:
   - echo "Host heroku.com" >> ~/.ssh/config
   - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
