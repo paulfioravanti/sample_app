@@ -7,6 +7,9 @@ env:
     # See README for details
     - secure: "YZLEEev+JQoqlThsreCS0Px3LPMgQJX8BCquS7jsXsBG5FZba00tEdhviL5Z\nQurx5rsO0YS6dW3PA1yl+H+npro4FBpfMTV0tU+FrfO19h08Gro7cBwTxqlI\nOp0Zje4u/e4lMA1NQFcM+z/SUqr7tWkFraXb+AWby9ZQQG7Klm8="
     - secure: "T1wvWm84s5OdDk6PzYmteboEnaGLWiOW1qvoIjwg3PXByZXcDsb3I8Kp9Sg3\nk5EoUmZyrWSlIvpTgyPP2eyncnn6IktB1Qa5sllbS/g/XP1MqGl6pJtsEDnm\n/ongBWdg6pzQKAeAcN4puQzXWu69F2AnaCJroTKrNaMmI/Y1uJw="
+    - secure: "no/EIYkKUaHn8E4joAoPkcjwGs/3DdOdt5NwjEI8TzIRXO2qofT8I/n1IRuv\ntHILoVgkn3K0TOQOq/bm+k+AV5ALQNkdsX1WYmdlgLLIIJLYeVWngXWx/5vr\nIGD+KXOWPsH7IZkCvYmxVTxtQ4cYTxuOv9hJd8CtNmHPxUbKdwA="
+    - secure: "HP6yVsrQs52HgpH6nXMzRpD4oqL+RzdYyyQQifdu03vlK+7qdAfd0lseH/m7\nMDIGNil0ZIf/yODWrL4Qo4vFbX1ZMx3Cv/2MqWh6XbaX+i9wn3SX1Y1Jmupj\ngZc9QtyYxRN0ylDUs01s2/kv8dZjRvd+5DobRw0JbSKRg8+2ea4="
+    - secure: "GvE31eHzRLzPJlp5OGvkIrMNzhj8wY1e0h1L21INxeBdhnxO7Notaw5W9Aa5\nf6U1VxkCOI7H3yPvHGwurCG9p5tdLGdLfy/0G43/4uZP10bXerK6UPpBawBz\nRxIXw/rPyED/czSN7ZmLSvE1N4vZtDWgO7w9fl+1glXh66IPytw="
   matrix:
     - DB: postgresql
 bundler_args: --binstubs=./bundler_stubs --without development

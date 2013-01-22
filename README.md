@@ -24,6 +24,18 @@ If you find this repo useful, please help me level-up on [Coderwall](http://code
 
     $ cp config/application.example.yml config/application.yml
 
+**Database**
+
+Currently, the user/password is the same for all databases.  This can be reconfigured in **config/application.yml** and in **config/database.yml**.  Insert your databse information in **config/application.yml**
+
+    APP_DB_NAME_DEV: # your dev db name here
+    APP_DB_NAME_TEST: # your test db name here
+    APP_DB_NAME_PROD: # your production db name here
+    DB_USER: # your db username here
+    DB_PASSWORD: # your db password here
+
+If you do not have [Postgresql](http://www.postgresql.org/) installed on your machine (or don't use it), change the string in [line 22 of **config/database.yml**](https://github.com/paulfioravanti/sample_app/blob/master/config/database.yml#L22) to `"sqlite"` or `"mysql"`.
+
 **Travis/Heroku**
 
 If you're using Travis/Heroku and want to deploy this app to your own instance, do the following:
@@ -32,9 +44,12 @@ Generate a secret token:
 
     $ rake secret
 
-Copy the resulting string into the `SECRET_TOKEN` entry in **config/application.yml**, then set it as a Heroku environment variable (without the `{{ }}`):
+Copy the resulting string into the `SECRET_TOKEN` entry in **config/application.yml**, then set it, along with the database values as Heroku environment variables (without the `{{ }}`):
 
     $ heroku config:set SECRET_TOKEN={{YOUR_SECRET_TOKEN}}
+    $ heroku config:set APP_DB_NAME_PROD={{YOUR_APP_DB_NAME_PROD}} # eg: sample_app_production
+    $ heroku config:set APP_DB_USER={{YOUR_APP_DB_USER}}
+    $ heroku config:set APP_DB_PASSWORD={{YOUR_APP_DB_PASSWORD}}
 
 If using Localeapp...
 
@@ -45,23 +60,25 @@ Create encrypted travis variables for your Heroku API key and Repo name:
     $ gem install travis
     $ travis encrypt your_username/your_repo HEROKU_API_KEY={{YOUR_HEROKU_API_KEY}}
     $ travis encrypt HEROKU_GIT_URL={{YOUR_HEROKU_GIT_URL}} # eg git@heroku.com:my_app.git
+    $ travis encrypt APP_DB_NAME_TEST={{YOUR_APP_DB_NAME_TEST}} # eg: sample_app_test
+    $ travis encrypt APP_DB_USER={{YOUR_APP_DB_USER}}
+    $ travis encrypt APP_DB_PASSWORD={{YOUR_APP_DB_PASSWORD}}
 
 Then add them to **.travis.yml**
 
     env:
       global:
-        # These variables need to be changed for personalized deployment
-        # See README for details
         - secure: {{YOUR_ENCRYPTED_HEROKU_API_KEY}}
         - secure: {{YOUR_ENCRYPTED_HEROKU_GIT_URL}}
+        - secure: {{YOUR_ENCRYPTED_APP_DB_NAME}}
+        - secure: {{YOUR_ENCRYPTED_APP_DB_USER}}
+        - secure: {{YOUR_ENCRYPTED_APP_DB_PASSWORD}}
 
 **Localeapp**
 
 If you want to use Localeapp to manage language keys in the app (ignore this if you don't), [create an account](http://www.localeapp.com/users/sign_up) on their site, get an API key, and copy it into the `LOCALE_API_KEY` entry in **config/application.yml**
 
-### Database Configuration
-
-If you do not have [Postgresql](http://www.postgresql.org/) installed on your machine (or don't use it), change the string in [line 22 of **config/database.yml**](https://github.com/paulfioravanti/sample_app/blob/master/config/database.yml#L22) to `"sqlite"` or `"mysql"`, and set the `username` and `password` variables appropriately for your environment.
+- - -
 
 ## Changes from the original tutorial content:
 

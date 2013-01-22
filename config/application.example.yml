@@ -1,2 +1,10 @@
 SECRET_TOKEN: # run rake secret to generate your secret token, then place here
 LOCALE_API_KEY: # sign up at Localeapp to get an API key, then place here
+
+# Currently, user/password is the same for all databases.
+# This can be changed here and in database.yml
+APP_DB_NAME_DEV: # your dev db name here
+APP_DB_NAME_TEST: # your test db name here
+APP_DB_NAME_PROD: # your production db name here
+APP_DB_USER: # your db username here
+APP_DB_PASSWORD: # your db password here
