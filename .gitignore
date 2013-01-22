@@ -20,7 +20,6 @@ rails_best_practices_output.html
 coverage
 
 .bundle
-.idea/*
 # config/database.yml
 db/*.sqlite3*
 log/*.log
