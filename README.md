@@ -24,13 +24,9 @@ If you find this repo useful, please help me level-up on [Coderwall](http://code
 
     $ cp config/application.example.yml config/application.yml
 
-**Localeapp**
+**Travis/Heroku**
 
-If you want to use Localeapp to manage language keys in the app (ignore this if you don't), [create an account](http://www.localeapp.com/users/sign_up) on their site, get an API key, and copy it into the `LOCALE_API_KEY` entry in **config/application.yml**
-
-**Heroku**
-
-If you're using Heroku and want to deploy this app to your own instance, do the following:
+If you're using Travis/Heroku and want to deploy this app to your own instance, do the following:
 
 Generate a secret token:
 
@@ -43,6 +39,25 @@ Copy the resulting string into the `SECRET_TOKEN` entry in **config/application.
 If using Localeapp...
 
     $ heroku config:set LOCALE_API_KEY={{YOUR_LOCALE_API_KEY}}
+
+Create encrypted travis variables for your Heroku API key and Repo name:
+
+    $ gem install travis
+    $ travis encrypt your_username/your_repo HEROKU_API_KEY={{YOUR_HEROKU_API_KEY}}
+    $ travis encrypt HEROKU_GIT_URL={{YOUR_HEROKU_GIT_URL}} # eg git@heroku.com:my_app.git
+
+Then add them to **.travis.yml**
+
+    env:
+      global:
+        # These variables need to be changed for personalized deployment
+        # See README for details
+        - secure: {{YOUR_ENCRYPTED_HEROKU_API_KEY}}
+        - secure: {{YOUR_ENCRYPTED_HEROKU_GIT_URL}}
+
+**Localeapp**
+
+If you want to use Localeapp to manage language keys in the app (ignore this if you don't), [create an account](http://www.localeapp.com/users/sign_up) on their site, get an API key, and copy it into the `LOCALE_API_KEY` entry in **config/application.yml**
 
 ### Database Configuration
 

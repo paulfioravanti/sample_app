@@ -3,8 +3,10 @@ rvm:
   - 1.9.3
 env:
   global:
+    # These variables need to be changed for personalized deployment
+    # See README for details
     - secure: "YZLEEev+JQoqlThsreCS0Px3LPMgQJX8BCquS7jsXsBG5FZba00tEdhviL5Z\nQurx5rsO0YS6dW3PA1yl+H+npro4FBpfMTV0tU+FrfO19h08Gro7cBwTxqlI\nOp0Zje4u/e4lMA1NQFcM+z/SUqr7tWkFraXb+AWby9ZQQG7Klm8="
-    - secure: "VMKk0X4vHuBtM+kc+eFgROeeYOj1aBHT9QuxIO6dmHV9fScJyeZayZMozyY/\nw4E96kXz4TcrZR+ejRSQon281lvFIRFyMSCHvERbLQvScjP+lBiOBFnA1aPj\nxoz1Qi/Cn+73LJaLtMxGQkx2ixjQuDY67mwwCHESGzJFt2CVc6U="
+    - secure: "T1wvWm84s5OdDk6PzYmteboEnaGLWiOW1qvoIjwg3PXByZXcDsb3I8Kp9Sg3\nk5EoUmZyrWSlIvpTgyPP2eyncnn6IktB1Qa5sllbS/g/XP1MqGl6pJtsEDnm\n/ongBWdg6pzQKAeAcN4puQzXWu69F2AnaCJroTKrNaMmI/Y1uJw="
   matrix:
     - DB: postgresql
 bundler_args: --binstubs=./bundler_stubs --without development
@@ -15,14 +17,14 @@ script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
   - bundle exec rspec --no-drb --format progress spec/
-  # heroku labs:enable user-env-compile -a pf-sampleapp
+  # heroku labs:enable user-env-compile -a [app-name]
   # enabled so no need to precompile assets before deploy anymore
   # - bundle exec rake assets:precompile
 after_success:
   # - git add public/assets
   # - git commit -m "Precompile assets"
   - gem install heroku
-  - git remote add heroku $HEROKU_REPO
+  - git remote add heroku $HEROKU_GIT_URL
   # Turn off warnings about SSH keys:
   - echo "Host heroku.com" >> ~/.ssh/config
   - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
