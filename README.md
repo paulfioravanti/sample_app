@@ -15,12 +15,36 @@ If you find this repo useful, please help me level-up on [Coderwall](http://code
     $ cd /tmp
     $ git clone git@github.com:paulfioravanti/sample_app.git
     $ cd sample_app
-    $ cp config/application.example.yml config/application.yml
     $ bundle install
     $ bundle exec rake db:migrate
     $ bundle exec rake db:seed
     $ bundle exec rake db:test:prepare RAILS_ENV=test
-    $ bundle exec rspec spec/
+
+### Environment Confguration
+
+    $ cp config/application.example.yml config/application.yml
+
+**Localeapp**
+
+If you want to use Localeapp to manage language keys in the app (ignore this if you don't), [create an account](http://www.localeapp.com/users/sign_up) on their site, get an API key, and copy it into the `LOCALE_API_KEY` entry in **config/application.yml**
+
+**Heroku**
+
+If you're using Heroku and want to deploy this app to your own instance, do the following:
+
+Generate a secret token:
+
+    $ rake secret
+
+Copy the resulting string into the `SECRET_TOKEN` entry in **config/application.yml**, then set it as a Heroku environment variable (without the `{{ }}`):
+
+    $ heroku config:set SECRET_TOKEN={{YOUR_SECRET_TOKEN}}
+
+If using Localeapp...
+
+    $ heroku config:set LOCALE_API_KEY={{YOUR_LOCALE_API_KEY}}
+
+### Database Configuration
 
 If you do not have [Postgresql](http://www.postgresql.org/) installed on your machine (or don't use it), change the string in [line 22 of **config/database.yml**](https://github.com/paulfioravanti/sample_app/blob/master/config/database.yml#L22) to `"sqlite"` or `"mysql"`, and set the `username` and `password` variables appropriately for your environment.
 
