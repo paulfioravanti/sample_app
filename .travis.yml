@@ -37,4 +37,4 @@ after_success:
   - heroku keys:clear
   # Add a new SSH key to Heroku
   - yes | heroku keys:add
-  - yes | git push heroku master --quiet
+  - yes | git push heroku master
