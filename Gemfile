@@ -27,8 +27,8 @@ gem 'rails-timeago', '2.1.0'
 # For accessing i18n in js files
 gem 'i18n-js', '2.1.2'
 # Editing in place
-gem 'best_in_place', '2.0.2'
-# Develop on, and test postgres on Travis CI, and deploy on Heroku
+gem 'best_in_place', '2.0.3'
+# Develop, test (Travis CI), and deploy (Heroku) with postgres
 gem 'pg', '0.14.1'
 # New Relic reporting
 gem 'newrelic_rpm', '3.5.5.38'

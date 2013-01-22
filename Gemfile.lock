@@ -34,7 +34,7 @@ GEM
     arel (3.0.2)
     awesome_print (1.1.0)
     bcrypt-ruby (3.0.1)
-    best_in_place (2.0.2)
+    best_in_place (2.0.3)
       jquery-rails
       rails (~> 3.1)
     bootstrap-sass (2.2.2.0)
@@ -118,7 +118,7 @@ GEM
       ruby-progressbar (~> 1.0.0)
     gherkin (2.11.5)
       json (>= 1.4.6)
-    gli (2.5.3)
+    gli (2.5.4)
     globalize3 (0.3.0)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -313,7 +313,7 @@ PLATFORMS
 DEPENDENCIES
   annotate (= 2.5.0)
   bcrypt-ruby (= 3.0.1)
-  best_in_place (= 2.0.2)
+  best_in_place (= 2.0.3)
   bootstrap-sass (= 2.2.2.0)
   bootstrap-will_paginate (= 0.0.9)
   brakeman (= 1.9.1)
