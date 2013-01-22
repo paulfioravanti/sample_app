@@ -100,7 +100,7 @@ If you want to use Localeapp to manage language keys in the app (ignore this if 
 - Refactored [SCSS](http://sass-lang.com/) files to use more mix-ins, as well as additions to add styling to the language selector
 - Used [rails-timeago](https://github.com/jgraichen/rails-timeago) to do time calculation for microposts on client-side rather than server-side (replaces method calls to `time_ago_in_words`)
 - Simplified implementation of most forms with [SimpleForm](https://github.com/plataformatec/simple_form)
-- Used [Figaro](https://github.com/laserlemon/figaro) to handle secret keys
+- Used [Figaro](https://github.com/laserlemon/figaro) to handle all secret keys in an attempt to remove any app-identifiable information from all environments.
 - Moved mass assignment handling over to [strong_parameters](https://github.com/rails/strong_parameters) in anticipation of Rails 4.
 
 ### Testing/Debugging
