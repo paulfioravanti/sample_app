@@ -31,7 +31,7 @@ gem 'best_in_place', '2.0.3'
 # Develop, test (Travis CI), and deploy (Heroku) with postgres
 gem 'pg', '0.14.1'
 # New Relic reporting
-gem 'newrelic_rpm', '3.5.5.38'
+gem 'newrelic_rpm', '3.5.6.46'
 # App secret key configuration
 gem 'figaro', '0.5.3'
 # Rails 4 prep
@@ -58,7 +58,7 @@ group :development do
   gem 'ruby_parser', '3.1.1'
   # Security checking
   gem 'brakeman', '1.9.1'
-  gem 'rails_best_practices', '1.13.2'
+  gem 'rails_best_practices', '1.13.3'
   # Query optimization monitoring
   gem 'bullet', '4.3.0'
   # Debugging information
