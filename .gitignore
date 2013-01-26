@@ -35,7 +35,6 @@ doc/app
 .project
 .sass-cache/
 bundler_stubs/
-Gemfile.lock
 
 # Ignore application configuration
 /config/application.yml
