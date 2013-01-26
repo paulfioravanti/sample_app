@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :sign_in, :signed_in?, :signed_in_user, :sign_out,
+                :current_user, :current_user=, :current_user?,
                 :redirect_back_or
 
   before_filter :set_locale, :locale_redirect
@@ -32,6 +33,19 @@ class ApplicationController < ActionController::Base
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
     session.delete(:return_to)
+  end
+
+  def current_user
+    @current_user ||= User.find_by_remember_token(cookies[:remember_token])
+    # @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def current_user=(user)
+    @current_user = user
+  end
+
+  def current_user?(user)
+    user == current_user
   end
 
   # Every helper method dependent on url_for (e.g. helpers for named
