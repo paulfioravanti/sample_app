@@ -44,7 +44,7 @@ describe "Locale Switching on UI" do
 
         before do
           visit signin_path(locale)
-          valid_sign_in(user)
+          sign_in_ui(user)
           visit users_path(locale)
           click_link next_page
           click_link target_language
@@ -65,7 +65,7 @@ describe "Locale Switching on UI" do
           context "appearance" do
             before do
               visit signin_path(locale)
-              valid_sign_in(user)
+              sign_in_ui(user)
               visit locale_root_path(locale)
               click_button post_button
               click_link target_language
@@ -98,7 +98,7 @@ describe "Locale Switching on UI" do
           context "appearance" do
             before do
               visit signin_path(locale)
-              valid_sign_in(user)
+              sign_in_ui(user)
               visit edit_user_path(locale, user)
               click_button submit
               click_link target_language

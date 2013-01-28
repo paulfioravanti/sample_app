@@ -9,7 +9,7 @@ def fill_in_fields(user, new_name = nil, new_email = nil)
   fill_in t(:password_confirmation, scope: scope), with: user.password
 end
 
-def valid_sign_in(user)
+def sign_in_ui(user)
   scope = 'sessions.new'
   fill_in t(:email, scope: scope),    with: user.email
   fill_in t(:password, scope: scope), with: user.password

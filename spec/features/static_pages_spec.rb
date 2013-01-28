@@ -83,7 +83,7 @@ describe "Static Pages on UI" do
           create(:micropost, user: user, content: "Lorem Ipsum")
           create(:micropost, user: user, content: "Dolor sit amet")
           visit signin_path(locale)
-          valid_sign_in(user)
+          sign_in_ui(user)
           visit locale_root_path(locale)
         end
 
