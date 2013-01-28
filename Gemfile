@@ -77,7 +77,7 @@ group :development, :test do
   gem 'guard-rspec', '2.4.0'
   # Prettier RSpec output
   gem 'fuubar', '1.1.0'
-  gem 'debugger', '1.2.4'
+  gem 'debugger', '1.3.0'
 end
 
 group :test do
