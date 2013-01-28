@@ -58,11 +58,17 @@ group :development do
   gem 'ruby_parser', '3.1.1'
   # Security checking
   gem 'brakeman', '1.9.1'
+  # Code quality
   gem 'rails_best_practices', '1.13.3'
   # Query optimization monitoring
   gem 'bullet', '4.3.0'
   # Debugging information
   gem 'rails-footnotes', '3.7.9'
+  # Better error pages
+  gem 'better_errors', '0.3.2'
+  gem 'binding_of_caller', '0.6.8'
+  # Gem for RailsPanel Chrome extension
+  gem 'meta_request', '0.2.1'
 end
 
 group :development, :test do
