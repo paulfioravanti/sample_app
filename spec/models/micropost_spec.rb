@@ -17,6 +17,7 @@
 require 'spec_helper'
 
 describe Micropost do
+
   let(:user)      { create(:user) }
   let(:micropost) { build(:micropost, user: user) }
 
@@ -34,6 +35,14 @@ describe Micropost do
   describe "associations" do
     it { should belong_to(:user) }
     its(:user) { should == user }
+  end
+
+  describe "class level" do
+    subject { micropost.class }
+    specify "methods" do
+      should respond_to(:from_users_actively_followed_by).with(1).argument
+      should respond_to(:eagerly_paginate).with(1).argument
+    end
   end
 
   describe "initial state" do

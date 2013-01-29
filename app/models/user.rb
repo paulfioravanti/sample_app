@@ -43,6 +43,11 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+  def self.authenticate(email, password)
+    user = find_by_email(email)
+    user && user.authenticate(password)
+  end
+
   def feed
     Micropost.from_users_actively_followed_by(self)
   end

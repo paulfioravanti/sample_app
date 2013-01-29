@@ -64,6 +64,13 @@ describe User do
     should respond_to(:unfollow!).with(1).argument
   end
 
+  describe "class level" do
+    subject { user.class }
+    specify "methods" do
+      should respond_to(:authenticate).with(2).arguments
+    end
+  end
+
   describe "initial state" do
     it { should be_valid }
     it { should_not be_admin }
