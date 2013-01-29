@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :sign_in, :signed_in?, :signed_in_user, :sign_out,
                 :current_user, :current_user=, :current_user?
-                # :redirect_back_or
 
   before_filter :set_locale, :locale_redirect
 
