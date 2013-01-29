@@ -17,7 +17,7 @@ def sign_in_ui(user)
 end
 
 def sign_in_request(locale, user)
-  post sessions_path(locale, email: user.email, password: user.password)
+  post session_path(locale, email: user.email, password: user.password)
   cookies[:remember_token] = user.remember_token
 end
 

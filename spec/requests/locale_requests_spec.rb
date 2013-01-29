@@ -55,7 +55,7 @@ describe "Locale Switching Requests" do
 
           context "behaviour" do
             before do
-              post sessions_path(locale)
+              post session_path(locale)
               get signin_path(set_locale: target_locale)
             end
 
