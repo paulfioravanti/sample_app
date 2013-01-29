@@ -34,6 +34,13 @@ describe Relationship do
     its(:followed) { should == followed }
   end
 
+  describe "class level" do
+    subject { active_relationship.class }
+    specify "methods" do
+      should respond_to(:with_users_actively_followed_by).with(1).argument
+    end
+  end
+
   specify "accessible attributes" do
     should_not allow_mass_assignment_of(:follower_id)
   end

@@ -26,7 +26,7 @@ class Micropost < ActiveRecord::Base
   default_scope order: 'microposts.created_at DESC'
 
   def self.from_users_actively_followed_by(user)
-    followed_users = Relationship.users_actively_followed_by(user).to_sql
+    followed_users = Relationship.with_users_actively_followed_by(user).to_sql
     where("user_id IN (#{followed_users}) OR user_id = :user",
           user: user)
   end
