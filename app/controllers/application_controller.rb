@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :sign_in, :signed_in?, :signed_in_user, :sign_out,
-                :current_user, :current_user=, :current_user?,
-                :redirect_back_or
+                :current_user, :current_user=, :current_user?
+                # :redirect_back_or
 
   before_filter :set_locale, :locale_redirect
 
@@ -28,11 +28,6 @@ class ApplicationController < ActionController::Base
     self.current_user = nil
     cookies.delete(:remember_token)
     # session[:user_id] = nil
-  end
-
-  def redirect_back_or(default)
-    redirect_to(session[:return_to] || default)
-    session.delete(:return_to)
   end
 
   def current_user
