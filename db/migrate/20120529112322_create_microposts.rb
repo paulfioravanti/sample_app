@@ -5,12 +5,12 @@ class CreateMicroposts < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :microposts, [:user, :created_at]
+    add_index :microposts, [:user_id, :created_at]
     Micropost.create_translation_table! content: :string
   end
 
   def down
-    remove_index :microposts, [:user, :created_at]
+    remove_index :microposts, [:user_id, :created_at]
     drop_table :microposts
     Micropost.drop_translation_table!
   end
