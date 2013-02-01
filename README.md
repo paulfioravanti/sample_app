@@ -20,7 +20,7 @@ If you find this repo useful, please help me level-up on [Coderwall](http://code
     $ bundle exec rake db:seed
     $ bundle exec rake db:test:prepare RAILS_ENV=test
 
-### Environment Confguration
+### Environment Configuration
 
     $ cp config/application.example.yml config/application.yml
 
