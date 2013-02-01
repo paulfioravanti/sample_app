@@ -55,6 +55,18 @@ If using Localeapp...
 
     $ heroku config:set LOCALE_API_KEY={{YOUR_LOCALE_API_KEY}}
 
+Then in **config/application.yml**:
+
+    LOCALE_API_KEY: # your Locale API key
+
+If using New Relic...
+
+    $ heroku config:set NEW_RELIC_LICENSE_KEY={{YOUR_NEW_RELIC_LICENSE_KEY}}
+
+Then in **config/application.yml**:
+
+    NEW_RELIC_LICENSE_KEY: # your New Relic license key
+
 Create encrypted travis variables for your Heroku API key and Repo name:
 
     $ gem install travis
