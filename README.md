@@ -51,22 +51,6 @@ Copy the resulting string into the `SECRET_TOKEN` entry in **config/application.
     $ heroku config:set APP_DB_USER={{YOUR_APP_DB_USER}}
     $ heroku config:set APP_DB_PASSWORD={{YOUR_APP_DB_PASSWORD}}
 
-If using Localeapp...
-
-    $ heroku config:set LOCALE_API_KEY={{YOUR_LOCALE_API_KEY}}
-
-Then in **config/application.yml**:
-
-    LOCALE_API_KEY: # your Locale API key
-
-If using New Relic...
-
-    $ heroku config:set NEW_RELIC_LICENSE_KEY={{YOUR_NEW_RELIC_LICENSE_KEY}}
-
-Then in **config/application.yml**:
-
-    NEW_RELIC_LICENSE_KEY: # your New Relic license key
-
 Create encrypted travis variables for your Heroku API key and Repo name:
 
     $ gem install travis
@@ -88,7 +72,15 @@ Then add them to **.travis.yml**
 
 **Localeapp**
 
-If you want to use Localeapp to manage language keys in the app (ignore this if you don't), [create an account](http://www.localeapp.com/users/sign_up) on their site, get an API key, and copy it into the `LOCALE_API_KEY` entry in **config/application.yml**
+If you want to use Localeapp to manage language keys in the app (ignore this if you don't), [create an account](http://www.localeapp.com/users/sign_up) on their site, get an API key, and copy it into the `LOCALE_API_KEY` entry in **config/application.yml**, and add the key to your Heroku environment:
+
+    $ heroku config:set LOCALE_API_KEY={{YOUR_LOCALE_API_KEY}}
+
+**New Relic**
+
+If you want to use New Relic for app metrics (ignore this if you don't), [create an account](http://newrelic.com/) on their site, get a license key, and copy it into the `NEW_RELIC_LICENSE_KEY` entry in **config/application.yml**, and add the key to your Heroku environment:
+
+    $ heroku config:set NEW_RELIC_LICENSE_KEY={{YOUR_NEW_RELIC_LICENSE_KEY}}
 
 - - -
 
