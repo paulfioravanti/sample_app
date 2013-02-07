@@ -34,8 +34,6 @@ Currently, the user/password is the same for all databases.  This can be reconfi
     DB_USER: # your db username here
     DB_PASSWORD: # your db password here
 
-If you do not have [Postgresql](http://www.postgresql.org/) installed on your machine (or don't use it), change the string in [line 22 of **config/database.yml**](https://github.com/paulfioravanti/sample_app/blob/master/config/database.yml#L22) to `"sqlite"` or `"mysql"`.
-
 **Travis/Heroku**
 
 If you're using Travis/Heroku and want to deploy this app to your own instance, do the following:
