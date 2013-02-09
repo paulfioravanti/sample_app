@@ -59,7 +59,7 @@ group :development do
   # Security checking
   gem 'brakeman', '1.9.1'
   # Code quality
-  gem 'rails_best_practices', '1.13.3'
+  gem 'rails_best_practices', '1.13.4'
   # Query optimization monitoring
   gem 'bullet', '4.3.0'
   # Debugging information
@@ -84,7 +84,7 @@ group :test do
   # Helps in testing by simulating how a real user would use app
   gem 'capybara', '2.0.2'
   # Use factories instead of ActiveRecord objects
-  gem 'factory_girl_rails', '4.2.0'
+  gem 'factory_girl_rails', '4.2.1'
   gem 'shoulda-matchers', '1.4.2'
   # Cucumber for user stories and db cleaner utility below
   gem 'cucumber-rails', '1.3.0', require: false
