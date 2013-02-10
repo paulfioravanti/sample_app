@@ -6,42 +6,6 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale, :locale_redirect
 
-  def sign_in(user)
-    cookies.permanent[:remember_token] = user.remember_token
-    # session[:user_id] = user.id
-    self.current_user = user
-  end
-
-  def signed_in?
-    !current_user.nil?
-  end
-
-  def signed_in_user
-    unless signed_in?
-      store_location # to redirect to original page after signin
-      redirect_to signin_url, notice: t('flash.sign_in')
-    end
-  end
-
-  def sign_out
-    self.current_user = nil
-    cookies.delete(:remember_token)
-    # session[:user_id] = nil
-  end
-
-  def current_user
-    @current_user ||= User.find_by_remember_token(cookies[:remember_token])
-    # @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-
-  def current_user=(user)
-    @current_user = user
-  end
-
-  def current_user?(user)
-    user == current_user
-  end
-
   # Every helper method dependent on url_for (e.g. helpers for named
   # routes like root_path or root_url, resource routes like books_path
   # or books_url, etc.) will now automatically include the locale in
@@ -51,6 +15,42 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+    def sign_in(user)
+      cookies.permanent[:remember_token] = user.remember_token
+      # session[:user_id] = user.id
+      self.current_user = user
+    end
+
+    def signed_in?
+      !current_user.nil?
+    end
+
+    def signed_in_user
+      unless signed_in?
+        store_location # to redirect to original page after signin
+        redirect_to signin_url, notice: t('flash.sign_in')
+      end
+    end
+
+    def sign_out
+      self.current_user = nil
+      cookies.delete(:remember_token)
+      # session[:user_id] = nil
+    end
+
+    def current_user
+      @current_user ||= User.find_by_remember_token(cookies[:remember_token])
+      # @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
+
+    def current_user=(user)
+      @current_user = user
+    end
+
+    def current_user?(user)
+      user == current_user
+    end
 
     def store_location
       session[:return_to] = request.url
