@@ -17,10 +17,11 @@ describe "User pages" do
 
           describe "result" do
             let(:delete_user) { delete user_path(locale, User.first) }
-            before do
-              sign_in_request(locale, admin)
-            end
+
+            before { sign_in_request(locale, admin) }
+
             subject { -> { delete_user } }
+
             it { should change(User, :count).by(-1) }
           end
         end
