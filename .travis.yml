@@ -24,7 +24,6 @@ after_success:
   # - bundle exec rake assets:precompile
   # - git add public/assets
   # - git commit -m "Precompile assets"
-  # - gem install heroku
   - git remote add heroku $HEROKU_GIT_URL
   # Turn off warnings about SSH keys:
   - echo "Host heroku.com" >> ~/.ssh/config

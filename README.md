@@ -24,39 +24,44 @@ If you find this repo useful, please help me level-up on [Coderwall](http://code
 
     $ cp config/application.example.yml config/application.yml
 
-**Database**
-
-Currently, the user/password is the same for all databases.  This can be reconfigured in **config/application.yml** and in **config/database.yml**.  Insert your databse information in **config/application.yml**
-
-    APP_DB_NAME_DEV: # your dev db name here
-    APP_DB_NAME_TEST: # your test db name here
-    APP_DB_NAME_PROD: # your production db name here
-    DB_USER: # your db username here
-    DB_PASSWORD: # your db password here
-
-**Travis/Heroku**
-
-If you're using Travis/Heroku and want to deploy this app to your own instance, do the following:
+**Inside Rails App**
 
 Generate a secret token:
 
     $ rake secret
 
-Copy the resulting string into the `SECRET_TOKEN` entry in **config/application.yml**, then set it, along with the database values as Heroku environment variables (without the `{{ }}`):
+Copy the resulting string into the `SECRET_TOKEN` entry in **config/application.yml**, along with your database information:
 
-    $ heroku config:set SECRET_TOKEN={{YOUR_SECRET_TOKEN}}
-    $ heroku config:set APP_DB_NAME_PROD={{YOUR_APP_DB_NAME_PROD}} # eg: sample_app_production
-    $ heroku config:set APP_DB_USER={{YOUR_APP_DB_USER}}
-    $ heroku config:set APP_DB_PASSWORD={{YOUR_APP_DB_PASSWORD}}
+    # App keys
+    SECRET_TOKEN: # your rake secret generated token
+
+    development:
+      DB_NAME: # your dev db name here
+      DB_USER: # your dev db username here
+      DB_PASSWORD: # your dev db password here
+
+    test:
+      DB_NAME: # your test db name here
+      DB_USER: # your test db username here
+      DB_PASSWORD: # your test db password here
+
+    production:
+      DB_NAME: # your prod db name here
+      DB_USER: # your prod db username here
+      DB_PASSWORD: # your prod db password here
+
+**Testing with Travis CI**
+
+If you're using Travis for continuous integration testing, do the following (without the `{{ }}`):
 
 Create encrypted travis variables for your Heroku API key and Repo name:
 
     $ gem install travis
     $ travis encrypt your_username/your_repo HEROKU_API_KEY={{YOUR_HEROKU_API_KEY}}
     $ travis encrypt HEROKU_GIT_URL={{YOUR_HEROKU_GIT_URL}} # eg git@heroku.com:my_app.git
-    $ travis encrypt APP_DB_NAME_TEST={{YOUR_APP_DB_NAME_TEST}} # eg: sample_app_test
-    $ travis encrypt APP_DB_USER={{YOUR_APP_DB_USER}}
-    $ travis encrypt APP_DB_PASSWORD={{YOUR_APP_DB_PASSWORD}}
+    $ travis encrypt DB_NAME={{YOUR_DB_NAME_UNDER_TEST}} # eg: sample_app_test
+    $ travis encrypt DB_USER={{YOUR_DB_USER}}
+    $ travis encrypt DB_PASSWORD={{YOUR_DB_PASSWORD}}
 
 Then add them to **.travis.yml**
 
@@ -68,15 +73,28 @@ Then add them to **.travis.yml**
         - secure: {{YOUR_ENCRYPTED_APP_DB_USER}}
         - secure: {{YOUR_ENCRYPTED_APP_DB_PASSWORD}}
 
+**Deploying with Heroku**
+
+Generate production environment variables automatically using Figaro:
+
+    $ rake figaro:heroku
+
+Or, do it manually:
+
+    $ heroku config:set SECRET_TOKEN={{YOUR_SECRET_TOKEN}}
+    $ heroku config:set DB_NAME={{YOUR_DB_NAME_UNDER_PROD}} # eg: sample_app_production
+    $ heroku config:set DB_USER={{YOUR_DB_USER}}
+    $ heroku config:set DB_PASSWORD={{YOUR_DB_PASSWORD}}
+
 **Localeapp**
 
-If you want to use Localeapp to manage language keys in the app (ignore this if you don't), [create an account](http://www.localeapp.com/users/sign_up) on their site, get an API key, and copy it into the `LOCALE_API_KEY` entry in **config/application.yml**, and add the key to your Heroku environment:
+If you want to use Localeapp to manage language keys in the app (ignore this if you don't), [create an account](http://www.localeapp.com/users/sign_up) on their site, get an API key, and copy it into the `LOCALE_API_KEY` entry in **config/application.yml**, and add the key to your Heroku environment, if you didn't generate it automatically with Figaro:
 
     $ heroku config:set LOCALE_API_KEY={{YOUR_LOCALE_API_KEY}}
 
 **New Relic**
 
-If you want to use New Relic for app metrics (ignore this if you don't), [create an account](http://newrelic.com/) on their site, get a license key, and copy it into the `NEW_RELIC_LICENSE_KEY` entry in **config/application.yml**, and add the key to your Heroku environment:
+If you want to use New Relic for app metrics (ignore this if you don't), [create an account](http://newrelic.com/) on their site, get a license key, and copy it into the `NEW_RELIC_LICENSE_KEY` entry in **config/application.yml**, and add the key to your Heroku environment, if you didn't generate it automatically with Figaro:
 
     $ heroku config:set NEW_RELIC_LICENSE_KEY={{YOUR_NEW_RELIC_LICENSE_KEY}}
 
