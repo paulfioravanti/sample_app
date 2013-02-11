@@ -69,6 +69,7 @@ group :development do
   gem 'binding_of_caller', '0.6.8'
   # Gem for RailsPanel Chrome extension
   gem 'meta_request', '0.2.1'
+  gem 'heroku', '2.34.0'
 end
 
 group :development, :test do

@@ -10,8 +10,9 @@
 
 postgresql: &postgresql
   adapter: postgresql
-  username: <%= ENV['APP_DB_USER'] %>
-  password: <%= ENV['APP_DB_PASSWORD'] %>
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
   min_messages: ERROR
 
 defaults: &defaults
@@ -21,15 +22,12 @@ defaults: &defaults
   <<: *<%= ENV['DB'] || "postgresql" %>
 
 development:
-  database: <%= ENV['APP_DB_NAME_DEV'] %>
   <<: *defaults
 
 test: &test
-  database: <%= ENV['APP_DB_NAME_TEST'] %>
   <<: *defaults
 
 production:
-  database: <%= ENV['APP_DB_NAME_PROD'] %>
   <<: *defaults
 
 cucumber:
