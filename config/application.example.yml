@@ -1,12 +1,20 @@
-# Currently, user/password is the same for all databases.
-# This can be changed here and in database.yml
 # App keys
 SECRET_TOKEN: # run rake secret to generate your secret token, then place here
-APP_DB_NAME_DEV: # your dev db name here
-APP_DB_NAME_TEST: # your test db name here
-APP_DB_NAME_PROD: # your production db name here
-APP_DB_USER: # your db username here
-APP_DB_PASSWORD: # your db password here
+
+development:
+  DB_NAME: # your dev db name here
+  DB_USER: # your dev db username here
+  DB_PASSWORD: # your dev db password here
+
+test:
+  DB_NAME: # your test db name here
+  DB_USER: # your test db username here
+  DB_PASSWORD: # your test db password here
+
+production:
+  DB_NAME: # your prod db name here
+  DB_USER: # your prod db username here
+  DB_PASSWORD: # your prod db password here
 
 # Third Party keys
 LOCALE_API_KEY: # sign up at Localeapp to get an API key, then place here

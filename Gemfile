@@ -69,7 +69,6 @@ group :development do
   gem 'binding_of_caller', '0.6.8'
   # Gem for RailsPanel Chrome extension
   gem 'meta_request', '0.2.1'
-  gem 'heroku', '2.34.0'
 end
 
 group :development, :test do
@@ -79,6 +78,9 @@ group :development, :test do
   # Prettier RSpec output
   gem 'fuubar', '1.1.0'
   gem 'debugger', '1.3.1'
+  # For deploying from Travis worker and generating
+  # Figaro-based Heroku env variables
+  gem 'heroku', '2.34.0'
 end
 
 group :test do
