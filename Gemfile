@@ -80,7 +80,7 @@ group :development, :test do
   gem 'debugger', '1.3.1'
   # For deploying from Travis worker and generating
   # Figaro-based Heroku env variables
-  gem 'heroku', '2.34.0'
+  gem 'heroku', '2.35.0'
 end
 
 group :test do
