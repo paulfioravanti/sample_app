@@ -1,7 +1,7 @@
 source :rubygems
-ruby "1.9.3"
+ruby '1.9.3'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 
 gem 'bootstrap-will_paginate', '0.0.9'
 # For creating bcrypt encrypted hashes for user passwords
