@@ -98,7 +98,7 @@ group :test do
   # guard/spork integration
   gem 'guard-spork', '1.4.2'
   # Helps in debugging tests by being able to launch browser
-  gem 'launchy', '2.1.2'
+  gem 'launchy', '2.2.0'
   # Mac-dependent gems
   gem 'rb-fsevent', '0.9.3', require: false
   # Growl notifications
