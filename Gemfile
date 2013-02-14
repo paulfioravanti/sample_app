@@ -14,7 +14,7 @@ gem 'will_paginate', '3.0.4'
 # Simplified forms
 gem 'simple_form', '2.0.4'
 # Simplify UI code
-gem 'haml-rails', '0.3.5'
+gem 'haml-rails', '0.4.0'
 # To enable the use of Markdown
 gem 'rdiscount', '2.0.7'
 # i18n strings for default Rails
@@ -58,7 +58,7 @@ group :development do
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '3.1.1'
   # Security checking
-  gem 'brakeman', '1.9.1'
+  gem 'brakeman', '1.9.2'
   # Code quality
   gem 'rails_best_practices', '1.13.4'
   # Query optimization monitoring
@@ -66,8 +66,8 @@ group :development do
   # Debugging information
   gem 'rails-footnotes', '3.7.9'
   # Better error pages
-  gem 'better_errors', '0.5.0'
-  gem 'binding_of_caller', '0.6.8'
+  gem 'better_errors', '0.6.0'
+  gem 'binding_of_caller', '0.6.9'
   # Gem for RailsPanel Chrome extension
   gem 'meta_request', '0.2.1'
 end
