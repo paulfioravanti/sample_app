@@ -32,7 +32,7 @@ gem 'best_in_place', '2.0.3'
 # Develop, test (Travis CI), and deploy (Heroku) with postgres
 gem 'pg', '0.14.1'
 # New Relic reporting
-gem 'newrelic_rpm', '3.5.5.38'
+gem 'newrelic_rpm', '3.5.6.55'
 # App secret key configuration
 gem 'figaro', '0.5.3'
 # Rails 4 prep
@@ -48,7 +48,7 @@ group :assets do
   # Ruby wrapper for UglifyJS JavaScript compressor.
   gem 'uglifier', '1.3.0'
   # Font Awesome fonts
-  gem 'font-awesome-sass-rails', '3.0.0.1'
+  gem 'font-awesome-sass-rails', '3.0.2.1'
 end
 
 group :development do
