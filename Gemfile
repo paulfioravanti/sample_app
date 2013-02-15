@@ -42,7 +42,7 @@ gem 'strong_parameters', '0.1.6'
 # in production environments by default.
 group :assets do
   # Twitter frameworks to make nice UI design elements
-  gem 'bootstrap-sass', '2.2.2.0'
+  gem 'bootstrap-sass', '2.3.0.0'
   gem 'sass-rails',   '3.2.6'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
