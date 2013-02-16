@@ -14,7 +14,7 @@ describe "Microposts on UI" do
 
       before do
         visit signin_path(locale)
-        sign_in_ui(user)
+        sign_in_through_ui(user)
         visit locale_root_path(locale)
       end
 
@@ -82,7 +82,7 @@ describe "Microposts on UI" do
 
         before do
           visit signin_path(locale)
-          sign_in_ui(user)
+          sign_in_through_ui(user)
           visit locale_root_path(locale)
         end
 
@@ -101,7 +101,7 @@ describe "Microposts on UI" do
 
       before do
         visit signin_path(locale)
-        sign_in_ui(user)
+        sign_in_through_ui(user)
         create_list(:micropost, 31, user: user)
         visit locale_root_path(locale)
       end
@@ -140,7 +140,7 @@ describe "Microposts on UI" do
     describe "sidebar" do
       before do
         visit signin_path(locale)
-        sign_in_ui(user)
+        sign_in_through_ui(user)
         visit locale_root_path(locale)
       end
 
@@ -183,7 +183,7 @@ describe "Microposts on UI" do
 
       before do
         visit signin_path(locale)
-        sign_in_ui(user)
+        sign_in_through_ui(user)
         visit locale_root_path(locale)
       end
 

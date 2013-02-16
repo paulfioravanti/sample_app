@@ -20,7 +20,7 @@ describe "User Pages on UI" do
 
       before do
         visit signin_path(locale)
-        sign_in_ui(user)
+        sign_in_through_ui(user)
         visit users_path(locale)
       end
 
@@ -71,7 +71,7 @@ describe "User Pages on UI" do
 
           before do
             visit signin_path(locale)
-            sign_in_ui(admin)
+            sign_in_through_ui(admin)
             visit users_path(locale)
           end
 
@@ -119,7 +119,7 @@ describe "User Pages on UI" do
 
         before do
           visit signin_path(locale)
-          sign_in_ui(user)
+          sign_in_through_ui(user)
         end
 
         describe "following a user" do
@@ -243,7 +243,7 @@ describe "User Pages on UI" do
 
       before do
         visit signin_path(locale)
-        sign_in_ui(user)
+        sign_in_through_ui(user)
         visit edit_user_path(locale, user)
       end
 
@@ -297,7 +297,7 @@ describe "User Pages on UI" do
 
         before do
           visit signin_path(locale)
-          sign_in_ui(user)
+          sign_in_through_ui(user)
           visit following_user_path(locale, user)
         end
 
@@ -311,7 +311,7 @@ describe "User Pages on UI" do
 
         before do
           visit signin_path(locale)
-          sign_in_ui(other_user)
+          sign_in_through_ui(other_user)
           visit followers_user_path(locale, other_user)
         end
 

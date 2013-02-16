@@ -52,7 +52,7 @@ describe "Authentication on UI" do
         let(:sign_in) { t('layouts.header.sign_in') }
 
         before do
-          sign_in_ui(user)
+          sign_in_through_ui(user)
         end
 
         it { should have_title(user.name) }
@@ -77,7 +77,7 @@ describe "Authentication on UI" do
         context "when attempting to visit a protected page" do
           before do
             visit edit_user_path(locale, user)
-            sign_in_ui(user)
+            sign_in_through_ui(user)
           end
 
           context "after signing in" do
@@ -94,7 +94,7 @@ describe "Authentication on UI" do
               before do
                 click_link sign_out
                 click_link sign_in
-                sign_in_ui(user)
+                sign_in_through_ui(user)
               end
 
               it "renders the default (profile) page" do
