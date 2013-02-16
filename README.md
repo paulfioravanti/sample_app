@@ -69,9 +69,9 @@ Then add them to **.travis.yml**
       global:
         - secure: {{YOUR_ENCRYPTED_HEROKU_API_KEY}}
         - secure: {{YOUR_ENCRYPTED_HEROKU_GIT_URL}}
-        - secure: {{YOUR_ENCRYPTED_APP_DB_NAME}}
-        - secure: {{YOUR_ENCRYPTED_APP_DB_USER}}
-        - secure: {{YOUR_ENCRYPTED_APP_DB_PASSWORD}}
+        - secure: {{YOUR_ENCRYPTED_DB_NAME_UNDER_TEST}}
+        - secure: {{YOUR_ENCRYPTED_DB_USER}}
+        - secure: {{YOUR_ENCRYPTED_DB_PASSWORD}}
 
 **Deploying with Heroku**
 
@@ -82,7 +82,7 @@ Generate production environment variables automatically using Figaro:
 Or, do it manually:
 
     $ heroku config:set SECRET_TOKEN={{YOUR_SECRET_TOKEN}}
-    $ heroku config:set DB_NAME={{YOUR_DB_NAME_UNDER_PROD}} # eg: sample_app_production
+    $ heroku config:set DB_NAME={{YOUR_DB_NAME_UNDER_PRODUCTION}} # eg: sample_app_production
     $ heroku config:set DB_USER={{YOUR_DB_USER}}
     $ heroku config:set DB_PASSWORD={{YOUR_DB_PASSWORD}}
 
