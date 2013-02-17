@@ -67,9 +67,7 @@ describe "Authentication Requests" do
         let(:user)       { create(:user) }
         let(:wrong_user) { create(:user, email: "wrong@eg.com") }
 
-        before do
-          sign_in_request(locale, user)
-        end
+        before { sign_in_request(locale, user) }
 
         context "PUT Users#update" do
           before { put user_path(locale, wrong_user) }
