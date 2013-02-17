@@ -139,6 +139,13 @@ describe "Authentication on UI" do
       context "as a wrong user" do
         let(:user)       { create(:user) }
         let(:wrong_user) { create(:user, email: "wrong@eg.com") }
+        let(:sign_in)  { t('layouts.header.sign_in') }
+
+        before do
+          visit locale_root_path(locale)
+          click_link sign_in
+          sign_in_through_ui(user)
+        end
 
         context "visiting Users#edit" do
           let(:page_title) { full_title(t('users.edit.edit_user')) }
