@@ -13,7 +13,8 @@ describe "Authentication on UI" do
       before { visit signin_path(locale) }
 
       it { should have_selector('h1', text: heading) }
-      it { should have_title(page_title) }
+      its(:source) { should have_selector('title', text: page_title) }
+      its(:source) { should have_selector('title', text: page_title) }
     end
 
     describe "signin" do
@@ -27,7 +28,7 @@ describe "Authentication on UI" do
 
       before { visit signin_path(locale) }
 
-      it { should have_title(page_title) }
+      its(:source) { should have_selector('title', text: page_title) }
       it { should_not have_link(users,    href: users_path(locale)) }
       it { should_not have_link(profile,  href: user_path(locale, user)) }
       it { should_not have_link(settings, href: edit_user_path(locale, user)) }
@@ -38,7 +39,7 @@ describe "Authentication on UI" do
 
         before { click_button sign_in }
 
-        it { should have_title(page_title) }
+        its(:source) { should have_selector('title', text: page_title) }
         it { should have_alert_message('error', invalid) }
 
         context "after visiting another page" do
@@ -55,7 +56,7 @@ describe "Authentication on UI" do
           sign_in_through_ui(user)
         end
 
-        it { should have_title(user.name) }
+        its(:source) { should have_selector('title', text: user.name) }
         it { should have_link(users, href: users_path(locale)) }
         it { should have_link(profile, href: user_path(locale, user)) }
         it { should have_link(settings, href: edit_user_path(locale, user)) }
@@ -84,7 +85,7 @@ describe "Authentication on UI" do
             let(:page_title) { t('users.edit.edit_user') }
 
             it "renders the desired protected page" do
-              page.should have_title(page_title)
+              page.source.should have_selector('title', text: page_title)
             end
 
             context "when signing in again" do
@@ -98,7 +99,7 @@ describe "Authentication on UI" do
               end
 
               it "renders the default (profile) page" do
-                page.should have_title(user.name)
+                page.source.should have_selector('title', text: user.name)
               end
             end
           end
@@ -112,26 +113,26 @@ describe "Authentication on UI" do
 
             before { visit edit_user_path(locale, user) }
 
-            it { should have_title(page_title) }
+            its(:source) { should have_selector('title', text: page_title) }
             it { should have_alert_message('notice', sign_in) }
           end
 
           context "visiting Users#index" do
             let(:page_title) { t('sessions.new.sign_in') }
             before { visit users_path(locale) }
-            it { should have_title(page_title) }
+            its(:source) { should have_selector('title', text: page_title) }
           end
 
           context "visiting Users#following" do
             let(:sign_in) { t('sessions.new.sign_in') }
             before { visit following_user_path(locale, user) }
-            it { should have_title(sign_in) }
+            its(:source) { should have_selector('title', text: sign_in) }
           end
 
           context "visiting Users#followers" do
             let(:sign_in) { t('sessions.new.sign_in') }
             before { visit followers_user_path(locale, user) }
-            it { should have_title(sign_in) }
+            its(:source) { should have_selector('title', text: sign_in) }
           end
         end
       end
@@ -150,7 +151,7 @@ describe "Authentication on UI" do
         context "visiting Users#edit" do
           let(:page_title) { full_title(t('users.edit.edit_user')) }
           before { visit edit_user_path(locale, wrong_user) }
-          it { should_not have_title(page_title) }
+          its(:source) { should_not have_selector('title', text: page_title) }
         end
       end
     end

@@ -7,11 +7,11 @@ describe "Static Pages on UI" do
   # full_title method referenced in spec/support/utilties.rb
   shared_examples_for "a static page" do
     it { should have_selector('h1', text: heading) }
-    it { should have_title(page_title) }
+    its(:source) { should have_selector('title', text: page_title) }
   end
 
   shared_examples_for "a layout link" do
-    it { should have_title(page_title) }
+    its(:source) { should have_selector('title', text: page_title) }
   end
 
   I18n.available_locales.each do |locale|
@@ -74,7 +74,7 @@ describe "Static Pages on UI" do
       before { visit locale_root_path(locale) }
 
       it_should_behave_like "a static page"
-      it { should_not have_title("| #{home}") }
+      its(:source) { should_not have_selector('title', text: "| #{home}") }
 
       context "for signed-in users" do
         let(:user) { create(:user) }

@@ -5,8 +5,8 @@ describe "User Pages on UI" do
   subject { page }
 
   shared_examples_for "a user page" do
-    it { should have_selector('h1',    text: heading) }
-    it { should have_title(page_title) }
+    it { should have_selector('h1', text: heading) }
+    its(:source) { should have_selector('title', text: page_title) }
   end
 
   I18n.available_locales.each do |locale|
@@ -24,7 +24,7 @@ describe "User Pages on UI" do
         visit users_path(locale)
       end
 
-      it { should have_title(page_title) }
+      its(:source) { should have_selector('title', text: page_title) }
 
       describe "pagination" do
         let(:first_page)  { User.paginate(page: 1) }
@@ -225,7 +225,7 @@ describe "User Pages on UI" do
           before { click_submit }
 
           # Redirect from signup page to signed in user profile page
-          it { should have_title(user.name) }
+          its(:source) { should have_selector('title', text: user.name) }
           it { should have_alert_message('success', welcome) }
           it { should have_link sign_out }
         end
@@ -272,7 +272,7 @@ describe "User Pages on UI" do
           click_button save_changes
         end
 
-        it { should have_title(new_name) }
+        its(:source) { should have_selector('title', text: new_name) }
         it { should have_alert_message('success') }
         it { should have_link(sign_out, href: signout_path(locale)) }
 
@@ -301,7 +301,7 @@ describe "User Pages on UI" do
           visit following_user_path(locale, user)
         end
 
-        it { should have_title(full_title(following)) }
+        its(:source) { should have_selector('title', text: following) }
         it { should have_selector('h3', text: following) }
         it { should have_link(other_user.name, href: other_user_link) }
       end
@@ -315,7 +315,7 @@ describe "User Pages on UI" do
           visit followers_user_path(locale, other_user)
         end
 
-        it { should have_title(full_title(followers)) }
+        its(:source) { should have_selector('title', text: followers) }
         it { should have_selector('h3', text: followers) }
         it { should have_link(user.name, href: user_link) }
       end

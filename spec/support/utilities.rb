@@ -39,11 +39,3 @@ RSpec::Matchers::define :have_alert_message do |type, message|
     page.has_selector?("div.alert.alert-#{type}", text: message)
   end
 end
-
-# This matcher exists due to a quirk in Capybara 2.0 in not recognising
-# the title on a page in have_selector unlike behaviour in 1.1.3
-RSpec::Matchers::define :have_title do |text|
-  match do |page|
-    Capybara.string(page.body).has_selector?('title', text: text)
-  end
-end

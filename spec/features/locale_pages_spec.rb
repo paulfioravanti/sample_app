@@ -21,11 +21,15 @@ describe "Locale Switching on UI" do
 
         before { visit locale_root_path(locale) }
 
-        it { should have_title(current_locale_page_title) }
+        its(:source) do
+          should have_selector('title', text: current_locale_page_title)
+        end
 
         context "changes text to target language" do
           before { click_link target_language }
-          it { should have_title(target_locale_page_title) }
+          its(:source) do
+            should have_selector('title', text: target_locale_page_title)
+          end
 
           context "and changes locale to target locale" do
             subject { I18n.locale }
@@ -70,7 +74,7 @@ describe "Locale Switching on UI" do
               click_button post_button
               click_link target_language
             end
-            it { should have_title(page_title) }
+            its(:source) { should have_selector('title', text: page_title) }
           end
         end
 
@@ -85,7 +89,7 @@ describe "Locale Switching on UI" do
               click_button submit
               click_link target_language
             end
-            it { should have_title(page_title) }
+            its(:source) { should have_selector('title', text: page_title) }
           end
         end
 
@@ -103,7 +107,7 @@ describe "Locale Switching on UI" do
               click_button submit
               click_link target_language
             end
-            it { should have_title(page_title) }
+            its(:source) { should have_selector('title', text: page_title) }
           end
         end
       end
