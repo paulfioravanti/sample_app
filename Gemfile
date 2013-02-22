@@ -34,7 +34,7 @@ gem 'pg', '0.14.1'
 # New Relic reporting
 gem 'newrelic_rpm', '3.5.7.59'
 # App secret key configuration
-gem 'figaro', '0.5.3'
+gem 'figaro', '0.5.4'
 # Rails 4 prep
 gem 'strong_parameters', '0.2.0'
 
@@ -42,7 +42,7 @@ gem 'strong_parameters', '0.2.0'
 # in production environments by default.
 group :assets do
   # Twitter frameworks to make nice UI design elements
-  gem 'bootstrap-sass', '2.3.0.0'
+  gem 'bootstrap-sass', '2.3.0.1'
   gem 'sass-rails',   '3.2.6'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
