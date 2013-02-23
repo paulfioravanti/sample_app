@@ -140,7 +140,7 @@ If you want to use New Relic for app metrics (ignore this if you don't), [create
 - Fully automatic deployment process put in place: after a commit is pushed
 to Github, it gets pushed to Travis CI, and then gets deployed directly from the Travis worker to Heroku.  See [the **.travis.yml**](./.travis.yml) for details and [this StackOverflow thread](http://stackoverflow.com/q/10235026/567863) for reference.
 
-### TODOs
+#### TODOs
 - Tests for Javascript-based functionality: Follow/Unfollow button, micropost countdown, endless scroll
 - Tests for `strong_parameters`, if an appropriate method gets implemented before Rails 4 is released.
 
