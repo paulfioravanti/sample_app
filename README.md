@@ -3,12 +3,10 @@
 
 This is the sample application for
 [*Ruby on Rails Tutorial: Learn Rails by Example*](http://railstutorial.org/)
-by [Michael Hartl](http://michaelhartl.com) (plus some modifications).
+by [Michael Hartl](http://michaelhartl.com) (plus some [modifications](#modifications)).
 
 - This code is currently deployed [here](https://pf-sampleapp.herokuapp.com) using [Heroku](http://www.heroku.com/)
 - Translation keys are currently being managed [here](http://www.localeapp.com/projects/1043) with [Localeapp](http://www.localeapp.com/).
-
-If you find this repo useful, please help me level-up on [Coderwall](http://coderwall.com/) with an [![endorse](http://api.coderwall.com/pfioravanti/endorse.png)](http://coderwall.com/pfioravanti)
 
 ### Cloning Locally
 
@@ -100,7 +98,7 @@ If you want to use New Relic for app metrics (ignore this if you don't), [create
 
 - - -
 
-## Changes from the original tutorial content:
+## Modifications:
 
 ### User Interface
 - Added [Font Awesome](http://fortawesome.github.com/Font-Awesome/) icons to the header
@@ -129,7 +127,7 @@ If you want to use New Relic for app metrics (ignore this if you don't), [create
 - Changed RSpec output to show a progress bar instead of dots using [Fuubar](https://github.com/jeffkreeftmeijer/fuubar)
 - Swapped out the debug block in the footer for [rails-footnotes](https://github.com/josevalim/rails-footnotes)
 - Complete refactoring of test suite to upgrade to [Capybara 2.0](https://github.com/jnicklas/capybara)
-- Performance tested the RSpec test suite and as a result refactored the [**spec_helper.rb**](https://github.com/paulfioravanti/sample_app/blob/master/spec/spec_helper.rb) file.  See [this StackOverflow thread](http://stackoverflow.com/a/12215946/567863) for details.
+- Performance tested the RSpec test suite and as a result refactored the [**spec_helper.rb**](./spec/spec_helper.rb) file.  See [this StackOverflow thread](http://stackoverflow.com/a/12215946/567863) for details.
 - Added tests for [Globalize3](https://github.com/svenfuchs/globalize3) translations and expanded factories to include a micropost with its relevant translations
 
 ### Reporting/Optimizing
@@ -140,8 +138,16 @@ If you want to use New Relic for app metrics (ignore this if you don't), [create
 
 ### Deployment
 - Fully automatic deployment process put in place: after a commit is pushed
-to Github, it gets pushed to Travis CI, and then gets deployed directly from the Travis worker to Heroku.  See [the **.travis.yml**](https://github.com/paulfioravanti/sample_app/blob/master/.travis.yml) for details and [this StackOverflow thread](http://stackoverflow.com/q/10235026/567863) for reference.
+to Github, it gets pushed to Travis CI, and then gets deployed directly from the Travis worker to Heroku.  See [the **.travis.yml**](./.travis.yml) for details and [this StackOverflow thread](http://stackoverflow.com/q/10235026/567863) for reference.
 
 ### TODOs
 - Tests for Javascript-based functionality: Follow/Unfollow button, micropost countdown, endless scroll
 - Tests for `strong_parameters`, if an appropriate method gets implemented before Rails 4 is released.
+
+## Social
+
+<a href="http://stackoverflow.com/users/567863/paul-fioravanti">
+  <img src="http://stackoverflow.com/users/flair/567863.png" width="208" height="58" alt="profile for Paul Fioravanti at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Paul Fioravanti at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+</a>
+
+[![endorse](http://api.coderwall.com/pfioravanti/endorse.png)](http://coderwall.com/pfioravanti)
