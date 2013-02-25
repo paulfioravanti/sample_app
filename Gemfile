@@ -1,5 +1,5 @@
-source :rubygems
-ruby '1.9.3'
+source 'http://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '3.2.12'
 
@@ -78,7 +78,7 @@ group :development, :test do
   gem 'guard-rspec', '2.4.1'
   # Prettier RSpec output
   gem 'fuubar', '1.1.0'
-  gem 'debugger', '1.3.3'
+  # gem 'debugger', '1.3.3' ## Broken in Ruby 2.0.0
   # For deploying from Travis worker and generating
   # Figaro-based Heroku env variables
   gem 'heroku', '2.35.0'
@@ -105,8 +105,8 @@ group :test do
   gem 'growl', '1.0.3'
   # Code coverage reports
   gem 'simplecov', '0.7.1', require: false
-  # Performance testing
-  gem 'rack-perftools_profiler', require: 'rack/perftools_profiler'
+  # Performance testing  ## Broken in Ruby 2.0.0
+  # gem 'rack-perftools_profiler', require: 'rack/perftools_profiler'
   # Test other databases on Travis CI if needed
   # gem 'mysql2', '0.3.11'
   # gem 'sqlite3', '1.3.7'
