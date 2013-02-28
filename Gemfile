@@ -32,7 +32,7 @@ gem 'best_in_place', '2.1.0'
 # Develop, test (Travis CI), and deploy (Heroku) with postgres
 gem 'pg', '0.14.1'
 # New Relic reporting
-gem 'newrelic_rpm', '3.5.7.59'
+gem 'newrelic_rpm', '3.5.8.70'
 # App secret key configuration
 gem 'figaro', '0.6.1'
 # Rails 4 prep
@@ -96,7 +96,7 @@ group :test do
   # speed up test server
   gem 'spork', '0.9.2'
   # guard/spork integration
-  gem 'guard-spork', '1.4.3'
+  gem 'guard-spork', '1.5.0'
   # Helps in debugging tests by being able to launch browser
   gem 'launchy', '2.2.0'
   # Mac-dependent gems
