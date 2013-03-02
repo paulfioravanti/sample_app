@@ -62,7 +62,7 @@ group :development do
   # Code quality
   gem 'rails_best_practices', '1.13.4'
   # Query optimization monitoring
-  gem 'bullet', '4.3.0'
+  gem 'bullet', '4.3.1'
   # Debugging information
   gem 'rails-footnotes', '3.7.9'
   # Better error pages
