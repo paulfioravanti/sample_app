@@ -1,9 +1,9 @@
 module MicropostsHelper
 
   def wrap(content, sanitize = true)
-    wrapped_content = content.split.map do |s|
-      wrap_long_string(s)
-    end.join(' ') unless content.nil?
+    wrapped_content = content.split.map do |string|
+      wrap_long_string(string)
+    end.join(' ') if content
 
     sanitize ? sanitize(raw(wrapped_content)) : wrapped_content
   end

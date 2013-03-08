@@ -24,7 +24,8 @@ class StaticPagesController < ApplicationController
 
     def localized_page
       locale = params[:locale]
+      action = action_name
       @page = "#{Rails.root}/config/locales/#{controller_name}/"\
-              "#{action_name}/#{action_name}.#{locale}.md"
+              "#{action}/#{action}.#{locale}.md"
     end
 end

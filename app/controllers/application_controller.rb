@@ -57,11 +57,8 @@ class ApplicationController < ActionController::Base
     end
 
     def set_locale
-      I18n.locale = if params[:set_locale].present?
-        params[:set_locale]
-      else
-        params[:locale]
-      end
+      set_locale = params[:set_locale]
+      I18n.locale = set_locale ? set_locale : params[:locale]
     end
 
     # redirect_action and redirect_controller instance variables exist
@@ -79,47 +76,54 @@ class ApplicationController < ActionController::Base
     end
 
     def redirect_action
-      case action_name
+      case action = action_name
         when 'create' then 'new'
         when 'update' then 'edit'
-        else action_name
+        else action
       end
     end
 
     def redirect_controller
-      case
-        when controller_name == 'microposts' && action_name == 'create'
-          @redirect_action = 'home'
-          'static_pages'
-        else controller_name
+      controller = controller_name
+      if controller == 'microposts' && action_name == 'create'
+        @redirect_action = 'home'
+        'static_pages'
+      else
+        controller
       end
     end
 
     def parse_page_number
-      if params[:page].present? && params[:page] =~ /^\d+$/
-        params[:page]
+      page_number = params[:page]
+      if page_number && page_number =~ /^\d+$/
+        page_number
       else
         nil
       end
     end
 
     def execute_redirect
-      # only_path option used here instead of a full url to protect
-      # against unwanted redirects from user-supplied values:
+      # only_path: true option used to protect against unwanted
+      # redirects from user-supplied values:
       # http://brakemanscanner.org/docs/warning_types/redirect/
       # redirect_to options, only_path: true
       options = { locale: I18n.locale, only_path: true }
-      case
-        when @redirect_controller == 'users' && @redirect_action == 'new'
+      if @redirect_action == 'new'
+        if @redirect_controller == 'users'
           redirect_to signup_url, options
-        when @redirect_controller == 'sessions' && @redirect_action == 'new'
+        elsif @redirect_controller == 'sessions'
           redirect_to signin_url, options
-        else
-          options[:controller] = @redirect_controller
-          options[:action] = @redirect_action
-          options[:page] = @page_number unless @page_number.nil?
-          redirect_to options
+        end
+      else
+        default_redirect(options)
       end
+    end
+
+    def default_redirect(options)
+      options[:controller] = @redirect_controller
+      options[:action] = @redirect_action
+      options[:page] = @page_number if @page_number
+      redirect_to options
     end
 
 end

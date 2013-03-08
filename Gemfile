@@ -60,6 +60,7 @@ group :development do
   # Security checking
   gem 'brakeman', '1.9.3'
   # Code quality
+  gem 'reek', '1.3.1'
   gem 'rails_best_practices', '1.13.4'
   # Query optimization monitoring
   gem 'bullet', '4.3.1'
