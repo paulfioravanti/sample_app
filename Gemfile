@@ -34,7 +34,7 @@ gem 'pg', '0.14.1'
 # New Relic reporting
 gem 'newrelic_rpm', '3.5.8.72'
 # App secret key configuration
-gem 'figaro', '0.6.1'
+gem 'figaro', '0.6.2'
 # Rails 4 prep
 gem 'strong_parameters', '0.2.0'
 
@@ -58,7 +58,7 @@ group :development do
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '3.1.1'
   # Security checking
-  # gem 'brakeman', '1.9.2'
+  gem 'brakeman', '1.9.3'
   # Code quality
   gem 'rails_best_practices', '1.13.4'
   # Query optimization monitoring
