@@ -24,7 +24,7 @@ gem 'globalize3', '0.3.0'
 # i18n using Locale
 gem 'localeapp', '0.6.9'
 # For JQuery timeago library
-gem 'rails-timeago', '2.1.1'
+gem 'rails-timeago', '2.2.0'
 # For accessing i18n in js files
 gem 'i18n-js', '2.1.2'
 # Editing in place
@@ -67,7 +67,7 @@ group :development do
   # Debugging information
   gem 'rails-footnotes', '3.7.9'
   # Better error pages
-  gem 'better_errors', '0.7.0'
+  gem 'better_errors', '0.7.2'
   gem 'binding_of_caller', '0.7.1'
   # Gem for RailsPanel Chrome extension
   gem 'meta_request', '0.2.2'
