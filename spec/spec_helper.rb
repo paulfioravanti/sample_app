@@ -1,7 +1,7 @@
 require 'spork'
 require 'simplecov'
 require 'coveralls'
-Coveralls.wear!
+Coveralls.wear!('rails')
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
