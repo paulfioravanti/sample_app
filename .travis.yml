@@ -12,7 +12,8 @@ env:
     - secure: "At4e9KWD71poVqmWMVqRj7OPoELDLFvSez8VnA/t5PAUV5+72ndv2l+qZp26\nyCNwRYUBqTqdDWxpO8/lHlsNe3flfIkQFLmXCP99lniDg7f02cA2aenB7X5G\nQcefEhNR4d23L45pehzFUmSAGgp10ZOyNGkIFC5ZAdQpO9Axayo="
   matrix:
     - DB: postgresql
-bundler_args: --binstubs=./bundler_stubs --without development
+# bundler_args: --binstubs=./bundler_stubs --without development
+bundler_args: --without development
 before_script:
   - psql -c "create database $DB_NAME;" -U $DB_USER
   - RAILS_ENV=test bundle exec rake db:migrate --trace
