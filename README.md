@@ -1,5 +1,5 @@
 # Ruby on Rails Tutorial: sample application
-[![Build Status](https://secure.travis-ci.org/paulfioravanti/sample_app.png)](http://travis-ci.org/paulfioravanti/sample_app) [![Dependency Status](https://gemnasium.com/paulfioravanti/sample_app.png)](https://gemnasium.com/paulfioravanti/sample_app) [![Code Climate](https://codeclimate.com/github/paulfioravanti/sample_app.png)](https://codeclimate.com/github/paulfioravanti/sample_app) [![Security Status](http://rails-brakeman.com/paulfioravanti/sample_app.png)](http://rails-brakeman.com/paulfioravanti/sample_app)
+[![Build Status](https://secure.travis-ci.org/paulfioravanti/sample_app.png)](http://travis-ci.org/paulfioravanti/sample_app) [![Dependency Status](https://gemnasium.com/paulfioravanti/sample_app.png)](https://gemnasium.com/paulfioravanti/sample_app) [![Code Climate](https://codeclimate.com/github/paulfioravanti/sample_app.png)](https://codeclimate.com/github/paulfioravanti/sample_app) [![Coverage Status](https://coveralls.io/repos/paulfioravanti/sample_app/badge.png?branch=master)](https://coveralls.io/r/paulfioravanti/sample_app) [![Security Status](http://rails-brakeman.com/paulfioravanti/sample_app.png)](http://rails-brakeman.com/paulfioravanti/sample_app)
 
 This is the sample application for
 [*Ruby on Rails Tutorial: Learn Rails by Example*](http://railstutorial.org/)
