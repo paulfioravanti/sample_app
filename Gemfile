@@ -76,7 +76,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '2.13.0'
   # for autotesting with rspec
-  gem 'guard-rspec', '2.5.0'
+  gem 'guard-rspec', '2.5.1'
   # Prettier RSpec output
   gem 'fuubar', '1.1.0'
   # gem 'debugger', '1.3.3' ## Broken in Ruby 2.0.0
@@ -112,8 +112,4 @@ group :test do
   # Test other databases on Travis CI if needed
   # gem 'mysql2', '0.3.11'
   # gem 'sqlite3', '1.3.7'
-end
-
-group :test, :production do
-
 end
