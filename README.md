@@ -14,9 +14,6 @@ by [Michael Hartl](http://michaelhartl.com) (plus some [modifications](#modifica
     $ git clone git@github.com:paulfioravanti/sample_app.git
     $ cd sample_app
     $ bundle install
-    $ bundle exec rake db:migrate
-    $ bundle exec rake db:seed
-    $ bundle exec rake db:test:prepare RAILS_ENV=test
 
 ### Environment Configuration
 
@@ -95,6 +92,12 @@ If you want to use Localeapp to manage language keys in the app (ignore this if 
 If you want to use New Relic for app metrics (ignore this if you don't), [create an account](http://newrelic.com/) on their site, get a license key, and copy it into the `NEW_RELIC_LICENSE_KEY` entry in **config/application.yml**, and add the key to your Heroku environment, if you didn't generate it automatically with Figaro:
 
     $ heroku config:set NEW_RELIC_LICENSE_KEY={{YOUR_NEW_RELIC_LICENSE_KEY}}
+
+Finally, configure the databases:
+
+    $ bundle exec rake db:migrate
+    $ bundle exec rake db:seed
+    $ bundle exec rake db:test:prepare RAILS_ENV=test
 
 - - -
 
