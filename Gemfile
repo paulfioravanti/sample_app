@@ -91,6 +91,7 @@ group :test do
   # Use factories instead of ActiveRecord objects
   gem 'factory_girl_rails', '4.2.1'
   gem 'shoulda-matchers', '1.4.2'
+  # gem 'shoulda-matchers', '1.5.0' # currently has Mocha dependency issues
   # Cucumber for user stories and db cleaner utility below
   gem 'cucumber-rails', '1.3.0', require: false
   gem 'database_cleaner', '0.9.1'
