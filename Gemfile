@@ -42,7 +42,7 @@ gem 'strong_parameters', '0.2.0'
 # in production environments by default.
 group :assets do
   # Twitter frameworks to make nice UI design elements
-  gem 'bootstrap-sass', '2.3.0.1'
+  gem 'bootstrap-sass', '2.3.1.0'
   gem 'sass-rails',   '3.2.6'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
@@ -93,7 +93,7 @@ group :test do
   gem 'shoulda-matchers', '1.4.2'
   # gem 'shoulda-matchers', '1.5.0' # currently has Mocha dependency issues
   # Cucumber for user stories and db cleaner utility below
-  gem 'cucumber-rails', '1.3.0', require: false
+  gem 'cucumber-rails', '1.3.1', require: false
   gem 'database_cleaner', '0.9.1'
   # speed up test server
   gem 'spork', '0.9.2'
