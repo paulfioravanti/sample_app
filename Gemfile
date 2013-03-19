@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 
 gem 'bootstrap-will_paginate', '0.0.9'
 # For creating bcrypt encrypted hashes for user passwords
@@ -18,7 +18,7 @@ gem 'haml-rails', '0.4.0'
 # To enable the use of Markdown
 gem 'rdiscount', '2.0.7.1'
 # i18n strings for default Rails
-gem 'rails-i18n', '0.7.2'
+gem 'rails-i18n', '0.7.3'
 # i18n for database content
 gem 'globalize3', '0.3.0'
 # i18n using Locale
@@ -56,9 +56,9 @@ group :development do
   gem 'annotate', '2.5.0'
   # For html/erb to haml parsing
   gem 'hpricot', '0.8.6'
-  gem 'ruby_parser', '3.1.1'
+  gem 'ruby_parser', '3.1.2'
   # Security checking
-  gem 'brakeman', '1.9.3'
+  gem 'brakeman', '1.9.4'
   # Code quality
   gem 'reek', '1.3.1'
   gem 'rails_best_practices', '1.13.4'
@@ -91,7 +91,7 @@ group :test do
   # Use factories instead of ActiveRecord objects
   gem 'factory_girl_rails', '4.2.1'
   gem 'shoulda-matchers', '1.4.2'
-  # gem 'shoulda-matchers', '1.5.0' # currently has Mocha dependency issues
+  # gem 'shoulda-matchers', '1.5.1' # currently has Mocha dependency issues
   # Cucumber for user stories and db cleaner utility below
   gem 'cucumber-rails', '1.3.1', require: false
   gem 'database_cleaner', '0.9.1'
@@ -107,7 +107,7 @@ group :test do
   gem 'growl', '1.0.3'
   # Code coverage reports
   gem 'simplecov', '0.7.1', require: false
-  gem 'coveralls', '0.6.2', require: false
+  gem 'coveralls', '0.6.3', require: false
   # Performance testing  ## Broken in Ruby 2.0.0
   # gem 'rack-perftools_profiler', require: 'rack/perftools_profiler'
   # Test other databases on Travis CI if needed
