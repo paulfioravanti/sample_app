@@ -1,7 +1,9 @@
 require 'spork'
 require 'simplecov'
-require 'coveralls'
-Coveralls.wear!('rails')
+if ENV['TRAVIS']
+  require 'coveralls'
+  Coveralls.wear! 'rails'
+end
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
