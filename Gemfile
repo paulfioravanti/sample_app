@@ -32,7 +32,7 @@ gem 'best_in_place', '2.1.0'
 # Develop, test (Travis CI), and deploy (Heroku) with postgres
 gem 'pg', '0.14.1'
 # New Relic reporting
-gem 'newrelic_rpm', '3.5.8.72'
+gem 'newrelic_rpm', '3.6.0.78'
 # App secret key configuration
 gem 'figaro', '0.6.3'
 # Rails 4 prep
@@ -90,7 +90,7 @@ group :test do
   gem 'capybara', '2.0.2'
   # Use factories instead of ActiveRecord objects
   gem 'factory_girl_rails', '4.2.1'
-  gem 'shoulda-matchers', '1.5.2'
+  gem 'shoulda-matchers', '1.5.4'
   # Cucumber for user stories and db cleaner utility below
   gem 'cucumber-rails', '1.3.1', require: false
   gem 'database_cleaner', '0.9.1'
