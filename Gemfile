@@ -12,7 +12,7 @@ gem 'faker', '1.1.2'
 # For pagination
 gem 'will_paginate', '3.0.4'
 # Simplified forms
-gem 'simple_form', '2.0.4'
+gem 'simple_form', '2.1.0'
 # Simplify UI code
 gem 'haml-rails', '0.4.0'
 # To enable the use of Markdown
