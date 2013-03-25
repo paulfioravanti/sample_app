@@ -61,6 +61,12 @@ describe "Authentication Requests" do
           before { post users_path(locale) }
           it { should redirect_to(locale_root_url(locale)) }
         end
+
+        context "when session is hijacked" do
+          before { handle_unverified_request }
+          subject { signed_in? }
+          it { should be_false }
+        end
       end
 
       context "as a wrong user" do

@@ -14,6 +14,12 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }.merge(super)
   end
 
+  # Force signout to prevent CSRF attacks
+  def handle_unverified_request
+    sign_out
+    super
+  end
+
   private
 
     def sign_in(user)
