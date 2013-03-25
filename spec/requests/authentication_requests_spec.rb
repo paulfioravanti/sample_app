@@ -63,8 +63,8 @@ describe "Authentication Requests" do
         end
 
         context "when session is hijacked" do
-          before { handle_unverified_request }
-          subject { signed_in? }
+          before { controller.handle_unverified_request }
+          subject { controller.send(:signed_in?) }
           it { should be_false }
         end
       end
