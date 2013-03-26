@@ -19,16 +19,20 @@ describe ApplicationController do
     it { should have_key(:locale) }
   end
 
-  describe "session hijacking" do
-    subject { controller.test_signed_in? }
+  describe "#handle_unverified_request" do
+    let(:signed_in) { controller.test_signed_in? }
 
-    context "before #handle_unverified_request called" do
-      it { should be_true }
+    context "before session hijack" do
+      specify "user should be signed in" do
+        signed_in.should be_true
+      end
     end
 
-    context "after #handle_unverified_request called" do
+    context "after session hijack" do
       before { controller.handle_unverified_request }
-      it { should be_false }
+      specify "user should be signed out" do
+        signed_in.should be_false
+      end
     end
   end
 end
