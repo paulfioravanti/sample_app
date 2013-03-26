@@ -61,12 +61,6 @@ describe "Authentication Requests" do
           before { post users_path(locale) }
           it { should redirect_to(locale_root_url(locale)) }
         end
-
-        context "when session is hijacked" do
-          before { controller.handle_unverified_request }
-          subject { controller.send(:signed_in?) }
-          it { should be_false }
-        end
       end
 
       context "as a wrong user" do
