@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe ApplicationController do
+  controller do
+    def test_signed_in?
+      signed_in?
+    end
+  end
 
   let(:user) { create(:user) }
 
@@ -15,7 +20,7 @@ describe ApplicationController do
   end
 
   describe "session hijacking" do
-    subject { controller.send(:signed_in?) }
+    subject { controller.test_signed_in? }
 
     context "before #handle_unverified_request called" do
       it { should be_true }
