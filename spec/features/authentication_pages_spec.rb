@@ -14,7 +14,6 @@ describe "Authentication on UI" do
 
       it { should have_selector('h1', text: heading) }
       its(:source) { should have_selector('title', text: page_title) }
-      its(:source) { should have_selector('title', text: page_title) }
     end
 
     describe "signin" do

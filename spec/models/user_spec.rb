@@ -75,7 +75,7 @@ describe User do
     it { should be_valid }
     it { should_not be_admin }
     its(:remember_token) { should_not be_blank }
-    its(:email) { should_not =~ /\p{Upper}/ }
+    its(:email) { should_not =~ %r(\p{Upper}) }
   end
 
   describe "validations" do

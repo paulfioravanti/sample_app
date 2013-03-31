@@ -11,15 +11,15 @@ describe ApplicationHelper do
 
         before { I18n.locale = locale }
 
-        it { should =~ /#{page_name}/ }
-        it { should =~ /^#{base_name}/ }
+        it { should =~ %r(#{page_name}) }
+        it { should =~ %r(^#{base_name}) }
       end
     end
 
     context "without page name" do
-      let(:bar) { '|' }
+      let(:bar) { '\|' }
       subject { full_title("") }
-      it { should_not =~ /\#{bar}/ }
+      it { should_not =~ %r(#{bar}) }
     end
   end
 
