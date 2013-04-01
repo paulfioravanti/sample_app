@@ -70,7 +70,7 @@ group :development do
   gem 'better_errors', '0.7.2'
   gem 'binding_of_caller', '0.7.1'
   # Gem for RailsPanel Chrome extension
-  gem 'meta_request', '0.2.2'
+  gem 'meta_request', '0.2.3'
 end
 
 group :development, :test do
@@ -87,7 +87,7 @@ end
 
 group :test do
   # Helps in testing by simulating how a real user would use app
-  gem 'capybara', '2.0.2'
+  gem 'capybara', '2.0.3'
   # Use factories instead of ActiveRecord objects
   gem 'factory_girl_rails', '4.2.1'
   gem 'shoulda-matchers', '1.5.6'
