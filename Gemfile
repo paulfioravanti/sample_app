@@ -76,13 +76,13 @@ end
 group :development, :test do
   gem 'rspec-rails', '2.13.0'
   # for autotesting with rspec
-  gem 'guard-rspec', '2.5.1'
+  gem 'guard-rspec', '2.5.2'
   # Prettier RSpec output
   gem 'fuubar', '1.1.0'
   # gem 'debugger', '1.3.3' ## Broken in Ruby 2.0.0
   # For deploying from Travis worker and generating
   # Figaro-based Heroku env variables
-  gem 'heroku', '2.35.0'
+  gem 'heroku', '2.36.1'
 end
 
 group :test do
@@ -106,7 +106,7 @@ group :test do
   gem 'growl', '1.0.3'
   # Code coverage reports
   gem 'simplecov', '0.7.1', require: false
-  gem 'coveralls', '0.6.3', require: false
+  gem 'coveralls', '0.6.4', require: false
   # Performance testing  ## Broken in Ruby 2.0.0
   # gem 'rack-perftools_profiler', require: 'rack/perftools_profiler'
   # Test other databases on Travis CI if needed
