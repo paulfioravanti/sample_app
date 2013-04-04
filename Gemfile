@@ -82,7 +82,7 @@ group :development, :test do
   # gem 'debugger', '1.3.3' ## Broken in Ruby 2.0.0
   # For deploying from Travis worker and generating
   # Figaro-based Heroku env variables
-  gem 'heroku', '2.36.1'
+  gem 'heroku', '2.37.0'
 end
 
 group :test do
