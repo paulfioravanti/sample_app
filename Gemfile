@@ -67,7 +67,7 @@ group :development do
   # Debugging information
   gem 'rails-footnotes', '3.7.9'
   # Better error pages
-  gem 'better_errors', '0.7.2'
+  gem 'better_errors', '0.8.0'
   gem 'binding_of_caller', '0.7.1'
   # Gem for RailsPanel Chrome extension
   gem 'meta_request', '0.2.3'
@@ -82,7 +82,7 @@ group :development, :test do
   # gem 'debugger', '1.3.3' ## Broken in Ruby 2.0.0
   # For deploying from Travis worker and generating
   # Figaro-based Heroku env variables
-  gem 'heroku', '2.37.0'
+  gem 'heroku', '2.37.2'
 end
 
 group :test do
