@@ -46,7 +46,7 @@ group :assets do
   gem 'sass-rails',   '3.2.6'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
-  gem 'uglifier', '1.3.0'
+  gem 'uglifier', '2.0.1'
   # Font Awesome fonts
   gem 'font-awesome-sass-rails', '3.0.2.2'
 end
