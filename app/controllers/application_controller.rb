@@ -63,8 +63,7 @@ class ApplicationController < ActionController::Base
     end
 
     def set_locale
-      set_locale = params[:set_locale]
-      I18n.locale = set_locale ? set_locale : params[:locale]
+      I18n.locale = params[:set_locale] || params[:locale]
     end
 
     # redirect_action and redirect_controller instance variables exist
