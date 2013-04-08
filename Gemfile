@@ -30,7 +30,7 @@ gem 'i18n-js', '2.1.2'
 # Editing in place
 gem 'best_in_place', '2.1.0'
 # Develop, test (Travis CI), and deploy (Heroku) with postgres
-gem 'pg', '0.15.0'
+gem 'pg', '0.15.1'
 # New Relic reporting
 gem 'newrelic_rpm', '3.6.0.78'
 # App secret key configuration
