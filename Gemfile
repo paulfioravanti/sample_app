@@ -56,7 +56,7 @@ group :development do
   gem 'annotate', '2.5.0'
   # For html/erb to haml parsing
   gem 'hpricot', '0.8.6'
-  gem 'ruby_parser', '3.1.2'
+  gem 'ruby_parser', '3.1.3'
   # Security checking
   gem 'brakeman', '1.9.5'
   # Code quality
