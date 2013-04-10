@@ -32,7 +32,7 @@ gem 'best_in_place', '2.1.0'
 # Develop, test (Travis CI), and deploy (Heroku) with postgres
 gem 'pg', '0.15.1'
 # New Relic reporting
-gem 'newrelic_rpm', '3.6.0.78'
+gem 'newrelic_rpm', '3.6.0.83'
 # App secret key configuration
 gem 'figaro', '0.6.3'
 # Rails 4 prep
@@ -87,7 +87,7 @@ end
 
 group :test do
   # Helps in testing by simulating how a real user would use app
-  gem 'capybara', '2.0.3'
+  gem 'capybara', '2.1.0'
   # Use factories instead of ActiveRecord objects
   gem 'factory_girl_rails', '4.2.1'
   gem 'shoulda-matchers', '2.0.0'
