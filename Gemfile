@@ -76,7 +76,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '2.13.0'
   # for autotesting with rspec
-  gem 'guard-rspec', '2.5.2'
+  gem 'guard-rspec', '2.5.3'
   # Prettier RSpec output
   gem 'fuubar', '1.1.0'
   # gem 'debugger', '1.3.3' ## Broken in Ruby 2.0.0
