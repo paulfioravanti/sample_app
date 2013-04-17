@@ -99,14 +99,14 @@ group :test do
   # guard/spork integration
   gem 'guard-spork', '1.5.0'
   # Helps in debugging tests by being able to launch browser
-  gem 'launchy', '2.2.0'
+  gem 'launchy', '2.3.0'
   # Mac-dependent gems
   gem 'rb-fsevent', '0.9.3', require: false
   # Growl notifications
   gem 'growl', '1.0.3'
   # Code coverage reports
   gem 'simplecov', '0.7.1', require: false
-  gem 'coveralls', '0.6.5', require: false
+  gem 'coveralls', '0.6.6', require: false
   # Performance testing  ## Broken in Ruby 2.0.0
   # gem 'rack-perftools_profiler', require: 'rack/perftools_profiler'
   # Test other databases on Travis CI if needed
