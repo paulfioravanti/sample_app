@@ -63,7 +63,7 @@ group :development do
   gem 'reek', '1.3.1'
   gem 'rails_best_practices', '1.13.4'
   # Query optimization monitoring
-  gem 'bullet', '4.5.0'
+  gem 'bullet', '4.6.0'
   # Debugging information
   gem 'rails-footnotes', '3.7.9'
   # Better error pages
