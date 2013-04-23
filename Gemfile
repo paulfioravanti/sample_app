@@ -24,7 +24,7 @@ gem 'globalize3', '0.3.0'
 # i18n using Locale
 gem 'localeapp', '0.6.9'
 # For JQuery timeago library
-gem 'rails-timeago', '2.2.2'
+gem 'rails-timeago', '2.2.3'
 # For accessing i18n in js files
 gem 'i18n-js', '2.1.2'
 # Editing in place
@@ -81,8 +81,8 @@ group :development, :test do
   gem 'fuubar', '1.1.0'
   # gem 'debugger', '1.3.3' ## Broken in Ruby 2.0.0
   # For deploying from Travis worker and generating
-  # Figaro-based Heroku env variables
-  gem 'heroku', '2.37.2'
+  # Figaro-based heroku env variables
+  gem 'heroku', '2.38.0'
 end
 
 group :test do
