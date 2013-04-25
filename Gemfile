@@ -32,7 +32,7 @@ gem 'best_in_place', '2.1.0'
 # Develop, test (Travis CI), and deploy (Heroku) with postgres
 gem 'pg', '0.15.1'
 # New Relic reporting
-gem 'newrelic_rpm', '3.6.0.83'
+gem 'newrelic_rpm', '3.6.1.87'
 # App secret key configuration
 gem 'figaro', '0.6.3'
 # Rails 4 prep
@@ -82,7 +82,7 @@ group :development, :test do
   # gem 'debugger', '1.3.3' ## Broken in Ruby 2.0.0
   # For deploying from Travis worker and generating
   # Figaro-based heroku env variables
-  gem 'heroku', '2.38.2'
+  gem 'heroku', '2.39.0'
 end
 
 group :test do
@@ -91,7 +91,7 @@ group :test do
   # Use factories instead of ActiveRecord objects
   gem 'factory_girl_rails', '4.2.1'
   gem 'shoulda-matchers', '2.0.0'
-  # Cucumber for user stories and db cleaner utility below
+  # Cucumber for user stringsories and db cleaner utility below
   gem 'cucumber-rails', '1.3.1', require: false
   gem 'database_cleaner', '0.9.1'
   # speed up test server
@@ -106,7 +106,7 @@ group :test do
   gem 'growl', '1.0.3'
   # Code coverage reports
   gem 'simplecov', '0.7.1', require: false
-  gem 'coveralls', '0.6.6', require: false
+  gem 'coveralls', '0.6.7', require: false
   # Performance testing  ## Broken in Ruby 2.0.0
   # gem 'rack-perftools_profiler', require: 'rack/perftools_profiler'
   # Test other databases on Travis CI if needed
