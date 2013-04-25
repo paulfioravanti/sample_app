@@ -121,20 +121,20 @@ Finally, configure the databases:
 - Refactored [SCSS](http://sass-lang.com/) files to use more mix-ins, as well as additions to add styling to the language selector
 - Used [rails-timeago](https://github.com/jgraichen/rails-timeago) to do time calculation for microposts on client-side rather than server-side (replaces method calls to `time_ago_in_words`)
 - Simplified implementation of most forms with [SimpleForm](https://github.com/plataformatec/simple_form)
-- Used [Figaro](https://github.com/laserlemon/figaro) to handle all secret keys in an attempt to remove any app-identifiable information from all environments.
-- Moved mass assignment handling over to [strong_parameters](https://github.com/rails/strong_parameters) in anticipation of Rails 4.
+- Used [Figaro](https://github.com/laserlemon/figaro) to handle all secret keys in an attempt to remove any app-identifiable information from all environments.  Reasons why at [this StackOverflow thread](http://stackoverflow.com/q/14785257/567863)
+- Moved mass assignment handling over to [strong_parameters](https://github.com/rails/strong_parameters) in anticipation of Rails 4
 
 ### Testing/Debugging
 - Internationalized [RSpec](http://rspec.info/) tests and further refactored them
 - Refactored model specs to use [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
 - Changed RSpec output to show a progress bar instead of dots using [Fuubar](https://github.com/jeffkreeftmeijer/fuubar)
 - Swapped out the debug block in the footer for [rails-footnotes](https://github.com/josevalim/rails-footnotes)
-- Complete refactoring of test suite to upgrade to [Capybara 2.0](https://github.com/jnicklas/capybara)
+- Complete refactoring of test suite to upgrade to [Capybara 2.x](https://github.com/jnicklas/capybara) (see [this StackOverflow thread](http://stackoverflow.com/q/13573525/567863) and [this StackOverflow thread](http://stackoverflow.com/q/14028247/567863) for the details)
 - Performance tested the RSpec test suite and as a result refactored the [**spec_helper.rb**](./spec/spec_helper.rb) file.  See [this StackOverflow thread](http://stackoverflow.com/a/12215946/567863) for details.
 - Added tests for [Globalize3](https://github.com/svenfuchs/globalize3) translations and expanded factories to include a micropost with its relevant translations
 
 ### Reporting/Optimizing
-- Added service hooks to [Travis CI](http://travis-ci.org/), [Rails Brakeman](http://rails-brakeman.com/), [Gemnasium](https://gemnasium.com/), [Code Climate](https://codeclimate.com), [Rails Best Practices](http://railsbp.com/).  See badges under title for details.
+- Added service hooks to [Travis CI](http://travis-ci.org/), [Rails Brakeman](http://rails-brakeman.com/), [Gemnasium](https://gemnasium.com/), [Code Climate](https://codeclimate.com), [Rails Best Practices](http://railsbp.com/), [Coveralls](https://coveralls.io/).  See badges under title for details.
 - Used [SimpleCov](https://github.com/colszowka/simplecov) to ensure as much test coverage as possible.  Currently at 100%.
 - Used [Bullet](https://github.com/flyerhzm/bullet) to optimize queries
 - Added performance monitoring with [New Relic](http://newrelic.com/)
