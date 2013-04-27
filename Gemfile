@@ -79,10 +79,6 @@ group :development, :test do
   gem 'guard-rspec', '2.5.4'
   # Prettier RSpec output
   gem 'fuubar', '1.1.0'
-  # gem 'debugger', '1.3.3' ## Broken in Ruby 2.0.0
-  # For deploying from Travis worker and generating
-  # Figaro-based heroku env variables
-  # gem 'heroku', '2.39.1'
 end
 
 group :test do
@@ -110,6 +106,6 @@ group :test do
   # Performance testing  ## Broken in Ruby 2.0.0
   # gem 'rack-perftools_profiler', require: 'rack/perftools_profiler'
   # Test other databases on Travis CI if needed
-  # gem 'mysql2', '0.3.11'
-  # gem 'sqlite3', '1.3.7'
+  # gem 'mysql2'
+  # gem 'sqlite3'
 end
