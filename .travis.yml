@@ -10,7 +10,7 @@ env:
     - secure: "oONlDhsIFQosKC/hRAOV6qK23ZFJKV0B601susfwbbliG7pahk03GfbbAIUL\nwcyv8Uw9T6WJQakhMUSSRFGCTecIvh6uVZyAapMvWhJc5n6U6RjeSkIIyDF0\ntxn8734iJaYPF3I047gRaiYFir/eHtej9AHZmLB9zARV7y1a7YQ="
     - secure: "W4P+RYtrMi1r+XR9sYrFMImHHVRjeTznprNTGwrh2hgOWgxHopGt3oMqXXkg\ndnNjgub/de14qR0jYvTm/1vB3NSU0n1AE8LN8DMgE+mXEgAHEQNh0R9IWpNb\nQHi1nwPfzATqGcHY70bmueO7x4L3hhfHhsX41NkAvHW4GHZ+KKs="
     - secure: "At4e9KWD71poVqmWMVqRj7OPoELDLFvSez8VnA/t5PAUV5+72ndv2l+qZp26\nyCNwRYUBqTqdDWxpO8/lHlsNe3flfIkQFLmXCP99lniDg7f02cA2aenB7X5G\nQcefEhNR4d23L45pehzFUmSAGgp10ZOyNGkIFC5ZAdQpO9Axayo="
-    - secure: "T9JMJ2fvmQ2XSFKZJtSys1WCfIWNSTCugjuL+Y/9t12PTxuo8lyi4gGXlJS7\n5IZYeoZkRnQ1JFBNjW09E0TqC9hMOB7o0yBj0cSL9w9yDMvZAAHEp/4o2njB\ngpJw2svlRmBMk0UNXrp5byIZ5MPtBjTt1eulzaIG+RyXLm5YClU="
+    # - secure: "T9JMJ2fvmQ2XSFKZJtSys1WCfIWNSTCugjuL+Y/9t12PTxuo8lyi4gGXlJS7\n5IZYeoZkRnQ1JFBNjW09E0TqC9hMOB7o0yBj0cSL9w9yDMvZAAHEp/4o2njB\ngpJw2svlRmBMk0UNXrp5byIZ5MPtBjTt1eulzaIG+RyXLm5YClU="
   matrix:
     - DB: postgresql
 # bundler_args: --binstubs=./bundler_stubs --without development
@@ -23,21 +23,21 @@ script:
 after_success:
   # heroku labs:enable user-env-compile -a [app-name]
   # enabled so no need to precompile assets before deploy anymore
-  # - bundle exec rake assets:precompile
-  # - git add public/assets
-  # - git commit -m "Precompile assets"
+  - bundle exec rake assets:precompile
+  - git add public/assets
+  - git commit -m "Precompile assets"
   - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-  - heroku plugins:install https://github.com/ddollar/heroku-anvil
-  - rake figaro:heroku[$HEROKU_APP_NAME]
-  - heroku build -r $HEROKU_APP_NAME -b https://github.com/heroku/heroku-buildpack-ruby.git
-  # - git remote add heroku $HEROKU_GIT_URL
+  # - heroku plugins:install https://github.com/ddollar/heroku-anvil
+  # - rake figaro:heroku[$HEROKU_APP_NAME]
+  # - heroku build -r $HEROKU_APP_NAME -b https://github.com/heroku/heroku-buildpack-ruby.git
+  - git remote add heroku $HEROKU_GIT_URL
   # Turn off warnings about SSH keys:
-  # - echo "Host heroku.com" >> ~/.ssh/config
-  # - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
-  # - echo "   CheckHostIP no" >> ~/.ssh/config
-  # - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+  - echo "Host heroku.com" >> ~/.ssh/config
+  - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+  - echo "   CheckHostIP no" >> ~/.ssh/config
+  - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
   # Clear current Heroku SSH keys
-  # - heroku keys:clear
+  - heroku keys:clear
   # Add a new SSH key to Heroku
-  # - yes | heroku keys:add
-  # - yes | git push heroku master
+  - yes | heroku keys:add
+  - yes | git push heroku master
