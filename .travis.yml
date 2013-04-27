@@ -20,7 +20,7 @@ script:
   - bundle exec rspec --no-drb --format progress spec/
 after_success:
   # heroku labs:enable user-env-compile -a [app-name]
-  # enabled so no need to precompile assets before deploy anymore
+  # enabled so no need to precompile assets before deploy
   # - bundle exec rake assets:precompile
   # - git add public/assets
   # - git commit -m "Precompile assets"
