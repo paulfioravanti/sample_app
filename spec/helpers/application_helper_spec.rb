@@ -30,20 +30,10 @@ describe ApplicationHelper do
   end
 
   I18n.available_locales.each do |locale|
-    describe "#locale_languages" do
-      let(:labels) do
-        [
-          { label: t('layouts.locale_selector.en'), locale: 'en' },
-          { label: t('layouts.locale_selector.it'), locale: 'it' },
-          { label: t('layouts.locale_selector.ja'), locale: 'ja' }
-        ]
-      end
-
-      subject { locale_languages }
-
+    describe "#locale_language_labels" do
       before { I18n.locale = locale }
-
-      it { should == labels }
+      subject { locale_language_labels }
+      it { should == locale_labels }
     end
   end
 end

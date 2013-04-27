@@ -190,7 +190,6 @@ describe "User Pages on UI" do
 
     describe "sign up" do
       let(:submit) { t('users.new.create_account') }
-      let(:click_submit) { click_button submit }
 
       before { visit signup_path(locale) }
 
@@ -200,14 +199,14 @@ describe "User Pages on UI" do
           let(:heading)    { t('users.new.sign_up') }
           let(:page_title) { full_title(t('users.new.sign_up')) }
 
-          before { click_submit }
+          before { click_button submit }
 
           it_should_behave_like "a user page"
           it { should have_alert_message('error') }
         end
 
         describe "result" do
-          subject { -> { click_submit } }
+          subject { -> { click_button submit } }
           it { should_not change(User, :count) }
         end
       end
@@ -222,7 +221,7 @@ describe "User Pages on UI" do
           let(:sign_out) { t('layouts.account_dropdown.sign_out') }
           let(:user) { User.find_by_email("#{new_user.email.downcase}") }
 
-          before { click_submit }
+          before { click_button submit }
 
           # Redirect from signup page to signed in user profile page
           it { should have_title(user.name) }
@@ -231,7 +230,7 @@ describe "User Pages on UI" do
         end
 
         describe "result" do
-          subject { -> { click_submit } }
+          subject { -> { click_button submit } }
           it { should change(User, :count).by(1) }
         end
       end

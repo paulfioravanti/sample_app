@@ -4,7 +4,7 @@
     = t('.language')
     %b.caret
   %ul.dropdown-menu
-    - locale_languages.each do |language|
+    - locale_language_labels.each do |language|
       %li
         = link_to language[:label],
                   controller: controller,
