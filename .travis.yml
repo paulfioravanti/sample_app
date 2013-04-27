@@ -28,16 +28,16 @@ after_success:
   # - git commit -m "Precompile assets"
   - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
   - heroku plugins:install https://github.com/ddollar/heroku-anvil
-  - rake figaro:heroku
+  - rake figaro:heroku[$HEROKU_APP_NAME]
   - heroku build -r $HEROKU_APP_NAME -b https://github.com/heroku/heroku-buildpack-ruby.git
-  - git remote add heroku $HEROKU_GIT_URL
+  # - git remote add heroku $HEROKU_GIT_URL
   # Turn off warnings about SSH keys:
-  - echo "Host heroku.com" >> ~/.ssh/config
-  - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
-  - echo "   CheckHostIP no" >> ~/.ssh/config
-  - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+  # - echo "Host heroku.com" >> ~/.ssh/config
+  # - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+  # - echo "   CheckHostIP no" >> ~/.ssh/config
+  # - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
   # Clear current Heroku SSH keys
-  - heroku keys:clear
+  # - heroku keys:clear
   # Add a new SSH key to Heroku
-  - yes | heroku keys:add
-  - yes | git push heroku master
+  # - yes | heroku keys:add
+  # - yes | git push heroku master
