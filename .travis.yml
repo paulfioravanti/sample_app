@@ -25,6 +25,7 @@ after_success:
   # - bundle exec rake assets:precompile
   # - git add public/assets
   # - git commit -m "Precompile assets"
+  - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
   - git remote add heroku $HEROKU_GIT_URL
   # Turn off warnings about SSH keys:
   - echo "Host heroku.com" >> ~/.ssh/config
