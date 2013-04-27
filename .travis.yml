@@ -28,6 +28,7 @@ after_success:
   # - git commit -m "Precompile assets"
   - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
   - heroku plugins:install https://github.com/ddollar/heroku-anvil
+  - rake figaro:heroku
   - heroku build -r $HEROKU_APP_NAME -b https://github.com/heroku/heroku-buildpack-ruby.git
   - git remote add heroku $HEROKU_GIT_URL
   # Turn off warnings about SSH keys:
