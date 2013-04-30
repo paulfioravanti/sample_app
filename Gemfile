@@ -24,7 +24,7 @@ gem 'globalize3', '0.3.0'
 # i18n using Locale
 gem 'localeapp', '0.6.9'
 # For JQuery timeago library
-gem 'rails-timeago', '2.2.3'
+gem 'rails-timeago', '2.3.0'
 # For accessing i18n in js files
 gem 'i18n-js', '2.1.2'
 # Editing in place
@@ -76,7 +76,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
   # for autotesting with rspec
-  gem 'guard-rspec', '2.5.4'
+  gem 'guard-rspec', '2.6.0'
   # Prettier RSpec output
   gem 'fuubar', '1.1.0'
 end
