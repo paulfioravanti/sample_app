@@ -34,7 +34,7 @@ gem 'pg', '0.15.1'
 # New Relic reporting
 gem 'newrelic_rpm', '3.6.1.88'
 # App secret key configuration
-gem 'figaro', '0.6.3'
+gem 'figaro', '0.6.4'
 # Rails 4 prep
 gem 'strong_parameters', '0.2.0'
 
