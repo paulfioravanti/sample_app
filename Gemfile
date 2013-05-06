@@ -61,7 +61,7 @@ group :development do
   gem 'brakeman', '1.9.5'
   # Code quality
   gem 'reek', '1.3.1'
-  gem 'rails_best_practices', '1.13.4'
+  gem 'rails_best_practices', '1.13.5'
   # Query optimization monitoring
   gem 'bullet', '4.6.0'
   # Debugging information
@@ -86,7 +86,7 @@ group :test do
   gem 'capybara', '2.1.0'
   # Use factories instead of ActiveRecord objects
   gem 'factory_girl_rails', '4.2.1'
-  gem 'shoulda-matchers', '2.0.0'
+  gem 'shoulda-matchers', '2.1.0'
   # Cucumber for user stringsories and db cleaner utility below
   gem 'cucumber-rails', '1.3.1', require: false
   gem 'database_cleaner', '0.9.1'
