@@ -36,7 +36,7 @@ gem 'newrelic_rpm', '3.6.1.88'
 # App secret key configuration
 gem 'figaro', '0.6.4'
 # Rails 4 prep
-gem 'strong_parameters', '0.2.0'
+gem 'strong_parameters', '0.2.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -46,7 +46,7 @@ group :assets do
   gem 'sass-rails',   '3.2.6'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
-  gem 'uglifier', '2.0.1'
+  gem 'uglifier', '2.1.0'
   # Font Awesome fonts
   gem 'font-awesome-sass-rails', '3.0.2.2'
 end
