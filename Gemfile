@@ -89,7 +89,7 @@ group :test do
   gem 'shoulda-matchers', '2.1.0'
   # Cucumber for user stringsories and db cleaner utility below
   gem 'cucumber-rails', '1.3.1', require: false
-  gem 'database_cleaner', '0.9.1'
+  gem 'database_cleaner', '1.0.1'
   # speed up test server
   gem 'spork', '0.9.2'
   # guard/spork integration
