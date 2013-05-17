@@ -3,7 +3,9 @@
 
 This is the sample application for
 [*Ruby on Rails Tutorial: Learn Rails by Example*](http://railstutorial.org/)
-by [Michael Hartl](http://michaelhartl.com) (plus some [modifications](#modifications)).  My Rails 4 version of the sample app can be found [here](https://github.com/paulfioravanti/sample_app_rails_4)
+by [Michael Hartl](http://michaelhartl.com) (plus some [modifications](#modifications)).
+
+([Rails 4 version here](https://github.com/paulfioravanti/sample_app_rails_4))
 
 - This code is currently deployed [here](https://pf-sampleapp.herokuapp.com) using [Heroku](http://www.heroku.com/)
 - Translation keys are currently being managed [here](http://www.localeapp.com/projects/1043) with [Localeapp](http://www.localeapp.com/).
