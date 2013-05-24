@@ -187,7 +187,7 @@ GEM
     multi_json (1.7.3)
     newrelic_rpm (3.6.2.96)
     nokogiri (1.5.9)
-    paper_trail (2.7.1)
+    paper_trail (2.7.2)
       activerecord (~> 3.0)
       railties (~> 3.0)
     pg (0.15.1)
