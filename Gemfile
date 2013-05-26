@@ -42,7 +42,7 @@ gem 'strong_parameters', '0.2.1'
 # in production environments by default.
 group :assets do
   # Twitter frameworks to make nice UI design elements
-  gem 'bootstrap-sass', '2.3.1.0'
+  gem 'bootstrap-sass', '2.3.1.2'
   gem 'sass-rails',   '3.2.6'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
@@ -67,10 +67,10 @@ group :development do
   # Debugging information
   gem 'rails-footnotes', '3.7.9'
   # Better error pages
-  gem 'better_errors', '0.8.0'
+  gem 'better_errors', '0.9.0'
   gem 'binding_of_caller', '0.7.1'
   # Gem for RailsPanel Chrome extension
-  gem 'meta_request', '0.2.5'
+  gem 'meta_request', '0.2.6'
 end
 
 group :development, :test do

@@ -37,12 +37,12 @@ GEM
     best_in_place (2.1.0)
       jquery-rails
       rails (~> 3.1)
-    better_errors (0.8.0)
+    better_errors (0.9.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     binding_of_caller (0.7.1)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (2.3.1.0)
+    bootstrap-sass (2.3.1.2)
       sass (~> 3.2)
     bootstrap-will_paginate (0.0.9)
       will_paginate
@@ -178,7 +178,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    meta_request (0.2.5)
+    meta_request (0.2.6)
       callsite
       rack-contrib
       railties
@@ -325,9 +325,9 @@ DEPENDENCIES
   annotate (= 2.5.0)
   bcrypt-ruby (= 3.0.1)
   best_in_place (= 2.1.0)
-  better_errors (= 0.8.0)
+  better_errors (= 0.9.0)
   binding_of_caller (= 0.7.1)
-  bootstrap-sass (= 2.3.1.0)
+  bootstrap-sass (= 2.3.1.2)
   bootstrap-will_paginate (= 0.0.9)
   brakeman (= 2.0.0)
   bullet (= 4.6.0)
@@ -351,7 +351,7 @@ DEPENDENCIES
   jquery-rails (= 2.2.1)
   launchy (= 2.3.0)
   localeapp (= 0.6.9)
-  meta_request (= 0.2.5)
+  meta_request (= 0.2.6)
   newrelic_rpm (= 3.6.2.96)
   pg (= 0.15.1)
   rails (= 3.2.13)
