@@ -16,7 +16,7 @@ gem 'simple_form', '2.1.0'
 # Simplify UI code
 gem 'haml-rails', '0.4.0'
 # To enable the use of Markdown
-gem 'rdiscount', '2.0.7.3'
+gem 'rdiscount', '2.1.6'
 # i18n strings for default Rails
 gem 'rails-i18n', '0.7.3'
 # i18n for database content
