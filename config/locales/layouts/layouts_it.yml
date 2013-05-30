@@ -21,6 +21,8 @@ it:
       sign_out: Esci
     locale_selector:
       language: Lingua
-      en: English (Inglese)
-      it: Italiano
-      ja: 日本語 (Giapponese)
+      language_labels: {
+        en: English (Inglese),
+        it: Italiano,
+        ja: 日本語 (Giapponese)
+      }

@@ -21,6 +21,8 @@ ja:
       sign_out: ログアウト
     locale_selector:
       language: 言語
-      en: English (英語)
-      it: Italiano (イタリア語)
-      ja: 日本語
+      language_labels: {
+        en: English (英語),
+        it: Italiano (イタリア語),
+        ja: 日本語
+      }

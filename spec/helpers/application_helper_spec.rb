@@ -28,12 +28,4 @@ describe ApplicationHelper do
     subject { gravatar_link }
     it { should == link }
   end
-
-  I18n.available_locales.each do |locale|
-    describe "#locale_language_labels" do
-      before { I18n.locale = locale }
-      subject { locale_language_labels }
-      it { should == locale_labels }
-    end
-  end
 end

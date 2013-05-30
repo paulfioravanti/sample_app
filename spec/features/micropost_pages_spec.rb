@@ -47,7 +47,7 @@ describe "Microposts on UI" do
 
             context "in other locales" do
               let(:target_language) do
-                t("layouts.locale_selector.#{target_locale}")
+                t("layouts.locale_selector.language_labels")[target_locale]
               end
               before { click_link target_language }
               it { should have_selector('span', text: content) }
