@@ -68,7 +68,7 @@ group :development do
   gem 'rails-footnotes', '3.7.9'
   # Better error pages
   gem 'better_errors', '0.9.0'
-  gem 'binding_of_caller', '0.7.1'
+  gem 'binding_of_caller', '0.7.2'
   # Gem for RailsPanel Chrome extension
   gem 'meta_request', '0.2.6'
 end
