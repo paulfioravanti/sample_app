@@ -32,7 +32,7 @@ gem 'best_in_place', '2.1.0'
 # Develop, test (Travis CI), and deploy (Heroku) with postgres
 gem 'pg', '0.15.1'
 # New Relic reporting
-gem 'newrelic_rpm', '3.6.3.111'
+gem 'newrelic_rpm', '3.6.4.122'
 # App secret key configuration
 gem 'figaro', '0.6.4'
 # Rails 4 prep
