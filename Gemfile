@@ -93,7 +93,7 @@ group :test do
   # speed up test server
   gem 'spork', '0.9.2'
   # guard/spork integration
-  gem 'guard-spork', '1.5.0'
+  gem 'guard-spork', '1.5.1'
   # Helps in debugging tests by being able to launch browser
   gem 'launchy', '2.3.0'
   # Mac-dependent gems
