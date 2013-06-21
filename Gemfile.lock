@@ -269,7 +269,7 @@ GEM
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
     ruby-progressbar (1.1.1)
-    ruby2ruby (2.0.5)
+    ruby2ruby (2.0.6)
       ruby_parser (~> 3.1)
       sexp_processor (~> 4.0)
     ruby_parser (3.1.3)
