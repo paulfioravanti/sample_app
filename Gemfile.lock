@@ -178,7 +178,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    meta_request (0.2.6)
+    meta_request (0.2.7)
       callsite
       rack-contrib
       railties
@@ -353,7 +353,7 @@ DEPENDENCIES
   jquery-rails (= 3.0.1)
   launchy (= 2.3.0)
   localeapp (= 0.6.9)
-  meta_request (= 0.2.6)
+  meta_request (= 0.2.7)
   newrelic_rpm (= 3.6.4.122)
   pg (= 0.15.1)
   rails (= 3.2.13)

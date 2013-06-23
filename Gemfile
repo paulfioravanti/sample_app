@@ -70,7 +70,7 @@ group :development do
   gem 'better_errors', '0.9.0'
   gem 'binding_of_caller', '0.7.2'
   # Gem for RailsPanel Chrome extension
-  gem 'meta_request', '0.2.6'
+  gem 'meta_request', '0.2.7'
 end
 
 group :development, :test do
