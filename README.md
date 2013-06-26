@@ -1,11 +1,11 @@
 # Ruby on Rails Tutorial: sample application
 [![Build Status](https://secure.travis-ci.org/paulfioravanti/sample_app.png)](http://travis-ci.org/paulfioravanti/sample_app) [![Dependency Status](https://gemnasium.com/paulfioravanti/sample_app.png)](https://gemnasium.com/paulfioravanti/sample_app) [![Code Climate](https://codeclimate.com/github/paulfioravanti/sample_app.png)](https://codeclimate.com/github/paulfioravanti/sample_app) [![Coverage Status](https://coveralls.io/repos/paulfioravanti/sample_app/badge.png?branch=master)](https://coveralls.io/r/paulfioravanti/sample_app) [![Security Status](http://rails-brakeman.com/paulfioravanti/sample_app.png)](http://rails-brakeman.com/paulfioravanti/sample_app)
 
-This is the sample application for
+This is the sample application for the Rails 3.2 version of
 [*Ruby on Rails Tutorial: Learn Rails by Example*](http://railstutorial.org/)
 by [Michael Hartl](http://michaelhartl.com) (plus some [modifications](#modifications)).
 
-([Rails 4 version here](https://github.com/paulfioravanti/sample_app_rails_4))
+(I'm not going to be maintaining this version of my Sample App anymore, so please find the [Rails 4 version here](https://github.com/paulfioravanti/sample_app_rails_4)).
 
 - This code is currently deployed [here](https://pf-sampleapp.herokuapp.com) using [Heroku](http://www.heroku.com/)
 - Translation keys are currently being managed [here](http://www.localeapp.com/projects/1043) with [Localeapp](http://www.localeapp.com/).
