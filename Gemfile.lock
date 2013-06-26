@@ -168,10 +168,11 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
-    localeapp (0.6.9)
+    localeapp (0.6.10)
       gli
       i18n
       json
+      rack
       rest-client
       ya2yaml
     lumberjack (1.0.3)
@@ -352,7 +353,7 @@ DEPENDENCIES
   i18n-js (= 2.1.2)
   jquery-rails (= 3.0.1)
   launchy (= 2.3.0)
-  localeapp (= 0.6.9)
+  localeapp (= 0.6.10)
   meta_request (= 0.2.7)
   newrelic_rpm (= 3.6.4.122)
   pg (= 0.15.1)
