@@ -156,3 +156,6 @@ to Github, it gets pushed to Travis CI, and then gets deployed directly from the
 </a>
 
 [![endorse](http://api.coderwall.com/pfioravanti/endorsecount.png)](http://coderwall.com/pfioravanti)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/paulfioravanti/sample_app/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
