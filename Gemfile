@@ -3,7 +3,7 @@ ruby '2.0.0'
 
 gem 'rails', '3.2.16'
 
-gem 'bootstrap-will_paginate', '0.0.9'
+gem 'bootstrap-will_paginate', '0.0.10'
 # For creating bcrypt encrypted hashes for user passwords
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails', '3.0.1'
@@ -74,7 +74,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '2.13.2'
+  gem 'rspec-rails', '2.14.0'
   # for autotesting with rspec
   gem 'guard-rspec', '3.0.2'
   # Prettier RSpec output
@@ -86,7 +86,7 @@ group :test do
   gem 'capybara', '2.2.0'
   # Use factories instead of ActiveRecord objects
   gem 'factory_girl_rails', '4.3.0'
-  gem 'shoulda-matchers', '2.2.0'
+  gem 'shoulda-matchers', '2.4.0'
   # Cucumber for user stringsories and db cleaner utility below
   gem 'cucumber-rails', '1.4.0', require: false
   gem 'database_cleaner', '1.2.0'
@@ -101,7 +101,7 @@ group :test do
   # Growl notifications
   gem 'growl', '1.0.3'
   # Code coverage reports
-  gem 'simplecov', '0.7.1', require: false
+  gem 'simplecov', '0.8.2', require: false
   gem 'coveralls', '0.7.0', require: false
   # Performance testing  ## Broken in Ruby 2.0.0
   # gem 'rack-perftools_profiler', require: 'rack/perftools_profiler'
