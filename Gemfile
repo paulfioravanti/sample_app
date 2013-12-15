@@ -6,33 +6,33 @@ gem 'rails', '3.2.16'
 gem 'bootstrap-will_paginate', '0.0.10'
 # For creating bcrypt encrypted hashes for user passwords
 gem 'bcrypt-ruby', '3.0.1'
-gem 'jquery-rails', '3.0.1'
+gem 'jquery-rails', '3.0.4'
 # For fake example users with “realistic” names/emails
 gem 'faker', '1.2.0'
 # For pagination
-gem 'will_paginate', '3.0.4'
+gem 'will_paginate', '3.0.5'
 # Simplified forms
 gem 'simple_form', '2.1.0'
 # Simplify UI code
 gem 'haml-rails', '0.4.0'
 # To enable the use of Markdown
-gem 'rdiscount', '2.1.6'
+gem 'rdiscount', '2.1.7'
 # i18n strings for default Rails
 gem 'rails-i18n', '0.7.3'
 # i18n for database content
-gem 'globalize3', '0.3.0'
+gem 'globalize3', '0.3.1'
 # i18n using Locale
-gem 'localeapp', '0.6.10'
+gem 'localeapp', '0.6.14'
 # For JQuery timeago library
-gem 'rails-timeago', '2.4.0'
+gem 'rails-timeago', '2.8.0'
 # For accessing i18n in js files
 gem 'i18n-js', '2.1.2'
 # Editing in place
 gem 'best_in_place', '2.1.0'
 # Develop, test (Travis CI), and deploy (Heroku) with postgres
-gem 'pg', '0.15.1'
+gem 'pg', '0.17.0'
 # New Relic reporting
-gem 'newrelic_rpm', '3.6.4.122'
+gem 'newrelic_rpm', '3.7.0.177'
 # App secret key configuration
 gem 'figaro', '0.7.0'
 # Rails 4 prep
@@ -46,7 +46,7 @@ group :assets do
   gem 'sass-rails',   '3.2.6'
   gem 'coffee-rails', '3.2.2'
   # Ruby wrapper for UglifyJS JavaScript compressor.
-  gem 'uglifier', '2.1.1'
+  gem 'uglifier', '2.3.3'
   # Font Awesome fonts
   gem 'font-awesome-sass-rails', '3.0.2.2'
 end
@@ -56,12 +56,12 @@ group :development do
   gem 'annotate', '2.6.0'
   # For html/erb to haml parsing
   gem 'hpricot', '0.8.6'
-  gem 'ruby_parser', '3.1.3'
+  gem 'ruby_parser', '3.2.2'
   # Security checking
-  # gem 'brakeman', '2.3.1'
+  gem 'brakeman', '2.3.1'
   # Code quality
-  gem 'reek', '1.3.1'
-  gem 'rails_best_practices', '1.13.8'
+  gem 'reek', '1.3.4'
+  gem 'rails_best_practices', '1.14.4'
   # Query optimization monitoring
   gem 'bullet', '4.7.1'
   # Debugging information
@@ -95,7 +95,7 @@ group :test do
   # guard/spork integration
   gem 'guard-spork', '1.5.1'
   # Helps in debugging tests by being able to launch browser
-  gem 'launchy', '2.3.0'
+  gem 'launchy', '2.4.2'
   # Mac-dependent gems
   gem 'rb-fsevent', '0.9.3', require: false
   # Growl notifications
