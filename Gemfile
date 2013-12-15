@@ -58,7 +58,7 @@ group :development do
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '3.2.2'
   # Security checking
-  gem 'brakeman', '2.3.1'
+  # gem 'brakeman', '2.3.1' ## depends on Tilt 1.3
   # Code quality
   gem 'reek', '1.3.4'
   gem 'rails_best_practices', '1.14.4'
