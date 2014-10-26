@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.2'
 
-gem 'rails', '3.2.17'
+gem 'rails', '3.2.18'
 
 gem 'bootstrap-will_paginate', '0.0.10'
 # For creating bcrypt encrypted hashes for user passwords
@@ -77,8 +77,6 @@ group :development, :test do
   gem 'rspec-rails', '2.14.0'
   # for autotesting with rspec
   gem 'guard-rspec', '3.0.2'
-  # Prettier RSpec output
-  gem 'fuubar', '1.2.1'
 end
 
 group :test do
