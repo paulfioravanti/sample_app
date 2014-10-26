@@ -6,7 +6,8 @@ gem 'rails', '3.2.19'
 gem 'bootstrap-will_paginate', '0.0.10'
 # For creating bcrypt encrypted hashes for user passwords
 gem 'bcrypt-ruby', '3.0.1'
-gem 'jquery-rails', '3.0.4'
+gem 'jquery-rails', '3.1.2'
+gem 'jquery-ui-rails', '5.0.0'
 # For fake example users with “realistic” names/emails
 gem 'faker', '1.2.0'
 # For pagination
